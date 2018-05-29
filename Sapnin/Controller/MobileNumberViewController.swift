@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyJSON
+import SVProgressHUD
 
 class MobileNumberViewController: UIViewController {
 
@@ -21,6 +22,7 @@ class MobileNumberViewController: UIViewController {
     var selectedRow = Int()
     
     override func viewDidLoad() {
+        
         // Focus number text field on load
         self.numberTextField.becomeFirstResponder()
         
@@ -30,8 +32,23 @@ class MobileNumberViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        // Select United Kingdom by default
+        // Select United Kingdom by default in picker
         pickerView.selectRow(228, inComponent: 0, animated: true)
+    }
+    
+    // Update the corresponding user on Firebase with the inputted number
+    @IBAction func confirmButton_TouchUpInside(_ sender: Any) {
+        SVProgressHUD.show(withStatus: "Loading...")
+        let number = dialCodeTextField.text! + " " + numberTextField.text!
+        
+        AuthService.updateUserMobileNumber(number: number, onSuccess: {
+            SVProgressHUD.dismiss()
+            
+            // Navigate to CameraViewController
+            self.performSegue(withIdentifier: "cameraVC", sender: nil)
+        }) { (error) in
+            //
+        }
     }
     
     // Read the CountryCodes JSON and store in array

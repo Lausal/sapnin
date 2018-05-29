@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		521821F220AF6806009F8FD5 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521821F120AF6806009F8FD5 /* PhotoViewController.swift */; };
 		521821F420AF9E9A009F8FD5 /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521821F320AF9E9A009F8FD5 /* LeaderboardViewController.swift */; };
+		52182DE420BDBACC0049FFB3 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52AFD4F720BDAAB10039559A /* Roboto-Bold.ttf */; };
+		52182DE520BDBACC0049FFB3 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52AFD4F820BDAAB30039559A /* Roboto-Light.ttf */; };
+		52182DE620BDBACC0049FFB3 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52AFD4F620BDAAAF0039559A /* Roboto-Regular.ttf */; };
 		522018932082DF00004AB74F /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522018922082DF00004AB74F /* PreviewViewController.swift */; };
 		5225F9AD20B2284A00D95B8A /* UIImageViewWithMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5225F9AC20B2284A00D95B8A /* UIImageViewWithMask.swift */; };
 		5225F9AF20B2390100D95B8A /* ChannelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5225F9AE20B2390100D95B8A /* ChannelTableViewCell.swift */; };
@@ -300,6 +303,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52182DE420BDBACC0049FFB3 /* Roboto-Bold.ttf in Resources */,
+				52182DE520BDBACC0049FFB3 /* Roboto-Light.ttf in Resources */,
+				52182DE620BDBACC0049FFB3 /* Roboto-Regular.ttf in Resources */,
 				52411EF22067236F00B3E78E /* LaunchScreen.storyboard in Resources */,
 				52D5D11720BA358A00965A17 /* Camera.storyboard in Resources */,
 				52411EEF2067236F00B3E78E /* Assets.xcassets in Resources */,

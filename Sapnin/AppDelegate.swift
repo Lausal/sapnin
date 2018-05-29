@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Change font colour, style and size of navigation bar title
         let grey = UIColor(red:0.40, green:0.40, blue:0.40, alpha:1.0)
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: grey , NSAttributedStringKey.font: UIFont(name: "Arciform", size: 22)!]
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: grey , NSAttributedStringKey.font: UIFont(name: "Roboto-Regular", size: 22)!]
         
         // Change back button image
         let backButtonImage = UIImage(named: "back_icon")?.withRenderingMode(.alwaysOriginal)

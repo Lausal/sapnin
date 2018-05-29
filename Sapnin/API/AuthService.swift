@@ -47,4 +47,17 @@ class AuthService {
         })
     }
     
+    static func updateUserMobileNumber(number: String, onSuccess: @escaping () -> Void, onError: @escaping (_ errorMessage: String?) -> Void) {
+        
+        let dict = ["number": number]
+        Api.user.DB_REF_CURRENT_USER?.updateChildValues(dict, withCompletionBlock: { (error, ref) in
+            if error != nil {
+                onError(error!.localizedDescription)
+            } else {
+                onSuccess()
+            }
+        })
+        
+    }
+    
 }

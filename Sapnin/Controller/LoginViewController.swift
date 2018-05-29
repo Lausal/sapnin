@@ -28,10 +28,16 @@ class LoginViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        // DELETE THIS
+        AuthService.logout(onSuccess: {
+            //
+        }) { (error) in
+            //
+        }
+        
         // If the user has not logged out, then automatically switch to the Home View Controller
         if Api.user.CURRENT_USER != nil {
-            print(Api.user.CURRENT_USER?.displayName)
-            self.performSegue(withIdentifier: "cameraVC", sender: nil)
+            //self.performSegue(withIdentifier: "cameraVC", sender: nil)
         }
     }
     
@@ -60,6 +66,7 @@ class LoginViewController: UIViewController {
     }
     
     func signIntoFirebase() {
+        SVProgressHUD.show(withStatus: "Loading...")
         guard let authenticationToken = AccessToken.current?.authenticationToken else {
             return
         }
@@ -156,7 +163,9 @@ class LoginViewController: UIViewController {
                 }
                 print("Successfully saved user into Firebase database")
                 
-                // Navigate user to MobileNumberViewController
+                SVProgressHUD.dismiss()
+                
+                // Navigate to MobileNumberViewController
                 self.performSegue(withIdentifier: "mobileNumberVC", sender: nil)
             })
         }
