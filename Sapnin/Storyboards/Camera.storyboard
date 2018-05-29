@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Arciform.otf">
+            <string>Arciform</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Camera View Controller-->
+        <scene sceneID="S69-kg-jOR">
+            <objects>
+                <viewController storyboardIdentifier="CameraViewController" id="HKG-RC-qFY" customClass="CameraViewController" customModule="Sapnin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mD9-b6-LiL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pjU-Ry-Yc8">
+                                <rect key="frame" x="301" y="560" width="44" height="44"/>
+                                <state key="normal" image="toggle_camera_icon"/>
+                                <connections>
+                                    <action selector="toggleCameraButton_TouchUpInside:" destination="HKG-RC-qFY" eventType="touchUpInside" id="lo3-uI-HFh"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="58t-8B-GZV">
+                                <rect key="frame" x="30" y="40" width="21" height="22"/>
+                                <state key="normal" image="close_photo_popup_icon"/>
+                                <connections>
+                                    <action selector="closeButton_TouchUpInside:" destination="HKG-RC-qFY" eventType="touchUpInside" id="GCU-fK-QpM"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="z8Q-pm-ulo">
+                                <rect key="frame" x="90" y="170" width="196.5" height="78"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera_emoji_icon" translatesAutoresizingMaskIntoConstraints="NO" id="dvZ-YH-WYx">
+                                        <rect key="frame" x="75" y="0.0" width="46" height="46"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What are you doing?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efG-m3-5C5">
+                                        <rect key="frame" x="0.0" y="56" width="196.5" height="22"/>
+                                        <fontDescription key="fontDescription" name="Arciform" family="Arciform Sans" pointSize="22"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5QH-gW-zQn">
+                                <rect key="frame" x="30" y="560" width="44" height="44"/>
+                                <state key="normal" image="photo_library_icon"/>
+                                <connections>
+                                    <action selector="photoLibraryButton_TouchUpInside:" destination="HKG-RC-qFY" eventType="touchUpInside" id="jUw-5B-1Me"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aXG-lE-f21">
+                                <rect key="frame" x="152" y="547" width="70" height="70"/>
+                                <state key="normal" image="take_photo_icon"/>
+                                <connections>
+                                    <action selector="cameraButton_TouchUpInside:" destination="HKG-RC-qFY" eventType="touchUpInside" id="0MR-3C-X4G"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w59-2z-ys4">
+                                <rect key="frame" x="328" y="40" width="17" height="24"/>
+                                <state key="normal" image="flash_off_icon"/>
+                                <connections>
+                                    <action selector="flashButton_TouchUpInside:" destination="HKG-RC-qFY" eventType="touchUpInside" id="f8k-kf-Q3s"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="Vaf-XL-dUF" firstAttribute="trailing" secondItem="pjU-Ry-Yc8" secondAttribute="trailing" constant="30" id="1cl-9m-tq6"/>
+                            <constraint firstItem="Vaf-XL-dUF" firstAttribute="bottom" secondItem="aXG-lE-f21" secondAttribute="bottom" constant="50" id="AEo-Nd-ehM"/>
+                            <constraint firstItem="58t-8B-GZV" firstAttribute="top" secondItem="Vaf-XL-dUF" secondAttribute="top" constant="20" id="B71-ns-4S1"/>
+                            <constraint firstItem="w59-2z-ys4" firstAttribute="top" secondItem="Vaf-XL-dUF" secondAttribute="top" constant="20" id="Fq1-JC-d5e"/>
+                            <constraint firstItem="5QH-gW-zQn" firstAttribute="leading" secondItem="Vaf-XL-dUF" secondAttribute="leading" constant="30" id="MDO-MV-zSd"/>
+                            <constraint firstItem="58t-8B-GZV" firstAttribute="leading" secondItem="Vaf-XL-dUF" secondAttribute="leading" constant="30" id="OpR-SO-h2v"/>
+                            <constraint firstItem="Vaf-XL-dUF" firstAttribute="trailing" secondItem="w59-2z-ys4" secondAttribute="trailing" constant="30" id="TI7-mv-bBD"/>
+                            <constraint firstItem="5QH-gW-zQn" firstAttribute="centerY" secondItem="aXG-lE-f21" secondAttribute="centerY" id="cjG-V2-uhc"/>
+                            <constraint firstItem="z8Q-pm-ulo" firstAttribute="top" secondItem="Vaf-XL-dUF" secondAttribute="top" constant="150" id="ePD-J9-ZAU"/>
+                            <constraint firstItem="pjU-Ry-Yc8" firstAttribute="centerY" secondItem="aXG-lE-f21" secondAttribute="centerY" id="fNZ-wX-FcN"/>
+                            <constraint firstItem="z8Q-pm-ulo" firstAttribute="centerX" secondItem="mD9-b6-LiL" secondAttribute="centerX" id="iW7-mK-6eC"/>
+                            <constraint firstItem="aXG-lE-f21" firstAttribute="centerX" secondItem="mD9-b6-LiL" secondAttribute="centerX" id="vyb-7p-2MZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Vaf-XL-dUF"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="uth-69-i3c" appends="YES" id="eXB-Lv-66N"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="flashIcon" destination="w59-2z-ys4" id="GbF-D0-SGL"/>
+                        <outlet property="message" destination="z8Q-pm-ulo" id="kMv-uI-6YX"/>
+                        <segue destination="Zwh-ac-XkA" kind="show" identifier="previewVC" id="Jv8-jF-XPK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Fs-Z4-0fZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="uth-69-i3c">
+                    <connections>
+                        <action selector="handleCameraZoom:" destination="HKG-RC-qFY" id="OVc-EP-dId"/>
+                    </connections>
+                </pinchGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1940" y="14"/>
+        </scene>
+        <!--Preview View Controller-->
+        <scene sceneID="s35-QI-Xfs">
+            <objects>
+                <viewController id="Zwh-ac-XkA" customClass="PreviewViewController" customModule="Sapnin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OgU-GX-uYh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SxJ-4E-tjF">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pc0-01-yHd">
+                                <rect key="frame" x="30" y="40" width="21" height="22"/>
+                                <state key="normal" image="close_photo_popup_icon"/>
+                                <connections>
+                                    <action selector="backButton_TouchUpInside:" destination="Zwh-ac-XkA" eventType="touchUpInside" id="sQ2-gB-9xD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ILZ-7d-Vle">
+                                <rect key="frame" x="285" y="557" width="60" height="60"/>
+                                <state key="normal" image="use_photo_icon"/>
+                                <connections>
+                                    <action selector="usePhotoButton_TouchUpInside:" destination="Zwh-ac-XkA" eventType="touchUpInside" id="O5Y-gG-kGh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Pc0-01-yHd" firstAttribute="leading" secondItem="11s-e8-CiY" secondAttribute="leading" constant="30" id="1Vr-Jd-TlB"/>
+                            <constraint firstItem="11s-e8-CiY" firstAttribute="bottom" secondItem="ILZ-7d-Vle" secondAttribute="bottom" constant="50" id="5xW-tK-eU8"/>
+                            <constraint firstItem="Pc0-01-yHd" firstAttribute="top" secondItem="11s-e8-CiY" secondAttribute="top" constant="20" id="HOc-FM-gkl"/>
+                            <constraint firstItem="SxJ-4E-tjF" firstAttribute="bottom" secondItem="11s-e8-CiY" secondAttribute="bottom" id="Pdj-Lj-xAD"/>
+                            <constraint firstItem="SxJ-4E-tjF" firstAttribute="trailing" secondItem="11s-e8-CiY" secondAttribute="trailing" id="RMP-Jq-2AW"/>
+                            <constraint firstItem="11s-e8-CiY" firstAttribute="trailing" secondItem="ILZ-7d-Vle" secondAttribute="trailing" constant="30" id="dIB-EC-At0"/>
+                            <constraint firstItem="SxJ-4E-tjF" firstAttribute="leading" secondItem="11s-e8-CiY" secondAttribute="leading" id="jUa-WW-nwU"/>
+                            <constraint firstItem="SxJ-4E-tjF" firstAttribute="top" secondItem="OgU-GX-uYh" secondAttribute="top" id="jkC-Jz-hm5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="11s-e8-CiY"/>
+                    </view>
+                    <connections>
+                        <outlet property="photo" destination="SxJ-4E-tjF" id="Coi-0b-EGC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OZD-8D-d9X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2886" y="14"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="camera_emoji_icon" width="46" height="46"/>
+        <image name="close_photo_popup_icon" width="21" height="21"/>
+        <image name="flash_off_icon" width="17" height="24"/>
+        <image name="photo_library_icon" width="44" height="44"/>
+        <image name="take_photo_icon" width="70" height="70"/>
+        <image name="toggle_camera_icon" width="44" height="44"/>
+        <image name="use_photo_icon" width="60" height="60"/>
+    </resources>
+</document>

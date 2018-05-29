@@ -53,6 +53,9 @@
 	<string>Select a new profile picture</string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Roboto-Bold.ttf</string>
+		<string>Roboto-Regular.ttf</string>
+		<string>Roboto-Light.ttf</string>
 		<string>Arciform.otf</string>
 	</array>
 	<key>UIBackgroundModes</key>

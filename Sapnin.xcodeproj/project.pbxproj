@@ -40,6 +40,7 @@
 		52C0B092209395A2009B8206 /* AddParticipantsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0B091209395A2009B8206 /* AddParticipantsTableViewCell.swift */; };
 		52C7B336209CF6520060F222 /* ColourPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C7B335209CF6520060F222 /* ColourPalette.swift */; };
 		52D5D11520BA2BBE00965A17 /* BorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D5D11420BA2BBE00965A17 /* BorderView.swift */; };
+		52D5D11720BA358A00965A17 /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52D5D11620BA358A00965A17 /* Camera.storyboard */; };
 		836ADBCA536588C207E17524 /* Pods_Sapnin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C69CAF9E62816387F5103D5C /* Pods_Sapnin.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +74,9 @@
 		529D15F32078D1E30085115B /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		529D15F52078E21D0085115B /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		529D15F72078E23F0085115B /* UserApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
+		52AFD4F620BDAAAF0039559A /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		52AFD4F720BDAAB10039559A /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		52AFD4F820BDAAB30039559A /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		52B88688208381E80066D116 /* ButtonSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSettings.swift; sourceTree = "<group>"; };
 		52BE7497208E54E1005414B5 /* CreateChannel1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChannel1ViewController.swift; sourceTree = "<group>"; };
 		52BE7499208E54ED005414B5 /* CreateChannel2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChannel2ViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +84,7 @@
 		52C0B091209395A2009B8206 /* AddParticipantsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddParticipantsTableViewCell.swift; sourceTree = "<group>"; };
 		52C7B335209CF6520060F222 /* ColourPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourPalette.swift; sourceTree = "<group>"; };
 		52D5D11420BA2BBE00965A17 /* BorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderView.swift; sourceTree = "<group>"; };
+		52D5D11620BA358A00965A17 /* Camera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
 		C69CAF9E62816387F5103D5C /* Pods_Sapnin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sapnin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E242AD206F731ED159FC4D83 /* Pods-Sapnin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sapnin.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sapnin/Pods-Sapnin.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,7 +129,7 @@
 				52411EFD206BEE8B00B3E78E /* View */,
 				52411EFE206BEE9500B3E78E /* Controller */,
 				5296A32B208524BD00A5F2A8 /* Utility */,
-				52411EEB2067236F00B3E78E /* Main.storyboard */,
+				52AFD4F520BA3D8F0039559A /* Storyboards */,
 				52411EEE2067236F00B3E78E /* Assets.xcassets */,
 				52411EF02067236F00B3E78E /* LaunchScreen.storyboard */,
 				52411EF32067236F00B3E78E /* Info.plist */,
@@ -137,6 +142,9 @@
 		52411EFB206BE6E600B3E78E /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				52AFD4F720BDAAB10039559A /* Roboto-Bold.ttf */,
+				52AFD4F820BDAAB30039559A /* Roboto-Light.ttf */,
+				52AFD4F620BDAAAF0039559A /* Roboto-Regular.ttf */,
 				52411EF9206BE6DA00B3E78E /* Arciform.otf */,
 			);
 			path = Fonts;
@@ -202,6 +210,15 @@
 				529D15F72078E23F0085115B /* UserApi.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		52AFD4F520BA3D8F0039559A /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				52411EEB2067236F00B3E78E /* Main.storyboard */,
+				52D5D11620BA358A00965A17 /* Camera.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		CC4877C8E63333A88501439E /* Pods */ = {
@@ -284,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52411EF22067236F00B3E78E /* LaunchScreen.storyboard in Resources */,
+				52D5D11720BA358A00965A17 /* Camera.storyboard in Resources */,
 				52411EEF2067236F00B3E78E /* Assets.xcassets in Resources */,
 				529CB4F820741DCB003DE1CE /* GoogleService-Info.plist in Resources */,
 				52411EFA206BE6DA00B3E78E /* Arciform.otf in Resources */,

@@ -30,6 +30,7 @@ class LoginViewController: UIViewController {
         
         // If the user has not logged out, then automatically switch to the Home View Controller
         if Api.user.CURRENT_USER != nil {
+            print(Api.user.CURRENT_USER?.displayName)
             self.performSegue(withIdentifier: "cameraVC", sender: nil)
         }
     }
@@ -68,7 +69,6 @@ class LoginViewController: UIViewController {
                 print (error)
                 return
             } else {
-                SVProgressHUD.showSuccess(withStatus: "Login success")
                 print ("Login success to Firebase")
                 self.fetchFacebookUserDetails()
             }
@@ -156,8 +156,8 @@ class LoginViewController: UIViewController {
                 }
                 print("Successfully saved user into Firebase database")
                 
-                // Navigate user to camera page
-                self.performSegue(withIdentifier: "cameraVC", sender: nil)
+                // Navigate user to MobileNumberViewController
+                self.performSegue(withIdentifier: "mobileNumberVC", sender: nil)
             })
         }
     }
