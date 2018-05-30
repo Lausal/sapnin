@@ -17,7 +17,15 @@ class ChallengeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    @IBAction func closeButton_TouchUpInside(_ sender: Any) {
+        // Set challengeSelected variable from CameraViewController class to selected value
+        if let cameraViewController = presentingViewController as? CameraViewController {
+            cameraViewController.challengeDidChange = false
+        }
         
+        self.dismiss(animated: true, completion: nil)
     }
 
 }
@@ -41,6 +49,17 @@ extension ChallengeViewController: UITableViewDelegate, UITableViewDataSource {
         cell.icon.image = UIImage(named: iconName[indexPath.row])
         cell.title.text = challengeTitle[indexPath.row]
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // Set challengeSelected variable from CameraViewController class to selected value
+        if let cameraViewController = presentingViewController as? CameraViewController {
+            cameraViewController.challengeSelected = challengeTitle[indexPath.row]
+            cameraViewController.challengeDidChange = true
+        }
+        
+        self.dismiss(animated: true, completion: nil)
     }
     
 }

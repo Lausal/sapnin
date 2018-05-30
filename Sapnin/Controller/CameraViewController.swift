@@ -11,8 +11,11 @@ import UIKit
 
 class CameraViewController: UIViewController {
     
-    @IBOutlet weak var message: UIStackView!
+    @IBOutlet weak var hint: UIStackView!
     @IBOutlet weak var flashIcon: UIButton!
+    @IBOutlet weak var challengeHintIcon: UIImageView!
+    @IBOutlet weak var hintText: UILabel!
+    @IBOutlet weak var challengeIconButton: UIButton!
     
     var captureSession = AVCaptureSession()
     var backCamera: AVCaptureDevice?
@@ -21,6 +24,9 @@ class CameraViewController: UIViewController {
     var photoOutput: AVCapturePhotoOutput?
     var cameraPreviewLayer: AVCaptureVideoPreviewLayer?
     var image: UIImage?
+    
+    var challengeSelected: String? = nil
+    var challengeDidChange = false
     
     // Camera zoom factors
     let minimumZoom: CGFloat = 1.0
@@ -36,6 +42,55 @@ class CameraViewController: UIViewController {
         setupInputOutput()
         setupPreviewLayer()
         startRunningCaptureSession()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        fadeOutHint()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // Show and change hint on load if challenge changed
+        if challengeDidChange == true {
+            hint.alpha = 1
+            setChallenge()
+        }
+    }
+    
+    func setChallenge() {
+        switch challengeSelected {
+        case "Copy this"?:
+            if let icon = UIImage(named: "copy_icon.png") {
+                hintText.text = "Copy this"
+                challengeHintIcon.image = icon
+            }
+        case "Do this dance"?:
+            if let icon = UIImage(named: "dance_icon.png") {
+                hintText.text = "Do this dance"
+                challengeHintIcon.image = icon
+            }
+        case "Sing"?:
+            if let icon = UIImage(named: "sing_icon.png") {
+                hintText.text = "Sing"
+                challengeHintIcon.image = icon
+            }
+        case "Drink up"?:
+            if let icon = UIImage(named: "drink_icon.png") {
+                hintText.text = "Drink up"
+                challengeHintIcon.image = icon
+            }
+        case "Draw this"?:
+            if let icon = UIImage(named: "sketch_icon.png") {
+                hintText.text = "Draw this"
+                challengeHintIcon.image = icon
+            }
+        case "Do this act"?:
+            if let icon = UIImage(named: "act_icon.png") {
+                hintText.text = "Do this act"
+                challengeHintIcon.image = icon
+            }
+        default:
+            return
+        }
     }
     
     func setupCaptureSession() {
@@ -187,14 +242,10 @@ class CameraViewController: UIViewController {
         captureSession.commitConfiguration()
     }
     
-    func fadeOutMessage() {
-        message.fadeOut(duration: 4, delay: 0) { (bool) in
+    func fadeOutHint() {
+        hint.fadeOut(duration: 4, delay: 0) { (bool) in
             // Do something after fade out
         }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        fadeOutMessage()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

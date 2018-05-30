@@ -12,6 +12,7 @@
 		52182DE420BDBACC0049FFB3 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52AFD4F720BDAAB10039559A /* Roboto-Bold.ttf */; };
 		52182DE520BDBACC0049FFB3 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52AFD4F820BDAAB30039559A /* Roboto-Light.ttf */; };
 		52182DE620BDBACC0049FFB3 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52AFD4F620BDAAAF0039559A /* Roboto-Regular.ttf */; };
+		52182DE820BDCA560049FFB3 /* Channel.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52182DE720BDCA560049FFB3 /* Channel.storyboard */; };
 		522018932082DF00004AB74F /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522018922082DF00004AB74F /* PreviewViewController.swift */; };
 		5225F9AD20B2284A00D95B8A /* UIImageViewWithMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5225F9AC20B2284A00D95B8A /* UIImageViewWithMask.swift */; };
 		5225F9AF20B2390100D95B8A /* ChannelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5225F9AE20B2390100D95B8A /* ChannelTableViewCell.swift */; };
@@ -51,6 +52,7 @@
 		32AE9FB8E36E7562B4B1BC30 /* Pods-Sapnin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sapnin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sapnin/Pods-Sapnin.debug.xcconfig"; sourceTree = "<group>"; };
 		521821F120AF6806009F8FD5 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		521821F320AF9E9A009F8FD5 /* LeaderboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
+		52182DE720BDCA560049FFB3 /* Channel.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Channel.storyboard; sourceTree = "<group>"; };
 		522018922082DF00004AB74F /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		5225F9AC20B2284A00D95B8A /* UIImageViewWithMask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewWithMask.swift; sourceTree = "<group>"; };
 		5225F9AE20B2390100D95B8A /* ChannelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelTableViewCell.swift; sourceTree = "<group>"; };
@@ -179,13 +181,13 @@
 				525D90E020AA4C7B00095036 /* MobileNumberViewController.swift */,
 				529CB4F920742328003DE1CE /* SettingsViewController.swift */,
 				527EA01D207EBF5D00EA2F18 /* CameraViewController.swift */,
+				525D90DC20A874D000095036 /* ChallengeViewController.swift */,
 				522018922082DF00004AB74F /* PreviewViewController.swift */,
 				52386CF7208AC53E0062C898 /* NoChannelViewController.swift */,
 				5225F9B020B2459900D95B8A /* ChannelViewController.swift */,
 				52BE7497208E54E1005414B5 /* CreateChannel1ViewController.swift */,
 				52BE7499208E54ED005414B5 /* CreateChannel2ViewController.swift */,
 				521821F320AF9E9A009F8FD5 /* LeaderboardViewController.swift */,
-				525D90DC20A874D000095036 /* ChallengeViewController.swift */,
 				5225F9B220B763D600D95B8A /* VoteViewController.swift */,
 				521821F120AF6806009F8FD5 /* PhotoViewController.swift */,
 			);
@@ -220,6 +222,7 @@
 			children = (
 				52411EEB2067236F00B3E78E /* Main.storyboard */,
 				52D5D11620BA358A00965A17 /* Camera.storyboard */,
+				52182DE720BDCA560049FFB3 /* Channel.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				52411EF22067236F00B3E78E /* LaunchScreen.storyboard in Resources */,
 				52D5D11720BA358A00965A17 /* Camera.storyboard in Resources */,
 				52411EEF2067236F00B3E78E /* Assets.xcassets in Resources */,
+				52182DE820BDCA560049FFB3 /* Channel.storyboard in Resources */,
 				529CB4F820741DCB003DE1CE /* GoogleService-Info.plist in Resources */,
 				52411EFA206BE6DA00B3E78E /* Arciform.otf in Resources */,
 				52411EED2067236F00B3E78E /* Main.storyboard in Resources */,
