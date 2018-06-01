@@ -18,6 +18,14 @@ class PreviewViewController: UIViewController {
         photo.image = self.image
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
+    }
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }
@@ -27,7 +35,7 @@ class PreviewViewController: UIViewController {
     }
     
     @IBAction func usePhotoButton_TouchUpInside(_ sender: Any) {
-        
+        self.performSegue(withIdentifier: "NoChannelVC", sender: nil)
     }
 
 }

@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Remove border in navigation bar and change to white background
         UINavigationBar.appearance().shadowImage = UIImage()
-        UINavigationBar.appearance().tintColor = UIColor.red
+        //UINavigationBar.appearance().tintColor = UIColor.red
         //UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         
         // Change font colour, style and size of navigation bar title
