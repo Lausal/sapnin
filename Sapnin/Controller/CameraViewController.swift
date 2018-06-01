@@ -56,6 +56,10 @@ class CameraViewController: UIViewController {
         }
     }
     
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
+    }
+    
     func setChallenge() {
         switch challengeSelected {
         case "Copy this"?:

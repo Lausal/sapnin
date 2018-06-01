@@ -15,8 +15,11 @@ class PreviewViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         photo.image = self.image
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
     
     @IBAction func backButton_TouchUpInside(_ sender: Any) {
