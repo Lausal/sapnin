@@ -14,6 +14,10 @@ class NoChannelViewController: UIViewController {
         super.viewDidLoad()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
+    }
+    
     @IBAction func createChannelButton_TouchUpInside(_ sender: Any) {
         self.performSegue(withIdentifier: "createChannel1VC", sender: nil)
     }

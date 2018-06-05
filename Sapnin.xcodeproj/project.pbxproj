@@ -37,9 +37,9 @@
 		529D15F42078D1E30085115B /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529D15F32078D1E30085115B /* UserModel.swift */; };
 		529D15F62078E21D0085115B /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529D15F52078E21D0085115B /* Api.swift */; };
 		529D15F82078E23F0085115B /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529D15F72078E23F0085115B /* UserApi.swift */; };
+		52B31EF920C720100089C373 /* CreateChannel1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B31EF820C720100089C373 /* CreateChannel1ViewController.swift */; };
 		52B88689208381E80066D116 /* ButtonSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B88688208381E80066D116 /* ButtonSettings.swift */; };
-		52BE7498208E54E1005414B5 /* CreateChannel1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BE7497208E54E1005414B5 /* CreateChannel1ViewController.swift */; };
-		52BE749A208E54ED005414B5 /* CreateChannel2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BE7499208E54ED005414B5 /* CreateChannel2ViewController.swift */; };
+		52BE7498208E54E1005414B5 /* CreateChannel2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BE7497208E54E1005414B5 /* CreateChannel2ViewController.swift */; };
 		52BE749C208FAC83005414B5 /* ContactsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BE749B208FAC83005414B5 /* ContactsModel.swift */; };
 		52C0B092209395A2009B8206 /* AddParticipantsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0B091209395A2009B8206 /* AddParticipantsTableViewCell.swift */; };
 		52C7B336209CF6520060F222 /* ColourPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C7B335209CF6520060F222 /* ColourPalette.swift */; };
@@ -82,9 +82,9 @@
 		52AFD4F620BDAAAF0039559A /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		52AFD4F720BDAAB10039559A /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		52AFD4F820BDAAB30039559A /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		52B31EF820C720100089C373 /* CreateChannel1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateChannel1ViewController.swift; sourceTree = "<group>"; };
 		52B88688208381E80066D116 /* ButtonSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSettings.swift; sourceTree = "<group>"; };
-		52BE7497208E54E1005414B5 /* CreateChannel1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChannel1ViewController.swift; sourceTree = "<group>"; };
-		52BE7499208E54ED005414B5 /* CreateChannel2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChannel2ViewController.swift; sourceTree = "<group>"; };
+		52BE7497208E54E1005414B5 /* CreateChannel2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChannel2ViewController.swift; sourceTree = "<group>"; };
 		52BE749B208FAC83005414B5 /* ContactsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsModel.swift; sourceTree = "<group>"; };
 		52C0B091209395A2009B8206 /* AddParticipantsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddParticipantsTableViewCell.swift; sourceTree = "<group>"; };
 		52C7B335209CF6520060F222 /* ColourPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourPalette.swift; sourceTree = "<group>"; };
@@ -185,8 +185,8 @@
 				522018922082DF00004AB74F /* PreviewViewController.swift */,
 				52386CF7208AC53E0062C898 /* NoChannelViewController.swift */,
 				5225F9B020B2459900D95B8A /* ChannelViewController.swift */,
-				52BE7497208E54E1005414B5 /* CreateChannel1ViewController.swift */,
-				52BE7499208E54ED005414B5 /* CreateChannel2ViewController.swift */,
+				52B31EF820C720100089C373 /* CreateChannel1ViewController.swift */,
+				52BE7497208E54E1005414B5 /* CreateChannel2ViewController.swift */,
 				521821F320AF9E9A009F8FD5 /* LeaderboardViewController.swift */,
 				5225F9B220B763D600D95B8A /* VoteViewController.swift */,
 				521821F120AF6806009F8FD5 /* PhotoViewController.swift */,
@@ -379,10 +379,9 @@
 				5225F9AD20B2284A00D95B8A /* UIImageViewWithMask.swift in Sources */,
 				52B88689208381E80066D116 /* ButtonSettings.swift in Sources */,
 				529D15F62078E21D0085115B /* Api.swift in Sources */,
-				52BE7498208E54E1005414B5 /* CreateChannel1ViewController.swift in Sources */,
+				52BE7498208E54E1005414B5 /* CreateChannel2ViewController.swift in Sources */,
 				5296A329208523D400A5F2A8 /* UIView.swift in Sources */,
 				52411EEA2067236F00B3E78E /* LoginViewController.swift in Sources */,
-				52BE749A208E54ED005414B5 /* CreateChannel2ViewController.swift in Sources */,
 				52411EE82067236F00B3E78E /* AppDelegate.swift in Sources */,
 				52C0B092209395A2009B8206 /* AddParticipantsTableViewCell.swift in Sources */,
 				521821F420AF9E9A009F8FD5 /* LeaderboardViewController.swift in Sources */,
@@ -394,6 +393,7 @@
 				52D5D11520BA2BBE00965A17 /* BorderView.swift in Sources */,
 				527EA01E207EBF5D00EA2F18 /* CameraViewController.swift in Sources */,
 				52BE749C208FAC83005414B5 /* ContactsModel.swift in Sources */,
+				52B31EF920C720100089C373 /* CreateChannel1ViewController.swift in Sources */,
 				5225F9AF20B2390100D95B8A /* ChannelTableViewCell.swift in Sources */,
 				529D15F82078E23F0085115B /* UserApi.swift in Sources */,
 				5225F9B120B2459900D95B8A /* ChannelViewController.swift in Sources */,

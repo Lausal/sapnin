@@ -22,10 +22,6 @@ class PreviewViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.isNavigationBarHidden = false
-    }
-    
     override var prefersStatusBarHidden: Bool {
         return true
     }

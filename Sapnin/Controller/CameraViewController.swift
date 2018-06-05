@@ -211,9 +211,6 @@ class CameraViewController: UIViewController {
         photoOutput?.capturePhoto(with: settings, delegate: self)
     }
     
-    @IBAction func closeButton_TouchUpInside(_ sender: Any) {
-    }
-    
     @IBAction func toggleCameraButton_TouchUpInside(_ sender: Any) {
         toggleCamera()
     }
