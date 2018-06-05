@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Settings-->
+        <scene sceneID="M0S-uu-4Fl">
+            <objects>
+                <viewController storyboardIdentifier="SettingsViewController" id="1ri-sv-HBB" customClass="SettingsViewController" customModule="Sapnin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5AC-gw-sFT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_profile_icon" translatesAutoresizingMaskIntoConstraints="NO" id="CHw-77-L04">
+                                <rect key="frame" x="127.5" y="60" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="mR6-8r-9Es"/>
+                                    <constraint firstAttribute="width" constant="120" id="xyC-kD-6Hg"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="60"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FIu-0g-bAO">
+                                <rect key="frame" x="212.5" y="55" width="40" height="40"/>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="0.80000000000000004" height="0.80000000000000004"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="efG-Dd-MVe"/>
+                                    <constraint firstAttribute="height" constant="40" id="pqP-nH-2d2"/>
+                                </constraints>
+                                <state key="normal" image="edit_icon"/>
+                                <connections>
+                                    <action selector="editProfileButton_TouchUpInside:" destination="1ri-sv-HBB" eventType="touchUpInside" id="o7G-aw-e16"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="cJZ-Qb-bGh">
+                                <rect key="frame" x="105.5" y="261" width="164" height="173"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="52P-1i-mub">
+                                        <rect key="frame" x="0.0" y="0.0" width="164" height="32"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="22"/>
+                                        <color key="tintColor" red="1" green="0.82745098039999998" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="   Rate us" image="rate_icon">
+                                            <color key="titleColor" red="0.39607843139999999" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="rateButton_TouchUpInside:" destination="1ri-sv-HBB" eventType="touchUpInside" id="J1S-l7-pzO"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MaI-CC-HLA">
+                                        <rect key="frame" x="0.0" y="47" width="164" height="32"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="22"/>
+                                        <color key="tintColor" red="1" green="0.18039215689999999" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="   Tell a friend" image="share_with_friend_icon">
+                                            <color key="titleColor" red="0.39607843139999999" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="tellAFriendButton_TouchUpInside:" destination="1ri-sv-HBB" eventType="touchUpInside" id="WkJ-67-mD3"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qk4-yZ-ayg">
+                                        <rect key="frame" x="0.0" y="94" width="164" height="32"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="22"/>
+                                        <color key="tintColor" red="0.20784313730000001" green="0.1960784314" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="   Account" image="account_icon">
+                                            <color key="titleColor" red="0.39607843139999999" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="accountButton_TouchUpInside:" destination="1ri-sv-HBB" eventType="touchUpInside" id="ySl-TG-1Pd"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U5g-MW-HYp">
+                                        <rect key="frame" x="0.0" y="141" width="164" height="32"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="22"/>
+                                        <color key="tintColor" red="0.2274509804" green="1" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="   Help" image="help_icon">
+                                            <color key="titleColor" red="0.39607843139999999" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="helpButton_TouchUpInside:" destination="1ri-sv-HBB" eventType="touchUpInside" id="tJw-QU-iyw"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Goq-vi-oYJ">
+                                <rect key="frame" x="158.5" y="195" width="58.5" height="26"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="22"/>
+                                <color key="textColor" red="0.20784313730000001" green="0.1960784314" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="JdD-PO-eRt">
+                                <rect key="frame" x="86.5" y="474" width="202" height="54"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Uq-3H-DrM">
+                                        <rect key="frame" x="0.0" y="0.0" width="54" height="54"/>
+                                        <state key="normal" image="twitter_share_icon"/>
+                                        <connections>
+                                            <action selector="twitterButton_TouchUpInside:" destination="1ri-sv-HBB" eventType="touchUpInside" id="j0o-zH-W7d"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PR2-OB-BhW">
+                                        <rect key="frame" x="74" y="0.0" width="54" height="54"/>
+                                        <state key="normal" image="instagram_share_icon"/>
+                                        <connections>
+                                            <action selector="instagramButton_TouchUpInside:" destination="1ri-sv-HBB" eventType="touchUpInside" id="N9N-gg-ywa"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Jb-IY-vEa">
+                                        <rect key="frame" x="148" y="0.0" width="54" height="54"/>
+                                        <state key="normal" image="facebook_share_icon"/>
+                                        <connections>
+                                            <action selector="facebookButton_TouchUpInside:" destination="1ri-sv-HBB" eventType="touchUpInside" id="3la-zp-t9V"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="eZD-y4-0SQ">
+                                <rect key="frame" x="94.5" y="599" width="186" height="38"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Yv-Ak-0HB">
+                                        <rect key="frame" x="0.0" y="0.0" width="63" height="38"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="22"/>
+                                        <state key="normal" title="Terms">
+                                            <color key="titleColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="termsButton_TouchUpInside:" destination="1ri-sv-HBB" eventType="touchUpInside" id="ago-ot-mgr"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q54-4C-tNF">
+                                        <rect key="frame" x="113" y="0.0" width="73" height="38"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="22"/>
+                                        <state key="normal" title="Privacy">
+                                            <color key="titleColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="privacyButton_TouchUpInside:" destination="1ri-sv-HBB" eventType="touchUpInside" id="NDC-6M-iXn"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="CHw-77-L04" firstAttribute="centerX" secondItem="5AC-gw-sFT" secondAttribute="centerX" id="0Vg-Nf-Iwv"/>
+                            <constraint firstItem="cJZ-Qb-bGh" firstAttribute="top" secondItem="Goq-vi-oYJ" secondAttribute="bottom" constant="40" id="57d-ul-CLK"/>
+                            <constraint firstItem="Mat-Rx-wIB" firstAttribute="bottom" secondItem="eZD-y4-0SQ" secondAttribute="bottom" constant="30" id="Aiv-gR-sKc"/>
+                            <constraint firstItem="CHw-77-L04" firstAttribute="top" secondItem="Mat-Rx-wIB" secondAttribute="top" constant="40" id="IrD-re-8D7"/>
+                            <constraint firstItem="FIu-0g-bAO" firstAttribute="trailing" secondItem="CHw-77-L04" secondAttribute="trailing" constant="5" id="XVr-td-lC2"/>
+                            <constraint firstItem="cJZ-Qb-bGh" firstAttribute="centerX" secondItem="5AC-gw-sFT" secondAttribute="centerX" id="cmR-U6-IZO"/>
+                            <constraint firstItem="Goq-vi-oYJ" firstAttribute="centerX" secondItem="5AC-gw-sFT" secondAttribute="centerX" id="gWV-Cg-36X"/>
+                            <constraint firstItem="JdD-PO-eRt" firstAttribute="centerX" secondItem="5AC-gw-sFT" secondAttribute="centerX" id="kPW-kz-dkt"/>
+                            <constraint firstItem="eZD-y4-0SQ" firstAttribute="centerX" secondItem="5AC-gw-sFT" secondAttribute="centerX" id="pBY-o7-T7G"/>
+                            <constraint firstItem="FIu-0g-bAO" firstAttribute="top" secondItem="CHw-77-L04" secondAttribute="top" constant="-5" id="qCa-GF-3BB"/>
+                            <constraint firstItem="JdD-PO-eRt" firstAttribute="top" secondItem="cJZ-Qb-bGh" secondAttribute="bottom" constant="40" id="qkZ-fF-rW3"/>
+                            <constraint firstItem="Goq-vi-oYJ" firstAttribute="top" secondItem="CHw-77-L04" secondAttribute="bottom" constant="15" id="vHr-z6-HMq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Mat-Rx-wIB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="CH9-u0-0i9">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="close_popup_icon" id="m9y-70-W5t">
+                            <color key="tintColor" red="1" green="0.18039215689999999" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="closeButton_TouchUpInside:" destination="1ri-sv-HBB" id="zTO-lF-4rk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="nameLabel" destination="Goq-vi-oYJ" id="ujE-6u-8pN"/>
+                        <outlet property="profileImage" destination="CHw-77-L04" id="phM-SB-tM7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NTz-ca-d8I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5386" y="1361"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="account_icon" width="32" height="32"/>
+        <image name="close_popup_icon" width="25" height="25"/>
+        <image name="edit_icon" width="40" height="40"/>
+        <image name="facebook_share_icon" width="54" height="54"/>
+        <image name="help_icon" width="32" height="32"/>
+        <image name="instagram_share_icon" width="54" height="54"/>
+        <image name="no_profile_icon" width="130" height="130"/>
+        <image name="rate_icon" width="32" height="32"/>
+        <image name="share_with_friend_icon" width="32" height="32"/>
+        <image name="twitter_share_icon" width="54" height="54"/>
+    </resources>
+</document>

@@ -38,6 +38,7 @@
 		529D15F62078E21D0085115B /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529D15F52078E21D0085115B /* Api.swift */; };
 		529D15F82078E23F0085115B /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529D15F72078E23F0085115B /* UserApi.swift */; };
 		52B31EF920C720100089C373 /* CreateChannel1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B31EF820C720100089C373 /* CreateChannel1ViewController.swift */; };
+		52B31EFB20C726CE0089C373 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52B31EFA20C726CE0089C373 /* Settings.storyboard */; };
 		52B88689208381E80066D116 /* ButtonSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B88688208381E80066D116 /* ButtonSettings.swift */; };
 		52BE7498208E54E1005414B5 /* CreateChannel2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BE7497208E54E1005414B5 /* CreateChannel2ViewController.swift */; };
 		52BE749C208FAC83005414B5 /* ContactsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BE749B208FAC83005414B5 /* ContactsModel.swift */; };
@@ -83,6 +84,7 @@
 		52AFD4F720BDAAB10039559A /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		52AFD4F820BDAAB30039559A /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		52B31EF820C720100089C373 /* CreateChannel1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateChannel1ViewController.swift; sourceTree = "<group>"; };
+		52B31EFA20C726CE0089C373 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		52B88688208381E80066D116 /* ButtonSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSettings.swift; sourceTree = "<group>"; };
 		52BE7497208E54E1005414B5 /* CreateChannel2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChannel2ViewController.swift; sourceTree = "<group>"; };
 		52BE749B208FAC83005414B5 /* ContactsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsModel.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				52411EEB2067236F00B3E78E /* Main.storyboard */,
 				52D5D11620BA358A00965A17 /* Camera.storyboard */,
 				52182DE720BDCA560049FFB3 /* Channel.storyboard */,
+				52B31EFA20C726CE0089C373 /* Settings.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				52411EF22067236F00B3E78E /* LaunchScreen.storyboard in Resources */,
 				52D5D11720BA358A00965A17 /* Camera.storyboard in Resources */,
 				52411EEF2067236F00B3E78E /* Assets.xcassets in Resources */,
+				52B31EFB20C726CE0089C373 /* Settings.storyboard in Resources */,
 				52182DE820BDCA560049FFB3 /* Channel.storyboard in Resources */,
 				529CB4F820741DCB003DE1CE /* GoogleService-Info.plist in Resources */,
 				52411EFA206BE6DA00B3E78E /* Arciform.otf in Resources */,

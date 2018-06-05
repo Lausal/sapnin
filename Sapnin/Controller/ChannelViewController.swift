@@ -7,10 +7,15 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ChannelViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var profileView: UIStackView!
+    
+    var tapGestureRecognizer: UITapGestureRecognizer!
     
     let channelName = ["Golf Gang", "Sporty People", "Crackheads"]
     let userList = ["John, James", "Luke, Alan, Hannah", "Matthew, Rob, Daniel"]
@@ -18,15 +23,44 @@ class ChannelViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.titleView = profileView
+        
+        //setProfileImage()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        // Add gesture recognizer to the navigation bar when the view is about to appear
+        tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.profileView_TouchUpInside))
+        //self.navigationController?.navigationBar.addGestureRecognizer(tapGestureRecognizer)
+        self.profileView.addGestureRecognizer(tapGestureRecognizer)
+        // This allows controlls in the navigation bar to continue receiving touches
+        tapGestureRecognizer.cancelsTouchesInView = false
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        // Remove gesture recognizer from navigation bar when view is about to disappear
+        self.navigationController?.navigationBar.removeGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    func setProfileImage() {
+        Api.user.observeCurrentUser { (user) in
+            if let profileUrl = URL(string: user.profileImageUrl!) {
+                self.profileImage.sd_setImage(with: profileUrl)
+            }
+        }
+    }
+    
+    @objc func profileView_TouchUpInside() {
+        print("tapped")
+        self.performSegue(withIdentifier: "settingsVC", sender: nil)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .default
     }
+    
+    
 
 }
 
