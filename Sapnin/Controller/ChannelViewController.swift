@@ -24,9 +24,10 @@ class ChannelViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Adds tap gesture
         self.navigationItem.titleView = profileView
         
-        //setProfileImage()
+        setNavigationBarProfileImage()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,7 +44,7 @@ class ChannelViewController: UIViewController {
         self.navigationController?.navigationBar.removeGestureRecognizer(tapGestureRecognizer)
     }
     
-    func setProfileImage() {
+    func setNavigationBarProfileImage() {
         Api.user.observeCurrentUser { (user) in
             if let profileUrl = URL(string: user.profileImageUrl!) {
                 self.profileImage.sd_setImage(with: profileUrl)
