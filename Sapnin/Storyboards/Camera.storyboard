@@ -27,7 +27,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pjU-Ry-Yc8">
-                                <rect key="frame" x="313" y="589.5" width="32" height="25"/>
+                                <rect key="frame" x="307" y="583.5" width="38" height="37"/>
                                 <state key="normal" image="flip_camera_icon"/>
                                 <connections>
                                     <action selector="toggleCameraButton_TouchUpInside:" destination="HKG-RC-qFY" eventType="touchUpInside" id="lo3-uI-HFh"/>
@@ -48,7 +48,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5QH-gW-zQn">
-                                <rect key="frame" x="30" y="580" width="44" height="44"/>
+                                <rect key="frame" x="30" y="583.5" width="38" height="37"/>
                                 <state key="normal" image="photo_library_icon"/>
                                 <connections>
                                     <action selector="photoLibraryButton_TouchUpInside:" destination="HKG-RC-qFY" eventType="touchUpInside" id="jUw-5B-1Me"/>
@@ -341,8 +341,8 @@
         <image name="close_photo_popup_icon" width="21" height="21"/>
         <image name="close_popup_icon" width="25" height="25"/>
         <image name="flash_off_icon" width="38" height="37"/>
-        <image name="flip_camera_icon" width="32" height="25"/>
-        <image name="photo_library_icon" width="44" height="44"/>
+        <image name="flip_camera_icon" width="38" height="37"/>
+        <image name="photo_library_icon" width="38" height="37"/>
         <image name="use_photo_icon" width="20" height="32"/>
     </resources>
     <color key="tintColor" red="1" green="0.18039215689999999" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -44,6 +44,10 @@ class ChannelViewController: UIViewController {
         self.navigationController?.navigationBar.removeGestureRecognizer(tapGestureRecognizer)
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
+    }
+    
     func setNavigationBarProfileImage() {
         Api.user.observeCurrentUser { (user) in
             if let profileUrl = URL(string: user.profileImageUrl!) {
@@ -53,15 +57,12 @@ class ChannelViewController: UIViewController {
     }
     
     @objc func profileView_TouchUpInside() {
-        print("tapped")
         self.performSegue(withIdentifier: "settingsVC", sender: nil)
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .default
+    @IBAction func cameraButton_TouchUpInside(_ sender: Any) {
+        self.performSegue(withIdentifier: "cameraVC", sender: nil)
     }
-    
-    
 
 }
 

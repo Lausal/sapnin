@@ -49,11 +49,14 @@ class CameraViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        // Show and change hint on load if challenge changed
+        // Show and change hint on load if user selects a different challenge
         if challengeDidChange == true {
             hint.alpha = 1
             setChallenge()
         }
+        
+        // Hide navigation bar
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     override var preferredStatusBarStyle : UIStatusBarStyle {
