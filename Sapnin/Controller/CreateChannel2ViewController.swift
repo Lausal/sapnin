@@ -42,6 +42,10 @@ class CreateChannel2ViewController: UIViewController {
         
     }
     
+    @IBAction func doneButton_TouchUpInside(_ sender: Any) {
+        
+    }
+    
     func setupTableView() {
         tableView.estimatedRowHeight = 60
         searchBar.delegate = self

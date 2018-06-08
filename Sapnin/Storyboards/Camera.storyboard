@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5in-oc-Fpp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HKG-RC-qFY">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -55,43 +55,58 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w59-2z-ys4">
-                                <rect key="frame" x="307" y="25" width="38" height="37"/>
+                                <rect key="frame" x="307" y="35.5" width="38" height="37"/>
                                 <state key="normal" image="flash_off_icon"/>
                                 <connections>
                                     <action selector="flashButton_TouchUpInside:" destination="HKG-RC-qFY" eventType="touchUpInside" id="f8k-kf-Q3s"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aXG-lE-f21">
-                                <rect key="frame" x="152.5" y="567" width="70" height="70"/>
-                                <state key="normal" image="take_photo_icon"/>
-                                <connections>
-                                    <action selector="cameraButton_TouchUpInside:" destination="HKG-RC-qFY" eventType="touchUpInside" id="0MR-3C-X4G"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J95-kU-mfc">
-                                <rect key="frame" x="30" y="25" width="34" height="48"/>
+                                <rect key="frame" x="30" y="30" width="34" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="🥇"/>
                                 <connections>
                                     <segue destination="n4Y-M6-eHE" kind="show" id="pTc-Pd-AEW"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yMx-Xc-Nz1" customClass="ButtonSettings" customModule="Sapnin" customModuleProvider="target">
+                                <rect key="frame" x="152.5" y="567" width="70" height="70"/>
+                                <color key="backgroundColor" red="1" green="0.18039215689999999" blue="0.52941176469999995" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="S4j-ev-h6q"/>
+                                    <constraint firstAttribute="width" constant="70" id="ksq-38-Xlt"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="1" green="0.18039215689999999" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="35"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="cameraButton_TouchUpInside:" destination="HKG-RC-qFY" eventType="touchUpInside" id="IOJ-gw-zmc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="pjU-Ry-Yc8" firstAttribute="centerY" secondItem="aXG-lE-f21" secondAttribute="centerY" id="0F0-ii-2Oj"/>
                             <constraint firstItem="Vaf-XL-dUF" firstAttribute="trailing" secondItem="pjU-Ry-Yc8" secondAttribute="trailing" constant="30" id="1cl-9m-tq6"/>
-                            <constraint firstItem="5QH-gW-zQn" firstAttribute="centerY" secondItem="aXG-lE-f21" secondAttribute="centerY" id="DXM-ov-1JK"/>
-                            <constraint firstItem="w59-2z-ys4" firstAttribute="top" secondItem="Vaf-XL-dUF" secondAttribute="top" constant="5" id="Fq1-JC-d5e"/>
+                            <constraint firstItem="pjU-Ry-Yc8" firstAttribute="centerY" secondItem="yMx-Xc-Nz1" secondAttribute="centerY" id="2z6-Av-2lu"/>
                             <constraint firstItem="5QH-gW-zQn" firstAttribute="leading" secondItem="Vaf-XL-dUF" secondAttribute="leading" constant="30" id="MDO-MV-zSd"/>
                             <constraint firstItem="Vaf-XL-dUF" firstAttribute="trailing" secondItem="w59-2z-ys4" secondAttribute="trailing" constant="30" id="TI7-mv-bBD"/>
+                            <constraint firstItem="Vaf-XL-dUF" firstAttribute="bottom" secondItem="yMx-Xc-Nz1" secondAttribute="bottom" constant="30" id="d4z-9y-fHs"/>
                             <constraint firstItem="z8Q-pm-ulo" firstAttribute="top" secondItem="Vaf-XL-dUF" secondAttribute="top" constant="150" id="ePD-J9-ZAU"/>
-                            <constraint firstItem="J95-kU-mfc" firstAttribute="top" secondItem="Vaf-XL-dUF" secondAttribute="top" constant="5" id="eof-ft-h0o"/>
+                            <constraint firstItem="J95-kU-mfc" firstAttribute="top" secondItem="Vaf-XL-dUF" secondAttribute="top" constant="10" id="eof-ft-h0o"/>
                             <constraint firstItem="J95-kU-mfc" firstAttribute="leading" secondItem="Vaf-XL-dUF" secondAttribute="leading" constant="30" id="g8o-F1-EKK"/>
                             <constraint firstItem="z8Q-pm-ulo" firstAttribute="centerX" secondItem="mD9-b6-LiL" secondAttribute="centerX" id="iW7-mK-6eC"/>
-                            <constraint firstItem="Vaf-XL-dUF" firstAttribute="bottom" secondItem="aXG-lE-f21" secondAttribute="bottom" constant="30" id="sn1-mL-Byx"/>
-                            <constraint firstItem="aXG-lE-f21" firstAttribute="centerX" secondItem="mD9-b6-LiL" secondAttribute="centerX" id="vyb-7p-2MZ"/>
+                            <constraint firstItem="w59-2z-ys4" firstAttribute="centerY" secondItem="J95-kU-mfc" secondAttribute="centerY" id="kXg-V1-CSt"/>
+                            <constraint firstItem="yMx-Xc-Nz1" firstAttribute="centerX" secondItem="mD9-b6-LiL" secondAttribute="centerX" id="mQQ-aW-94L"/>
+                            <constraint firstItem="5QH-gW-zQn" firstAttribute="centerY" secondItem="yMx-Xc-Nz1" secondAttribute="centerY" id="oT6-Wc-HH1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Vaf-XL-dUF"/>
                         <connections>
@@ -328,7 +343,6 @@
         <image name="flash_off_icon" width="38" height="37"/>
         <image name="flip_camera_icon" width="32" height="25"/>
         <image name="photo_library_icon" width="44" height="44"/>
-        <image name="take_photo_icon" width="70" height="70"/>
         <image name="use_photo_icon" width="20" height="32"/>
     </resources>
     <color key="tintColor" red="1" green="0.18039215689999999" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

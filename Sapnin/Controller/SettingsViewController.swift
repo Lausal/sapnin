@@ -32,7 +32,7 @@ class SettingsViewController: UIViewController, UIActionSheetDelegate {
     }
     
     @IBAction func closeButton_TouchUpInside(_ sender: Any) {
-        
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func editProfileButton_TouchUpInside(_ sender: Any) {

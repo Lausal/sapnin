@@ -246,6 +246,9 @@ photos with your friends</string>
                         <barButtonItem key="backBarButtonItem" title=" " id="bbF-zX-ICr"/>
                         <barButtonItem key="rightBarButtonItem" title="Done" id="xgW-ep-Nsm">
                             <color key="tintColor" red="1" green="0.18039215689999999" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="doneButton_TouchUpInside:" destination="2FQ-Eg-0t0" id="BRx-9o-dq4"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -737,7 +740,7 @@ photos with your friends</string>
                         <outlet property="profileImage" destination="0ji-oH-ynA" id="Mrb-0J-9aE"/>
                         <outlet property="profileView" destination="kvQ-cU-IP9" id="sLB-3t-2hZ"/>
                         <outlet property="tableView" destination="aJO-Hi-9gQ" id="aa4-jI-0UQ"/>
-                        <segue destination="41m-ri-Zcz" kind="show" identifier="settingsVC" id="EKi-79-RsJ"/>
+                        <segue destination="41m-ri-Zcz" kind="presentation" identifier="settingsVC" id="EKi-79-RsJ"/>
                     </connections>
                 </viewController>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="david beckham" translatesAutoresizingMaskIntoConstraints="NO" id="TBY-ab-Htq" customClass="UIImageViewWithMask" customModule="Sapnin" customModuleProvider="target">
