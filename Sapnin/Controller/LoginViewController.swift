@@ -28,16 +28,16 @@ class LoginViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        // DELETE THIS
-        AuthService.logout(onSuccess: {
-            //
-        }) { (error) in
-            //
-        }
+//        // DELETE THIS
+//        AuthService.logout(onSuccess: {
+//            //
+//        }) { (error) in
+//            //
+//        }
         
         // If the user has not logged out, then automatically switch to the Home View Controller
         if Api.user.CURRENT_USER != nil {
-            //self.performSegue(withIdentifier: "cameraVC", sender: nil)
+            self.performSegue(withIdentifier: "cameraVC", sender: nil)
         }
     }
     

@@ -8,6 +8,9 @@
 
 import UIKit
 import Contacts
+import SVProgressHUD
+import FirebaseDatabase
+import FirebaseAuth
 
 class CreateChannel2ViewController: UIViewController {
     
@@ -43,6 +46,12 @@ class CreateChannel2ViewController: UIViewController {
     }
     
     @IBAction func doneButton_TouchUpInside(_ sender: Any) {
+        
+        SVProgressHUD.show(withStatus: "Loading...")
+        
+        Api.channel.createChannel {
+            SVProgressHUD.dismiss()
+        }
         
     }
     

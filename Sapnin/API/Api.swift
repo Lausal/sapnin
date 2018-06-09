@@ -10,4 +10,5 @@ import Foundation
 
 struct Api {
     static var user = UserApi()
+    static var channel = ChannelApi()
 }
