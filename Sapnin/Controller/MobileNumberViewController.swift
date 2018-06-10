@@ -38,16 +38,20 @@ class MobileNumberViewController: UIViewController {
     
     // Update the corresponding user on Firebase with the inputted number
     @IBAction func confirmButton_TouchUpInside(_ sender: Any) {
-        SVProgressHUD.show(withStatus: "Loading...")
-        let number = dialCodeTextField.text! + " " + numberTextField.text!
         
+        SVProgressHUD.show(withStatus: "Loading...")
+        
+        // Remove the country code initials
+        let dialCode = "+" + (dialCodeTextField.text?.trimmingCharacters(in: CharacterSet(charactersIn: "01234567890.").inverted))!
+        
+        let number = dialCode + " " + numberTextField.text!
+
         AuthService.updateUserMobileNumber(number: number, onSuccess: {
             SVProgressHUD.dismiss()
-            
             // Navigate to CameraViewController
             self.performSegue(withIdentifier: "cameraVC", sender: nil)
         }) { (error) in
-            //
+            print(error)
         }
     }
     
