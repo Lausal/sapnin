@@ -28,7 +28,16 @@ class CreateChannel1ViewController: UIViewController {
     }
     
     @IBAction func nextButton_TouchUpInside(_ sender: Any) {
-        self.performSegue(withIdentifier: "selectParticipantsVC", sender: nil)
+        self.performSegue(withIdentifier: "createChannel2VC", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // Send channel name to CreateChannel2ViewController
+        if segue.identifier == "createChannel2VC" {
+            let createChannel2VC = segue.destination as! CreateChannel2ViewController
+            createChannel2VC.channelName = channelNameField.text
+        }
     }
     
     @IBAction func closeButton_TouchUpInside(_ sender: Any) {

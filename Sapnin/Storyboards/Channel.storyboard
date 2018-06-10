@@ -340,7 +340,7 @@ photos with your friends</string>
                     <connections>
                         <outlet property="channelNameField" destination="WlT-G0-Uaa" id="QP5-0o-yCU"/>
                         <outlet property="nextButton" destination="fl6-IU-vJe" id="NoK-Rw-P7f"/>
-                        <segue destination="2FQ-Eg-0t0" kind="show" identifier="selectParticipantsVC" id="IRu-vP-nYM"/>
+                        <segue destination="2FQ-Eg-0t0" kind="show" identifier="createChannel2VC" id="IRu-vP-nYM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ksn-v4-2AX" userLabel="First Responder" sceneMemberID="firstResponder"/>

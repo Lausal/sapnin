@@ -26,6 +26,7 @@ class CreateChannel2ViewController: UIViewController {
     var sortedSections: [[ContactsModel]] = [[]]
     var filteredData: [ContactsModel] = []
     var isSearching = false
+    var channelName: String? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +50,7 @@ class CreateChannel2ViewController: UIViewController {
         
         SVProgressHUD.show(withStatus: "Loading...")
         
-        Api.channel.createChannel {
+        Api.channel.createChannel(channelName: channelName!) {
             SVProgressHUD.dismiss()
         }
         
