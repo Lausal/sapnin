@@ -12,6 +12,7 @@ class UserModel {
     var userId: String?
     var email: String?
     var name: String?
+    var number: String?
     var profileImageUrl: String?
 }
 
@@ -21,6 +22,7 @@ extension UserModel {
         user.userId = key
         user.email = dict["email"] as? String
         user.name = dict["name"] as? String
+        user.number = dict["number"] as? String
         user.profileImageUrl = dict["profilePictureUrl"] as? String
         return user
     }

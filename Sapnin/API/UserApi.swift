@@ -43,4 +43,8 @@ class UserApi {
         })
     }
     
+    func observeUser(completion: @escaping (UserModel) -> Void) {
+        
+    }
+    
 }
