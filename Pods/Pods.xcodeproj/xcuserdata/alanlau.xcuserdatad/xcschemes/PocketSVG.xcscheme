@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'D98986199D4F04C546E0E25C7DC731EF'
-               BlueprintName = 'PocketSVG'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'PocketSVG.framework'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D98986199D4F04C546E0E25C7DC731EF"
+               BlueprintName = "PocketSVG"
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BuildableName = "PocketSVG.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
