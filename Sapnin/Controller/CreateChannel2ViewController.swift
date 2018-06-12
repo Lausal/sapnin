@@ -97,7 +97,6 @@ class CreateChannel2ViewController: UIViewController {
                 }
                 
                 contactId += 1
-                
             }
         } catch {
             print(error)
@@ -198,8 +197,10 @@ extension CreateChannel2ViewController: UITableViewDelegate, UITableViewDataSour
             let contactToDisplay = sortedSections[indexPath.section][indexPath.row]
             cell.nameLabel.text = contactToDisplay.givenName + " " + contactToDisplay.familyName
             
+            // Optimise this, maybe do it at the start when pulling contacts
             let phoneNumber = convertNumber(number: contactToDisplay.phoneNumber!)
             cell.numberLabel.text = phoneNumber
+            //cell.numberLabel.text = contactToDisplay.phoneNumber
             
             for contactId in selectedContactId {
                 if contactToDisplay.contactId == contactId {
