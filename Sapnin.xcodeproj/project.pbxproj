@@ -30,6 +30,7 @@
 		525D90E120AA4C7B00095036 /* MobileNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D90E020AA4C7B00095036 /* MobileNumberViewController.swift */; };
 		525D90E320AD004900095036 /* CountryCodes.json in Resources */ = {isa = PBXBuildFile; fileRef = 525D90E220AD004900095036 /* CountryCodes.json */; };
 		527EA01E207EBF5D00EA2F18 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527EA01D207EBF5D00EA2F18 /* CameraViewController.swift */; };
+		527F614E20D0876700DDA988 /* UserChannelApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F614D20D0876700DDA988 /* UserChannelApi.swift */; };
 		5296A329208523D400A5F2A8 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5296A328208523D400A5F2A8 /* UIView.swift */; };
 		529CB4F820741DCB003DE1CE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 529CB4F720741DCB003DE1CE /* GoogleService-Info.plist */; };
 		529CB4FA20742328003DE1CE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529CB4F920742328003DE1CE /* SettingsViewController.swift */; };
@@ -74,6 +75,7 @@
 		525D90E020AA4C7B00095036 /* MobileNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileNumberViewController.swift; sourceTree = "<group>"; };
 		525D90E220AD004900095036 /* CountryCodes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CountryCodes.json; sourceTree = "<group>"; };
 		527EA01D207EBF5D00EA2F18 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		527F614D20D0876700DDA988 /* UserChannelApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChannelApi.swift; sourceTree = "<group>"; };
 		5296A328208523D400A5F2A8 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		529CB4F720741DCB003DE1CE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		529CB4F920742328003DE1CE /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 				529D15F52078E21D0085115B /* Api.swift */,
 				529D15F72078E23F0085115B /* UserApi.swift */,
 				52E1339020CB46A30057F922 /* ChannelApi.swift */,
+				527F614D20D0876700DDA988 /* UserChannelApi.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				52C7B336209CF6520060F222 /* ColourPalette.swift in Sources */,
 				529D15F22078D02E0085115B /* AuthService.swift in Sources */,
 				522018932082DF00004AB74F /* PreviewViewController.swift in Sources */,
+				527F614E20D0876700DDA988 /* UserChannelApi.swift in Sources */,
 				525D90DF20A88C9800095036 /* ChallengeTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

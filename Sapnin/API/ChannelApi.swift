@@ -32,7 +32,9 @@ class ChannelApi {
                 SVProgressHUD.showError(withStatus: error!.localizedDescription)
                 return
             } else {
-                onSuccess()
+                Api.userChannel.addToUserChannel(userId: currentUserId, channelId: newChannelId, onSuccess: {
+                    onSuccess()
+                })
             }
         }
     }

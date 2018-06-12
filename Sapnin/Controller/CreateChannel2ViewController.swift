@@ -48,18 +48,15 @@ class CreateChannel2ViewController: UIViewController {
         fetchContacts {
             self.sortContactsList()
         }
-        
     }
     
     @IBAction func doneButton_TouchUpInside(_ sender: Any) {
-        self.performSegue(withIdentifier: "channelsVC", sender: nil)
-//        SVProgressHUD.show(withStatus: "Loading...")
-//        
-//        Api.channel.createChannel(channelName: channelName!) {
-//            SVProgressHUD.dismiss()
-//            self.performSegue(withIdentifier: "channelsVC", sender: nil)
-//        }
+        SVProgressHUD.show(withStatus: "Loading...")
         
+        Api.channel.createChannel(channelName: channelName!) {
+            SVProgressHUD.dismiss()
+            self.performSegue(withIdentifier: "channelsVC", sender: nil)
+        }
     }
     
     func setupTableView() {
