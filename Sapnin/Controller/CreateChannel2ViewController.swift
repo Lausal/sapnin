@@ -29,6 +29,10 @@ class CreateChannel2ViewController: UIViewController {
     var isSearching = false
     var channelName: String? = nil
     
+    var firstName = [String]()
+    var lastName = [String]()
+    var number = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,12 +52,13 @@ class CreateChannel2ViewController: UIViewController {
     }
     
     @IBAction func doneButton_TouchUpInside(_ sender: Any) {
-        
-        SVProgressHUD.show(withStatus: "Loading...")
-        
-        Api.channel.createChannel(channelName: channelName!) {
-            SVProgressHUD.dismiss()
-        }
+        self.performSegue(withIdentifier: "channelsVC", sender: nil)
+//        SVProgressHUD.show(withStatus: "Loading...")
+//        
+//        Api.channel.createChannel(channelName: channelName!) {
+//            SVProgressHUD.dismiss()
+//            self.performSegue(withIdentifier: "channelsVC", sender: nil)
+//        }
         
     }
     
@@ -184,7 +189,11 @@ extension CreateChannel2ViewController: UITableViewDelegate, UITableViewDataSour
         if isSearching {
             let contactToDisplay = filteredData[indexPath.row]
             cell.nameLabel.text = contactToDisplay.givenName + " " + contactToDisplay.familyName
-            cell.numberLabel.text = contactToDisplay.phoneNumber
+            
+            // Optimise this, maybe do it at the start when pulling contacts
+            let phoneNumber = convertNumber(number: contactToDisplay.phoneNumber!)
+            cell.numberLabel.text = phoneNumber
+            //cell.numberLabel.text = contactToDisplay.phoneNumber
             
             // Display tick if row is already selected (Select contact ID's stored in "selectedContactId" array, otherwise don't display tick
             for contactId in selectedContactId {

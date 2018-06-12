@@ -57,6 +57,8 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>13</integer>
 		</dict>
 		<key>PocketSVG.xcscheme</key>
 		<dict>
