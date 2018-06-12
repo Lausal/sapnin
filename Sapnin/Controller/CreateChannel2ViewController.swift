@@ -107,8 +107,17 @@ class CreateChannel2ViewController: UIViewController {
         onSuccess()
     }
     
-    @IBAction func nextButton_TouchUpInside(_ sender: Any) {
-        self.performSegue(withIdentifier: "createChannel2VC", sender: nil)
+    // Converts phone number to it's international format (UK only for now)
+    func convertNumber(number: String) -> String? {
+        let phoneNumberKit = PhoneNumberKit()
+        do {
+            let phoneNumber = try phoneNumberKit.parse(number, withRegion: "GB", ignoreType: true)
+            return "+" + String(phoneNumber.countryCode) + " " + String(phoneNumber.nationalNumber)
+        }
+        catch {
+            print("Generic parser error")
+            return nil
+        }
     }
     
     func sortContactsList() {
@@ -188,7 +197,9 @@ extension CreateChannel2ViewController: UITableViewDelegate, UITableViewDataSour
         } else {
             let contactToDisplay = sortedSections[indexPath.section][indexPath.row]
             cell.nameLabel.text = contactToDisplay.givenName + " " + contactToDisplay.familyName
-            cell.numberLabel.text = contactToDisplay.phoneNumber
+            
+            let phoneNumber = convertNumber(number: contactToDisplay.phoneNumber!)
+            cell.numberLabel.text = phoneNumber
             
             for contactId in selectedContactId {
                 if contactToDisplay.contactId == contactId {
