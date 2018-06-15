@@ -18,6 +18,7 @@
 		5225F9AF20B2390100D95B8A /* ChannelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5225F9AE20B2390100D95B8A /* ChannelTableViewCell.swift */; };
 		5225F9B120B2459900D95B8A /* ChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5225F9B020B2459900D95B8A /* ChannelViewController.swift */; };
 		5225F9B320B763D600D95B8A /* VoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5225F9B220B763D600D95B8A /* VoteViewController.swift */; };
+		522F0A0D20D418B20072A63E /* ChannelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F0A0C20D418B20072A63E /* ChannelModel.swift */; };
 		52386CF8208AC53E0062C898 /* NoChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52386CF7208AC53E0062C898 /* NoChannelViewController.swift */; };
 		52411EE82067236F00B3E78E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52411EE72067236F00B3E78E /* AppDelegate.swift */; };
 		52411EEA2067236F00B3E78E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52411EE92067236F00B3E78E /* LoginViewController.swift */; };
@@ -61,6 +62,7 @@
 		5225F9AE20B2390100D95B8A /* ChannelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelTableViewCell.swift; sourceTree = "<group>"; };
 		5225F9B020B2459900D95B8A /* ChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelViewController.swift; sourceTree = "<group>"; };
 		5225F9B220B763D600D95B8A /* VoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteViewController.swift; sourceTree = "<group>"; };
+		522F0A0C20D418B20072A63E /* ChannelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelModel.swift; sourceTree = "<group>"; };
 		52386CF7208AC53E0062C898 /* NoChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoChannelViewController.swift; sourceTree = "<group>"; };
 		52411EE42067236F00B3E78E /* Sapnin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sapnin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52411EE72067236F00B3E78E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				529D15F32078D1E30085115B /* UserModel.swift */,
+				522F0A0C20D418B20072A63E /* ChannelModel.swift */,
 				52BE749B208FAC83005414B5 /* ContactsModel.swift */,
 			);
 			path = Model;
@@ -400,6 +403,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5225F9B320B763D600D95B8A /* VoteViewController.swift in Sources */,
+				522F0A0D20D418B20072A63E /* ChannelModel.swift in Sources */,
 				5225F9AD20B2284A00D95B8A /* UIImageViewWithMask.swift in Sources */,
 				52B88689208381E80066D116 /* ButtonSettings.swift in Sources */,
 				529D15F62078E21D0085115B /* Api.swift in Sources */,

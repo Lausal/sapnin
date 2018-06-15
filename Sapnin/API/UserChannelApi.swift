@@ -25,7 +25,13 @@ class UserChannel {
                 onSuccess()
             }
         })
-
+    }
+    
+    // Get all channel ID's associated to a user ID
+    func observeUserChannel(userId: String, onSuccess: @escaping (String) -> Void) {
+        let ref = DB_REF_USER_CHANNELS.child(userId).observe(.childAdded) { (snapshot) in
+            onSuccess(snapshot.key)
+        }
     }
     
 }

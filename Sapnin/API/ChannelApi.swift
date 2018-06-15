@@ -39,4 +39,8 @@ class ChannelApi {
         }
     }
     
+    func observeChannel(channelId: String, onSuccess: @escaping () -> Void) {
+        
+    }
+    
 }

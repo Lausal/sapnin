@@ -28,6 +28,11 @@ class ChannelViewController: UIViewController {
         self.navigationItem.titleView = profileView
         
         setNavigationBarProfileImage()
+        
+        let userId = Api.user.CURRENT_USER?.uid
+        Api.userChannel.observeUserChannel(userId: userId!) { (channelId) in
+            print(channelId)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
