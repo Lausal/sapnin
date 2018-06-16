@@ -104,4 +104,34 @@ extension ChannelViewController: UITableViewDelegate, UITableViewDataSource {
 
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let more = moreButton_TouchUpInside(at: indexPath)
+        let delete = deleteButton_TouchUpInside(at: indexPath)
+        return UISwipeActionsConfiguration(actions: [delete, more])
+    }
+    
+    func moreButton_TouchUpInside(at indexPath: IndexPath) -> UIContextualAction {
+        let action = UIContextualAction(style: .normal, title: "More") { (action, view, completion) in
+            // Function here
+            completion(true)
+        }
+        action.backgroundColor = UIColor.gray
+        return action
+    }
+    
+    func deleteButton_TouchUpInside(at indexPath: IndexPath) -> UIContextualAction {
+        let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completion) in
+            self.channels.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            completion(true)
+        }
+        // action.image =
+        action.backgroundColor = UIColor.red
+        return action
+    }
 }

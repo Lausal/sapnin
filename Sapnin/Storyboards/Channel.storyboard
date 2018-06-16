@@ -356,8 +356,8 @@ photos with your friends</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aJO-Hi-9gQ">
-                                <rect key="frame" x="0.0" y="10" width="375" height="593"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aJO-Hi-9gQ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell2Participants" rowHeight="80" id="572-BM-scU" customClass="ChannelTableViewCell" customModule="Sapnin" customModuleProvider="target">
@@ -686,7 +686,7 @@ photos with your friends</string>
                         <constraints>
                             <constraint firstItem="aJO-Hi-9gQ" firstAttribute="leading" secondItem="AHI-7R-Sz6" secondAttribute="leading" id="5mg-WV-bBK"/>
                             <constraint firstItem="aJO-Hi-9gQ" firstAttribute="trailing" secondItem="AHI-7R-Sz6" secondAttribute="trailing" id="FsB-rk-Q79"/>
-                            <constraint firstItem="aJO-Hi-9gQ" firstAttribute="top" secondItem="AHI-7R-Sz6" secondAttribute="top" constant="10" id="MCe-Hn-fkV"/>
+                            <constraint firstItem="aJO-Hi-9gQ" firstAttribute="top" secondItem="AHI-7R-Sz6" secondAttribute="top" id="MCe-Hn-fkV"/>
                             <constraint firstItem="aJO-Hi-9gQ" firstAttribute="bottom" secondItem="AHI-7R-Sz6" secondAttribute="bottom" id="l1P-eD-jkr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AHI-7R-Sz6"/>
@@ -822,6 +822,6 @@ photos with your friends</string>
         <image name="user_added_icon" width="27" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SiD-Gk-byN"/>
+        <segue reference="AUx-80-wdz"/>
     </inferredMetricsTieBreakers>
 </document>
