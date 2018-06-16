@@ -17,22 +17,18 @@ class ChannelViewController: UIViewController {
     
     var tapGestureRecognizer: UITapGestureRecognizer!
     
-    let channelName = ["Golf Gang", "Sporty People", "Crackheads"]
     let userList = ["John, James", "Luke, Alan, Hannah", "Matthew, Rob, Daniel"]
     let timestamp = ["10:14", "20:20", "13:10"]
+    var channels = [ChannelModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Adds tap gesture
+        // Adds tap gesture to profile
         self.navigationItem.titleView = profileView
         
         setNavigationBarProfileImage()
-        
-        let userId = Api.user.CURRENT_USER?.uid
-        Api.userChannel.observeUserChannel(userId: userId!) { (channelId) in
-            print(channelId)
-        }
+        loadChannels()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,6 +47,17 @@ class ChannelViewController: UIViewController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .default
+    }
+    
+    func loadChannels() {
+        let userId = Api.user.CURRENT_USER?.uid
+        Api.userChannel.observeUserChannel(userId: userId!) { (channelId) in
+            // After getting all channel ID from UserChannel table, now get all corresponding channel details
+            Api.channel.observeChannels(channelId: channelId, onSuccess: { (channel) in
+                self.channels.append(channel)
+                self.tableView.reloadData()
+            })
+        }
     }
     
     func setNavigationBarProfileImage() {
@@ -82,14 +89,19 @@ extension ChannelViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return channelName.count
+        return channels.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell4Participants") as! ChannelTableViewCell
-        cell.channelNameLabel.text = channelName[indexPath.row]
-        cell.userListLabel.text = userList[indexPath.row]
-        cell.timestampLabel.text = timestamp[indexPath.row]
+        let channel = channels[indexPath.row]
+        
+        cell.channelNameLabel.text = channel.channelName
+        
+        // REPLACE WITH REAL DATA
+        cell.userListLabel.text = "NEEDS DATA"
+        cell.timestampLabel.text = "10:10"
+
         return cell
     }
 }

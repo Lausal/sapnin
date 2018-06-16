@@ -12,7 +12,7 @@ class ChannelModel {
     var channelId: String?
     var channelName: String?
     var ownerId: String?
-    var users: [String]?
+    var users: Dictionary<String, Any>? // Array of users
 }
 
 extension ChannelModel {
@@ -21,7 +21,7 @@ extension ChannelModel {
         channel.channelId = key
         channel.channelName = dict["channelName"] as? String
         channel.ownerId = dict["ownerId"] as? String
-        channel.users = dict["users"] as? [String]
+        channel.users = dict["users"] as? Dictionary<String, Any>
         return channel
     }
 }

@@ -39,8 +39,14 @@ class ChannelApi {
         }
     }
     
-    func observeChannel(channelId: String, onSuccess: @escaping () -> Void) {
-        
+    // Getting the channel details
+    func observeChannels(channelId: String, onSuccess: @escaping (ChannelModel) -> Void) {
+        DB_REF_CHANNELS.child(channelId).observeSingleEvent(of: .value) { (snapshot) in
+            if let dict = snapshot.value as? [String: Any] {
+                let channel = ChannelModel.transformChannel(dict: dict, key: snapshot.key)
+                onSuccess(channel)
+            }
+        }
     }
     
 }
