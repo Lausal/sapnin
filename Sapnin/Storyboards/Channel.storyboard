@@ -746,6 +746,7 @@ photos with your friends</string>
                         <outlet property="tableView" destination="aJO-Hi-9gQ" id="aa4-jI-0UQ"/>
                         <segue destination="41m-ri-Zcz" kind="presentation" identifier="settingsVC" id="EKi-79-RsJ"/>
                         <segue destination="J1X-D7-Rhz" kind="show" identifier="cameraVC" id="3HA-2O-CrP"/>
+                        <segue destination="CT5-rJ-fqV" kind="presentation" identifier="PhotoVC" id="HBh-HU-vwR"/>
                     </connections>
                 </viewController>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="david beckham" translatesAutoresizingMaskIntoConstraints="NO" id="TBY-ab-Htq" customClass="UIImageViewWithMask" customModule="Sapnin" customModuleProvider="target">
@@ -770,7 +771,7 @@ photos with your friends</string>
                 <viewControllerPlaceholder storyboardName="Settings" referencedIdentifier="SettingsViewController" id="41m-ri-Zcz" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="44V-WM-oey" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6090" y="840"/>
+            <point key="canvasLocation" x="6092" y="791"/>
         </scene>
         <!--CameraViewController-->
         <scene sceneID="Uoj-h5-nC3">
@@ -778,7 +779,15 @@ photos with your friends</string>
                 <viewControllerPlaceholder storyboardName="Camera" referencedIdentifier="CameraViewController" id="J1X-D7-Rhz" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WGv-dz-i6D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6009" y="951"/>
+            <point key="canvasLocation" x="6088" y="924"/>
+        </scene>
+        <!--PhotoViewController-->
+        <scene sceneID="7eF-DV-zbl">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Photos" referencedIdentifier="PhotoViewController" id="CT5-rJ-fqV" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l5C-ys-yUr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6079" y="1042"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ztr-Ru-HVp">

@@ -63,6 +63,7 @@ class PhotoViewController: UIViewController {
     
     @objc func postImage_TouchUpInside() {
         print("tapped")
+        displayNextImage()
     }
     
     func displayNextImage() {
@@ -80,6 +81,8 @@ class PhotoViewController: UIViewController {
                 // Reset progress bar index
                 currentDuration = 0
             } else {
+                // If all images have been played, then show voting view controller
+                self.performSegue(withIdentifier: "VoteViewController", sender: nil)
                 return
             }
         } else {
