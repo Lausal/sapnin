@@ -69,7 +69,7 @@
             </objects>
             <point key="canvasLocation" x="2700" y="2129.6851574212897"/>
         </scene>
-        <!--Who did it the best?-->
+        <!--Vote your favourite-->
         <scene sceneID="kZA-d2-7tr">
             <objects>
                 <viewController id="V5p-Ku-eI3" customClass="VoteViewController" customModule="Sapnin" customModuleProvider="target" sceneMemberID="viewController">
@@ -256,11 +256,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="C34-sZ-jfO"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Who did it the best?" id="udl-qG-lAP">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="close_popup_icon" id="XNX-OW-bVM">
-                            <color key="tintColor" red="1" green="0.18039215689999999" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Vote your favourite" id="udl-qG-lAP"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nN3-28-bjK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -288,7 +284,6 @@
     </scenes>
     <resources>
         <image name="close_photo_popup_icon" width="21" height="21"/>
-        <image name="close_popup_icon" width="25" height="25"/>
         <image name="david beckham" width="459" height="580"/>
         <image name="selfie_image1" width="2000" height="1000"/>
         <image name="selfie_image2" width="1000" height="636"/>
