@@ -252,6 +252,7 @@ photos with your friends</string>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="doneButton" destination="xgW-ep-Nsm" id="vTf-Id-kXy"/>
                         <outlet property="participantCountLabel" destination="yXe-DW-hcH" id="4VC-w7-CWM"/>
                         <outlet property="searchBar" destination="V6n-Em-sd6" id="ad0-FF-NE6"/>
                         <outlet property="searchDisplayController" destination="Iae-AG-PiY" id="CIk-Id-yOF"/>

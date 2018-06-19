@@ -15,6 +15,7 @@ import PhoneNumberKit
 
 class CreateChannel2ViewController: UIViewController {
     
+    @IBOutlet weak var doneButton: UIBarButtonItem!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var participantCountLabel: UILabel!
@@ -35,6 +36,9 @@ class CreateChannel2ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Disable done button by default
+        doneButton.isEnabled = false
         
         setupTableView()
         
@@ -221,7 +225,10 @@ extension CreateChannel2ViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        
+        // Enable done button
+        doneButton.isEnabled = true
+        
         // Show tick icon on select, up to a maximum of 4 participants
         if participantCount <= 3 {
             let cell: AddParticipantsTableViewCell = tableView.cellForRow(at: indexPath)! as! AddParticipantsTableViewCell
@@ -240,7 +247,6 @@ extension CreateChannel2ViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-
         let cell: AddParticipantsTableViewCell = tableView.cellForRow(at: indexPath)! as! AddParticipantsTableViewCell
         
         cell.tickIcon.isHidden = true
@@ -257,9 +263,11 @@ extension CreateChannel2ViewController: UITableViewDelegate, UITableViewDataSour
         participantCount -= 1
         participantCountLabel.text = String(describing: participantCount) + " / 4"
         
-
+        // If no participants are selected, then disable done button
+        if participantCount == 0 {
+            doneButton.isEnabled = false
+        }
     }
-    
 }
 
 extension CreateChannel2ViewController: UISearchBarDelegate {
