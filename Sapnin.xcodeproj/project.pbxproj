@@ -30,6 +30,7 @@
 		525D90DF20A88C9800095036 /* ChallengeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D90DE20A88C9800095036 /* ChallengeTableViewCell.swift */; };
 		525D90E120AA4C7B00095036 /* MobileNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D90E020AA4C7B00095036 /* MobileNumberViewController.swift */; };
 		525D90E320AD004900095036 /* CountryCodes.json in Resources */ = {isa = PBXBuildFile; fileRef = 525D90E220AD004900095036 /* CountryCodes.json */; };
+		5271340A20D9A0020036EA36 /* BrandColours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5271340920D9A0020036EA36 /* BrandColours.swift */; };
 		527EA01E207EBF5D00EA2F18 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527EA01D207EBF5D00EA2F18 /* CameraViewController.swift */; };
 		527F614E20D0876700DDA988 /* UserChannelApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F614D20D0876700DDA988 /* UserChannelApi.swift */; };
 		5296A329208523D400A5F2A8 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5296A328208523D400A5F2A8 /* UIView.swift */; };
@@ -39,7 +40,8 @@
 		529D15F42078D1E30085115B /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529D15F32078D1E30085115B /* UserModel.swift */; };
 		529D15F62078E21D0085115B /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529D15F52078E21D0085115B /* Api.swift */; };
 		529D15F82078E23F0085115B /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529D15F72078E23F0085115B /* UserApi.swift */; };
-		52B0C2DE20D5D3EC000A8AED /* Photos.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52B0C2DD20D5D3EC000A8AED /* Photos.storyboard */; };
+		52B0C2DE20D5D3EC000A8AED /* Channel_Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52B0C2DD20D5D3EC000A8AED /* Channel_Detail.storyboard */; };
+		52B0C2E020D98DC1000A8AED /* ChannelDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B0C2DF20D98DC1000A8AED /* ChannelDetailViewController.swift */; };
 		52B31EF920C720100089C373 /* CreateChannel1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B31EF820C720100089C373 /* CreateChannel1ViewController.swift */; };
 		52B31EFB20C726CE0089C373 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52B31EFA20C726CE0089C373 /* Settings.storyboard */; };
 		52B88689208381E80066D116 /* ButtonSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B88688208381E80066D116 /* ButtonSettings.swift */; };
@@ -77,6 +79,7 @@
 		525D90DE20A88C9800095036 /* ChallengeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeTableViewCell.swift; sourceTree = "<group>"; };
 		525D90E020AA4C7B00095036 /* MobileNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileNumberViewController.swift; sourceTree = "<group>"; };
 		525D90E220AD004900095036 /* CountryCodes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CountryCodes.json; sourceTree = "<group>"; };
+		5271340920D9A0020036EA36 /* BrandColours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandColours.swift; sourceTree = "<group>"; };
 		527EA01D207EBF5D00EA2F18 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		527F614D20D0876700DDA988 /* UserChannelApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChannelApi.swift; sourceTree = "<group>"; };
 		5296A328208523D400A5F2A8 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -89,7 +92,8 @@
 		52AFD4F620BDAAAF0039559A /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		52AFD4F720BDAAB10039559A /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		52AFD4F820BDAAB30039559A /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
-		52B0C2DD20D5D3EC000A8AED /* Photos.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Photos.storyboard; sourceTree = "<group>"; };
+		52B0C2DD20D5D3EC000A8AED /* Channel_Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Channel_Detail.storyboard; sourceTree = "<group>"; };
+		52B0C2DF20D98DC1000A8AED /* ChannelDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelDetailViewController.swift; sourceTree = "<group>"; };
 		52B31EF820C720100089C373 /* CreateChannel1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateChannel1ViewController.swift; sourceTree = "<group>"; };
 		52B31EFA20C726CE0089C373 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		52B88688208381E80066D116 /* ButtonSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSettings.swift; sourceTree = "<group>"; };
@@ -139,6 +143,7 @@
 			children = (
 				525D90E220AD004900095036 /* CountryCodes.json */,
 				52411EE72067236F00B3E78E /* AppDelegate.swift */,
+				5271340920D9A0020036EA36 /* BrandColours.swift */,
 				529D15F02078D0170085115B /* API */,
 				52411EFC206BEE6700B3E78E /* Model */,
 				52411EFD206BEE8B00B3E78E /* View */,
@@ -196,6 +201,7 @@
 				522018922082DF00004AB74F /* PreviewViewController.swift */,
 				52386CF7208AC53E0062C898 /* NoChannelViewController.swift */,
 				5225F9B020B2459900D95B8A /* ChannelViewController.swift */,
+				52B0C2DF20D98DC1000A8AED /* ChannelDetailViewController.swift */,
 				52B31EF820C720100089C373 /* CreateChannel1ViewController.swift */,
 				52BE7497208E54E1005414B5 /* CreateChannel2ViewController.swift */,
 				521821F320AF9E9A009F8FD5 /* LeaderboardViewController.swift */,
@@ -236,7 +242,7 @@
 				52411EEB2067236F00B3E78E /* Main.storyboard */,
 				52D5D11620BA358A00965A17 /* Camera.storyboard */,
 				52182DE720BDCA560049FFB3 /* Channel.storyboard */,
-				52B0C2DD20D5D3EC000A8AED /* Photos.storyboard */,
+				52B0C2DD20D5D3EC000A8AED /* Channel_Detail.storyboard */,
 				52B31EFA20C726CE0089C373 /* Settings.storyboard */,
 			);
 			path = Storyboards;
@@ -327,7 +333,7 @@
 				52D5D11720BA358A00965A17 /* Camera.storyboard in Resources */,
 				52411EEF2067236F00B3E78E /* Assets.xcassets in Resources */,
 				52B31EFB20C726CE0089C373 /* Settings.storyboard in Resources */,
-				52B0C2DE20D5D3EC000A8AED /* Photos.storyboard in Resources */,
+				52B0C2DE20D5D3EC000A8AED /* Channel_Detail.storyboard in Resources */,
 				52182DE820BDCA560049FFB3 /* Channel.storyboard in Resources */,
 				529CB4F820741DCB003DE1CE /* GoogleService-Info.plist in Resources */,
 				52411EFA206BE6DA00B3E78E /* Arciform.otf in Resources */,
@@ -411,6 +417,7 @@
 				5225F9AD20B2284A00D95B8A /* UIImageViewWithMask.swift in Sources */,
 				52B88689208381E80066D116 /* ButtonSettings.swift in Sources */,
 				529D15F62078E21D0085115B /* Api.swift in Sources */,
+				52B0C2E020D98DC1000A8AED /* ChannelDetailViewController.swift in Sources */,
 				52BE7498208E54E1005414B5 /* CreateChannel2ViewController.swift in Sources */,
 				5296A329208523D400A5F2A8 /* UIView.swift in Sources */,
 				52411EEA2067236F00B3E78E /* LoginViewController.swift in Sources */,
@@ -422,6 +429,7 @@
 				525D90E120AA4C7B00095036 /* MobileNumberViewController.swift in Sources */,
 				521821F220AF6806009F8FD5 /* PhotoViewController.swift in Sources */,
 				525D90DD20A874D000095036 /* ChallengeViewController.swift in Sources */,
+				5271340A20D9A0020036EA36 /* BrandColours.swift in Sources */,
 				52D5D11520BA2BBE00965A17 /* BorderView.swift in Sources */,
 				527EA01E207EBF5D00EA2F18 /* CameraViewController.swift in Sources */,
 				52BE749C208FAC83005414B5 /* ContactsModel.swift in Sources */,

@@ -281,6 +281,22 @@
             </objects>
             <point key="canvasLocation" x="2700" y="2919"/>
         </scene>
+        <!--Channel Detail View Controller-->
+        <scene sceneID="e6l-A7-GYa">
+            <objects>
+                <viewController storyboardIdentifier="ChannelDetailViewController" id="DDf-Cu-uVm" customClass="ChannelDetailViewController" customModule="Sapnin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="85w-DD-utZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="gTi-F6-FHa"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="jEV-vS-0l1"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ijA-lv-YyP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2700" y="3728"/>
+        </scene>
     </scenes>
     <resources>
         <image name="close_photo_popup_icon" width="21" height="21"/>

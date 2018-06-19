@@ -24,6 +24,8 @@ class ChannelViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         // Adds tap gesture to profile
         self.navigationItem.titleView = profileView
         
@@ -32,6 +34,9 @@ class ChannelViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        // Set navigation bar to pink
+        self.navigationController?.navigationBar.barTintColor = BrandColours.PINK
+        
         // Add gesture recognizer to the navigation bar when the view is about to appear
         tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.profileView_TouchUpInside))
         //self.navigationController?.navigationBar.addGestureRecognizer(tapGestureRecognizer)
@@ -107,7 +112,8 @@ extension ChannelViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("selected")
-        self.performSegue(withIdentifier: "PhotoVC", sender: nil)
+        //self.performSegue(withIdentifier: "PhotoVC", sender: nil)
+        self.performSegue(withIdentifier: "ChannelDetailVC", sender: nil)
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {

@@ -748,6 +748,7 @@ photos with your friends</string>
                         <segue destination="41m-ri-Zcz" kind="presentation" identifier="settingsVC" id="EKi-79-RsJ"/>
                         <segue destination="J1X-D7-Rhz" kind="show" identifier="cameraVC" id="3HA-2O-CrP"/>
                         <segue destination="CT5-rJ-fqV" kind="presentation" identifier="PhotoVC" id="HBh-HU-vwR"/>
+                        <segue destination="jPM-DW-Gog" kind="showDetail" identifier="ChannelDetailVC" action="showViewController:sender:" id="I2d-V1-D9s"/>
                     </connections>
                 </viewController>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="david beckham" translatesAutoresizingMaskIntoConstraints="NO" id="TBY-ab-Htq" customClass="UIImageViewWithMask" customModule="Sapnin" customModuleProvider="target">
@@ -785,10 +786,18 @@ photos with your friends</string>
         <!--PhotoViewController-->
         <scene sceneID="7eF-DV-zbl">
             <objects>
-                <viewControllerPlaceholder storyboardName="Photos" referencedIdentifier="PhotoViewController" id="CT5-rJ-fqV" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Channel_Detail" referencedIdentifier="PhotoViewController" id="CT5-rJ-fqV" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l5C-ys-yUr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6079" y="1042"/>
+        </scene>
+        <!--ChannelDetailViewController-->
+        <scene sceneID="agS-PD-Lsc">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="ChannelDetailViewController" storyboardName="Channel_Detail" referencedIdentifier="ChannelDetailViewController" id="jPM-DW-Gog" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pIn-V7-1G6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6067" y="1136"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ztr-Ru-HVp">
