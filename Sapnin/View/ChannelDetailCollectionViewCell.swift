@@ -11,6 +11,7 @@ import UIKit
 class ChannelDetailCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var photo: UIImageView!
+    //@IBOutlet weak var dateLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
