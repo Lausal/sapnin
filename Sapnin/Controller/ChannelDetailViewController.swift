@@ -16,7 +16,7 @@ class ChannelDetailViewController: UIViewController {
     
     let leftAndRightPadding: CGFloat = 60.0 // 3 x 20px white gaps per row
     let numberOfItemsPerRow: CGFloat = 2.0
-    let labelSizeAndTopPadding: CGFloat = 24.0 // 6px top spacing + 18px label height
+    let labelSizeAndTopPadding: CGFloat = 44.0 // 6px top spacing + 18px label height + 2px top spacing + 18px label height
     
     override func viewDidLoad() {
         super.viewDidLoad()
