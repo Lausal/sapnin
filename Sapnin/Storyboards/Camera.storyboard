@@ -55,16 +55,16 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w59-2z-ys4">
-                                <rect key="frame" x="307" y="35.5" width="38" height="37"/>
+                                <rect key="frame" x="307" y="42.5" width="38" height="37"/>
                                 <state key="normal" image="flash_off_icon"/>
                                 <connections>
                                     <action selector="flashButton_TouchUpInside:" destination="HKG-RC-qFY" eventType="touchUpInside" id="f8k-kf-Q3s"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J95-kU-mfc">
-                                <rect key="frame" x="30" y="30" width="34" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="🥇"/>
+                                <rect key="frame" x="30" y="40" width="38" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <state key="normal" image="challenge_icon"/>
                                 <connections>
                                     <segue destination="n4Y-M6-eHE" kind="show" id="pTc-Pd-AEW"/>
                                 </connections>
@@ -101,10 +101,10 @@
                             <constraint firstItem="Vaf-XL-dUF" firstAttribute="trailing" secondItem="w59-2z-ys4" secondAttribute="trailing" constant="30" id="TI7-mv-bBD"/>
                             <constraint firstItem="Vaf-XL-dUF" firstAttribute="bottom" secondItem="yMx-Xc-Nz1" secondAttribute="bottom" constant="30" id="d4z-9y-fHs"/>
                             <constraint firstItem="z8Q-pm-ulo" firstAttribute="top" secondItem="Vaf-XL-dUF" secondAttribute="top" constant="150" id="ePD-J9-ZAU"/>
-                            <constraint firstItem="J95-kU-mfc" firstAttribute="top" secondItem="Vaf-XL-dUF" secondAttribute="top" constant="10" id="eof-ft-h0o"/>
                             <constraint firstItem="J95-kU-mfc" firstAttribute="leading" secondItem="Vaf-XL-dUF" secondAttribute="leading" constant="30" id="g8o-F1-EKK"/>
                             <constraint firstItem="z8Q-pm-ulo" firstAttribute="centerX" secondItem="mD9-b6-LiL" secondAttribute="centerX" id="iW7-mK-6eC"/>
                             <constraint firstItem="w59-2z-ys4" firstAttribute="centerY" secondItem="J95-kU-mfc" secondAttribute="centerY" id="kXg-V1-CSt"/>
+                            <constraint firstItem="J95-kU-mfc" firstAttribute="top" secondItem="Vaf-XL-dUF" secondAttribute="top" constant="20" id="lc9-C1-QmX"/>
                             <constraint firstItem="yMx-Xc-Nz1" firstAttribute="centerX" secondItem="mD9-b6-LiL" secondAttribute="centerX" id="mQQ-aW-94L"/>
                             <constraint firstItem="5QH-gW-zQn" firstAttribute="centerY" secondItem="yMx-Xc-Nz1" secondAttribute="centerY" id="oT6-Wc-HH1"/>
                         </constraints>
@@ -236,7 +236,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3TD-EA-kYA">
-                                                    <rect key="frame" x="95" y="24.5" width="44" height="21.5"/>
+                                                    <rect key="frame" x="95" y="25" width="44" height="21"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
                                                     <color key="textColor" red="0.39607843139999999" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -338,6 +338,7 @@
     <resources>
         <image name="act_icon" width="48" height="48"/>
         <image name="camera_emoji_icon" width="46" height="46"/>
+        <image name="challenge_icon" width="38" height="37"/>
         <image name="close_photo_popup_icon" width="21" height="21"/>
         <image name="close_popup_icon" width="25" height="25"/>
         <image name="flash_off_icon" width="38" height="37"/>

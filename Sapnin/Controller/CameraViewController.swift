@@ -63,37 +63,47 @@ class CameraViewController: UIViewController {
         return .lightContent
     }
     
+    func setChallengeType(hasSetChallenge: Bool, challengeButtonTitle: String, hintText: String, challengeHintIcon: UIImage) {
+        
+        if hasSetChallenge == true {
+            // Remove default challenger icon
+            challengeIconButton.setImage(nil, for: .normal)
+        } else {
+            // Use default challenger icon
+        }
+        
+        challengeIconButton.setTitle(challengeButtonTitle, for: .normal)
+        self.hintText.text = hintText
+        self.challengeHintIcon.image = challengeHintIcon
+        
+    }
+    
+    // Change hint and challenge icon
     func setChallenge() {
         switch challengeSelected {
         case "Copy this"?:
             if let icon = UIImage(named: "copy_icon.png") {
-                hintText.text = "Copy this"
-                challengeHintIcon.image = icon
+                self.setChallengeType(hasSetChallenge: true, challengeButtonTitle: "🐱", hintText: "Copy this", challengeHintIcon: icon)
             }
         case "Do this dance"?:
             if let icon = UIImage(named: "dance_icon.png") {
-                hintText.text = "Do this dance"
-                challengeHintIcon.image = icon
+                self.setChallengeType(hasSetChallenge: true, challengeButtonTitle: "💃", hintText: "Do this dance", challengeHintIcon: icon)
             }
         case "Sing"?:
             if let icon = UIImage(named: "sing_icon.png") {
-                hintText.text = "Sing"
-                challengeHintIcon.image = icon
+                self.setChallengeType(hasSetChallenge: true, challengeButtonTitle: "🎤", hintText: "Sing", challengeHintIcon: icon)
             }
         case "Drink up"?:
             if let icon = UIImage(named: "drink_icon.png") {
-                hintText.text = "Drink up"
-                challengeHintIcon.image = icon
+                self.setChallengeType(hasSetChallenge: true, challengeButtonTitle: "🍻", hintText: "Drink up", challengeHintIcon: icon)
             }
         case "Draw this"?:
             if let icon = UIImage(named: "sketch_icon.png") {
-                hintText.text = "Draw this"
-                challengeHintIcon.image = icon
+                self.setChallengeType(hasSetChallenge: true, challengeButtonTitle: "🎨", hintText: "Draw this", challengeHintIcon: icon)
             }
         case "Do this act"?:
             if let icon = UIImage(named: "act_icon.png") {
-                hintText.text = "Do this act"
-                challengeHintIcon.image = icon
+                self.setChallengeType(hasSetChallenge: true, challengeButtonTitle: "🎭", hintText: "Do this act", challengeHintIcon: icon)
             }
         default:
             return
