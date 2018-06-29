@@ -55,4 +55,16 @@ class UserApi {
         }
     }
     
+    func checkIfContactExists(number: String, contactExists: @escaping (Bool) -> ()) {
+        let query = DB_REF_USERS.queryOrdered(byChild: "number").queryEqual(toValue: "+44 7822098177")
+        query.observe(.value) { (snapshot) in
+            if snapshot.exists() {
+                print("Number exists")
+            } else {
+                print("No number")
+            }
+        }
+        print(query)
+    }
+    
 }

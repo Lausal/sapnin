@@ -96,7 +96,7 @@ class CreateChannel2ViewController: UIViewController {
                 
                 // If given name and phone number is not empty, then add to array
                 if !givenName.isEmpty && !phoneNumber.isEmpty {
-                    let contactToAppend = ContactsModel(contactId: String(contactId), givenName: givenName, familyName: familyName, phoneNumber: phoneNumber)
+                    let contactToAppend = ContactsModel(contactId: String(contactId), givenName: givenName, familyName: familyName, phoneNumber: phoneNumber, isUserRegistered: true)
                     self.contacts.append(contactToAppend)
                 } else {
                     return
@@ -127,7 +127,6 @@ class CreateChannel2ViewController: UIViewController {
     
     func sortContactsList() {
         // Get the first letter of every contact, remove duplicates and then sort alphabetically
-        
         let firstLetters = contacts.map { $0.titleFirstLetter }
         let uniqueFirstLetters = Array(Set(firstLetters))
         sortedFirstLetters = uniqueFirstLetters.sorted()
@@ -191,7 +190,6 @@ extension CreateChannel2ViewController: UITableViewDelegate, UITableViewDataSour
             let contactToDisplay = filteredData[indexPath.row]
             cell.nameLabel.text = contactToDisplay.givenName + " " + contactToDisplay.familyName
             
-            // Optimise this, maybe do it at the start when pulling contacts
             let phoneNumber = convertNumber(number: contactToDisplay.phoneNumber!)
             cell.numberLabel.text = phoneNumber
             //cell.numberLabel.text = contactToDisplay.phoneNumber
@@ -207,7 +205,6 @@ extension CreateChannel2ViewController: UITableViewDelegate, UITableViewDataSour
             let contactToDisplay = sortedSections[indexPath.section][indexPath.row]
             cell.nameLabel.text = contactToDisplay.givenName + " " + contactToDisplay.familyName
             
-            // Optimise this, maybe do it at the start when pulling contacts
             let phoneNumber = convertNumber(number: contactToDisplay.phoneNumber!)
             cell.numberLabel.text = phoneNumber
             //cell.numberLabel.text = contactToDisplay.phoneNumber
