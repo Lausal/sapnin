@@ -134,7 +134,8 @@ extension ChannelViewController: UITableViewDelegate, UITableViewDataSource {
     // When delete is pressed, show alert popup for final confirmation before deleting
     func deleteButton_TouchUpInside(at indexPath: IndexPath) -> UIContextualAction {
         let action = UIContextualAction(style: .normal, title: "Delete") { (action, view, completion) in
-            let alert = UIAlertController(title: "Delete channel", message: "Are you sure you want to delete", preferredStyle: .alert)
+            guard let channelName = self.channels[indexPath.row].channelName else { return }
+            let alert = UIAlertController(title: "Delete channel", message: "Are you sure you want to delete " + channelName, preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             
