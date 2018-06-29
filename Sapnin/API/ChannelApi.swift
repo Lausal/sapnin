@@ -51,5 +51,6 @@ class ChannelApi {
     
     func deleteChannel(channelId: String, onSuccess: @escaping () -> Void) {
         DB_REF_CHANNELS.child(channelId).removeValue()
+        onSuccess()
     }
 }
