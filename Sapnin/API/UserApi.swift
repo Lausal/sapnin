@@ -43,8 +43,16 @@ class UserApi {
         })
     }
     
-    func observeUser(completion: @escaping (UserModel) -> Void) {
-        
+    func checkIfUserExists(userId: String, userExists: @escaping (Bool) -> ()) {
+        DB_REF_USERS.observeSingleEvent(of: .value) { (snapshot) in
+            if snapshot.hasChild(userId) {
+                print("User exists")
+                userExists(true)
+            } else {
+                print("New user")
+                userExists(false)
+            }
+        }
     }
     
 }

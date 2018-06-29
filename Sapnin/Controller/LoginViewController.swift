@@ -37,7 +37,7 @@ class LoginViewController: UIViewController {
         
         // If the user has not logged out, then automatically switch to the Home View Controller
         if Api.user.CURRENT_USER != nil {
-            self.performSegue(withIdentifier: "cameraVC", sender: nil)
+            //self.performSegue(withIdentifier: "cameraVC", sender: nil)
         }
     }
     
@@ -76,8 +76,17 @@ class LoginViewController: UIViewController {
                 print (error)
                 return
             } else {
+                // Check if user already exists, Firebase uses the same ID for authenticated user when signing in. If they do then no need to fetch Facebook details and just go directly to channels view
+                guard let userId = user?.uid else { return }
+                Api.user.checkIfUserExists(userId: userId, userExists: { (userExists) in
+                    if userExists == true {
+                        SVProgressHUD.dismiss()
+                        self.performSegue(withIdentifier: "channelVC", sender: nil)
+                    } else {
+                        self.fetchFacebookUserDetails()
+                    }
+                })
                 print ("Login success to Firebase")
-                self.fetchFacebookUserDetails()
             }
         }
     }
@@ -164,8 +173,6 @@ class LoginViewController: UIViewController {
                 print("Successfully saved user into Firebase database")
                 
                 SVProgressHUD.dismiss()
-                
-                // Navigate to MobileNumberViewController
                 self.performSegue(withIdentifier: "mobileNumberVC", sender: nil)
             })
         }

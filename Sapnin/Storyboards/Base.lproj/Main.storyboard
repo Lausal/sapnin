@@ -76,6 +76,7 @@
                     <connections>
                         <segue destination="k9B-yu-FN3" kind="show" identifier="mobileNumberVC" action="showDetailViewController:sender:" id="dmj-nD-Qij"/>
                         <segue destination="F7P-6l-sQs" kind="show" identifier="cameraVC" id="XHQ-eD-421"/>
+                        <segue destination="FeT-W5-6DF" kind="show" identifier="channelVC" id="DiZ-8I-Vxi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -89,6 +90,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yTy-Qu-99L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1705" y="-198"/>
+        </scene>
+        <!--NavChannelViewController-->
+        <scene sceneID="xmC-Md-EKw">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Channel" referencedIdentifier="NavChannelViewController" id="FeT-W5-6DF" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fLD-B3-icy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1711" y="-87"/>
         </scene>
         <!--Channel View Controller-->
         <scene sceneID="8T4-WV-pQo">
