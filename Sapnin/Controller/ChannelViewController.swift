@@ -127,15 +127,27 @@ extension ChannelViewController: UITableViewDelegate, UITableViewDataSource {
             // Function here
             completion(true)
         }
-        action.backgroundColor = UIColor.gray
+        action.backgroundColor = ColourPalette.LIGHT_GREY
         return action
     }
     
+    // When delete is pressed, show alert popup for final confirmation before deleting
     func deleteButton_TouchUpInside(at indexPath: IndexPath) -> UIContextualAction {
-        let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completion) in
-            self.channels.remove(at: indexPath.row)
-            self.tableView.deleteRows(at: [indexPath], with: .automatic)
-            completion(true)
+        let action = UIContextualAction(style: .normal, title: "Delete") { (action, view, completion) in
+            let alert = UIAlertController(title: "Delete channel", message: "Are you sure you want to delete", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            
+            alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
+                guard let channelId = self.channels[indexPath.row].channelId else { return }
+                Api.channel.deleteChannel(channelId: channelId, onSuccess: {
+                    self.channels.remove(at: indexPath.row)
+                    self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                    completion(true) // This collapses the slide out menu
+                })
+            }))
+            
+            self.present(alert, animated: true)
         }
         // action.image =
         action.backgroundColor = UIColor.red

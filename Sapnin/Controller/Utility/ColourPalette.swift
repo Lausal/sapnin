@@ -13,5 +13,6 @@ class ColourPalette {
     
     static var PINK = UIColor(red:1.00, green:0.18, blue:0.53, alpha:1.0)
     static var GREY = UIColor(red:0.40, green:0.40, blue:0.40, alpha:1.0)
+    static var LIGHT_GREY = UIColor(red:0.85, green:0.85, blue:0.85, alpha:1.0)
     
 }
