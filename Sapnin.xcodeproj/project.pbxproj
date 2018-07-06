@@ -32,6 +32,7 @@
 		525D90E320AD004900095036 /* CountryCodes.json in Resources */ = {isa = PBXBuildFile; fileRef = 525D90E220AD004900095036 /* CountryCodes.json */; };
 		5271340A20D9A0020036EA36 /* BrandColours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5271340920D9A0020036EA36 /* BrandColours.swift */; };
 		5271340F20DC19180036EA36 /* ChannelDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5271340D20DC19180036EA36 /* ChannelDetailCollectionViewCell.swift */; };
+		527B8BB620EFD870002FC18A /* InviteParticipantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527B8BB520EFD870002FC18A /* InviteParticipantTableViewCell.swift */; };
 		527EA01E207EBF5D00EA2F18 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527EA01D207EBF5D00EA2F18 /* CameraViewController.swift */; };
 		527F614E20D0876700DDA988 /* UserChannelApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F614D20D0876700DDA988 /* UserChannelApi.swift */; };
 		5296A329208523D400A5F2A8 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5296A328208523D400A5F2A8 /* UIView.swift */; };
@@ -82,6 +83,7 @@
 		525D90E220AD004900095036 /* CountryCodes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CountryCodes.json; sourceTree = "<group>"; };
 		5271340920D9A0020036EA36 /* BrandColours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandColours.swift; sourceTree = "<group>"; };
 		5271340D20DC19180036EA36 /* ChannelDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelDetailCollectionViewCell.swift; sourceTree = "<group>"; };
+		527B8BB520EFD870002FC18A /* InviteParticipantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteParticipantTableViewCell.swift; sourceTree = "<group>"; };
 		527EA01D207EBF5D00EA2F18 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		527F614D20D0876700DDA988 /* UserChannelApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChannelApi.swift; sourceTree = "<group>"; };
 		5296A328208523D400A5F2A8 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				52C0B091209395A2009B8206 /* AddParticipantsTableViewCell.swift */,
+				527B8BB520EFD870002FC18A /* InviteParticipantTableViewCell.swift */,
 				525D90DE20A88C9800095036 /* ChallengeTableViewCell.swift */,
 				5225F9AE20B2390100D95B8A /* ChannelTableViewCell.swift */,
 				5271340D20DC19180036EA36 /* ChannelDetailCollectionViewCell.swift */,
@@ -427,6 +430,7 @@
 				52411EE82067236F00B3E78E /* AppDelegate.swift in Sources */,
 				52C0B092209395A2009B8206 /* AddParticipantsTableViewCell.swift in Sources */,
 				521821F420AF9E9A009F8FD5 /* LeaderboardViewController.swift in Sources */,
+				527B8BB620EFD870002FC18A /* InviteParticipantTableViewCell.swift in Sources */,
 				529CB4FA20742328003DE1CE /* SettingsViewController.swift in Sources */,
 				5271340F20DC19180036EA36 /* ChannelDetailCollectionViewCell.swift in Sources */,
 				529D15F42078D1E30085115B /* UserModel.swift in Sources */,
