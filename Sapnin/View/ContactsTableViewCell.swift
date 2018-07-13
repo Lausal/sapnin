@@ -8,6 +8,11 @@
 
 import UIKit
 
+// Use protocol to pass the action back to tableviewcontroller (CreateChannel2ViewController)
+protocol ContactsTableViewCellDelegate {
+    func inviteContact()
+}
+
 class ContactsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
@@ -15,14 +20,15 @@ class ContactsTableViewCell: UITableViewCell {
     @IBOutlet weak var tickIcon: UIImageView!
     @IBOutlet weak var inviteButton: UIButton!
     
+    var delegate: ContactsTableViewCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
     
     @IBAction func inviteButton_TouchUpInside(_ sender: Any) {
-        print("pressed")
+        self.delegate?.inviteContact()
     }
-    
 
 }

@@ -150,7 +150,21 @@ class CreateChannel2ViewController: UIViewController {
         // Reload tableview to get the index on right hand side to show
         tableView.reloadData()
     }
-    
+}
+
+extension CreateChannel2ViewController: ContactsTableViewCellDelegate {
+    func inviteContact() {
+        // Text to share
+        let text = "Download Sapnin now lorem ipsum dolor sit amet"
+        
+        // UIActivityViewController is the iOS sharing pop up functionality
+        let textToShare = [text]
+        let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+        
+        // Present the view controller
+        self.present(activityViewController, animated: true, completion: nil)
+    }
 }
 
 extension CreateChannel2ViewController: UITableViewDelegate, UITableViewDataSource {
@@ -195,9 +209,6 @@ extension CreateChannel2ViewController: UITableViewDelegate, UITableViewDataSour
         let contactToDisplay = sortedSections[indexPath.section][indexPath.row]
         let isUserRegistered = contactToDisplay.isUserRegistered
         
-        //print("name \(contactToDisplay.givenName)")
-        //print("status \(isUserRegistered)")
-        
         var cellIdentifier = ""
         
         if (isUserRegistered == true) {
@@ -207,6 +218,7 @@ extension CreateChannel2ViewController: UITableViewDelegate, UITableViewDataSour
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! ContactsTableViewCell
+        cell.delegate = self
         
         if isSearching {
             let contactToDisplay = filteredData[indexPath.row]
