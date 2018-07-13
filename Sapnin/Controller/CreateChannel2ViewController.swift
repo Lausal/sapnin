@@ -239,46 +239,53 @@ extension CreateChannel2ViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        // Enable done button
-        doneButton.isEnabled = true
-        
-        // Show tick icon on select, up to a maximum of 4 participants
-        if participantCount <= 3 {
-            let cell: ContactsTableViewCell = tableView.cellForRow(at: indexPath)! as! ContactsTableViewCell
+        // Tag "2" represents the "addParticipantsCell" identifier - only perform below action for corresponding cell
+        let cell: ContactsTableViewCell = tableView.cellForRow(at: indexPath)! as! ContactsTableViewCell
+        if cell.tag == 2 {
+            // Enable done button
+            doneButton.isEnabled = true
             
-            cell.tickIcon.isHidden = false
-            
-            // Store the ID of contact that was selected so we can use it on "cellForRowAt" to maintain the tick icon position upon search
-            let selectedContact = sortedSections[indexPath.section][indexPath.row]
-            selectedContactId.append(selectedContact.contactId)
-            
-            // Add 1 to participant count
-            participantCount += 1
-            participantCountLabel.text = String(describing: participantCount) + " / 4"
-        }
+            // Show tick icon on select, up to a maximum of 4 participants
+            if participantCount <= 3 {
+                let cell: ContactsTableViewCell = tableView.cellForRow(at: indexPath)! as! ContactsTableViewCell
+                
+                cell.tickIcon.isHidden = false
+                
+                // Store the ID of contact that was selected so we can use it on "cellForRowAt" to maintain the tick icon position upon search
+                let selectedContact = sortedSections[indexPath.section][indexPath.row]
+                selectedContactId.append(selectedContact.contactId)
+                
+                // Add 1 to participant count
+                participantCount += 1
+                participantCountLabel.text = String(describing: participantCount) + " / 4"
+            }
 
+        }
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        
+        // Tag "2" represents the "addParticipantsCell" identifier - only perform below action for corresponding cell
         let cell: ContactsTableViewCell = tableView.cellForRow(at: indexPath)! as! ContactsTableViewCell
-        
-        cell.tickIcon.isHidden = true
-        let selectedContact = sortedSections[indexPath.section][indexPath.row]
-        
-        // Remove ID from selectedContactId when deselect
-        for (index, contactId) in selectedContactId.enumerated() {
-            if selectedContact.contactId == contactId {
-                selectedContactId.remove(at: index)
+        if cell.tag == 2 {
+            cell.tickIcon.isHidden = true
+            let selectedContact = sortedSections[indexPath.section][indexPath.row]
+            
+            // Remove ID from selectedContactId when deselect
+            for (index, contactId) in selectedContactId.enumerated() {
+                if selectedContact.contactId == contactId {
+                    selectedContactId.remove(at: index)
+                }
             }
-        }
-        
-        // Deduct 1 to participant count
-        participantCount -= 1
-        participantCountLabel.text = String(describing: participantCount) + " / 4"
-        
-        // If no participants are selected, then disable done button
-        if participantCount == 0 {
-            doneButton.isEnabled = false
+            
+            // Deduct 1 to participant count
+            participantCount -= 1
+            participantCountLabel.text = String(describing: participantCount) + " / 4"
+            
+            // If no participants are selected, then disable done button
+            if participantCount == 0 {
+                doneButton.isEnabled = false
+            }
         }
     }
 }

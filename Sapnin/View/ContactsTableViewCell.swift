@@ -19,5 +19,10 @@ class ContactsTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    @IBAction func inviteButton_TouchUpInside(_ sender: Any) {
+        print("pressed")
+    }
+    
 
 }
