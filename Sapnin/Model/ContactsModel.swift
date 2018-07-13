@@ -10,13 +10,13 @@ import Foundation
 
 class ContactsModel {
     
-    let contactId: String
+    let contactId: String?
     let givenName: String
     var familyName: String
     let phoneNumber: String?
     var isUserRegistered: Bool
     
-    init(contactId: String, givenName: String, familyName: String, phoneNumber: String, isUserRegistered: Bool) {
+    init(contactId: String?, givenName: String, familyName: String, phoneNumber: String, isUserRegistered: Bool) {
         self.contactId = contactId
         self.givenName = givenName
         self.familyName = familyName

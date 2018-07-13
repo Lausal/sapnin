@@ -56,15 +56,22 @@ class UserApi {
     }
     
     // Checks if the number input exists in the "number" attribute
-    func checkIfContactExists(number: String, contactExists: @escaping (Bool) -> ()) {
+    func checkIfContactExists(number: String, contactExists: @escaping (Bool, String?) -> ()) {
         let query = DB_REF_USERS.queryOrdered(byChild: "number").queryEqual(toValue: number)
+
         query.observe(.value) { (snapshot) in
             if snapshot.exists() {
-                print("EXISTS")
-                //print("KEY: \(snapshot.key)")
-                contactExists(true)
+                
+                snapshot.children.forEach({ (s) in
+                    let child = s as! DataSnapshot
+                    if let dict = child.value as? [String: Any] {
+                        let user = UserModel.transformUser(dict: dict, key: snapshot.key)
+                        contactExists(true, child.key)
+                    }
+                })
+                
             } else {
-                contactExists(false)
+                contactExists(false, nil)
             }
         }
     }

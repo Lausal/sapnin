@@ -91,11 +91,11 @@ class SelectParticipantsViewController: UIViewController {
                 let phoneNumber = contact.phoneNumbers.first?.value.stringValue ?? ""
                 
                 // Set isUserRegistered attribute based on if contact exists so we can use this for to identify which cell identifier we need to show
-                Api.user.checkIfContactExists(number: phoneNumber, contactExists: { (contactExists) in
+                Api.user.checkIfContactExists(number: phoneNumber, contactExists: { (contactExists, contactUserId) in
                     if contactExists == true {
                         // If given name and phone number is not empty, then add to array
                         if !givenName.isEmpty && !phoneNumber.isEmpty {
-                            let contactToAppend = ContactsModel(contactId: "1", givenName: givenName, familyName: familyName, phoneNumber: phoneNumber, isUserRegistered: true)
+                            let contactToAppend = ContactsModel(contactId: contactUserId!, givenName: givenName, familyName: familyName, phoneNumber: phoneNumber, isUserRegistered: true)
                             self.contacts.append(contactToAppend)
                         } else {
                             return
@@ -103,7 +103,7 @@ class SelectParticipantsViewController: UIViewController {
                     } else {
                         // If given name and phone number is not empty, then add to array
                         if !givenName.isEmpty && !phoneNumber.isEmpty {
-                            let contactToAppend = ContactsModel(contactId: "1", givenName: givenName, familyName: familyName, phoneNumber: phoneNumber, isUserRegistered: false)
+                            let contactToAppend = ContactsModel(contactId: nil, givenName: givenName, familyName: familyName, phoneNumber: phoneNumber, isUserRegistered: false)
                             self.contacts.append(contactToAppend)
                         } else {
                             return
@@ -263,7 +263,7 @@ extension SelectParticipantsViewController: UITableViewDelegate, UITableViewData
                 
                 // Store the ID of contact that was selected so we can use it on "cellForRowAt" to maintain the tick icon position upon search
                 let selectedContact = sortedSections[indexPath.section][indexPath.row]
-                selectedContactId.append(selectedContact.contactId)
+                selectedContactId.append(selectedContact.contactId!)
                 
                 // Add 1 to participant count
                 participantCount += 1
