@@ -90,10 +90,9 @@ class SelectParticipantsViewController: UIViewController {
                 // Grab first number, if no number is associated then mark as blank
                 let phoneNumber = contact.phoneNumbers.first?.value.stringValue ?? ""
                 
-                let query = Database.database().reference().child("users").queryOrdered(byChild: "number").queryEqual(toValue: phoneNumber)
-                query.observe(.value) { (snapshot) in
-                    if snapshot.exists() {
-                        //print("EXISTS")
+                // Set isUserRegistered attribute based on if contact exists so we can use this for to identify which cell identifier we need to show
+                Api.user.checkIfContactExists(number: phoneNumber, contactExists: { (contactExists) in
+                    if contactExists == true {
                         // If given name and phone number is not empty, then add to array
                         if !givenName.isEmpty && !phoneNumber.isEmpty {
                             let contactToAppend = ContactsModel(contactId: "1", givenName: givenName, familyName: familyName, phoneNumber: phoneNumber, isUserRegistered: true)
@@ -102,7 +101,6 @@ class SelectParticipantsViewController: UIViewController {
                             return
                         }
                     } else {
-                        //print("EXISTS NO")
                         // If given name and phone number is not empty, then add to array
                         if !givenName.isEmpty && !phoneNumber.isEmpty {
                             let contactToAppend = ContactsModel(contactId: "1", givenName: givenName, familyName: familyName, phoneNumber: phoneNumber, isUserRegistered: false)
@@ -114,7 +112,7 @@ class SelectParticipantsViewController: UIViewController {
                     
                     onSuccess()
                     self.tableView.reloadData()
-                }
+                })
             }
         } catch {
             print(error)
