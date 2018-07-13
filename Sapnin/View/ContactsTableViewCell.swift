@@ -24,7 +24,6 @@ class ContactsTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     @IBAction func inviteButton_TouchUpInside(_ sender: Any) {

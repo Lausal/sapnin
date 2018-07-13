@@ -96,7 +96,7 @@ photos with your friends</string>
         <!--Select participants-->
         <scene sceneID="HEM-V5-DQw">
             <objects>
-                <viewController id="2FQ-Eg-0t0" customClass="CreateChannel2ViewController" customModule="Sapnin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2FQ-Eg-0t0" customClass="SelectParticipantsViewController" customModule="Sapnin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="p9o-HB-8xJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -302,7 +302,7 @@ photos with your friends</string>
         <!--Channel name-->
         <scene sceneID="oIT-z8-7BB">
             <objects>
-                <viewController title="Channel name" id="EFS-Yk-q93" customClass="CreateChannel1ViewController" customModule="Sapnin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Channel name" id="EFS-Yk-q93" customClass="ChannelNameViewController" customModule="Sapnin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qNr-7R-kYc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateChannel1ViewController: UIViewController {
+class ChannelNameViewController: UIViewController {
     
     @IBOutlet weak var channelNameField: UITextField!
     @IBOutlet weak var nextButton: UIBarButtonItem!
@@ -51,7 +51,7 @@ class CreateChannel1ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Send channel name to CreateChannel2ViewController
         if segue.identifier == "createChannel2VC" {
-            let createChannel2VC = segue.destination as! CreateChannel2ViewController
+            let createChannel2VC = segue.destination as! SelectParticipantsViewController
             createChannel2VC.channelName = channelNameField.text
         }
     }

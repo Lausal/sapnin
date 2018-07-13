@@ -13,7 +13,7 @@ import FirebaseDatabase
 import FirebaseAuth
 import PhoneNumberKit
 
-class CreateChannel2ViewController: UIViewController {
+class SelectParticipantsViewController: UIViewController {
     
     @IBOutlet weak var doneButton: UIBarButtonItem!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -152,7 +152,7 @@ class CreateChannel2ViewController: UIViewController {
     }
 }
 
-extension CreateChannel2ViewController: ContactsTableViewCellDelegate {
+extension SelectParticipantsViewController: ContactsTableViewCellDelegate {
     func inviteContact() {
         // Text to share
         let text = "Download Sapnin now lorem ipsum dolor sit amet"
@@ -167,7 +167,7 @@ extension CreateChannel2ViewController: ContactsTableViewCellDelegate {
     }
 }
 
-extension CreateChannel2ViewController: UITableViewDelegate, UITableViewDataSource {
+extension SelectParticipantsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
@@ -302,7 +302,7 @@ extension CreateChannel2ViewController: UITableViewDelegate, UITableViewDataSour
     }
 }
 
-extension CreateChannel2ViewController: UISearchBarDelegate {
+extension SelectParticipantsViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
