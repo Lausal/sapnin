@@ -60,6 +60,8 @@ class UserApi {
         let query = DB_REF_USERS.queryOrdered(byChild: "number").queryEqual(toValue: number)
         query.observe(.value) { (snapshot) in
             if snapshot.exists() {
+                print("EXISTS")
+                //print("KEY: \(snapshot.key)")
                 contactExists(true)
             } else {
                 contactExists(false)

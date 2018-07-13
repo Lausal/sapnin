@@ -93,7 +93,7 @@ class SelectParticipantsViewController: UIViewController {
                 let query = Database.database().reference().child("users").queryOrdered(byChild: "number").queryEqual(toValue: phoneNumber)
                 query.observe(.value) { (snapshot) in
                     if snapshot.exists() {
-                        print("EXISTS")
+                        //print("EXISTS")
                         // If given name and phone number is not empty, then add to array
                         if !givenName.isEmpty && !phoneNumber.isEmpty {
                             let contactToAppend = ContactsModel(contactId: "1", givenName: givenName, familyName: familyName, phoneNumber: phoneNumber, isUserRegistered: true)
@@ -102,7 +102,7 @@ class SelectParticipantsViewController: UIViewController {
                             return
                         }
                     } else {
-                        print("EXISTS NO")
+                        //print("EXISTS NO")
                         // If given name and phone number is not empty, then add to array
                         if !givenName.isEmpty && !phoneNumber.isEmpty {
                             let contactToAppend = ContactsModel(contactId: "1", givenName: givenName, familyName: familyName, phoneNumber: phoneNumber, isUserRegistered: false)
