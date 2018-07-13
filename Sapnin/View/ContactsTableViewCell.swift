@@ -8,11 +8,12 @@
 
 import UIKit
 
-class AddParticipantsTableViewCell: UITableViewCell {
+class ContactsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var tickIcon: UIImageView!
+    @IBOutlet weak var inviteButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -61,13 +61,10 @@ class UserApi {
         query.observe(.value) { (snapshot) in
             if snapshot.exists() {
                 contactExists(true)
-                print("Number exists")
             } else {
                 contactExists(false)
-                print("No number")
             }
         }
-        print(query)
     }
     
 }

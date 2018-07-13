@@ -12,9 +12,9 @@ class ContactsModel {
     
     let contactId: String
     let givenName: String
-    let familyName: String
+    var familyName: String
     let phoneNumber: String?
-    let isUserRegistered: Bool
+    var isUserRegistered: Bool
     
     init(contactId: String, givenName: String, familyName: String, phoneNumber: String, isUserRegistered: Bool) {
         self.contactId = contactId

@@ -77,10 +77,6 @@ class CreateChannel2ViewController: UIViewController {
     }
     
     func fetchContacts(onSuccess: @escaping () -> Void) {
-        
-        // Generate an ID for each contact
-        var contactId = 0
-        
         // Key is the type of information we're fetching from contacts
         let key = [CNContactGivenNameKey, CNContactFamilyNameKey, CNContactPhoneNumbersKey] as [CNKeyDescriptor]
         let request = CNContactFetchRequest(keysToFetch: key)
@@ -93,35 +89,36 @@ class CreateChannel2ViewController: UIViewController {
                 
                 // Grab first number, if no number is associated then mark as blank
                 let phoneNumber = contact.phoneNumbers.first?.value.stringValue ?? ""
-                var isUserRegistered: Bool? = false
                 
-                print("number: \(phoneNumber)")
-                
-                
-                Api.user.checkIfContactExists(number: phoneNumber, contactExists: { (contactExists) in
-                    if contactExists == true {
-                        isUserRegistered = true
+                let query = Database.database().reference().child("users").queryOrdered(byChild: "number").queryEqual(toValue: phoneNumber)
+                query.observe(.value) { (snapshot) in
+                    if snapshot.exists() {
+                        print("EXISTS")
+                        // If given name and phone number is not empty, then add to array
+                        if !givenName.isEmpty && !phoneNumber.isEmpty {
+                            let contactToAppend = ContactsModel(contactId: "1", givenName: givenName, familyName: familyName, phoneNumber: phoneNumber, isUserRegistered: true)
+                            self.contacts.append(contactToAppend)
+                        } else {
+                            return
+                        }
                     } else {
-                        isUserRegistered = false
+                        print("EXISTS NO")
+                        // If given name and phone number is not empty, then add to array
+                        if !givenName.isEmpty && !phoneNumber.isEmpty {
+                            let contactToAppend = ContactsModel(contactId: "1", givenName: givenName, familyName: familyName, phoneNumber: phoneNumber, isUserRegistered: false)
+                            self.contacts.append(contactToAppend)
+                        } else {
+                            return
+                        }
                     }
-                })
-                
-                // If given name and phone number is not empty, then add to array
-                if !givenName.isEmpty && !phoneNumber.isEmpty {
-                    let contactToAppend = ContactsModel(contactId: String(contactId), givenName: givenName, familyName: familyName, phoneNumber: phoneNumber, isUserRegistered: isUserRegistered!)
-                    self.contacts.append(contactToAppend)
-                } else {
-                    return
+                    
+                    onSuccess()
+                    self.tableView.reloadData()
                 }
-                
-                contactId += 1
             }
         } catch {
             print(error)
         }
-        
-        tableView.reloadData()
-        onSuccess()
     }
     
     // Converts phone number to it's international format (UK only for now)
@@ -198,21 +195,22 @@ extension CreateChannel2ViewController: UITableViewDelegate, UITableViewDataSour
         let contactToDisplay = sortedSections[indexPath.section][indexPath.row]
         let isUserRegistered = contactToDisplay.isUserRegistered
         
+        //print("name \(contactToDisplay.givenName)")
+        //print("status \(isUserRegistered)")
+        
+        var cellIdentifier = ""
+        
         if (isUserRegistered == true) {
-            
+            cellIdentifier = "addParticipantsCell"
         } else {
-            
+            cellIdentifier = "inviteParticipantsCell"
         }
         
-        
-        var cell = tableView.dequeueReusableCell(withIdentifier: "addParticipantsCell") as! AddParticipantsTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! ContactsTableViewCell
         
         if isSearching {
             let contactToDisplay = filteredData[indexPath.row]
             cell.nameLabel.text = contactToDisplay.givenName + " " + contactToDisplay.familyName
-            
-            //let phoneNumber = convertNumber(number: contactToDisplay.phoneNumber!)
-            //cell.numberLabel.text = phoneNumber
             cell.numberLabel.text = contactToDisplay.phoneNumber
             
             // Display tick if row is already selected (Select contact ID's stored in "selectedContactId" array, otherwise don't display tick
@@ -224,22 +222,8 @@ extension CreateChannel2ViewController: UITableViewDelegate, UITableViewDataSour
             
         } else {
             let contactToDisplay = sortedSections[indexPath.section][indexPath.row]
-            
-            let isUserRegistered = contactToDisplay.isUserRegistered
-            if (isUserRegistered == true) {
-                cell = tableView.dequeueReusableCell(withIdentifier: "inviteParticipantsCell") as! InviteParticipantTableViewCell
-            } else {
-                cell = tableView.dequeueReusableCell(withIdentifier: "addParticipantsCell") as! AddParticipantsTableViewCell
-                //cell.tickIcon.isHidden = true
-                cell.nameLabel.text = contactToDisplay.givenName + " " + contactToDisplay.familyName
-                cell.numberLabel.text = contactToDisplay.phoneNumber
-            }
-            
-            
-            
-            //let phoneNumber = convertNumber(number: contactToDisplay.phoneNumber!)
-            //cell.numberLabel.text = phoneNumber
-            
+            cell.nameLabel.text = contactToDisplay.givenName + " " + contactToDisplay.familyName
+            cell.numberLabel.text = contactToDisplay.phoneNumber
             
             for contactId in selectedContactId {
                 if contactToDisplay.contactId == contactId {
@@ -260,7 +244,7 @@ extension CreateChannel2ViewController: UITableViewDelegate, UITableViewDataSour
         
         // Show tick icon on select, up to a maximum of 4 participants
         if participantCount <= 3 {
-            let cell: AddParticipantsTableViewCell = tableView.cellForRow(at: indexPath)! as! AddParticipantsTableViewCell
+            let cell: ContactsTableViewCell = tableView.cellForRow(at: indexPath)! as! ContactsTableViewCell
             
             cell.tickIcon.isHidden = false
             
@@ -276,7 +260,7 @@ extension CreateChannel2ViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        let cell: AddParticipantsTableViewCell = tableView.cellForRow(at: indexPath)! as! AddParticipantsTableViewCell
+        let cell: ContactsTableViewCell = tableView.cellForRow(at: indexPath)! as! ContactsTableViewCell
         
         cell.tickIcon.isHidden = true
         let selectedContact = sortedSections[indexPath.section][indexPath.row]
