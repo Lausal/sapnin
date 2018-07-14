@@ -57,7 +57,13 @@ class SelectParticipantsViewController: UIViewController {
     @IBAction func doneButton_TouchUpInside(_ sender: Any) {
         SVProgressHUD.show(withStatus: "Loading...")
         
-        Api.channel.createChannel(channelName: channelName!) {
+        // For Firebase purposes, we set each array as [ID: true] format
+        var newSelectedContactId = [String: Bool]()
+        for id in selectedContactId {
+            newSelectedContactId[id] = true
+        }
+        
+        Api.channel.createChannel(channelName: channelName!, users: newSelectedContactId) {
             SVProgressHUD.dismiss()
             self.performSegue(withIdentifier: "channelsVC", sender: nil)
         }

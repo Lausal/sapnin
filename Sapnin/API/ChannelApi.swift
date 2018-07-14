@@ -15,7 +15,7 @@ class ChannelApi {
     
     var DB_REF_CHANNELS = Database.database().reference().child("channels")
     
-    func createChannel(channelName: String, onSuccess: @escaping () -> Void) {
+    func createChannel(channelName: String, users: [String: Bool], onSuccess: @escaping () -> Void) {
         let newChannelId = DB_REF_CHANNELS.childByAutoId().key
         let newChannelRef = DB_REF_CHANNELS.child(newChannelId)
         
@@ -24,7 +24,7 @@ class ChannelApi {
         }
         let currentUserId = currentUser.uid
         
-        let users = ["1": true, "2": true, "3": true]
+        //let users = ["1": true, "2": true, "3": true]
         let channelData = ["ownerId": currentUserId, "channelName": channelName, "users": users] as [String : Any]
         
         newChannelRef.setValue(channelData) { (error, ref) in
