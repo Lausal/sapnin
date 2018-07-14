@@ -9,18 +9,18 @@
 import UIKit
 
 // Use protocol to pass the action back to tableviewcontroller (CreateChannel2ViewController)
-protocol ContactsTableViewCellDelegate {
+protocol SelectParticipantsTableViewCellDelegate {
     func inviteContact()
 }
 
-class ContactsTableViewCell: UITableViewCell {
+class SelectParticipantsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var tickIcon: UIImageView!
     @IBOutlet weak var inviteButton: UIButton!
     
-    var delegate: ContactsTableViewCellDelegate?
+    var delegate: SelectParticipantsTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -48,7 +48,7 @@
 		52B88689208381E80066D116 /* ButtonSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B88688208381E80066D116 /* ButtonSettings.swift */; };
 		52BE7498208E54E1005414B5 /* SelectParticipantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BE7497208E54E1005414B5 /* SelectParticipantsViewController.swift */; };
 		52BE749C208FAC83005414B5 /* ContactsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BE749B208FAC83005414B5 /* ContactsModel.swift */; };
-		52C0B092209395A2009B8206 /* ContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0B091209395A2009B8206 /* ContactsTableViewCell.swift */; };
+		52C0B092209395A2009B8206 /* SelectParticipantsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0B091209395A2009B8206 /* SelectParticipantsTableViewCell.swift */; };
 		52C7B336209CF6520060F222 /* ColourPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C7B335209CF6520060F222 /* ColourPalette.swift */; };
 		52D5D11520BA2BBE00965A17 /* BorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D5D11420BA2BBE00965A17 /* BorderView.swift */; };
 		52D5D11720BA358A00965A17 /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52D5D11620BA358A00965A17 /* Camera.storyboard */; };
@@ -101,7 +101,7 @@
 		52B88688208381E80066D116 /* ButtonSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSettings.swift; sourceTree = "<group>"; };
 		52BE7497208E54E1005414B5 /* SelectParticipantsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectParticipantsViewController.swift; sourceTree = "<group>"; };
 		52BE749B208FAC83005414B5 /* ContactsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsModel.swift; sourceTree = "<group>"; };
-		52C0B091209395A2009B8206 /* ContactsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewCell.swift; sourceTree = "<group>"; };
+		52C0B091209395A2009B8206 /* SelectParticipantsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectParticipantsTableViewCell.swift; sourceTree = "<group>"; };
 		52C7B335209CF6520060F222 /* ColourPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourPalette.swift; sourceTree = "<group>"; };
 		52D5D11420BA2BBE00965A17 /* BorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderView.swift; sourceTree = "<group>"; };
 		52D5D11620BA358A00965A17 /* Camera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
@@ -185,7 +185,7 @@
 		52411EFD206BEE8B00B3E78E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				52C0B091209395A2009B8206 /* ContactsTableViewCell.swift */,
+				52C0B091209395A2009B8206 /* SelectParticipantsTableViewCell.swift */,
 				525D90DE20A88C9800095036 /* ChallengeTableViewCell.swift */,
 				5225F9AE20B2390100D95B8A /* ChannelTableViewCell.swift */,
 				5271340D20DC19180036EA36 /* ChannelDetailCollectionViewCell.swift */,
@@ -425,7 +425,7 @@
 				5296A329208523D400A5F2A8 /* UIView.swift in Sources */,
 				52411EEA2067236F00B3E78E /* LoginViewController.swift in Sources */,
 				52411EE82067236F00B3E78E /* AppDelegate.swift in Sources */,
-				52C0B092209395A2009B8206 /* ContactsTableViewCell.swift in Sources */,
+				52C0B092209395A2009B8206 /* SelectParticipantsTableViewCell.swift in Sources */,
 				521821F420AF9E9A009F8FD5 /* LeaderboardViewController.swift in Sources */,
 				529CB4FA20742328003DE1CE /* SettingsViewController.swift in Sources */,
 				5271340F20DC19180036EA36 /* ChannelDetailCollectionViewCell.swift in Sources */,

@@ -150,7 +150,7 @@ class SelectParticipantsViewController: UIViewController {
     }
 }
 
-extension SelectParticipantsViewController: ContactsTableViewCellDelegate {
+extension SelectParticipantsViewController: SelectParticipantsTableViewCellDelegate {
     func inviteContact() {
         // Text to share
         let text = "Download Sapnin now lorem ipsum dolor sit amet"
@@ -215,7 +215,7 @@ extension SelectParticipantsViewController: UITableViewDelegate, UITableViewData
             cellIdentifier = "inviteParticipantsCell"
         }
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! ContactsTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! SelectParticipantsTableViewCell
         cell.delegate = self
         
         if isSearching {
@@ -250,14 +250,14 @@ extension SelectParticipantsViewController: UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         // Tag "2" represents the "addParticipantsCell" identifier - only perform below action for corresponding cell
-        let cell: ContactsTableViewCell = tableView.cellForRow(at: indexPath)! as! ContactsTableViewCell
+        let cell: SelectParticipantsTableViewCell = tableView.cellForRow(at: indexPath)! as! SelectParticipantsTableViewCell
         if cell.tag == 2 {
             // Enable done button
             doneButton.isEnabled = true
             
             // Show tick icon on select, up to a maximum of 4 participants
             if participantCount <= 3 {
-                let cell: ContactsTableViewCell = tableView.cellForRow(at: indexPath)! as! ContactsTableViewCell
+                let cell: SelectParticipantsTableViewCell = tableView.cellForRow(at: indexPath)! as! SelectParticipantsTableViewCell
                 
                 cell.tickIcon.isHidden = false
                 
@@ -276,7 +276,7 @@ extension SelectParticipantsViewController: UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         
         // Tag "2" represents the "addParticipantsCell" identifier - only perform below action for corresponding cell
-        let cell: ContactsTableViewCell = tableView.cellForRow(at: indexPath)! as! ContactsTableViewCell
+        let cell: SelectParticipantsTableViewCell = tableView.cellForRow(at: indexPath)! as! SelectParticipantsTableViewCell
         if cell.tag == 2 {
             cell.tickIcon.isHidden = true
             let selectedContact = sortedSections[indexPath.section][indexPath.row]
