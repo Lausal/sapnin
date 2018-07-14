@@ -38,7 +38,7 @@ class AuthService {
                 let dict = ["profilePictureUrl": profileImageUrl]
                 Api.user.DB_REF_CURRENT_USER?.updateChildValues(dict as Any as! [AnyHashable : Any], withCompletionBlock: { (error, ref) in
                     if error != nil {
-                        onError(error!.localizedDescription)
+                            onError(error!.localizedDescription)
                     } else {
                         onSuccess()
                     }
