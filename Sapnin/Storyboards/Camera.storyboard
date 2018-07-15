@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HKG-RC-qFY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xGZ-Sb-C87">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -212,7 +212,7 @@
         <!--Add a challenge-->
         <scene sceneID="d9t-lE-LQd">
             <objects>
-                <viewController id="5eI-0b-dbw" customClass="ChallengeViewController" customModule="Sapnin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChallengeSB" id="5eI-0b-dbw" customClass="ChallengeViewController" customModule="Sapnin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2dF-0A-NrU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -295,6 +295,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O6q-25-e5X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2842" y="844"/>
+        </scene>
+        <!--Swipe View Controller-->
+        <scene sceneID="MwF-Ha-SBN">
+            <objects>
+                <viewController id="xGZ-Sb-C87" customClass="SwipeViewController" customModule="Sapnin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="q3J-Ll-onF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xu6-vk-wDW">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="QfU-bl-0az" firstAttribute="trailing" secondItem="Xu6-vk-wDW" secondAttribute="trailing" id="eYA-ZQ-48J"/>
+                            <constraint firstItem="Xu6-vk-wDW" firstAttribute="leading" secondItem="QfU-bl-0az" secondAttribute="leading" id="t8v-Jb-shV"/>
+                            <constraint firstItem="QfU-bl-0az" firstAttribute="bottom" secondItem="Xu6-vk-wDW" secondAttribute="bottom" id="wlH-XO-Wum"/>
+                            <constraint firstItem="Xu6-vk-wDW" firstAttribute="top" secondItem="q3J-Ll-onF" secondAttribute="top" id="xk3-cv-FRZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QfU-bl-0az"/>
+                    </view>
+                    <connections>
+                        <outlet property="scrollView" destination="Xu6-vk-wDW" id="gaZ-6N-fLU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="69T-1f-SvO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3693.5999999999999" y="843.32833583208401"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="v5T-xG-mjF">

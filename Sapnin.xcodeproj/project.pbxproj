@@ -20,6 +20,7 @@
 		5225F9B320B763D600D95B8A /* VoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5225F9B220B763D600D95B8A /* VoteViewController.swift */; };
 		522F0A0D20D418B20072A63E /* ChannelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F0A0C20D418B20072A63E /* ChannelModel.swift */; };
 		52386CF8208AC53E0062C898 /* NoChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52386CF7208AC53E0062C898 /* NoChannelViewController.swift */; };
+		523BCDB920FABC8700318D64 /* SwipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523BCDB820FABC8700318D64 /* SwipeViewController.swift */; };
 		52411EE82067236F00B3E78E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52411EE72067236F00B3E78E /* AppDelegate.swift */; };
 		52411EEA2067236F00B3E78E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52411EE92067236F00B3E78E /* LoginViewController.swift */; };
 		52411EED2067236F00B3E78E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52411EEB2067236F00B3E78E /* Main.storyboard */; };
@@ -68,6 +69,7 @@
 		5225F9B220B763D600D95B8A /* VoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteViewController.swift; sourceTree = "<group>"; };
 		522F0A0C20D418B20072A63E /* ChannelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelModel.swift; sourceTree = "<group>"; };
 		52386CF7208AC53E0062C898 /* NoChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoChannelViewController.swift; sourceTree = "<group>"; };
+		523BCDB820FABC8700318D64 /* SwipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeViewController.swift; sourceTree = "<group>"; };
 		52411EE42067236F00B3E78E /* Sapnin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sapnin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52411EE72067236F00B3E78E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52411EE92067236F00B3E78E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 			children = (
 				52C7B335209CF6520060F222 /* ColourPalette.swift */,
 				52B88688208381E80066D116 /* ButtonSettings.swift */,
+				523BCDB820FABC8700318D64 /* SwipeViewController.swift */,
 				5225F9AC20B2284A00D95B8A /* UIImageViewWithMask.swift */,
 				52D5D11420BA2BBE00965A17 /* BorderView.swift */,
 				5296A328208523D400A5F2A8 /* UIView.swift */,
@@ -446,6 +449,7 @@
 				52C7B336209CF6520060F222 /* ColourPalette.swift in Sources */,
 				529D15F22078D02E0085115B /* AuthService.swift in Sources */,
 				522018932082DF00004AB74F /* PreviewViewController.swift in Sources */,
+				523BCDB920FABC8700318D64 /* SwipeViewController.swift in Sources */,
 				527F614E20D0876700DDA988 /* UserChannelApi.swift in Sources */,
 				525D90DF20A88C9800095036 /* ChallengeTableViewCell.swift in Sources */,
 			);
