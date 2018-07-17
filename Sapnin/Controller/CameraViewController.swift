@@ -64,7 +64,17 @@ class CameraViewController: UIViewController {
     }
     
     @IBAction func backButton_TouchUpInside(_ sender: Any) {
+        // Show camera via transition from right to left
+        let cameraStoryBoard : UIStoryboard = UIStoryboard(name: "Channel", bundle:nil)
+        let cameraViewController = cameraStoryBoard.instantiateViewController(withIdentifier: "NavChannelViewController") as UIViewController
         
+        let transition = CATransition.init()
+        transition.duration = 0
+        transition.type = kCATransitionPush //Transition you want like Push, Reveal
+        transition.subtype = kCATransitionFromRight // Direction like Left to Right, Right to Left
+        transition.timingFunction = CAMediaTimingFunction.init(name: kCAMediaTimingFunctionDefault)
+        view.window!.layer.add(transition, forKey: kCATransition)
+        present(cameraViewController, animated: false, completion: nil)
     }
     
     func setChallengeType(hasSetChallenge: Bool, challengeButtonTitle: String, hintText: String, challengeHintIcon: UIImage) {

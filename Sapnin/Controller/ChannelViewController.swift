@@ -24,8 +24,6 @@ class ChannelViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
         // Adds tap gesture to profile
         self.navigationItem.titleView = profileView
         
@@ -78,7 +76,18 @@ class ChannelViewController: UIViewController {
     }
     
     @IBAction func cameraButton_TouchUpInside(_ sender: Any) {
-        self.performSegue(withIdentifier: "cameraVC", sender: nil)
+        // Show camera via transition from left to right
+        let cameraStoryBoard : UIStoryboard = UIStoryboard(name: "Camera", bundle:nil)
+        let cameraViewController = cameraStoryBoard.instantiateViewController(withIdentifier: "CameraViewController") as UIViewController
+        
+        let transition = CATransition.init()
+        transition.duration = 0
+        transition.type = kCATransitionPush //Transition you want like Push, Reveal
+        transition.subtype = kCATransitionFromLeft // Direction like Left to Right, Right to Left
+        transition.timingFunction = CAMediaTimingFunction.init(name: kCAMediaTimingFunctionDefault)
+        view.window!.layer.add(transition, forKey: kCATransition)
+        present(cameraViewController, animated: false, completion: nil)
+        self.present("cameraVC", animated: true, completion: nil)
     }
 
 }
