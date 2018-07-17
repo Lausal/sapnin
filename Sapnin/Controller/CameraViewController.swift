@@ -63,6 +63,10 @@ class CameraViewController: UIViewController {
         return .lightContent
     }
     
+    @IBAction func backButton_TouchUpInside(_ sender: Any) {
+        
+    }
+    
     func setChallengeType(hasSetChallenge: Bool, challengeButtonTitle: String, hintText: String, challengeHintIcon: UIImage) {
         
         if hasSetChallenge == true {

@@ -54,13 +54,6 @@
                                     <action selector="photoLibraryButton_TouchUpInside:" destination="HKG-RC-qFY" eventType="touchUpInside" id="jUw-5B-1Me"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w59-2z-ys4">
-                                <rect key="frame" x="307" y="42.5" width="38" height="37"/>
-                                <state key="normal" image="flash_off_icon"/>
-                                <connections>
-                                    <action selector="flashButton_TouchUpInside:" destination="HKG-RC-qFY" eventType="touchUpInside" id="f8k-kf-Q3s"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J95-kU-mfc">
                                 <rect key="frame" x="30" y="40" width="38" height="43"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
@@ -91,14 +84,32 @@
                                     <action selector="cameraButton_TouchUpInside:" destination="HKG-RC-qFY" eventType="touchUpInside" id="IOJ-gw-zmc"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ia9-EC-gW1">
+                                <rect key="frame" x="330" y="49.5" width="15" height="24"/>
+                                <color key="tintColor" red="0.072590090334415436" green="0.10404516011476517" blue="0.83790868520736694" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="camera_back_icon">
+                                    <color key="titleColor" red="0.085362337529659271" green="0.23591744899749756" blue="0.38954025506973267" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButton_TouchUpInside:" destination="HKG-RC-qFY" eventType="touchUpInside" id="xtq-XS-Zz7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w59-2z-ys4">
+                                <rect key="frame" x="272" y="43" width="38" height="37"/>
+                                <state key="normal" image="flash_off_icon"/>
+                                <connections>
+                                    <action selector="flashButton_TouchUpInside:" destination="HKG-RC-qFY" eventType="touchUpInside" id="f8k-kf-Q3s"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Vaf-XL-dUF" firstAttribute="trailing" secondItem="pjU-Ry-Yc8" secondAttribute="trailing" constant="30" id="1cl-9m-tq6"/>
                             <constraint firstItem="pjU-Ry-Yc8" firstAttribute="centerY" secondItem="yMx-Xc-Nz1" secondAttribute="centerY" id="2z6-Av-2lu"/>
+                            <constraint firstItem="Vaf-XL-dUF" firstAttribute="trailing" secondItem="ia9-EC-gW1" secondAttribute="trailing" constant="30" id="B95-RW-tVp"/>
+                            <constraint firstItem="ia9-EC-gW1" firstAttribute="leading" secondItem="w59-2z-ys4" secondAttribute="trailing" constant="20" id="Gd5-Tb-YSB"/>
                             <constraint firstItem="5QH-gW-zQn" firstAttribute="leading" secondItem="Vaf-XL-dUF" secondAttribute="leading" constant="30" id="MDO-MV-zSd"/>
-                            <constraint firstItem="Vaf-XL-dUF" firstAttribute="trailing" secondItem="w59-2z-ys4" secondAttribute="trailing" constant="30" id="TI7-mv-bBD"/>
                             <constraint firstItem="Vaf-XL-dUF" firstAttribute="bottom" secondItem="yMx-Xc-Nz1" secondAttribute="bottom" constant="30" id="d4z-9y-fHs"/>
                             <constraint firstItem="z8Q-pm-ulo" firstAttribute="top" secondItem="Vaf-XL-dUF" secondAttribute="top" constant="150" id="ePD-J9-ZAU"/>
                             <constraint firstItem="J95-kU-mfc" firstAttribute="leading" secondItem="Vaf-XL-dUF" secondAttribute="leading" constant="30" id="g8o-F1-EKK"/>
@@ -107,6 +118,7 @@
                             <constraint firstItem="J95-kU-mfc" firstAttribute="top" secondItem="Vaf-XL-dUF" secondAttribute="top" constant="20" id="lc9-C1-QmX"/>
                             <constraint firstItem="yMx-Xc-Nz1" firstAttribute="centerX" secondItem="mD9-b6-LiL" secondAttribute="centerX" id="mQQ-aW-94L"/>
                             <constraint firstItem="5QH-gW-zQn" firstAttribute="centerY" secondItem="yMx-Xc-Nz1" secondAttribute="centerY" id="oT6-Wc-HH1"/>
+                            <constraint firstItem="ia9-EC-gW1" firstAttribute="centerY" secondItem="w59-2z-ys4" secondAttribute="centerY" id="sLO-XK-hbW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Vaf-XL-dUF"/>
                         <connections>
@@ -304,7 +316,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xu6-vk-wDW">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xu6-vk-wDW">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </scrollView>
                         </subviews>
@@ -366,6 +378,7 @@
     </scenes>
     <resources>
         <image name="act_icon" width="48" height="48"/>
+        <image name="camera_back_icon" width="15" height="24"/>
         <image name="camera_emoji_icon" width="46" height="46"/>
         <image name="challenge_icon" width="38" height="37"/>
         <image name="close_photo_popup_icon" width="21" height="21"/>
@@ -375,5 +388,5 @@
         <image name="photo_library_icon" width="38" height="37"/>
         <image name="use_photo_icon" width="20" height="32"/>
     </resources>
-    <color key="tintColor" red="1" green="0.18039215689999999" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+    <color key="tintColor" red="0.38062328100204468" green="0.98569017648696899" blue="0.016741776838898659" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

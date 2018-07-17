@@ -11,30 +11,34 @@ import UIKit
 class SwipeViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let CameraViewController = self.storyboard?.instantiateViewController(withIdentifier: "CameraViewController") as! UIViewController
-        self.addChildViewController(CameraViewController)
-        self.scrollView.addSubview(CameraViewController.view)
-        CameraViewController.didMove(toParentViewController: self)
-        CameraViewController.view.bounds = scrollView.bounds
+        //guard let tableViewRef = ChannelViewController().tableView else {return}
+        //scrollView.touchesShouldCancel(in: tableViewRef)
+        
+        // Reference view controllers that will go into the scrollview
+        let cameraViewController = self.storyboard?.instantiateViewController(withIdentifier: "CameraViewController") as! UIViewController
         
         let channelStoryboard = UIStoryboard(name: "Channel", bundle: nil)
-        let ChannelViewController = channelStoryboard.instantiateViewController(withIdentifier: "NavChannelViewController") as! UIViewController
-        self.addChildViewController(ChannelViewController)
-        self.scrollView.addSubview(ChannelViewController.view)
-        ChannelViewController.didMove(toParentViewController: self)
-        ChannelViewController.view.bounds = scrollView.bounds
+        let channelViewController = channelStoryboard.instantiateViewController(withIdentifier: "NavChannelViewController") as! UIViewController
         
-        var ChannelViewControllerFrame: CGRect = ChannelViewController.view.frame
-        ChannelViewControllerFrame.origin.x = self.view.frame.width
-        ChannelViewController.view.frame = ChannelViewControllerFrame
+        // Now add to the view controller and scrollview, 1st one added will be displayed first
+        self.addChildViewController(cameraViewController)
+        self.scrollView.addSubview(cameraViewController.view)
+        cameraViewController.didMove(toParentViewController: self)
+        
+        self.addChildViewController(channelViewController)
+        self.scrollView.addSubview(channelViewController.view)
+        channelViewController.didMove(toParentViewController: self)
+        
+        // Set frame of view, x origin is off the screen to the right
+        var channelViewControllerFrame: CGRect = channelViewController.view.frame
+        channelViewControllerFrame.origin.x = self.view.frame.width
+        channelViewController.view.frame = channelViewControllerFrame
         
         self.scrollView.contentSize = CGSize(width: (self.view.frame.width) * 2, height: self.view.frame.size.height)
-        //self.scrollView.contentOffset = CGPoint(x: 0, y: 0)
-        
     }
-
-
+    
 }
