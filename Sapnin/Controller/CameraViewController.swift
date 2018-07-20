@@ -284,7 +284,7 @@ class CameraViewController: UIViewController {
         if segue.identifier == "previewVC" {
             let nav = segue.destination as! UINavigationController
             let previewVC = nav.topViewController as! PreviewViewController
-            previewVC.image = self.image
+            previewVC.capturedImage = self.image
         }
     }
     

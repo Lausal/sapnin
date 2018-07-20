@@ -11,7 +11,7 @@ import FirebaseDatabase
 import FirebaseAuth
 import SVProgressHUD
 
-class UserChannel {
+class UserChannelApi {
     
     var DB_REF_USER_CHANNELS = Database.database().reference().child("user_channels")
     
