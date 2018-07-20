@@ -34,4 +34,16 @@ class UserChannel {
         }
     }
     
+    func checkIfUserHasChannel(userId: String, userHasChannels: @escaping (Bool) -> Void) {
+        let query = DB_REF_USER_CHANNELS.child(userId)
+        query.observe(.value) { (snapshot) in
+            print(userId)
+            if snapshot.exists() {
+                userHasChannels(true)
+            } else {
+                userHasChannels(false)
+            }
+        }
+    }
+    
 }

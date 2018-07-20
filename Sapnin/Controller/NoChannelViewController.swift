@@ -12,6 +12,8 @@ class NoChannelViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -19,6 +21,10 @@ class NoChannelViewController: UIViewController {
     }
     
     @IBAction func createChannelButton_TouchUpInside(_ sender: Any) {
-        self.performSegue(withIdentifier: "createChannel1VC", sender: nil)
+        //self.performSegue(withIdentifier: "createChannel1VC", sender: nil)
+        let userId = Api.user.CURRENT_USER?.uid
+        Api.userChannel.checkIfUserHasChannel(userId: userId!) { (userHasChannel) in
+            //
+        }
     }
 }

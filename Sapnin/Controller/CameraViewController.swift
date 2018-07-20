@@ -40,7 +40,6 @@ class CameraViewController: UIViewController {
         setupCaptureSession()
         setupDevice()
         setupInputOutput()
-        setupPreviewLayer()
         startRunningCaptureSession()
     }
     
@@ -89,7 +88,6 @@ class CameraViewController: UIViewController {
         challengeIconButton.setTitle(challengeButtonTitle, for: .normal)
         self.hintText.text = hintText
         self.challengeHintIcon.image = challengeHintIcon
-        
     }
     
     // Change hint and challenge icon
@@ -230,7 +228,13 @@ class CameraViewController: UIViewController {
     }
     
     func startRunningCaptureSession() {
-        captureSession.startRunning()
+        // Run the camera session in background threat whilst preview layer is created in main thread
+        DispatchQueue.global().async {
+            self.captureSession.startRunning()
+            DispatchQueue.main.async {
+                self.setupPreviewLayer()
+            }
+        }
     }
     
     @IBAction func cameraButton_TouchUpInside(_ sender: Any) {

@@ -31,7 +31,15 @@ class PreviewViewController: UIViewController {
     }
     
     @IBAction func usePhotoButton_TouchUpInside(_ sender: Any) {
-        self.performSegue(withIdentifier: "NoChannelVC", sender: nil)
+        // Check to see if we display no channel view or with channel view
+        guard let userId = Api.user.CURRENT_USER?.uid else {return}
+        Api.userChannel.checkIfUserHasChannel(userId: userId) { (userHasChannel) in
+            if userHasChannel == true {
+                self.performSegue(withIdentifier: "ChannelVC", sender: nil)
+            } else {
+                self.performSegue(withIdentifier: "NoChannelVC", sender: nil)
+            }
+        }
     }
 
 }

@@ -87,7 +87,6 @@ class ChannelViewController: UIViewController {
         transition.timingFunction = CAMediaTimingFunction.init(name: kCAMediaTimingFunctionDefault)
         view.window!.layer.add(transition, forKey: kCATransition)
         present(cameraViewController, animated: false, completion: nil)
-        self.present("cameraVC", animated: true, completion: nil)
     }
 
 }
