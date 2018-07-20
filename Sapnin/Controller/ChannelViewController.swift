@@ -20,6 +20,7 @@ class ChannelViewController: UIViewController {
     let userList = ["John, James", "Luke, Alan, Hannah", "Matthew, Rob, Daniel"]
     let timestamp = ["10:14", "20:20", "13:10"]
     var channels = [ChannelModel]()
+    var users = [UserModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,13 +54,25 @@ class ChannelViewController: UIViewController {
     }
     
     func loadChannels() {
-        let userId = Api.user.CURRENT_USER?.uid
-        Api.userChannel.observeUserChannel(userId: userId!) { (channelId) in
+        guard let userId = Api.user.CURRENT_USER?.uid else {return}
+        Api.userChannel.observeUserChannel(userId: userId) { (channelId) in
             // After getting all channel ID from UserChannel table, now get all corresponding channel details
             Api.channel.observeChannels(channelId: channelId, onSuccess: { (channel) in
-                self.channels.append(channel)
+                self.channels.insert(channel, at: 0)
                 self.tableView.reloadData()
+//                print(channel.users?.count)
+//                self.fetchUser(userId: <#T##String#>, onSuccess: {
+//                    self.channels.insert(channel, at: 0)
+//                    self.tableView.reloadData()
+//                })
             })
+        }
+    }
+    
+    func fetchUser(userId: String, onSuccess: @escaping () -> Void) {
+        Api.user.observeUser(userId: userId) { (user) in
+            self.users.insert(user, at: 0)
+            onSuccess()
         }
     }
     
@@ -158,8 +171,8 @@ extension ChannelViewController: UITableViewDelegate, UITableViewDataSource {
             
             self.present(alert, animated: true)
         }
-        // action.image =
-        action.backgroundColor = UIColor.red
+        
+        action.backgroundColor = ColourPalette.PINK
         return action
     }
 }

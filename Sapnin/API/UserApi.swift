@@ -30,7 +30,7 @@ class UserApi {
         }
     }
     
-    func observeCurrentUser(completion: @escaping (UserModel) -> Void) {
+    func observeCurrentUser(onSuccess: @escaping (UserModel) -> Void) {
         guard let currentUser = Auth.auth().currentUser else {
             return
         }
@@ -38,7 +38,16 @@ class UserApi {
         DB_REF_USERS.child(currentUser.uid).observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
             if let dict = snapshot.value as? [String: Any] {
                 let user = UserModel.transformUser(dict: dict, key: snapshot.key)
-                completion(user)
+                onSuccess(user)
+            }
+        })
+    }
+    
+    func observeUser(userId: String, onSuccess: @escaping (UserModel) -> Void) {
+        DB_REF_USERS.child(userId).observeSingleEvent(of: .value, with: { (snapshot) in
+            if let dict = snapshot.value as? [String: Any] {
+                let user = UserModel.transformUser(dict: dict, key: snapshot.key)
+                onSuccess(user)
             }
         })
     }

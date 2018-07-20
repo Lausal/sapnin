@@ -275,7 +275,7 @@ class CameraViewController: UIViewController {
     }
     
     func fadeOutHint() {
-        hint.fadeOut(duration: 4, delay: 0) { (bool) in
+        hint.fadeOut(duration: 2, delay: 0) { (bool) in
             // Do something after fade out
         }
     }
