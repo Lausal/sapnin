@@ -25,6 +25,7 @@ class ChannelViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         // Adds tap gesture to profile
         self.navigationItem.titleView = profileView
         
