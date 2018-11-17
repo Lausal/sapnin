@@ -11,6 +11,9 @@ import UIKit
 class ChannelDetailViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var channelId: String = ""
+    var channelName: String = ""
+    
     let imageArray = [UIImage(named: "david beckham"),UIImage(named: "david beckham"),UIImage(named: "david beckham"),UIImage(named: "david beckham")]
     let dateArray = ["Today", "Yesterday", "Monday", "Sunday"]
     
@@ -24,7 +27,7 @@ class ChannelDetailViewController: UIViewController {
     }
     
     func setupNavigationStyle() {
-        self.title = "Channel Name"
+        self.title = channelName
         self.navigationController?.navigationBar.barTintColor = UIColor.white
         let backButton = UIBarButtonItem()
         backButton.title = "" //in your case it will be empty or you can put the title of your choice

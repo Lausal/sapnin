@@ -17,6 +17,9 @@ class ChannelViewController: UIViewController {
     
     var tapGestureRecognizer: UITapGestureRecognizer!
     
+    var selectedChannelId: String = ""
+    var selectedChannelName: String = ""
+    
     let userList = ["John, James", "Luke, Alan, Hannah", "Matthew, Rob, Daniel"]
     let timestamp = ["10:14", "20:20", "13:10"]
     var channels = [ChannelModel]()
@@ -102,6 +105,14 @@ class ChannelViewController: UIViewController {
         view.window!.layer.add(transition, forKey: kCATransition)
         present(cameraViewController, animated: false, completion: nil)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "ChannelDetailVC") {
+            let viewController = segue.destination as! ChannelDetailViewController
+            viewController.channelId = self.selectedChannelId
+            viewController.channelName = self.selectedChannelName
+        }
+    }
 
 }
 
@@ -133,8 +144,9 @@ extension ChannelViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("selected")
-        //self.performSegue(withIdentifier: "PhotoVC", sender: nil)
+        self.selectedChannelId = self.channels[indexPath.row].channelId!
+        self.selectedChannelName = self.channels[indexPath.row].channelName!
+        
         self.performSegue(withIdentifier: "ChannelDetailVC", sender: nil)
     }
     
