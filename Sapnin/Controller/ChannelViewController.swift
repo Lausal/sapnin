@@ -28,7 +28,6 @@ class ChannelViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         // Adds tap gesture to profile
         self.navigationItem.titleView = profileView
         
@@ -39,6 +38,9 @@ class ChannelViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         // Set navigation bar to pink
         self.navigationController?.navigationBar.barTintColor = BrandColours.PINK
+        
+        // Set navigation status bar to white
+        self.navigationController?.navigationBar.barStyle = .black
         
         // Add gesture recognizer to the navigation bar when the view is about to appear
         tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.profileView_TouchUpInside))
@@ -51,10 +53,7 @@ class ChannelViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         // Remove gesture recognizer from navigation bar when view is about to disappear
         self.navigationController?.navigationBar.removeGestureRecognizer(tapGestureRecognizer)
-    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .default
+        //UIApplication.shared.statusBarStyle = UIStatusBarStyle.default
     }
     
     func loadChannels() {

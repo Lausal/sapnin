@@ -23,12 +23,14 @@ class ChannelDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigationStyle()
+        setupNavigationBar()
     }
     
-    func setupNavigationStyle() {
+    func setupNavigationBar() {
         self.title = channelName
+        // Set navigation bar to white and status bar to black
         self.navigationController?.navigationBar.barTintColor = UIColor.white
+        self.navigationController?.navigationBar.barStyle = .default
         let backButton = UIBarButtonItem()
         backButton.title = "" //in your case it will be empty or you can put the title of your choice
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
@@ -63,4 +65,10 @@ extension ChannelDetailViewController: UICollectionViewDelegateFlowLayout {
         return 20
     }
 }
+
+//extension UINavigationController {
+//    open override var childViewControllerForStatusBarStyle: UIViewController? {
+//        return topViewController
+//    }
+//}
 
