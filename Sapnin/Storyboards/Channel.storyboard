@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="d5s-07-g53">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="d5s-07-g53">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -31,13 +30,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="RlQ-J8-qI0">
-                                <rect key="frame" x="37.5" y="139.5" width="300" height="390"/>
+                                <rect key="frame" x="37.5" y="138.5" width="300" height="390.5"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_channel_icon" translatesAutoresizingMaskIntoConstraints="NO" id="1wo-I3-SYa">
                                         <rect key="frame" x="37" y="0.0" width="226" height="242"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gS7-FJ-K2r">
-                                        <rect key="frame" x="0.0" y="267" width="300" height="48"/>
+                                        <rect key="frame" x="0.0" y="267" width="300" height="48.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="l2n-QG-6ef"/>
                                         </constraints>
@@ -55,7 +54,7 @@ photos with your friends</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LSD-Vm-B7q" customClass="ButtonSettings" customModule="Sapnin" customModuleProvider="target">
-                                        <rect key="frame" x="10" y="340" width="280" height="50"/>
+                                        <rect key="frame" x="10" y="340.5" width="280" height="50"/>
                                         <color key="backgroundColor" red="1" green="0.18039215689999999" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="39X-Yg-XLw"/>
@@ -129,16 +128,16 @@ photos with your friends</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="864-tU-8Mc">
-                                                    <rect key="frame" x="15" y="11.5" width="50.5" height="37"/>
+                                                    <rect key="frame" x="15" y="11.5" width="50" height="37.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5gx-nm-vt8">
-                                                            <rect key="frame" x="0.0" y="0.0" width="50.5" height="21"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="21.5"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nhx-6j-pkC">
-                                                            <rect key="frame" x="0.0" y="26" width="50.5" height="11"/>
+                                                            <rect key="frame" x="0.0" y="26.5" width="50" height="11"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="14"/>
                                                             <color key="textColor" red="0.65059882609999997" green="0.65059882609999997" blue="0.65059882609999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -189,16 +188,16 @@ photos with your friends</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="uzd-cY-fjg">
-                                                    <rect key="frame" x="15" y="11" width="50.5" height="37"/>
+                                                    <rect key="frame" x="15" y="11" width="50" height="37"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKx-XY-6oJ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="50.5" height="21"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="21.5"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uIL-Oc-yfp">
-                                                            <rect key="frame" x="0.0" y="26" width="50.5" height="11"/>
+                                                            <rect key="frame" x="0.0" y="26.5" width="50" height="10.5"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="14"/>
                                                             <color key="textColor" red="0.65059882609999997" green="0.65059882609999997" blue="0.65059882609999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -265,7 +264,7 @@ photos with your friends</string>
                         <outlet property="searchBar" destination="V6n-Em-sd6" id="ad0-FF-NE6"/>
                         <outlet property="searchDisplayController" destination="Iae-AG-PiY" id="CIk-Id-yOF"/>
                         <outlet property="tableView" destination="ZYq-9L-xZb" id="E9D-eF-lwf"/>
-                        <segue destination="d5s-07-g53" kind="showDetail" identifier="channelsVC" action="showViewController:sender:" id="LVv-vi-c6v"/>
+                        <segue destination="d5s-07-g53" kind="showDetail" identifier="channelsVC" id="LVv-vi-c6v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hr5-dE-8PW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -384,7 +383,7 @@ photos with your friends</string>
                                                     </constraints>
                                                 </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="vBg-Nn-zFk">
-                                                    <rect key="frame" x="77" y="19" width="44" height="43"/>
+                                                    <rect key="frame" x="77" y="18.5" width="44" height="43"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWP-5k-xdb">
                                                             <rect key="frame" x="0.0" y="0.0" width="44" height="21.5"/>
@@ -418,7 +417,7 @@ photos with your friends</string>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uub-tA-Zfh">
-                                                    <rect key="frame" x="326.5" y="21.5" width="33.5" height="16.5"/>
+                                                    <rect key="frame" x="326.5" y="21" width="33.5" height="16.5"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="14"/>
                                                     <color key="textColor" red="0.39607843139999999" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -472,7 +471,7 @@ photos with your friends</string>
                                                     </constraints>
                                                 </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="IAJ-T6-nb5">
-                                                    <rect key="frame" x="77" y="19" width="44" height="43"/>
+                                                    <rect key="frame" x="77" y="18.5" width="44" height="43"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oDv-Bf-2DE">
                                                             <rect key="frame" x="0.0" y="0.0" width="44" height="21.5"/>
@@ -496,7 +495,7 @@ photos with your friends</string>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5O-Ap-HjL">
-                                                    <rect key="frame" x="326.5" y="21.5" width="33.5" height="16.5"/>
+                                                    <rect key="frame" x="326.5" y="21" width="33.5" height="16.5"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="14"/>
                                                     <color key="textColor" red="0.39607843139999999" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -578,7 +577,7 @@ photos with your friends</string>
                                                     </constraints>
                                                 </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="o8n-Ms-F3d">
-                                                    <rect key="frame" x="77" y="19" width="44" height="43"/>
+                                                    <rect key="frame" x="77" y="18.5" width="44" height="43"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nz8-31-j7N">
                                                             <rect key="frame" x="0.0" y="0.0" width="44" height="21.5"/>
@@ -602,7 +601,7 @@ photos with your friends</string>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Il-zK-UEJ">
-                                                    <rect key="frame" x="326.5" y="21.5" width="33.5" height="16.5"/>
+                                                    <rect key="frame" x="326.5" y="21" width="33.5" height="16.5"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="14"/>
                                                     <color key="textColor" red="0.39607843139999999" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -713,7 +712,7 @@ photos with your friends</string>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="kvQ-cU-IP9">
-                                    <rect key="frame" x="-54" y="-15.5" width="108" height="30"/>
+                                    <rect key="frame" x="-54" y="-15" width="108" height="30"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0ji-oH-ynA">
                                             <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -756,7 +755,7 @@ photos with your friends</string>
                         <segue destination="41m-ri-Zcz" kind="presentation" identifier="settingsVC" id="EKi-79-RsJ"/>
                         <segue destination="J1X-D7-Rhz" kind="show" identifier="cameraVC" id="3HA-2O-CrP"/>
                         <segue destination="CT5-rJ-fqV" kind="presentation" identifier="PhotoVC" id="HBh-HU-vwR"/>
-                        <segue destination="jPM-DW-Gog" kind="showDetail" identifier="ChannelDetailVC" action="showViewController:sender:" id="I2d-V1-D9s"/>
+                        <segue destination="jPM-DW-Gog" kind="show" identifier="ChannelDetailVC" id="I2d-V1-D9s"/>
                     </connections>
                 </viewController>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="david beckham" translatesAutoresizingMaskIntoConstraints="NO" id="TBY-ab-Htq" customClass="UIImageViewWithMask" customModule="Sapnin" customModuleProvider="target">
@@ -849,6 +848,6 @@ photos with your friends</string>
         <image name="user_added_icon" width="27" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SiD-Gk-byN"/>
+        <segue reference="AUx-80-wdz"/>
     </inferredMetricsTieBreakers>
 </document>

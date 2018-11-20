@@ -66,9 +66,3 @@ extension ChannelDetailViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-//extension UINavigationController {
-//    open override var childViewControllerForStatusBarStyle: UIViewController? {
-//        return topViewController
-//    }
-//}
-
