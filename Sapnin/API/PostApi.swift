@@ -42,7 +42,7 @@ class Post {
         let newPostId = DB_REF_POSTS.childByAutoId().key
         let newPostReference = DB_REF_POSTS.child(newPostId)
         
-        guard let userId = Api.user.CURRENT_USER?.uid else {
+        guard let userId = Api.User.CURRENT_USER?.uid else {
             return
         }
         

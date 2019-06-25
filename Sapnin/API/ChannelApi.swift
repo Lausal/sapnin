@@ -19,7 +19,7 @@ class ChannelApi {
         let newChannelId = DB_REF_CHANNELS.childByAutoId().key
         let newChannelRef = DB_REF_CHANNELS.child(newChannelId)
         
-        guard let currentUser = Api.user.CURRENT_USER else{
+        guard let currentUser = Api.User.CURRENT_USER else{
             return
         }
         let currentUserId = currentUser.uid

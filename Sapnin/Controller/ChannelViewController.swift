@@ -57,7 +57,7 @@ class ChannelViewController: UIViewController {
     }
     
     func loadChannels() {
-        guard let userId = Api.user.CURRENT_USER?.uid else {return}
+        guard let userId = Api.User.CURRENT_USER?.uid else {return}
         Api.userChannel.observeUserChannel(userId: userId) { (channelId) in
             // After getting all channel ID from UserChannel table, now get all corresponding channel details
             Api.channel.observeChannels(channelId: channelId, onSuccess: { (channel) in
@@ -73,14 +73,14 @@ class ChannelViewController: UIViewController {
     }
     
     func fetchUser(userId: String, onSuccess: @escaping () -> Void) {
-        Api.user.observeUser(userId: userId) { (user) in
+        Api.User.observeUser(userId: userId) { (user) in
             self.users.insert(user, at: 0)
             onSuccess()
         }
     }
     
     func setNavigationBarProfileImage() {
-        Api.user.observeCurrentUser { (user) in
+        Api.User.observeCurrentUser { (user) in
             if let profileUrl = URL(string: user.profileImageUrl!) {
                 self.profileImage.sd_setImage(with: profileUrl)
             }

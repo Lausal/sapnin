@@ -23,7 +23,7 @@ class SettingsViewController: UIViewController, UIActionSheetDelegate {
     }
     
     func fetchCurrentUser() {
-        Api.user.observeCurrentUser { (user) in
+        Api.User.observeCurrentUser { (user) in
             self.nameLabel.text = user.name
             if let profileUrl = URL(string: user.profileImageUrl!) {
                 self.profileImage.sd_setImage(with: profileUrl)

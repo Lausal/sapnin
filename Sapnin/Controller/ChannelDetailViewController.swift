@@ -50,6 +50,11 @@ extension ChannelDetailViewController: UICollectionViewDelegate, UICollectionVie
         cell.dateLabel.text = dateArray[indexPath.row]
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("selected")
+        self.performSegue(withIdentifier: "PhotoVC", sender: nil)
+    }
 }
 
 extension ChannelDetailViewController: UICollectionViewDelegateFlowLayout {

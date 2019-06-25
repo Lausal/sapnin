@@ -28,16 +28,9 @@ class LoginViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-//        // DELETE THIS
-//        AuthService.logout(onSuccess: {
-//            //
-//        }) { (error) in
-//            //
-//        }
-        
-        // If the user has not logged out, then automatically switch to the Home View Controller
-        if Api.user.CURRENT_USER != nil {
-            //self.performSegue(withIdentifier: "cameraVC", sender: nil)
+        // If the user has not logged out, then automatically switch to the Channel View Controller
+        if Api.User.CURRENT_USER != nil {
+            self.performSegue(withIdentifier: "channelVC", sender: nil)
         }
     }
     
@@ -48,6 +41,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginWithFacebook_TouchUpInside(_ sender: Any) {
         let loginManager = LoginManager()
+        // Grab user profile and email address from Facebook
         loginManager.logIn([.publicProfile, .email], viewController: self) { (result) in
             switch result {
             case .success(grantedPermissions: _, declinedPermissions: _, token: _):
@@ -78,7 +72,7 @@ class LoginViewController: UIViewController {
             } else {
                 // Check if user already exists, Firebase uses the same ID for authenticated user when signing in. If they do then no need to fetch Facebook details and just go directly to channels view
                 guard let userId = user?.uid else { return }
-                Api.user.checkIfUserExists(userId: userId, userExists: { (userExists) in
+                Api.User.checkIfUserExists(userId: userId, userExists: { (userExists) in
                     if userExists == true {
                         SVProgressHUD.dismiss()
                         self.performSegue(withIdentifier: "channelVC", sender: nil)
@@ -173,7 +167,7 @@ class LoginViewController: UIViewController {
                 print("Successfully saved user into Firebase database")
                 
                 SVProgressHUD.dismiss()
-                self.performSegue(withIdentifier: "mobileNumberVC", sender: nil)
+                self.performSegue(withIdentifier: "channelVC", sender: nil)
             })
         }
     }

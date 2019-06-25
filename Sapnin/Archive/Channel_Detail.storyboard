@@ -74,7 +74,7 @@
             </objects>
             <point key="canvasLocation" x="2700" y="2129.6851574212897"/>
         </scene>
-        <!--Vote your favourite-->
+        <!--Who's your favourite?-->
         <scene sceneID="kZA-d2-7tr">
             <objects>
                 <viewController id="V5p-Ku-eI3" customClass="VoteViewController" customModule="Sapnin" customModuleProvider="target" sceneMemberID="viewController">
@@ -261,7 +261,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="C34-sZ-jfO"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Vote your favourite" id="udl-qG-lAP"/>
+                    <navigationItem key="navigationItem" title="Who's your favourite?" id="udl-qG-lAP"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nN3-28-bjK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -387,11 +387,12 @@
                     <navigationItem key="navigationItem" id="jEV-vS-0l1"/>
                     <connections>
                         <outlet property="collectionView" destination="tvo-6X-mT0" id="ZMI-Vx-0Ts"/>
+                        <segue destination="Z24-xa-fn9" kind="showDetail" identifier="PhotoVC" id="WE8-a7-uxs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ijA-lv-YyP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2700" y="3641"/>
+            <point key="canvasLocation" x="1670" y="2130"/>
         </scene>
     </scenes>
     <resources>

@@ -22,7 +22,7 @@ class NoChannelViewController: UIViewController {
     
     @IBAction func createChannelButton_TouchUpInside(_ sender: Any) {
         //self.performSegue(withIdentifier: "createChannel1VC", sender: nil)
-        let userId = Api.user.CURRENT_USER?.uid
+        let userId = Api.User.CURRENT_USER?.uid
         Api.userChannel.checkIfUserHasChannel(userId: userId!) { (userHasChannel) in
             //
         }

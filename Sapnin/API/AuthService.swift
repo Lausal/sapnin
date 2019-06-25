@@ -25,7 +25,7 @@ class AuthService {
     
     static func updateUserInformation(imageData: Data, onSuccess: @escaping () -> Void, onError: @escaping (_ errorMessage: String?) -> Void) {
         
-        let userId = Api.user.CURRENT_USER?.uid
+        let userId = Api.User.CURRENT_USER?.uid
         
         // Store the new profile image into Firebase storage
         let storageRef = Storage.storage().reference().child("profilePictures").child(userId!)
@@ -36,7 +36,7 @@ class AuthService {
                 // After saving into Firebase storage, retrieve the new URL and store into the corresponding Firebase database table
                 let profileImageUrl = metadata?.downloadURL()?.absoluteString
                 let dict = ["profilePictureUrl": profileImageUrl]
-                Api.user.DB_REF_CURRENT_USER?.updateChildValues(dict as Any as! [AnyHashable : Any], withCompletionBlock: { (error, ref) in
+                Api.User.DB_REF_CURRENT_USER?.updateChildValues(dict as Any as! [AnyHashable : Any], withCompletionBlock: { (error, ref) in
                     if error != nil {
                             onError(error!.localizedDescription)
                     } else {
@@ -50,7 +50,7 @@ class AuthService {
     static func updateUserMobileNumber(number: String, onSuccess: @escaping () -> Void, onError: @escaping (_ errorMessage: String?) -> Void) {
         
         let dict = ["number": number]
-        Api.user.DB_REF_CURRENT_USER?.updateChildValues(dict, withCompletionBlock: { (error, ref) in
+        Api.User.DB_REF_CURRENT_USER?.updateChildValues(dict, withCompletionBlock: { (error, ref) in
             if error != nil {
                 onError(error!.localizedDescription)
             } else {

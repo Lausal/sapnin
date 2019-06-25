@@ -37,6 +37,7 @@
 		5271340F20DC19180036EA36 /* ChannelDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5271340D20DC19180036EA36 /* ChannelDetailCollectionViewCell.swift */; };
 		527EA01E207EBF5D00EA2F18 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527EA01D207EBF5D00EA2F18 /* CameraViewController.swift */; };
 		527F614E20D0876700DDA988 /* UserChannelApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F614D20D0876700DDA988 /* UserChannelApi.swift */; };
+		528C9D1522C29DDF00839EBD /* Ref.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C9D1422C29DDF00839EBD /* Ref.swift */; };
 		5296A329208523D400A5F2A8 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5296A328208523D400A5F2A8 /* UIView.swift */; };
 		529CB4F820741DCB003DE1CE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 529CB4F720741DCB003DE1CE /* GoogleService-Info.plist */; };
 		529CB4FA20742328003DE1CE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529CB4F920742328003DE1CE /* SettingsViewController.swift */; };
@@ -90,6 +91,7 @@
 		5271340D20DC19180036EA36 /* ChannelDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		527EA01D207EBF5D00EA2F18 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		527F614D20D0876700DDA988 /* UserChannelApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChannelApi.swift; sourceTree = "<group>"; };
+		528C9D1422C29DDF00839EBD /* Ref.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ref.swift; sourceTree = "<group>"; };
 		5296A328208523D400A5F2A8 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		529CB4F720741DCB003DE1CE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		529CB4F920742328003DE1CE /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				52411EFD206BEE8B00B3E78E /* View */,
 				52411EFE206BEE9500B3E78E /* Controller */,
 				5296A32B208524BD00A5F2A8 /* Utility */,
+				528C9D1322C1785700839EBD /* Archive */,
 				52AFD4F520BA3D8F0039559A /* Storyboards */,
 				52411EEE2067236F00B3E78E /* Assets.xcassets */,
 				52411EF02067236F00B3E78E /* LaunchScreen.storyboard */,
@@ -203,7 +206,6 @@
 			isa = PBXGroup;
 			children = (
 				52411EE92067236F00B3E78E /* LoginViewController.swift */,
-				525D90E020AA4C7B00095036 /* MobileNumberViewController.swift */,
 				529CB4F920742328003DE1CE /* SettingsViewController.swift */,
 				527EA01D207EBF5D00EA2F18 /* CameraViewController.swift */,
 				525D90DC20A874D000095036 /* ChallengeViewController.swift */,
@@ -218,6 +220,15 @@
 				521821F120AF6806009F8FD5 /* PhotoViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		528C9D1322C1785700839EBD /* Archive */ = {
+			isa = PBXGroup;
+			children = (
+				525D90E020AA4C7B00095036 /* MobileNumberViewController.swift */,
+				52B0C2DD20D5D3EC000A8AED /* Channel_Detail.storyboard */,
+			);
+			path = Archive;
 			sourceTree = "<group>";
 		};
 		5296A32B208524BD00A5F2A8 /* Utility */ = {
@@ -244,6 +255,7 @@
 				527F614D20D0876700DDA988 /* UserChannelApi.swift */,
 				523024F8210273C60091AE52 /* PostApi.swift */,
 				523024F621026E220091AE52 /* ChannelPostApi.swift */,
+				528C9D1422C29DDF00839EBD /* Ref.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -254,7 +266,6 @@
 				52411EEB2067236F00B3E78E /* Main.storyboard */,
 				52D5D11620BA358A00965A17 /* Camera.storyboard */,
 				52182DE720BDCA560049FFB3 /* Channel.storyboard */,
-				52B0C2DD20D5D3EC000A8AED /* Channel_Detail.storyboard */,
 				52B31EFA20C726CE0089C373 /* Settings.storyboard */,
 			);
 			path = Storyboards;
@@ -433,6 +444,7 @@
 				52BE7498208E54E1005414B5 /* SelectParticipantsViewController.swift in Sources */,
 				5296A329208523D400A5F2A8 /* UIView.swift in Sources */,
 				523024F9210273C60091AE52 /* PostApi.swift in Sources */,
+				528C9D1522C29DDF00839EBD /* Ref.swift in Sources */,
 				52411EEA2067236F00B3E78E /* LoginViewController.swift in Sources */,
 				52411EE82067236F00B3E78E /* AppDelegate.swift in Sources */,
 				52C0B092209395A2009B8206 /* SelectParticipantsTableViewCell.swift in Sources */,
@@ -598,7 +610,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LXZLY68SP7;
+				DEVELOPMENT_TEAM = S4733C6V9X;
 				INFOPLIST_FILE = Sapnin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Lau.Dooley.Sapnin;
@@ -614,7 +626,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LXZLY68SP7;
+				DEVELOPMENT_TEAM = S4733C6V9X;
 				INFOPLIST_FILE = Sapnin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Lau.Dooley.Sapnin;

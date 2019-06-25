@@ -97,7 +97,7 @@ class SelectParticipantsViewController: UIViewController {
                 let phoneNumber = contact.phoneNumbers.first?.value.stringValue ?? ""
                 
                 // Set isUserRegistered attribute based on if contact exists so we can use this for to identify which cell identifier we need to show
-                Api.user.checkIfContactExists(number: phoneNumber, contactExists: { (contactExists, contactUserId) in
+                Api.User.checkIfContactExists(number: phoneNumber, contactExists: { (contactExists, contactUserId) in
                     if contactExists == true {
                         // If given name and phone number is not empty, then add to array
                         if !givenName.isEmpty && !phoneNumber.isEmpty {
