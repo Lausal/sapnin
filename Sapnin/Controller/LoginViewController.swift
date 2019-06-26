@@ -17,6 +17,10 @@ import SwiftyJSON
 
 class LoginViewController: UIViewController {
     
+    @IBOutlet weak var loginWithFacebookButton: UIButton!
+    @IBOutlet weak var loginWithEmailButton: UIButton!
+    @IBOutlet weak var signUpButton: UIButton!
+    
     var name: String?
     var email: String?
     var profilePicture: UIImage?

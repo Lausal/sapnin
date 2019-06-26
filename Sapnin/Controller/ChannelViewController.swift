@@ -60,7 +60,7 @@ class ChannelViewController: UIViewController {
         guard let userId = Api.User.CURRENT_USER?.uid else {return}
         Api.userChannel.observeUserChannel(userId: userId) { (channelId) in
             // After getting all channel ID from UserChannel table, now get all corresponding channel details
-            Api.channel.observeChannels(channelId: channelId, onSuccess: { (channel) in
+            Api.Channel.observeChannels(channelId: channelId, onSuccess: { (channel) in
                 self.channels.insert(channel, at: 0)
                 self.tableView.reloadData()
 //                print(channel.users?.count)
@@ -174,7 +174,7 @@ extension ChannelViewController: UITableViewDelegate, UITableViewDataSource {
             
             alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
                 guard let channelId = self.channels[indexPath.row].channelId else { return }
-                Api.channel.deleteChannel(channelId: channelId, onSuccess: {
+                Api.Channel.deleteChannel(channelId: channelId, onSuccess: {
                     self.channels.remove(at: indexPath.row)
                     self.tableView.deleteRows(at: [indexPath], with: .automatic)
                     completion(true) // This collapses the slide out menu

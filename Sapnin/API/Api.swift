@@ -10,7 +10,7 @@ import Foundation
 
 struct Api {
     static var User = UserApi()
-    static var channel = ChannelApi()
+    static var Channel = ChannelApi()
     static var userChannel = UserChannelApi()
     static var channelPost = ChannelPostApi()
     static var post = Post()

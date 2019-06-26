@@ -63,7 +63,7 @@ class SelectParticipantsViewController: UIViewController {
             newSelectedContactId[id] = true
         }
         
-        Api.channel.createChannel(channelName: channelName!, users: newSelectedContactId) {
+        Api.Channel.createChannel(channelName: channelName!, users: newSelectedContactId) {
             SVProgressHUD.dismiss()
             self.performSegue(withIdentifier: "channelsVC", sender: nil)
         }
