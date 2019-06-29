@@ -32,10 +32,12 @@ class LoginViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        // If the user has not logged out, then automatically switch to the Channel View Controller
+        // If the user has not logged out, then automatically switch to the Channel View Controller when view loads
         if Api.User.CURRENT_USER != nil {
             self.performSegue(withIdentifier: "channelVC", sender: nil)
         }
+        
+        setupUI()
     }
     
     // Setting status bar colour to white
@@ -43,7 +45,20 @@ class LoginViewController: UIViewController {
         return .lightContent
     }
     
-    @IBAction func loginWithFacebook_TouchUpInside(_ sender: Any) {
+    func setupUI() {
+        setupSignUpButton()
+    }
+    
+    // Configure sign up button
+    func setupSignUpButton() {
+        let attributedText = NSMutableAttributedString(string: "Don't have an account? ", attributes: [NSAttributedString.Key.font : UIFont(name: ROBOTO_REGULAR, size: 12), NSAttributedString.Key.foregroundColor: UIColor.white])
+        let attributedSubText = NSMutableAttributedString(string: "Sign up", attributes: [NSAttributedString.Key.font : UIFont(name: ROBOTO_BOLD, size: 12), NSAttributedString.Key.foregroundColor: UIColor.white])
+        attributedText.append(attributedSubText)
+        signUpButton.setAttributedTitle(attributedText, for: UIControl.State.normal)
+    }
+    
+    // Facebook login button tap event
+    @IBAction func loginWithFacebookButtonDidTapped(_ sender: Any) {
         let loginManager = LoginManager()
         // Grab user profile and email address from Facebook
         loginManager.logIn([.publicProfile, .email], viewController: self) { (result) in
@@ -61,6 +76,16 @@ class LoginViewController: UIViewController {
                 break
             }
         }
+    }
+    
+    // Email login button tap event - switch to EmailLoginVC
+    @IBAction func loginWithEmailButtonDidTapped(_ sender: Any) {
+        
+    }
+    
+    // Sign up button tap event - switch to SignUpVC
+    @IBAction func signUpButtonDidTapped(_ sender: Any) {
+        
     }
     
     func signIntoFirebase() {

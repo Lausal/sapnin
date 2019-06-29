@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+let ROBOTO_REGULAR = "Roboto-Regular"
+let ROBOTO_BOLD = "Roboto-Bold"
+
+class Ref {
+    
+}
