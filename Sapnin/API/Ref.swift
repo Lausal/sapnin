@@ -14,6 +14,7 @@ let ROBOTO_BOLD = "Roboto-Bold"
 
 let REF_USER_TABLE = "users"
 
+let IDENTIFIER_TABBAR = "TabBarVC"
 let IDENTIFIER_CHANNEL = "ChannelViewController"
 let IDENTIFIER_LOGIN = "WelcomeViewController"
 let IDENTIFER_CHANNEL_NAV_CONTROLLER = "ChannelNavigationController"

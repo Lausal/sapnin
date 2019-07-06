@@ -56,8 +56,7 @@ class LoginViewController: UIViewController {
         emailTextField.font = UIFont(name: "Roboto-Regular", size: 14)
         
         // Set left and right padding of text field input
-        emailTextField.paddingLeft = 16
-        emailTextField.paddingRight = 16
+        emailTextField.addPadding(.both(16))
         
         // Set placeholder styling
         let placeholderAttr = NSAttributedString(string: "Email address", attributes: [NSAttributedString.Key.foregroundColor : BrandColours.PLACEHOLDER_TEXT_COLOUR])
@@ -76,8 +75,7 @@ class LoginViewController: UIViewController {
         passwordTextField.font = UIFont(name: "Roboto-Regular", size: 14)
         
         // Set left and right padding of text field input
-        passwordTextField.paddingLeft = 16
-        passwordTextField.paddingRight = 16
+        passwordTextField.addPadding(.both(16))
         
         // Set placeholder styling
         let placeholderAttr = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor : BrandColours.PLACEHOLDER_TEXT_COLOUR])

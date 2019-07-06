@@ -23,15 +23,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Facebook login configuration
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
-        // Remove border in navigation bar and change to white background, and also make icons (tint) pink
-        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: UIBarPosition.any, barMetrics: UIBarMetrics.default)
-        UINavigationBar.appearance().shadowImage = UIImage()
-        UINavigationBar.appearance().barTintColor = UIColor.white
-        UINavigationBar.appearance().isTranslucent = false
-        UINavigationBar.appearance().clipsToBounds = false
-        UINavigationBar.appearance().backgroundColor = UIColor.white
-        UINavigationBar.appearance().tintColor = BrandColours.PINK
+        // Change tab bar colour to pink
+        UITabBar.appearance().tintColor = BrandColours.PINK
         
+        // Remove border in navigation bar and change to white background
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        UINavigationBar.appearance().shadowImage = UIImage()
+        
+        // Set all header/navigation bar items to be grey
+        UINavigationBar.appearance().tintColor = BrandColours.BAR_BUTTON_ITEM_COLOUR
+
         // Change font colour, style and size of navigation bar title
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: BrandColours.NAV_TITLE_COLOUR, NSAttributedStringKey.font: UIFont(name: "Roboto-Regular", size: 22)!]
         
@@ -54,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var initialVC: UIViewController
         if Auth.auth().currentUser != nil {
             let channelStoryboard = UIStoryboard(name: "Channel", bundle: nil)
-            initialVC = channelStoryboard.instantiateViewController(withIdentifier: IDENTIFER_CHANNEL_NAV_CONTROLLER)
+            initialVC = channelStoryboard.instantiateViewController(withIdentifier: IDENTIFIER_TABBAR)
         } else {
             let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
             initialVC = mainStoryboard.instantiateViewController(withIdentifier: IDENTIFER_LOGIN_NAV_CONTROLLER)

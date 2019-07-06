@@ -55,8 +55,7 @@ class ForgotPasswordViewController: UIViewController {
         emailTextField.font = UIFont(name: "Roboto-Regular", size: 14)
         
         // Set left and right padding of text field input
-        emailTextField.paddingLeft = 16
-        emailTextField.paddingRight = 16
+        emailTextField.addPadding(.both(16))
         
         // Set placeholder styling
         let placeholderAttr = NSAttributedString(string: "Email address", attributes: [NSAttributedString.Key.foregroundColor : BrandColours.PLACEHOLDER_TEXT_COLOUR])

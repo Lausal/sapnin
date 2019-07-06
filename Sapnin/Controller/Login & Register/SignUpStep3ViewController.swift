@@ -58,8 +58,7 @@ class SignUpStep3ViewController: UIViewController {
         passwordTextField.font = UIFont(name: "Roboto-Regular", size: 14)
         
         // Set left and right padding of text field input
-        passwordTextField.paddingLeft = 16
-        passwordTextField.paddingRight = 16
+        passwordTextField.addPadding(.both(16))
         
         // Set placeholder styling
         let placeholderAttr = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor : BrandColours.PLACEHOLDER_TEXT_COLOUR])

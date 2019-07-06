@@ -16,7 +16,7 @@
 		522018932082DF00004AB74F /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522018922082DF00004AB74F /* PreviewViewController.swift */; };
 		5225F9AD20B2284A00D95B8A /* UIImageViewWithMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5225F9AC20B2284A00D95B8A /* UIImageViewWithMask.swift */; };
 		5225F9AF20B2390100D95B8A /* ChannelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5225F9AE20B2390100D95B8A /* ChannelTableViewCell.swift */; };
-		5225F9B120B2459900D95B8A /* ChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5225F9B020B2459900D95B8A /* ChannelViewController.swift */; };
+		5225F9B120B2459900D95B8A /* ChannelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5225F9B020B2459900D95B8A /* ChannelTableViewController.swift */; };
 		5225F9B320B763D600D95B8A /* VoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5225F9B220B763D600D95B8A /* VoteViewController.swift */; };
 		522F0A0D20D418B20072A63E /* ChannelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F0A0C20D418B20072A63E /* ChannelModel.swift */; };
 		523024F721026E220091AE52 /* ChannelPostApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523024F621026E220091AE52 /* ChannelPostApi.swift */; };
@@ -64,6 +64,8 @@
 		52D5D11520BA2BBE00965A17 /* BorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D5D11420BA2BBE00965A17 /* BorderView.swift */; };
 		52D5D11720BA358A00965A17 /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52D5D11620BA358A00965A17 /* Camera.storyboard */; };
 		52E1339120CB46A30057F922 /* ChannelApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E1339020CB46A30057F922 /* ChannelApi.swift */; };
+		52E3E27B22D1007300F40F7C /* SuperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E3E27A22D1007300F40F7C /* SuperViewController.swift */; };
+		52E3E27D22D1167900F40F7C /* ChannelBackupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E3E27C22D1167900F40F7C /* ChannelBackupViewController.swift */; };
 		836ADBCA536588C207E17524 /* Pods_Sapnin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C69CAF9E62816387F5103D5C /* Pods_Sapnin.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,7 +77,7 @@
 		522018922082DF00004AB74F /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		5225F9AC20B2284A00D95B8A /* UIImageViewWithMask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewWithMask.swift; sourceTree = "<group>"; };
 		5225F9AE20B2390100D95B8A /* ChannelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelTableViewCell.swift; sourceTree = "<group>"; };
-		5225F9B020B2459900D95B8A /* ChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelViewController.swift; sourceTree = "<group>"; };
+		5225F9B020B2459900D95B8A /* ChannelTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelTableViewController.swift; sourceTree = "<group>"; };
 		5225F9B220B763D600D95B8A /* VoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteViewController.swift; sourceTree = "<group>"; };
 		522F0A0C20D418B20072A63E /* ChannelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelModel.swift; sourceTree = "<group>"; };
 		523024F621026E220091AE52 /* ChannelPostApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelPostApi.swift; sourceTree = "<group>"; };
@@ -128,6 +130,8 @@
 		52D5D11420BA2BBE00965A17 /* BorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderView.swift; sourceTree = "<group>"; };
 		52D5D11620BA358A00965A17 /* Camera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
 		52E1339020CB46A30057F922 /* ChannelApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelApi.swift; sourceTree = "<group>"; };
+		52E3E27A22D1007300F40F7C /* SuperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperViewController.swift; sourceTree = "<group>"; };
+		52E3E27C22D1167900F40F7C /* ChannelBackupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelBackupViewController.swift; sourceTree = "<group>"; };
 		C69CAF9E62816387F5103D5C /* Pods_Sapnin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sapnin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E242AD206F731ED159FC4D83 /* Pods-Sapnin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sapnin.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sapnin/Pods-Sapnin.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -219,18 +223,14 @@
 		52411EFE206BEE9500B3E78E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				52411EE92067236F00B3E78E /* WelcomeViewController.swift */,
-				528C9D1622C562EA00839EBD /* LoginViewController.swift */,
-				528C9D1822C5630000839EBD /* SignUpStep1ViewController.swift */,
-				528C9D2022CAA25B00839EBD /* SignUpStep2ViewController.swift */,
-				528C9D1C22C774D500839EBD /* SignUpStep3ViewController.swift */,
-				528C9D1E22C7873600839EBD /* ForgotPasswordViewController.swift */,
+				52E3E27922D0DDE500F40F7C /* Login & Register */,
+				5225F9B020B2459900D95B8A /* ChannelTableViewController.swift */,
+				52E3E27A22D1007300F40F7C /* SuperViewController.swift */,
 				529CB4F920742328003DE1CE /* SettingsViewController.swift */,
 				527EA01D207EBF5D00EA2F18 /* CameraViewController.swift */,
 				525D90DC20A874D000095036 /* ChallengeViewController.swift */,
 				522018922082DF00004AB74F /* PreviewViewController.swift */,
 				52386CF7208AC53E0062C898 /* NoChannelViewController.swift */,
-				5225F9B020B2459900D95B8A /* ChannelViewController.swift */,
 				52B0C2DF20D98DC1000A8AED /* ChannelDetailViewController.swift */,
 				52B31EF820C720100089C373 /* ChannelNameViewController.swift */,
 				52BE7497208E54E1005414B5 /* SelectParticipantsViewController.swift */,
@@ -244,6 +244,7 @@
 		528C9D1322C1785700839EBD /* Archive */ = {
 			isa = PBXGroup;
 			children = (
+				52E3E27C22D1167900F40F7C /* ChannelBackupViewController.swift */,
 				528C9D2222CAA28600839EBD /* SignUpStep4ViewController.swift */,
 				525D90E020AA4C7B00095036 /* MobileNumberViewController.swift */,
 				52B0C2DD20D5D3EC000A8AED /* Channel_Detail.storyboard */,
@@ -290,6 +291,19 @@
 				52B31EFA20C726CE0089C373 /* Settings.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		52E3E27922D0DDE500F40F7C /* Login & Register */ = {
+			isa = PBXGroup;
+			children = (
+				52411EE92067236F00B3E78E /* WelcomeViewController.swift */,
+				528C9D1622C562EA00839EBD /* LoginViewController.swift */,
+				528C9D1822C5630000839EBD /* SignUpStep1ViewController.swift */,
+				528C9D2022CAA25B00839EBD /* SignUpStep2ViewController.swift */,
+				528C9D1C22C774D500839EBD /* SignUpStep3ViewController.swift */,
+				528C9D1E22C7873600839EBD /* ForgotPasswordViewController.swift */,
+			);
+			path = "Login & Register";
 			sourceTree = "<group>";
 		};
 		CC4877C8E63333A88501439E /* Pods */ = {
@@ -496,11 +510,13 @@
 				52B31EF920C720100089C373 /* ChannelNameViewController.swift in Sources */,
 				5225F9AF20B2390100D95B8A /* ChannelTableViewCell.swift in Sources */,
 				529D15F82078E23F0085115B /* UserApi.swift in Sources */,
-				5225F9B120B2459900D95B8A /* ChannelViewController.swift in Sources */,
+				5225F9B120B2459900D95B8A /* ChannelTableViewController.swift in Sources */,
+				52E3E27B22D1007300F40F7C /* SuperViewController.swift in Sources */,
 				52386CF8208AC53E0062C898 /* NoChannelViewController.swift in Sources */,
 				52C7B336209CF6520060F222 /* ColourPalette.swift in Sources */,
 				529D15F22078D02E0085115B /* AuthService.swift in Sources */,
 				522018932082DF00004AB74F /* PreviewViewController.swift in Sources */,
+				52E3E27D22D1167900F40F7C /* ChannelBackupViewController.swift in Sources */,
 				523BCDB920FABC8700318D64 /* SwipeViewController.swift in Sources */,
 				527F614E20D0876700DDA988 /* UserChannelApi.swift in Sources */,
 				525D90DF20A88C9800095036 /* ChallengeTableViewCell.swift in Sources */,

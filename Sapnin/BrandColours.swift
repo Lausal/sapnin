@@ -12,6 +12,7 @@ import UIKit
 class BrandColours {
     
     static var PINK = UIColor(red:1.00, green:0.18, blue:0.53, alpha:1.0)
+    static var BAR_BUTTON_ITEM_COLOUR = UIColor(red:1.00, green:0.18, blue:0.53, alpha:1.0)
     static var DISABLED_BUTTON_PINK = UIColor(red:1.00, green:0.75, blue:0.86, alpha:1.0)
     static var FIELD_BORDER_COLOUR = UIColor(red:0.80, green:0.81, blue:0.81, alpha:1.0)
     static var FIELD_BACKGROUND_COLOUR = UIColor(red:0.98, green:0.98, blue:0.98, alpha:1.0)

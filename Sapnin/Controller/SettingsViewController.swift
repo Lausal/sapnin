@@ -108,11 +108,10 @@ class SettingsViewController: UIViewController, UIActionSheetDelegate {
         
         let logoutActionButton = UIAlertAction(title: "Logout", style: .default) { _ in
             AuthService.logout(onSuccess: {
-                // Show login screen upon logging out - use present to show page without nav bar
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let loginVC = storyboard.instantiateViewController(withIdentifier: "WelcomeViewController")
-                self.present(loginVC, animated: true, completion: nil)
-                print("User logged out")
+                
+                // Call the configureIntialViewController function in appdelegate to navigate to appropriate screen - in this case it would be the welcome screen
+                (UIApplication.shared.delegate as! AppDelegate).configureInitialViewController()
+                
             }) { (error) in
                 print(error!)
             }

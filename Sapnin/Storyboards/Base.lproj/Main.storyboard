@@ -66,7 +66,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="signUpButtonDidTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pma-zc-iwX"/>
                                     <segue destination="eGT-xc-Ree" kind="show" id="to9-l4-4hx"/>
                                 </connections>
                             </button>
@@ -84,7 +83,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="loginWithEmailButtonDidTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jai-jX-WW2"/>
                                     <segue destination="6mT-Wf-GV3" kind="show" id="eHk-jA-RQK"/>
                                 </connections>
                             </button>
@@ -113,8 +111,6 @@
                         <outlet property="loginWithEmailButton" destination="nRp-Rh-Y3h" id="vGq-Pl-jYF"/>
                         <outlet property="loginWithFacebookButton" destination="Wpd-5e-rRJ" id="lYX-kY-mLN"/>
                         <outlet property="signUpButton" destination="1Y8-C1-Edd" id="L6k-rz-Az7"/>
-                        <segue destination="F7P-6l-sQs" kind="show" identifier="cameraVC" id="XHQ-eD-421"/>
-                        <segue destination="FeT-W5-6DF" kind="show" identifier="channelVC" id="DiZ-8I-Vxi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -301,22 +297,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0AV-Re-qFw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2708" y="132"/>
-        </scene>
-        <!--CameraViewController-->
-        <scene sceneID="OgU-H4-1m7">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Camera" referencedIdentifier="CameraViewController" id="F7P-6l-sQs" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yTy-Qu-99L" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1051" y="347"/>
-        </scene>
-        <!--ChannelNavigationController-->
-        <scene sceneID="xmC-Md-EKw">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Channel" referencedIdentifier="ChannelNavigationController" id="FeT-W5-6DF" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fLD-B3-icy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1534" y="194"/>
         </scene>
         <!--Channel View Controller-->
         <scene sceneID="8T4-WV-pQo">
@@ -1340,6 +1320,6 @@
         <image name="selfie_image4" width="2122" height="1415"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Oea-xL-qUf"/>
+        <segue reference="to9-l4-4hx"/>
     </inferredMetricsTieBreakers>
 </document>

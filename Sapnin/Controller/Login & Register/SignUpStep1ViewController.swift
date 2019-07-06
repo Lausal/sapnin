@@ -79,8 +79,7 @@ class SignUpStep1ViewController: UIViewController {
         nameTextField.font = UIFont(name: "Roboto-Regular", size: 14)
         
         // Set left and right padding of text field input
-        nameTextField.paddingLeft = 16
-        nameTextField.paddingRight = 16
+        nameTextField.addPadding(.both(16))
         
         // Set placeholder styling
         let placeholderAttr = NSAttributedString(string: "Full name", attributes: [NSAttributedString.Key.foregroundColor : BrandColours.PLACEHOLDER_TEXT_COLOUR])

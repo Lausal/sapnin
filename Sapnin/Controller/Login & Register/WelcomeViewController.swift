@@ -83,16 +83,6 @@ class WelcomeViewController: UIViewController {
         }
     }
     
-    // Email login button tap event - switch to EmailLoginVC
-    @IBAction func loginWithEmailButtonDidTapped(_ sender: Any) {
-        
-    }
-    
-    // Sign up button tap event - switch to SignUpVC
-    @IBAction func signUpButtonDidTapped(_ sender: Any) {
-        
-    }
-    
     func signIntoFirebase() {
         SVProgressHUD.show(withStatus: "Loading...")
         guard let authenticationToken = AccessToken.current?.authenticationToken else {
@@ -109,7 +99,8 @@ class WelcomeViewController: UIViewController {
                 Api.User.checkIfUserExists(userId: userId, userExists: { (userExists) in
                     if userExists == true {
                         SVProgressHUD.dismiss()
-                        self.performSegue(withIdentifier: "channelVC", sender: nil)
+                        // Call the configureIntialViewController function in appdelegate to navigate to appropriate screen - in this case it would be the channels screen
+                        (UIApplication.shared.delegate as! AppDelegate).configureInitialViewController()
                     } else {
                         self.fetchFacebookUserDetails()
                     }
@@ -201,7 +192,8 @@ class WelcomeViewController: UIViewController {
                 print("Successfully saved user into Firebase database")
                 
                 SVProgressHUD.dismiss()
-                self.performSegue(withIdentifier: "channelVC", sender: nil)
+                // Call the configureIntialViewController function in appdelegate to navigate to appropriate screen - in this case it would be the channels screen
+                (UIApplication.shared.delegate as! AppDelegate).configureInitialViewController()
             })
         }
     }
