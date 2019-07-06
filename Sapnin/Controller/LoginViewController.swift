@@ -1,204 +1,145 @@
 //
-//  ViewController.swift
+//  EmailLoginViewController.swift
 //  Sapnin
 //
-//  Created by Alan Lau on 25/03/2018.
-//  Copyright © 2018 lau. All rights reserved.
+//  Created by Alan Lau on 27/06/2019.
+//  Copyright © 2019 lau. All rights reserved.
 //
 
 import UIKit
-import FacebookCore
-import FacebookLogin
-import FirebaseAuth
-import FirebaseStorage
-import FirebaseDatabase
-import SVProgressHUD
-import SwiftyJSON
+import ProgressHUD
 
 class LoginViewController: UIViewController {
-    
-    @IBOutlet weak var loginWithFacebookButton: UIButton!
-    @IBOutlet weak var loginWithEmailButton: UIButton!
+
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
-    
-    var name: String?
-    var email: String?
-    var profilePicture: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        // If the user has not logged out, then automatically switch to the Channel View Controller when view loads
-        if Api.User.CURRENT_USER != nil {
-            self.performSegue(withIdentifier: "channelVC", sender: nil)
-        }
         
         setupUI()
     }
     
-    // Setting status bar colour to white
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+    func setupUI() {
+        
+        // Disable login button by default
+        disabledLoginButton()
+        
+        // Add listener to text field to be able to enable/disable next button
+        emailTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
+        passwordTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
+        
+        setupEmailTextField()
+        setupPasswordTextField()
+        setupSignUpButton()
     }
     
-    func setupUI() {
-        setupSignUpButton()
+    // Enable login button if both email and password text field are filled, otherwise disable
+    @objc func textFieldDidChange() {
+        guard let emailTextFieldText = emailTextField.text, let passwordTextFieldText = passwordTextField.text, !emailTextFieldText.isEmpty, !passwordTextFieldText.isEmpty else {
+            // Disable
+            disabledLoginButton()
+            return
+        }
+        // Enable
+        enableLoginButton()
+    }
+    
+    // Configure email text field
+    func setupEmailTextField() {
+        emailTextField.layer.borderWidth = 1
+        emailTextField.layer.borderColor = BrandColours.FIELD_BORDER_COLOUR.cgColor
+        emailTextField.backgroundColor = BrandColours.FIELD_BACKGROUND_COLOUR
+        emailTextField.layer.cornerRadius = 5
+        emailTextField.font = UIFont(name: "Roboto-Regular", size: 14)
+        
+        // Set left and right padding of text field input
+        emailTextField.paddingLeft = 16
+        emailTextField.paddingRight = 16
+        
+        // Set placeholder styling
+        let placeholderAttr = NSAttributedString(string: "Email address", attributes: [NSAttributedString.Key.foregroundColor : BrandColours.PLACEHOLDER_TEXT_COLOUR])
+        emailTextField.attributedPlaceholder = placeholderAttr
+        
+        // Specify text colour
+        emailTextField.textColor = BrandColours.PINK
+    }
+    
+    // Configure password text field
+    func setupPasswordTextField() {
+        passwordTextField.layer.borderWidth = 1
+        passwordTextField.layer.borderColor = BrandColours.FIELD_BORDER_COLOUR.cgColor
+        passwordTextField.backgroundColor = BrandColours.FIELD_BACKGROUND_COLOUR
+        passwordTextField.layer.cornerRadius = 5
+        passwordTextField.font = UIFont(name: "Roboto-Regular", size: 14)
+        
+        // Set left and right padding of text field input
+        passwordTextField.paddingLeft = 16
+        passwordTextField.paddingRight = 16
+        
+        // Set placeholder styling
+        let placeholderAttr = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor : BrandColours.PLACEHOLDER_TEXT_COLOUR])
+        passwordTextField.attributedPlaceholder = placeholderAttr
+        
+        // Specify text colour
+        passwordTextField.textColor = BrandColours.PINK
     }
     
     // Configure sign up button
     func setupSignUpButton() {
-        let attributedText = NSMutableAttributedString(string: "Don't have an account? ", attributes: [NSAttributedString.Key.font : UIFont(name: ROBOTO_REGULAR, size: 12), NSAttributedString.Key.foregroundColor: UIColor.white])
-        let attributedSubText = NSMutableAttributedString(string: "Sign up", attributes: [NSAttributedString.Key.font : UIFont(name: ROBOTO_BOLD, size: 12), NSAttributedString.Key.foregroundColor: UIColor.white])
+        let attributedText = NSMutableAttributedString(string: "Don't have an account? ", attributes: [NSAttributedString.Key.font : UIFont(name: ROBOTO_REGULAR, size: 12), NSAttributedString.Key.foregroundColor: BrandColours.TEXT_COLOUR])
+        let attributedSubText = NSMutableAttributedString(string: "Sign up", attributes: [NSAttributedString.Key.font : UIFont(name: ROBOTO_BOLD, size: 12), NSAttributedString.Key.foregroundColor: BrandColours.PINK])
         attributedText.append(attributedSubText)
         signUpButton.setAttributedTitle(attributedText, for: UIControl.State.normal)
     }
     
-    // Facebook login button tap event
-    @IBAction func loginWithFacebookButtonDidTapped(_ sender: Any) {
-        let loginManager = LoginManager()
-        // Grab user profile and email address from Facebook
-        loginManager.logIn([.publicProfile, .email], viewController: self) { (result) in
-            switch result {
-            case .success(grantedPermissions: _, declinedPermissions: _, token: _):
-                print ("Login success to Facebook")
-                self.signIntoFirebase()
-                break
-            case .failed(let error):
-                SVProgressHUD.showError(withStatus: "Login failed")
-                print(error)
-                break
-            case .cancelled:
-                print("Cancelled")
-                break
-            }
+    @IBAction func loginButtonDidTapped(_ sender: Any) {
+        // Dismiss keyboard
+        self.view.endEditing(true)
+        
+        self.signIn(onSuccess: {
+            // Call the configureIntialViewController function in appdelegate to navigate to appropriate screen - in this case it would be the channels screen
+            (UIApplication.shared.delegate as! AppDelegate).configureInitialViewController()
+        }) { (errorMessage) in
+            ProgressHUD.showError(errorMessage)
         }
     }
     
-    // Email login button tap event - switch to EmailLoginVC
-    @IBAction func loginWithEmailButtonDidTapped(_ sender: Any) {
+    func signIn(onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
+        
+        ProgressHUD.show("Loading...")
+        
+        Api.User.signIn(email: self.emailTextField.text!, password: self.passwordTextField.text!, onSuccess: {
+            ProgressHUD.dismiss() // Dismiss loading wheel on completion
+            onSuccess()
+        }) { (errorMessage) in
+            onError(errorMessage)
+        }
         
     }
     
-    // Sign up button tap event - switch to SignUpVC
-    @IBAction func signUpButtonDidTapped(_ sender: Any) {
-        
+    // Enable/activate next button
+    func enableLoginButton() {
+        loginButton.setTitle("Log in", for: UIControl.State.normal)
+        loginButton.titleLabel?.font = UIFont(name: ROBOTO_REGULAR, size: 18)
+        loginButton.backgroundColor = BrandColours.PINK
+        loginButton.layer.cornerRadius = 25
+        loginButton.clipsToBounds = true
+        loginButton.setTitleColor(.white, for: UIControl.State.normal)
+        loginButton.isEnabled = true
     }
     
-    func signIntoFirebase() {
-        SVProgressHUD.show(withStatus: "Loading...")
-        guard let authenticationToken = AccessToken.current?.authenticationToken else {
-            return
-        }
-        let credential = FacebookAuthProvider.credential(withAccessToken: authenticationToken)
-        Auth.auth().signIn(with: credential) { (user, error) in
-            if let error = error {
-                print (error)
-                return
-            } else {
-                // Check if user already exists, Firebase uses the same ID for authenticated user when signing in. If they do then no need to fetch Facebook details and just go directly to channels view
-                guard let userId = user?.uid else { return }
-                Api.User.checkIfUserExists(userId: userId, userExists: { (userExists) in
-                    if userExists == true {
-                        SVProgressHUD.dismiss()
-                        self.performSegue(withIdentifier: "channelVC", sender: nil)
-                    } else {
-                        self.fetchFacebookUserDetails()
-                    }
-                })
-                print ("Login success to Firebase")
-            }
-        }
+    // Disable next button
+    func disabledLoginButton() {
+        loginButton.setTitle("Log in", for: UIControl.State.normal)
+        loginButton.titleLabel?.font = UIFont(name: ROBOTO_REGULAR, size: 18)
+        loginButton.backgroundColor = BrandColours.DISABLED_BUTTON_PINK
+        loginButton.layer.cornerRadius = 25
+        loginButton.clipsToBounds = true
+        loginButton.setTitleColor(.white, for: UIControl.State.normal)
+        loginButton.isEnabled = false
     }
     
-    func fetchFacebookUserDetails() {
-        let graphRequestConnection = GraphRequestConnection()
-        let graphRequest = GraphRequest(graphPath: "me", parameters: ["fields": "id, email, name, picture.type(large)"], accessToken: AccessToken.current, httpMethod: .GET, apiVersion: .defaultVersion)
-        graphRequestConnection.add(graphRequest) { (httpResponse, result) in
-            switch result {
-            case .success(response: let response):
-                guard let responseDictionary = response.dictionaryValue else {
-                    return
-                }
-                // Extract the JSON information
-                let json = JSON(responseDictionary)
-                self.name = json["name"].string
-                self.email = json["email"].string
-                
-                // Fetch profile image
-                guard let profilePictureUrl = json["picture"]["data"]["url"].string else {
-                    return
-                }
-                guard let url = URL(string: profilePictureUrl) else {
-                    return
-                }
-                URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-                    if let error = error {
-                        print(error)
-                        return
-                    }
-                    guard let data = data else {
-                        return
-                    }
-                    self.profilePicture = UIImage(data: data)
-                    self.saveUserIntoFirebase()
-                }).resume()
-                break
-                
-            case .failed(let error):
-                print(error)
-                break
-            }
-        }
-        graphRequestConnection.start()
-    }
-    
-    // Store profile picture onto Firebase Storage, and then create a user database entity to store the user information
-    func saveUserIntoFirebase() {
-        
-        // Grab profile picture, and store on Firebase Storage
-        let fileName = UUID().uuidString
-        guard let profilePicture = self.profilePicture else {
-            return
-        }
-        guard let uploadData = UIImageJPEGRepresentation(profilePicture, 0.3) else {
-            return
-        }
-        Storage.storage().reference().child("profilePictures").child(fileName).putData(uploadData, metadata: nil) { (metadata, error) in
-            if let error = error {
-                print(error)
-                return
-            }
-            
-            print("Successfully saved profile picture to Firebase storage")
-            
-            // After storing on Firebase storage, get the URL String of storage location
-            guard let profilePictureUrl = metadata?.downloadURL()?.absoluteString else {
-                return
-            }
-            
-            // Then add user details to Firebase database
-            guard let uid = Auth.auth().currentUser?.uid else {
-                return
-            }
-            
-            let dictionaryValues = ["name": self.name, "email": self.email, "profilePictureUrl": profilePictureUrl]
-            
-            let values = [uid: dictionaryValues]
-            Database.database().reference().child("users").updateChildValues(values, withCompletionBlock: { (error, reference) in
-                if let error = error {
-                    print(error)
-                    return
-                }
-                print("Successfully saved user into Firebase database")
-                
-                SVProgressHUD.dismiss()
-                self.performSegue(withIdentifier: "channelVC", sender: nil)
-            })
-        }
-    }
 }
-

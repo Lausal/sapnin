@@ -8,9 +8,10 @@ target 'Sapnin' do
   # Pods for Sapnin
 
 pod 'Firebase/Core'
-pod 'Firebase/Database’
-pod 'Firebase/Storage'
 pod 'Firebase/Auth'
+pod 'Firebase/Database'
+pod 'Firebase/Storage'
+pod 'Firebase/Messaging'
 pod 'FacebookLogin'
 pod 'FacebookCore'
 pod 'SVProgressHUD' #For progress wheel
@@ -18,5 +19,6 @@ pod 'SwiftyJSON'
 pod 'SDWebImage' #For downloading images asynchronously
 pod 'PocketSVG' #Convert SVG to Swift4
 pod 'PhoneNumberKit', '~> 2.1' #Format phone number to international format
+pod 'ProgressHUD'
 
 end

@@ -24,7 +24,7 @@
 		52386CF8208AC53E0062C898 /* NoChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52386CF7208AC53E0062C898 /* NoChannelViewController.swift */; };
 		523BCDB920FABC8700318D64 /* SwipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523BCDB820FABC8700318D64 /* SwipeViewController.swift */; };
 		52411EE82067236F00B3E78E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52411EE72067236F00B3E78E /* AppDelegate.swift */; };
-		52411EEA2067236F00B3E78E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52411EE92067236F00B3E78E /* LoginViewController.swift */; };
+		52411EEA2067236F00B3E78E /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52411EE92067236F00B3E78E /* WelcomeViewController.swift */; };
 		52411EED2067236F00B3E78E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52411EEB2067236F00B3E78E /* Main.storyboard */; };
 		52411EEF2067236F00B3E78E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52411EEE2067236F00B3E78E /* Assets.xcassets */; };
 		52411EF22067236F00B3E78E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52411EF02067236F00B3E78E /* LaunchScreen.storyboard */; };
@@ -38,10 +38,13 @@
 		527EA01E207EBF5D00EA2F18 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527EA01D207EBF5D00EA2F18 /* CameraViewController.swift */; };
 		527F614E20D0876700DDA988 /* UserChannelApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F614D20D0876700DDA988 /* UserChannelApi.swift */; };
 		528C9D1522C29DDF00839EBD /* Ref.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C9D1422C29DDF00839EBD /* Ref.swift */; };
-		528C9D1722C562EA00839EBD /* EmailLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C9D1622C562EA00839EBD /* EmailLoginViewController.swift */; };
+		528C9D1722C562EA00839EBD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C9D1622C562EA00839EBD /* LoginViewController.swift */; };
 		528C9D1922C5630000839EBD /* SignUpStep1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C9D1822C5630000839EBD /* SignUpStep1ViewController.swift */; };
 		528C9D1B22C5686300839EBD /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C9D1A22C5686300839EBD /* Extension.swift */; };
-		528C9D1D22C774D500839EBD /* SignUpStep2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C9D1C22C774D500839EBD /* SignUpStep2ViewController.swift */; };
+		528C9D1D22C774D500839EBD /* SignUpStep3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C9D1C22C774D500839EBD /* SignUpStep3ViewController.swift */; };
+		528C9D1F22C7873600839EBD /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C9D1E22C7873600839EBD /* ForgotPasswordViewController.swift */; };
+		528C9D2122CAA25B00839EBD /* SignUpStep2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C9D2022CAA25B00839EBD /* SignUpStep2ViewController.swift */; };
+		528C9D2322CAA28600839EBD /* SignUpStep4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C9D2222CAA28600839EBD /* SignUpStep4ViewController.swift */; };
 		5296A329208523D400A5F2A8 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5296A328208523D400A5F2A8 /* UIView.swift */; };
 		529CB4F820741DCB003DE1CE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 529CB4F720741DCB003DE1CE /* GoogleService-Info.plist */; };
 		529CB4FA20742328003DE1CE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529CB4F920742328003DE1CE /* SettingsViewController.swift */; };
@@ -81,7 +84,7 @@
 		523BCDB820FABC8700318D64 /* SwipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeViewController.swift; sourceTree = "<group>"; };
 		52411EE42067236F00B3E78E /* Sapnin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sapnin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52411EE72067236F00B3E78E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		52411EE92067236F00B3E78E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		52411EE92067236F00B3E78E /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		52411EEC2067236F00B3E78E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		52411EEE2067236F00B3E78E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52411EF12067236F00B3E78E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -96,10 +99,13 @@
 		527EA01D207EBF5D00EA2F18 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		527F614D20D0876700DDA988 /* UserChannelApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChannelApi.swift; sourceTree = "<group>"; };
 		528C9D1422C29DDF00839EBD /* Ref.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ref.swift; sourceTree = "<group>"; };
-		528C9D1622C562EA00839EBD /* EmailLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginViewController.swift; sourceTree = "<group>"; };
+		528C9D1622C562EA00839EBD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		528C9D1822C5630000839EBD /* SignUpStep1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStep1ViewController.swift; sourceTree = "<group>"; };
 		528C9D1A22C5686300839EBD /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
-		528C9D1C22C774D500839EBD /* SignUpStep2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStep2ViewController.swift; sourceTree = "<group>"; };
+		528C9D1C22C774D500839EBD /* SignUpStep3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStep3ViewController.swift; sourceTree = "<group>"; };
+		528C9D1E22C7873600839EBD /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		528C9D2022CAA25B00839EBD /* SignUpStep2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStep2ViewController.swift; sourceTree = "<group>"; };
+		528C9D2222CAA28600839EBD /* SignUpStep4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStep4ViewController.swift; sourceTree = "<group>"; };
 		5296A328208523D400A5F2A8 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		529CB4F720741DCB003DE1CE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		529CB4F920742328003DE1CE /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -213,10 +219,12 @@
 		52411EFE206BEE9500B3E78E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				52411EE92067236F00B3E78E /* LoginViewController.swift */,
-				528C9D1622C562EA00839EBD /* EmailLoginViewController.swift */,
+				52411EE92067236F00B3E78E /* WelcomeViewController.swift */,
+				528C9D1622C562EA00839EBD /* LoginViewController.swift */,
 				528C9D1822C5630000839EBD /* SignUpStep1ViewController.swift */,
-				528C9D1C22C774D500839EBD /* SignUpStep2ViewController.swift */,
+				528C9D2022CAA25B00839EBD /* SignUpStep2ViewController.swift */,
+				528C9D1C22C774D500839EBD /* SignUpStep3ViewController.swift */,
+				528C9D1E22C7873600839EBD /* ForgotPasswordViewController.swift */,
 				529CB4F920742328003DE1CE /* SettingsViewController.swift */,
 				527EA01D207EBF5D00EA2F18 /* CameraViewController.swift */,
 				525D90DC20A874D000095036 /* ChallengeViewController.swift */,
@@ -236,6 +244,7 @@
 		528C9D1322C1785700839EBD /* Archive */ = {
 			isa = PBXGroup;
 			children = (
+				528C9D2222CAA28600839EBD /* SignUpStep4ViewController.swift */,
 				525D90E020AA4C7B00095036 /* MobileNumberViewController.swift */,
 				52B0C2DD20D5D3EC000A8AED /* Channel_Detail.storyboard */,
 			);
@@ -276,8 +285,8 @@
 			isa = PBXGroup;
 			children = (
 				52411EEB2067236F00B3E78E /* Main.storyboard */,
-				52D5D11620BA358A00965A17 /* Camera.storyboard */,
 				52182DE720BDCA560049FFB3 /* Channel.storyboard */,
+				52D5D11620BA358A00965A17 /* Camera.storyboard */,
 				52B31EFA20C726CE0089C373 /* Settings.storyboard */,
 			);
 			path = Storyboards;
@@ -414,6 +423,8 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/PhoneNumberKit/PhoneNumberKit.framework",
 				"${BUILT_PRODUCTS_DIR}/PocketSVG/PocketSVG.framework",
+				"${BUILT_PRODUCTS_DIR}/ProgressHUD/ProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -430,6 +441,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PhoneNumberKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PocketSVG.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -448,19 +461,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				5225F9B320B763D600D95B8A /* VoteViewController.swift in Sources */,
-				528C9D1722C562EA00839EBD /* EmailLoginViewController.swift in Sources */,
+				528C9D1722C562EA00839EBD /* LoginViewController.swift in Sources */,
 				522F0A0D20D418B20072A63E /* ChannelModel.swift in Sources */,
+				528C9D2322CAA28600839EBD /* SignUpStep4ViewController.swift in Sources */,
 				5225F9AD20B2284A00D95B8A /* UIImageViewWithMask.swift in Sources */,
 				52B88689208381E80066D116 /* ButtonSettings.swift in Sources */,
 				529D15F62078E21D0085115B /* Api.swift in Sources */,
 				52B0C2E020D98DC1000A8AED /* ChannelDetailViewController.swift in Sources */,
 				52BE7498208E54E1005414B5 /* SelectParticipantsViewController.swift in Sources */,
+				528C9D1F22C7873600839EBD /* ForgotPasswordViewController.swift in Sources */,
 				5296A329208523D400A5F2A8 /* UIView.swift in Sources */,
 				523024F9210273C60091AE52 /* PostApi.swift in Sources */,
 				528C9D1522C29DDF00839EBD /* Ref.swift in Sources */,
-				52411EEA2067236F00B3E78E /* LoginViewController.swift in Sources */,
+				52411EEA2067236F00B3E78E /* WelcomeViewController.swift in Sources */,
 				52411EE82067236F00B3E78E /* AppDelegate.swift in Sources */,
-				528C9D1D22C774D500839EBD /* SignUpStep2ViewController.swift in Sources */,
+				528C9D1D22C774D500839EBD /* SignUpStep3ViewController.swift in Sources */,
+				528C9D2122CAA25B00839EBD /* SignUpStep2ViewController.swift in Sources */,
 				52C0B092209395A2009B8206 /* SelectParticipantsTableViewCell.swift in Sources */,
 				523024F721026E220091AE52 /* ChannelPostApi.swift in Sources */,
 				528C9D1B22C5686300839EBD /* Extension.swift in Sources */,

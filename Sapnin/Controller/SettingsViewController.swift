@@ -25,8 +25,12 @@ class SettingsViewController: UIViewController, UIActionSheetDelegate {
     func fetchCurrentUser() {
         Api.User.observeCurrentUser { (user) in
             self.nameLabel.text = user.name
-            if let profileUrl = URL(string: user.profileImageUrl!) {
-                self.profileImage.sd_setImage(with: profileUrl)
+            
+            // If profile image exists, then assign to profile iage
+            if user.profileImageUrl != nil {
+                if let profileUrl = URL(string: user.profileImageUrl!) {
+                    self.profileImage.sd_setImage(with: profileUrl)
+                }
             }
         }
     }
@@ -106,7 +110,7 @@ class SettingsViewController: UIViewController, UIActionSheetDelegate {
             AuthService.logout(onSuccess: {
                 // Show login screen upon logging out - use present to show page without nav bar
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+                let loginVC = storyboard.instantiateViewController(withIdentifier: "WelcomeViewController")
                 self.present(loginVC, animated: true, completion: nil)
                 print("User logged out")
             }) { (error) in

@@ -23,27 +23,47 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Facebook login configuration
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
-        // Remove border in navigation bar and change to white background
+        // Remove border in navigation bar and change to white background, and also make icons (tint) pink
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: UIBarPosition.any, barMetrics: UIBarMetrics.default)
         UINavigationBar.appearance().shadowImage = UIImage()
-        //UINavigationBar.appearance().tintColor = UIColor.red
-        //UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+        UINavigationBar.appearance().barTintColor = UIColor.white
+        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().clipsToBounds = false
+        UINavigationBar.appearance().backgroundColor = UIColor.white
+        UINavigationBar.appearance().tintColor = BrandColours.PINK
         
         // Change font colour, style and size of navigation bar title
-        let grey = UIColor(red:0.40, green:0.40, blue:0.40, alpha:1.0)
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: grey , NSAttributedStringKey.font: UIFont(name: "Roboto-Regular", size: 22)!]
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: BrandColours.NAV_TITLE_COLOUR, NSAttributedStringKey.font: UIFont(name: "Roboto-Regular", size: 22)!]
         
-        // Change back button image
-        let backButtonImage = UIImage(named: "back_icon")?.withRenderingMode(.alwaysOriginal)
-        UINavigationBar.appearance().backIndicatorImage = backButtonImage
-        UINavigationBar.appearance().backIndicatorTransitionMaskImage = backButtonImage
+        // Set back button to icon
+        let backImg = UIImage(named: "back_icon")
+        UINavigationBar.appearance().backIndicatorImage = backImg
+        UINavigationBar.appearance().backIndicatorTransitionMaskImage = backImg
         
-        //let BarButtonItemAppearance = UIBarButtonItem.appearance()
-        //BarButtonItemAppearance.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.clear], for: .normal)
+        // Remove the text "Back" from back button by moving it off the screen at -1000 offset
+        UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffset.init(horizontal: -1000, vertical: 0), for: UIBarMetrics.default)
         
-        // Remove title of back button
-        //UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.clear], for: .normal)
+        // Set initial screen as login VC if the user hasn't logged in, or channel VC if the user is still logged in
+        configureInitialViewController()
         
         return true
+    }
+    
+    // If user's still logged in, then go directly to channel VC on app load, otherwise go to login VC
+    func configureInitialViewController() {
+        var initialVC: UIViewController
+        if Auth.auth().currentUser != nil {
+            let channelStoryboard = UIStoryboard(name: "Channel", bundle: nil)
+            initialVC = channelStoryboard.instantiateViewController(withIdentifier: IDENTIFER_CHANNEL_NAV_CONTROLLER)
+        } else {
+            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            initialVC = mainStoryboard.instantiateViewController(withIdentifier: IDENTIFER_LOGIN_NAV_CONTROLLER)
+        }
+        
+        window?.rootViewController = initialVC
+        
+        // Shows the window and makes it the key window.
+        window?.makeKeyAndVisible()
     }
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {

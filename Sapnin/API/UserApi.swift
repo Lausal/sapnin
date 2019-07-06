@@ -7,8 +7,10 @@
 //
 
 import Foundation
-import FirebaseDatabase
 import FirebaseAuth
+import Firebase
+import ProgressHUD
+import FirebaseStorage
 
 class UserApi {
     
@@ -81,6 +83,60 @@ class UserApi {
                 
             } else {
                 contactExists(false, nil)
+            }
+        }
+    }
+    
+    ////////
+    
+    // Create user in authentication section of Firebase. Once complete, use the returned reference from the authentication section to store in the User Database table
+    func signUp(name: String, email: String, password: String, onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
+        
+        // Create user in authentication
+        Auth.auth().createUser(withEmail: email, password: password) { (authDataResult, error) in
+            if error != nil {
+                ProgressHUD.showError(error!.localizedDescription)
+                return
+            }
+            // After successfully creating in Authentication, then create reference in database table
+            if let authData = authDataResult {
+                
+                let dict: Dictionary <String,Any> = [
+                    "uid": authData.uid, // This is the ID from authentication created
+                    "email": authData.email,
+                    "name": name
+                ]
+                
+                Ref().databaseSpecificUserRef(uid: authData.uid).updateChildValues(dict, withCompletionBlock: { (error, ref) in
+                    if error == nil {
+                        onSuccess()
+                    } else {
+                        onError(error!.localizedDescription)
+                    }
+                })
+                
+            }
+        }
+    }
+    
+    // Function to sign user in whilst checking with Firebase authentication credentials
+    func signIn(email: String, password: String, onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
+        Auth.auth().signIn(withEmail: email, password: password) { (authData, error) in
+            if error != nil {
+                onError(error!.localizedDescription)
+                return
+            }
+            onSuccess()
+        }
+    }
+    
+    // Function to reset password and send user an email to reset
+    func resetPassword(email: String, onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
+        Auth.auth().sendPasswordReset(withEmail: email) { (error) in
+            if error == nil {
+                onSuccess()
+            } else {
+                onError(error!.localizedDescription)
             }
         }
     }

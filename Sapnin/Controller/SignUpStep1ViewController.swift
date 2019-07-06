@@ -10,48 +10,106 @@ import UIKit
 
 class SignUpStep1ViewController: UIViewController {
     
-    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var loginButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupUI()
     }
     
     func setupUI() {
-        setupEmailTextField()
-        setupNextButton()
+        title = "What's your name?"
+        
+        // Set focus on field upon load
+        nameTextField.becomeFirstResponder()
+        
+        // Disable next button by default
+        disabledNextButton()
+        
+        // Add listener to text field to be able to enable/disable next button
+        nameTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
+        
+        setupNameTextField()
+        setupLoginButton()
     }
     
-    // Configure email text field
-    func setupEmailTextField() {
-        emailTextField.layer.borderWidth = 1
-        emailTextField.layer.borderColor = BrandColours.FIELD_BORDER_COLOUR.cgColor
-        emailTextField.backgroundColor = BrandColours.FIELD_BACKGROUND_COLOUR
-        emailTextField.layer.cornerRadius = 5
-        emailTextField.font = UIFont(name: "Roboto-Regular", size: 14)
+    // Enable next button if text field is filled, otherwise disable
+    @objc func textFieldDidChange() {
+        guard let textFieldText = nameTextField.text, !textFieldText.isEmpty else {
+            // Disable
+            disabledNextButton()
+            return
+        }
+        // Enable
+        enableNextButton()
+    }
+    
+    // Navigate back to loginVC
+    @IBAction func loginButtonDidTapped(_ sender: Any) {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    @IBAction func nextButtonDidTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "signUpStep2VC", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Send name to sign up step 2 VC
+        if segue.identifier == "signUpStep2VC" {
+            let controller = segue.destination as! SignUpStep2ViewController
+            controller.name = nameTextField.text
+        }
+    }
+    
+    func setupLoginButton() {
+        let attributedText = NSMutableAttributedString(string: "Already have an account? ", attributes: [NSAttributedString.Key.font : UIFont(name: ROBOTO_REGULAR, size: 12), NSAttributedString.Key.foregroundColor: BrandColours.TEXT_COLOUR])
+        let attributedSubText = NSMutableAttributedString(string: "Log in", attributes: [NSAttributedString.Key.font : UIFont(name: ROBOTO_BOLD, size: 12), NSAttributedString.Key.foregroundColor: BrandColours.PINK])
+        attributedText.append(attributedSubText)
+        loginButton.setAttributedTitle(attributedText, for: UIControl.State.normal)
+    }
+    
+    // Configure name text field
+    func setupNameTextField() {
+        nameTextField.layer.borderWidth = 1
+        nameTextField.layer.borderColor = BrandColours.FIELD_BORDER_COLOUR.cgColor
+        nameTextField.backgroundColor = BrandColours.FIELD_BACKGROUND_COLOUR
+        nameTextField.layer.cornerRadius = 5
+        nameTextField.font = UIFont(name: "Roboto-Regular", size: 14)
         
         // Set left and right padding of text field input
-        emailTextField.paddingLeft = 16
-        emailTextField.paddingRight = 16
+        nameTextField.paddingLeft = 16
+        nameTextField.paddingRight = 16
         
         // Set placeholder styling
-        let placeholderAttr = NSAttributedString(string: "Email address", attributes: [NSAttributedString.Key.foregroundColor : BrandColours.PLACEHOLDER_TEXT_COLOUR])
-        emailTextField.attributedPlaceholder = placeholderAttr
+        let placeholderAttr = NSAttributedString(string: "Full name", attributes: [NSAttributedString.Key.foregroundColor : BrandColours.PLACEHOLDER_TEXT_COLOUR])
+        nameTextField.attributedPlaceholder = placeholderAttr
         
         // Specify text colour
-        emailTextField.textColor = BrandColours.PINK
+        nameTextField.textColor = BrandColours.PINK
     }
     
-    // Configure next button
-    func setupNextButton() {
+    // Enable/activate next button
+    func enableNextButton() {
         nextButton.setTitle("Next", for: UIControl.State.normal)
         nextButton.titleLabel?.font = UIFont(name: ROBOTO_REGULAR, size: 18)
         nextButton.backgroundColor = BrandColours.PINK
         nextButton.layer.cornerRadius = 25
         nextButton.clipsToBounds = true
         nextButton.setTitleColor(.white, for: UIControl.State.normal)
+        nextButton.isEnabled = true
+    }
+    
+    // Disable next button
+    func disabledNextButton() {
+        nextButton.setTitle("Next", for: UIControl.State.normal)
+        nextButton.titleLabel?.font = UIFont(name: ROBOTO_REGULAR, size: 18)
+        nextButton.backgroundColor = BrandColours.DISABLED_BUTTON_PINK
+        nextButton.layer.cornerRadius = 25
+        nextButton.clipsToBounds = true
+        nextButton.setTitleColor(.white, for: UIControl.State.normal)
+        nextButton.isEnabled = false
     }
 
 }

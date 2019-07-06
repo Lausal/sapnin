@@ -79,11 +79,16 @@ class ChannelViewController: UIViewController {
         }
     }
     
+    // Set navigation bar profile image
     func setNavigationBarProfileImage() {
         Api.User.observeCurrentUser { (user) in
-            if let profileUrl = URL(string: user.profileImageUrl!) {
-                self.profileImage.sd_setImage(with: profileUrl)
+            // If profile image exists, then assign to navigation
+            if user.profileImageUrl != nil {
+                if let profileUrl = URL(string: user.profileImageUrl!) {
+                    self.profileImage.sd_setImage(with: profileUrl)
+                }
             }
+            
         }
     }
     
