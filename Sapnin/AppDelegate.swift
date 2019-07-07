@@ -30,8 +30,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         UINavigationBar.appearance().shadowImage = UIImage()
         
-        // Set all header/navigation bar items to be grey
+        // Set all header/navigation bar items to be pink
         UINavigationBar.appearance().tintColor = BrandColours.BAR_BUTTON_ITEM_COLOUR
+        
+        // Set disabled bar button item colour to faded pink
+        let disabledButtonAttribute: [NSAttributedString.Key: Any] = [.foregroundColor: BrandColours.DISABLED_BUTTON_PINK]
+        UIBarButtonItem.appearance().setTitleTextAttributes(disabledButtonAttribute, for: .disabled)
 
         // Change font colour, style and size of navigation bar title
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: BrandColours.NAV_TITLE_COLOUR, NSAttributedStringKey.font: UIFont(name: "Roboto-Regular", size: 22)!]

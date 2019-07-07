@@ -19,6 +19,7 @@ let IDENTIFIER_CHANNEL = "ChannelViewController"
 let IDENTIFIER_LOGIN = "WelcomeViewController"
 let IDENTIFER_CHANNEL_NAV_CONTROLLER = "ChannelNavigationController"
 let IDENTIFER_LOGIN_NAV_CONTROLLER = "LoginNavigationController"
+let IDENTIFIER_CREATE_CHANNEL_NAV_CONTROLLER = "CreateChannelNavigationController"
 
 class Ref {
     

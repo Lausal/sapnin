@@ -72,9 +72,9 @@ class ChannelTableViewController: UITableViewController {
     
     // Switch to CreateGroupVC when new group button is tapped
     @objc func newGroupButtonDidTapped() {
-//        let storyboard = UIStoryboard(name: "Welcome", bundle: nil)
-//        let radarVC = storyboard.instantiateViewController(withIdentifier: IDENTIFIER_RADAR) as! RadarViewController
-//        self.navigationController?.pushViewController(radarVC, animated: true)
+        let storyboard = UIStoryboard(name: "Channel", bundle: nil)
+        let createChannelVC = storyboard.instantiateViewController(withIdentifier: IDENTIFIER_CREATE_CHANNEL_NAV_CONTROLLER)
+        self.present(createChannelVC, animated: true, completion: nil)
     }
     
     // Switch to settings VC when avatar is tapped

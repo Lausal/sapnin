@@ -23,7 +23,6 @@ extension UITextField {
         self.leftViewMode = .always
         self.layer.masksToBounds = true
         
-        
         switch padding {
             
         case .left(let spacing):
@@ -64,5 +63,3 @@ extension UIImageView {
     }
     
 }
-
-

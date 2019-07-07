@@ -33,6 +33,9 @@
 		525D90DF20A88C9800095036 /* ChallengeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D90DE20A88C9800095036 /* ChallengeTableViewCell.swift */; };
 		525D90E120AA4C7B00095036 /* MobileNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D90E020AA4C7B00095036 /* MobileNumberViewController.swift */; };
 		525D90E320AD004900095036 /* CountryCodes.json in Resources */ = {isa = PBXBuildFile; fileRef = 525D90E220AD004900095036 /* CountryCodes.json */; };
+		5269A38022D150B600231F5B /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269A37F22D150B600231F5B /* Utility.swift */; };
+		5269A38222D16A3600231F5B /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269A38122D16A3600231F5B /* NotificationViewController.swift */; };
+		5269A38422D16D0600231F5B /* CreateChannelStep2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269A38322D16D0600231F5B /* CreateChannelStep2ViewController.swift */; };
 		5271340A20D9A0020036EA36 /* BrandColours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5271340920D9A0020036EA36 /* BrandColours.swift */; };
 		5271340F20DC19180036EA36 /* ChannelDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5271340D20DC19180036EA36 /* ChannelDetailCollectionViewCell.swift */; };
 		527EA01E207EBF5D00EA2F18 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527EA01D207EBF5D00EA2F18 /* CameraViewController.swift */; };
@@ -54,7 +57,7 @@
 		529D15F82078E23F0085115B /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529D15F72078E23F0085115B /* UserApi.swift */; };
 		52B0C2DE20D5D3EC000A8AED /* Channel_Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52B0C2DD20D5D3EC000A8AED /* Channel_Detail.storyboard */; };
 		52B0C2E020D98DC1000A8AED /* ChannelDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B0C2DF20D98DC1000A8AED /* ChannelDetailViewController.swift */; };
-		52B31EF920C720100089C373 /* ChannelNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B31EF820C720100089C373 /* ChannelNameViewController.swift */; };
+		52B31EF920C720100089C373 /* CreateChannelStep1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B31EF820C720100089C373 /* CreateChannelStep1ViewController.swift */; };
 		52B31EFB20C726CE0089C373 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52B31EFA20C726CE0089C373 /* Settings.storyboard */; };
 		52B88689208381E80066D116 /* ButtonSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B88688208381E80066D116 /* ButtonSettings.swift */; };
 		52BE7498208E54E1005414B5 /* SelectParticipantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BE7497208E54E1005414B5 /* SelectParticipantsViewController.swift */; };
@@ -64,7 +67,6 @@
 		52D5D11520BA2BBE00965A17 /* BorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D5D11420BA2BBE00965A17 /* BorderView.swift */; };
 		52D5D11720BA358A00965A17 /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52D5D11620BA358A00965A17 /* Camera.storyboard */; };
 		52E1339120CB46A30057F922 /* ChannelApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E1339020CB46A30057F922 /* ChannelApi.swift */; };
-		52E3E27B22D1007300F40F7C /* SuperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E3E27A22D1007300F40F7C /* SuperViewController.swift */; };
 		52E3E27D22D1167900F40F7C /* ChannelBackupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E3E27C22D1167900F40F7C /* ChannelBackupViewController.swift */; };
 		836ADBCA536588C207E17524 /* Pods_Sapnin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C69CAF9E62816387F5103D5C /* Pods_Sapnin.framework */; };
 /* End PBXBuildFile section */
@@ -96,6 +98,9 @@
 		525D90DE20A88C9800095036 /* ChallengeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeTableViewCell.swift; sourceTree = "<group>"; };
 		525D90E020AA4C7B00095036 /* MobileNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileNumberViewController.swift; sourceTree = "<group>"; };
 		525D90E220AD004900095036 /* CountryCodes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CountryCodes.json; sourceTree = "<group>"; };
+		5269A37F22D150B600231F5B /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		5269A38122D16A3600231F5B /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		5269A38322D16D0600231F5B /* CreateChannelStep2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChannelStep2ViewController.swift; sourceTree = "<group>"; };
 		5271340920D9A0020036EA36 /* BrandColours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandColours.swift; sourceTree = "<group>"; };
 		5271340D20DC19180036EA36 /* ChannelDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		527EA01D207EBF5D00EA2F18 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
@@ -120,7 +125,7 @@
 		52AFD4F820BDAAB30039559A /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		52B0C2DD20D5D3EC000A8AED /* Channel_Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Channel_Detail.storyboard; sourceTree = "<group>"; };
 		52B0C2DF20D98DC1000A8AED /* ChannelDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelDetailViewController.swift; sourceTree = "<group>"; };
-		52B31EF820C720100089C373 /* ChannelNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelNameViewController.swift; sourceTree = "<group>"; };
+		52B31EF820C720100089C373 /* CreateChannelStep1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateChannelStep1ViewController.swift; sourceTree = "<group>"; };
 		52B31EFA20C726CE0089C373 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		52B88688208381E80066D116 /* ButtonSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSettings.swift; sourceTree = "<group>"; };
 		52BE7497208E54E1005414B5 /* SelectParticipantsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectParticipantsViewController.swift; sourceTree = "<group>"; };
@@ -130,7 +135,6 @@
 		52D5D11420BA2BBE00965A17 /* BorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderView.swift; sourceTree = "<group>"; };
 		52D5D11620BA358A00965A17 /* Camera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
 		52E1339020CB46A30057F922 /* ChannelApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelApi.swift; sourceTree = "<group>"; };
-		52E3E27A22D1007300F40F7C /* SuperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperViewController.swift; sourceTree = "<group>"; };
 		52E3E27C22D1167900F40F7C /* ChannelBackupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelBackupViewController.swift; sourceTree = "<group>"; };
 		C69CAF9E62816387F5103D5C /* Pods_Sapnin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sapnin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E242AD206F731ED159FC4D83 /* Pods-Sapnin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sapnin.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sapnin/Pods-Sapnin.release.xcconfig"; sourceTree = "<group>"; };
@@ -225,18 +229,19 @@
 			children = (
 				52E3E27922D0DDE500F40F7C /* Login & Register */,
 				5225F9B020B2459900D95B8A /* ChannelTableViewController.swift */,
-				52E3E27A22D1007300F40F7C /* SuperViewController.swift */,
+				52B31EF820C720100089C373 /* CreateChannelStep1ViewController.swift */,
+				5269A38322D16D0600231F5B /* CreateChannelStep2ViewController.swift */,
+				52B0C2DF20D98DC1000A8AED /* ChannelDetailViewController.swift */,
 				529CB4F920742328003DE1CE /* SettingsViewController.swift */,
 				527EA01D207EBF5D00EA2F18 /* CameraViewController.swift */,
 				525D90DC20A874D000095036 /* ChallengeViewController.swift */,
 				522018922082DF00004AB74F /* PreviewViewController.swift */,
 				52386CF7208AC53E0062C898 /* NoChannelViewController.swift */,
-				52B0C2DF20D98DC1000A8AED /* ChannelDetailViewController.swift */,
-				52B31EF820C720100089C373 /* ChannelNameViewController.swift */,
 				52BE7497208E54E1005414B5 /* SelectParticipantsViewController.swift */,
 				521821F320AF9E9A009F8FD5 /* LeaderboardViewController.swift */,
 				5225F9B220B763D600D95B8A /* VoteViewController.swift */,
 				521821F120AF6806009F8FD5 /* PhotoViewController.swift */,
+				5269A38122D16A3600231F5B /* NotificationViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -244,6 +249,7 @@
 		528C9D1322C1785700839EBD /* Archive */ = {
 			isa = PBXGroup;
 			children = (
+				52C7B335209CF6520060F222 /* ColourPalette.swift */,
 				52E3E27C22D1167900F40F7C /* ChannelBackupViewController.swift */,
 				528C9D2222CAA28600839EBD /* SignUpStep4ViewController.swift */,
 				525D90E020AA4C7B00095036 /* MobileNumberViewController.swift */,
@@ -255,8 +261,8 @@
 		5296A32B208524BD00A5F2A8 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				5269A37F22D150B600231F5B /* Utility.swift */,
 				528C9D1A22C5686300839EBD /* Extension.swift */,
-				52C7B335209CF6520060F222 /* ColourPalette.swift */,
 				52B88688208381E80066D116 /* ButtonSettings.swift */,
 				523BCDB820FABC8700318D64 /* SwipeViewController.swift */,
 				5225F9AC20B2284A00D95B8A /* UIImageViewWithMask.swift */,
@@ -474,6 +480,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5269A38222D16A3600231F5B /* NotificationViewController.swift in Sources */,
 				5225F9B320B763D600D95B8A /* VoteViewController.swift in Sources */,
 				528C9D1722C562EA00839EBD /* LoginViewController.swift in Sources */,
 				522F0A0D20D418B20072A63E /* ChannelModel.swift in Sources */,
@@ -490,6 +497,7 @@
 				52411EEA2067236F00B3E78E /* WelcomeViewController.swift in Sources */,
 				52411EE82067236F00B3E78E /* AppDelegate.swift in Sources */,
 				528C9D1D22C774D500839EBD /* SignUpStep3ViewController.swift in Sources */,
+				5269A38022D150B600231F5B /* Utility.swift in Sources */,
 				528C9D2122CAA25B00839EBD /* SignUpStep2ViewController.swift in Sources */,
 				52C0B092209395A2009B8206 /* SelectParticipantsTableViewCell.swift in Sources */,
 				523024F721026E220091AE52 /* ChannelPostApi.swift in Sources */,
@@ -499,6 +507,7 @@
 				5271340F20DC19180036EA36 /* ChannelDetailCollectionViewCell.swift in Sources */,
 				529D15F42078D1E30085115B /* UserModel.swift in Sources */,
 				525D90E120AA4C7B00095036 /* MobileNumberViewController.swift in Sources */,
+				5269A38422D16D0600231F5B /* CreateChannelStep2ViewController.swift in Sources */,
 				521821F220AF6806009F8FD5 /* PhotoViewController.swift in Sources */,
 				525D90DD20A874D000095036 /* ChallengeViewController.swift in Sources */,
 				5271340A20D9A0020036EA36 /* BrandColours.swift in Sources */,
@@ -507,11 +516,10 @@
 				527EA01E207EBF5D00EA2F18 /* CameraViewController.swift in Sources */,
 				52BE749C208FAC83005414B5 /* ContactsModel.swift in Sources */,
 				52E1339120CB46A30057F922 /* ChannelApi.swift in Sources */,
-				52B31EF920C720100089C373 /* ChannelNameViewController.swift in Sources */,
+				52B31EF920C720100089C373 /* CreateChannelStep1ViewController.swift in Sources */,
 				5225F9AF20B2390100D95B8A /* ChannelTableViewCell.swift in Sources */,
 				529D15F82078E23F0085115B /* UserApi.swift in Sources */,
 				5225F9B120B2459900D95B8A /* ChannelTableViewController.swift in Sources */,
-				52E3E27B22D1007300F40F7C /* SuperViewController.swift in Sources */,
 				52386CF8208AC53E0062C898 /* NoChannelViewController.swift in Sources */,
 				52C7B336209CF6520060F222 /* ColourPalette.swift in Sources */,
 				529D15F22078D02E0085115B /* AuthService.swift in Sources */,

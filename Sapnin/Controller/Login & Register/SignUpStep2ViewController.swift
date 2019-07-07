@@ -32,7 +32,8 @@ class SignUpStep2ViewController: UIViewController {
         // Add listener to text field to be able to enable/disable next button
         emailTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
         
-        setupEmailTextField()
+        // Style email text field
+        Utility().styleTextField(textfield: emailTextField, text: "Email address")
     }
     
     // Enable next button if text field is filled, otherwise disable
@@ -44,25 +45,6 @@ class SignUpStep2ViewController: UIViewController {
         }
         // Enable
         enableNextButton()
-    }
-    
-    // Configure email text field
-    func setupEmailTextField() {
-        emailTextField.layer.borderWidth = 1
-        emailTextField.layer.borderColor = BrandColours.FIELD_BORDER_COLOUR.cgColor
-        emailTextField.backgroundColor = BrandColours.FIELD_BACKGROUND_COLOUR
-        emailTextField.layer.cornerRadius = 5
-        emailTextField.font = UIFont(name: "Roboto-Regular", size: 14)
-        
-        // Set left and right padding of text field input
-        emailTextField.addPadding(.both(16))
-        
-        // Set placeholder styling
-        let placeholderAttr = NSAttributedString(string: "Email address", attributes: [NSAttributedString.Key.foregroundColor : BrandColours.PLACEHOLDER_TEXT_COLOUR])
-        emailTextField.attributedPlaceholder = placeholderAttr
-        
-        // Specify text colour
-        emailTextField.textColor = BrandColours.PINK
     }
     
     @IBAction func nextButtonDidTapped(_ sender: Any) {

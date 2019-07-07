@@ -31,7 +31,9 @@ class SignUpStep1ViewController: UIViewController {
         // Add listener to text field to be able to enable/disable next button
         nameTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
         
-        setupNameTextField()
+        // Style name text field
+        Utility().styleTextField(textfield: nameTextField, text: "Full name")
+        
         setupLoginButton()
     }
     
@@ -68,25 +70,6 @@ class SignUpStep1ViewController: UIViewController {
         let attributedSubText = NSMutableAttributedString(string: "Log in", attributes: [NSAttributedString.Key.font : UIFont(name: ROBOTO_BOLD, size: 12), NSAttributedString.Key.foregroundColor: BrandColours.PINK])
         attributedText.append(attributedSubText)
         loginButton.setAttributedTitle(attributedText, for: UIControl.State.normal)
-    }
-    
-    // Configure name text field
-    func setupNameTextField() {
-        nameTextField.layer.borderWidth = 1
-        nameTextField.layer.borderColor = BrandColours.FIELD_BORDER_COLOUR.cgColor
-        nameTextField.backgroundColor = BrandColours.FIELD_BACKGROUND_COLOUR
-        nameTextField.layer.cornerRadius = 5
-        nameTextField.font = UIFont(name: "Roboto-Regular", size: 14)
-        
-        // Set left and right padding of text field input
-        nameTextField.addPadding(.both(16))
-        
-        // Set placeholder styling
-        let placeholderAttr = NSAttributedString(string: "Full name", attributes: [NSAttributedString.Key.foregroundColor : BrandColours.PLACEHOLDER_TEXT_COLOUR])
-        nameTextField.attributedPlaceholder = placeholderAttr
-        
-        // Specify text colour
-        nameTextField.textColor = BrandColours.PINK
     }
     
     // Enable/activate next button

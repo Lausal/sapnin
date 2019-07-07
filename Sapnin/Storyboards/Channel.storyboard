@@ -81,9 +81,6 @@ photos with your friends</string>
                         <viewLayoutGuide key="safeArea" id="dRr-2a-gVv"/>
                     </view>
                     <navigationItem key="navigationItem" title="Channels" id="ctT-NQ-X7o"/>
-                    <connections>
-                        <segue destination="mfb-eF-XUQ" kind="presentation" identifier="createChannel1VC" id="SiD-Gk-byN"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HaR-1m-UjH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -98,7 +95,7 @@ photos with your friends</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3tU-ry-fTk">
-                                <rect key="frame" x="0.0" y="64" width="375" height="14"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="14"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0 / 4" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yXe-DW-hcH">
                                         <rect key="frame" x="170.5" y="0.0" width="35" height="16"/>
@@ -114,7 +111,7 @@ photos with your friends</string>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelectionDuringEditing="YES" allowsMultipleSelection="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZYq-9L-xZb">
-                                <rect key="frame" x="0.0" y="144" width="375" height="523"/>
+                                <rect key="frame" x="0.0" y="100" width="375" height="567"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" tag="1" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="inviteParticipantsCell" rowHeight="60" id="lsR-bQ-Xb6" customClass="SelectParticipantsTableViewCell" customModule="Sapnin" customModuleProvider="target">
@@ -227,7 +224,7 @@ photos with your friends</string>
                                 </connections>
                             </tableView>
                             <searchBar contentMode="redraw" restorationIdentifier="searchField" searchBarStyle="minimal" text="" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="V6n-Em-sd6">
-                                <rect key="frame" x="0.0" y="83" width="375" height="56"/>
+                                <rect key="frame" x="0.0" y="39" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </searchBar>
                         </subviews>
@@ -273,12 +270,12 @@ photos with your friends</string>
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="8218" y="14"/>
+            <point key="canvasLocation" x="10586" y="2740"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GX4-zF-XvQ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mfb-eF-XUQ" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="CreateChannelNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="mfb-eF-XUQ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YsS-2U-8si">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -287,23 +284,23 @@ photos with your friends</string>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="EFS-Yk-q93" kind="relationship" relationship="rootViewController" id="xBg-cX-JiE"/>
+                        <segue destination="Wcd-K0-XvN" kind="relationship" relationship="rootViewController" id="DsJ-y0-EnM"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="URA-T0-8nL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6196" y="15"/>
+            <point key="canvasLocation" x="6196" y="2419"/>
         </scene>
-        <!--Channel name-->
+        <!--View Controller-->
         <scene sceneID="oIT-z8-7BB">
             <objects>
-                <viewController title="Channel name" id="EFS-Yk-q93" customClass="ChannelNameViewController" customModule="Sapnin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="EFS-Yk-q93" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qNr-7R-kYc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Enter channel name" textAlignment="natural" minimumFontSize="28" translatesAutoresizingMaskIntoConstraints="NO" id="WlT-G0-Uaa">
-                                <rect key="frame" x="30" y="94" width="315" height="33"/>
+                                <rect key="frame" x="30" y="50" width="315" height="33"/>
                                 <color key="tintColor" red="1" green="0.18039215689999999" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="28"/>
@@ -313,7 +310,7 @@ photos with your friends</string>
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="Channel name" id="lhA-Ho-G7p">
+                                    <navigationItem id="lhA-Ho-G7p">
                                         <barButtonItem key="rightBarButtonItem" title="Done" id="3Fw-Gg-yx1"/>
                                     </navigationItem>
                                 </items>
@@ -327,7 +324,7 @@ photos with your friends</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aic-Sr-m72"/>
                     </view>
-                    <navigationItem key="navigationItem" title="New channel" id="pOp-LM-l6i">
+                    <navigationItem key="navigationItem" id="pOp-LM-l6i">
                         <barButtonItem key="backBarButtonItem" title=" " id="oPK-Lc-eRE"/>
                         <barButtonItem key="leftBarButtonItem" title="Item" image="close_popup_icon" id="X76-t2-iUI">
                             <color key="tintColor" red="1" green="0.18039215689999999" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -350,7 +347,7 @@ photos with your friends</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ksn-v4-2AX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7305" y="14"/>
+            <point key="canvasLocation" x="9647" y="2740"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="G20-65-bMA">
@@ -753,22 +750,6 @@ photos with your friends</string>
             </objects>
             <point key="canvasLocation" x="10278" y="1049"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="AVC-wn-ugZ">
-            <objects>
-                <viewController id="KYI-ew-ddV" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="QHR-Y1-nxM">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="1ND-Rt-DAF"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="sPm-Uf-Lq2"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Peh-UJ-haN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="8074" y="1621"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Gfj-iP-pAU">
             <objects>
@@ -829,7 +810,7 @@ photos with your friends</string>
                 <viewControllerPlaceholder storyboardName="Settings" referencedIdentifier="SettingsViewController" id="cil-ww-Iyp" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1eO-rm-Uw3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8742" y="656"/>
+            <point key="canvasLocation" x="8740" y="832"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="4Xa-hW-LYt">
@@ -837,6 +818,7 @@ photos with your friends</string>
                 <tabBarController storyboardIdentifier="TabBarVC" automaticallyAdjustsScrollViewInsets="NO" id="7t9-Ii-UXz" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="b3X-KQ-lej">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -863,12 +845,79 @@ photos with your friends</string>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="KYI-ew-ddV" kind="relationship" relationship="rootViewController" id="UbR-co-uZa"/>
+                        <segue destination="7ic-j1-krQ" kind="relationship" relationship="rootViewController" id="ujw-zi-mh0"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qFB-AX-NGg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7135" y="1621"/>
+        </scene>
+        <!--Notification View Controller-->
+        <scene sceneID="0XP-nU-UrK">
+            <objects>
+                <viewController storyboardIdentifier="NotificationViewController" id="7ic-j1-krQ" customClass="NotificationViewController" customModule="Sapnin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ru0-Bn-xrU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="hf4-Up-baN"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="DW3-iq-3oG"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2e1-x0-OAp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8073" y="1621"/>
+        </scene>
+        <!--Create Channel Step1 View Controller-->
+        <scene sceneID="tmE-aR-qqE">
+            <objects>
+                <viewController storyboardIdentifier="CreateChannelStep1ViewController" id="Wcd-K0-XvN" customClass="CreateChannelStep1ViewController" customModule="Sapnin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OkG-dI-a1v">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vUd-Tn-Vai">
+                                <rect key="frame" x="24" y="144" width="327" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="o3A-Gx-Jhc"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jF8-d5-rBw" firstAttribute="trailing" secondItem="vUd-Tn-Vai" secondAttribute="trailing" constant="24" id="7pF-Uh-VIb"/>
+                            <constraint firstItem="vUd-Tn-Vai" firstAttribute="top" secondItem="jF8-d5-rBw" secondAttribute="top" constant="80" id="BaC-yB-9vf"/>
+                            <constraint firstItem="vUd-Tn-Vai" firstAttribute="leading" secondItem="jF8-d5-rBw" secondAttribute="leading" constant="24" id="SeC-Wd-WsF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jF8-d5-rBw"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="wcY-7I-fl3"/>
+                    <connections>
+                        <outlet property="channelNameTextField" destination="vUd-Tn-Vai" id="EoY-zR-NTR"/>
+                        <segue destination="Af7-CL-LTv" kind="show" identifier="createChannelStep2VC" id="q8c-jn-gR9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gSx-Ym-gsm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7135" y="2418"/>
+        </scene>
+        <!--Create Channel Step2 View Controller-->
+        <scene sceneID="tbQ-g1-EeK">
+            <objects>
+                <viewController storyboardIdentifier="CreateChannelStep2ViewController" id="Af7-CL-LTv" customClass="CreateChannelStep2ViewController" customModule="Sapnin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Yq7-SI-RhG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="2mz-t9-cnu"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cDN-sI-kju" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8073" y="2418"/>
         </scene>
     </scenes>
     <resources>

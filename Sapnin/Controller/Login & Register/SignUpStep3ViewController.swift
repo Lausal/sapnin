@@ -35,7 +35,8 @@ class SignUpStep3ViewController: UIViewController {
         // Add listener to text field to be able to enable/disable next button
         passwordTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
         
-        setupPasswordTextField()
+        // Style password text field
+        Utility().styleTextField(textfield: passwordTextField, text: "Password")
     }
     
     // Enable next button if text field is filled, otherwise disable
@@ -47,25 +48,6 @@ class SignUpStep3ViewController: UIViewController {
         }
         // Enable
         enableNextButton()
-    }
-    
-    // Configure email text field
-    func setupPasswordTextField() {
-        passwordTextField.layer.borderWidth = 1
-        passwordTextField.layer.borderColor = BrandColours.FIELD_BORDER_COLOUR.cgColor
-        passwordTextField.backgroundColor = BrandColours.FIELD_BACKGROUND_COLOUR
-        passwordTextField.layer.cornerRadius = 5
-        passwordTextField.font = UIFont(name: "Roboto-Regular", size: 14)
-        
-        // Set left and right padding of text field input
-        passwordTextField.addPadding(.both(16))
-        
-        // Set placeholder styling
-        let placeholderAttr = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor : BrandColours.PLACEHOLDER_TEXT_COLOUR])
-        passwordTextField.attributedPlaceholder = placeholderAttr
-        
-        // Specify text colour
-        passwordTextField.textColor = BrandColours.PINK
     }
     
     func signUp(onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
