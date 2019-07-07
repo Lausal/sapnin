@@ -9,11 +9,16 @@
 import Foundation
 import Firebase
 
+// Fonts
 let ROBOTO_REGULAR = "Roboto-Regular"
 let ROBOTO_BOLD = "Roboto-Bold"
 
+// Firebase table reference
 let REF_USER_TABLE = "users"
+let REF_CHANNEL_TABLE = "channels"
+let REF_USER_CHANNEL_TABLE = "user_channels"
 
+// Storyboard identifier
 let IDENTIFIER_TABBAR = "TabBarVC"
 let IDENTIFIER_CHANNEL = "ChannelViewController"
 let IDENTIFIER_LOGIN = "WelcomeViewController"
@@ -33,6 +38,10 @@ class Ref {
     // Database specific user reference
     func databaseSpecificUserRef(uid: String) -> DatabaseReference {
         return databaseUserTableRef.child(uid)
+    }
+    
+    var databaseChannelTableRef: DatabaseReference {
+        return databaseRoot.child(REF_CHANNEL_TABLE)
     }
     
 }

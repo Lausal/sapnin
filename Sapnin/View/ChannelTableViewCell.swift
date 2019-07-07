@@ -2,20 +2,31 @@
 //  ChannelTableViewCell.swift
 //  Sapnin
 //
-//  Created by Alan Lau on 21/05/2018.
-//  Copyright © 2018 lau. All rights reserved.
+//  Created by Alan Lau on 07/07/2019.
+//  Copyright © 2019 lau. All rights reserved.
 //
 
 import UIKit
 
 class ChannelTableViewCell: UITableViewCell {
-
+    
+    @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var channelNameLabel: UILabel!
-    @IBOutlet weak var userListLabel: UILabel!
-    @IBOutlet weak var timestampLabel: UILabel!
+    @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        setupCellStyle()
+    }
+    
+    func setupCellStyle() {
+        
+        // Style avatar
+        avatar.layer.cornerRadius = 24
+        avatar.clipsToBounds = true
+        
     }
 
 }

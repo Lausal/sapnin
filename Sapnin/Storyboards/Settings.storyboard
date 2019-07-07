@@ -215,7 +215,7 @@
         <image name="facebook_share_icon" width="54" height="54"/>
         <image name="help_icon" width="32" height="32"/>
         <image name="instagram_share_icon" width="54" height="54"/>
-        <image name="no_profile_icon" width="130" height="130"/>
+        <image name="no_profile_icon" width="120" height="120"/>
         <image name="rate_icon" width="32" height="32"/>
         <image name="share_with_friend_icon" width="32" height="32"/>
         <image name="twitter_share_icon" width="54" height="54"/>

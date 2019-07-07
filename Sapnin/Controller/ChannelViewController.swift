@@ -10,7 +10,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseMessaging
 
-class ChannelTableViewController: UITableViewController {
+class ChannelViewController: UIViewController {
     
     var avatarImageView: UIImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 32, height: 32))
     
@@ -64,9 +64,11 @@ class ChannelTableViewController: UITableViewController {
         let avatarButton = UIBarButtonItem(customView: avatarContainerView)
         self.navigationItem.leftBarButtonItem = avatarButton
         
-        // Load avatar image
+        // Load avatar image if available
         if let currentUser = Auth.auth().currentUser, let photoUrl = currentUser.photoURL {
             avatarImageView.loadImage(photoUrl.absoluteString)
+        } else {
+            avatarImageView.image = UIImage(named: "no_profile_icon")
         }
     }
     

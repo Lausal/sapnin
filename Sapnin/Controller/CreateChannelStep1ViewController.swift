@@ -64,11 +64,11 @@ class CreateChannelStep1ViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        // Send channel name to CreateChannel2ViewController
-//        if segue.identifier == "createChannel2VC" {
-//            let createChannel2VC = segue.destination as! SelectParticipantsViewController
-//            createChannel2VC.channelName = channelNameTextField.text
-//        }
+        // Send channel name to "createChannelStep2VC"
+        if segue.identifier == "createChannelStep2VC" {
+            let controller = segue.destination as! CreateChannelStep2ViewController
+            controller.channelName = channelNameTextField.text
+        }
     }
     
 }

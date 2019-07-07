@@ -151,10 +151,10 @@
             </objects>
             <point key="canvasLocation" x="4521" y="-228"/>
         </scene>
-        <!--ChannelTableViewController-->
+        <!--ChannelViewController-->
         <scene sceneID="6Ei-qf-tYV">
             <objects>
-                <viewControllerPlaceholder storyboardName="Channel" referencedIdentifier="ChannelTableViewController" id="qX1-FW-xhF" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Channel" referencedIdentifier="ChannelViewController" id="qX1-FW-xhF" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bYF-CB-5n2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4507" y="159"/>

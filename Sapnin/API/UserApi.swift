@@ -20,7 +20,7 @@ class UserApi {
         guard let currentUser = Auth.auth().currentUser else {
             return nil
         }
-        
+
         return DB_REF_USERS.child(currentUser.uid)
     }
     
@@ -88,6 +88,15 @@ class UserApi {
     }
     
     ////////
+    
+    // Returns the current user ID
+    var currentUserId: String {
+        if Auth.auth().currentUser != nil {
+            return Auth.auth().currentUser!.uid
+        } else {
+            return ""
+        }
+    }
     
     // Create user in authentication section of Firebase. Once complete, use the returned reference from the authentication section to store in the User Database table
     func signUp(name: String, email: String, password: String, onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
