@@ -836,19 +836,20 @@ photos with your friends</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_profile_icon" translatesAutoresizingMaskIntoConstraints="NO" id="hUU-tU-DGo">
-                                                    <rect key="frame" x="24" y="24" width="48" height="47.5"/>
+                                                    <rect key="frame" x="16" y="24" width="48" height="48"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="48" id="1Uo-9g-GSv"/>
+                                                        <constraint firstAttribute="height" constant="48" id="mGt-ld-YcD"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DbE-rx-kcI">
-                                                    <rect key="frame" x="317.5" y="29.5" width="33.5" height="16.5"/>
+                                                    <rect key="frame" x="325.5" y="29.5" width="33.5" height="16.5"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="f5Q-Fj-E3z">
-                                                    <rect key="frame" x="84" y="27" width="44" height="42"/>
+                                                    <rect key="frame" x="76" y="27" width="44" height="42"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gIm-50-NJz">
                                                             <rect key="frame" x="0.0" y="0.0" width="44" height="21.5"/>
@@ -866,13 +867,12 @@ photos with your friends</string>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="hUU-tU-DGo" secondAttribute="bottom" constant="24" id="5xB-4M-dA4"/>
-                                                <constraint firstItem="hUU-tU-DGo" firstAttribute="top" secondItem="51Y-A8-OAz" secondAttribute="top" constant="24" id="AyD-lh-yDC"/>
-                                                <constraint firstItem="f5Q-Fj-E3z" firstAttribute="centerY" secondItem="51Y-A8-OAz" secondAttribute="centerY" id="HfL-g8-xSv"/>
-                                                <constraint firstAttribute="trailing" secondItem="DbE-rx-kcI" secondAttribute="trailing" constant="24" id="LST-br-ciu"/>
+                                                <constraint firstAttribute="trailing" secondItem="DbE-rx-kcI" secondAttribute="trailing" constant="16" id="LST-br-ciu"/>
+                                                <constraint firstItem="f5Q-Fj-E3z" firstAttribute="centerY" secondItem="51Y-A8-OAz" secondAttribute="centerY" id="MIk-h3-H5O"/>
+                                                <constraint firstItem="f5Q-Fj-E3z" firstAttribute="leading" secondItem="hUU-tU-DGo" secondAttribute="trailing" constant="12" id="VeR-tU-RPk"/>
                                                 <constraint firstItem="DbE-rx-kcI" firstAttribute="centerY" secondItem="gIm-50-NJz" secondAttribute="centerY" id="YP5-jU-DDA"/>
-                                                <constraint firstItem="hUU-tU-DGo" firstAttribute="leading" secondItem="51Y-A8-OAz" secondAttribute="leading" constant="24" id="qoZ-Xy-9gC"/>
-                                                <constraint firstItem="f5Q-Fj-E3z" firstAttribute="leading" secondItem="hUU-tU-DGo" secondAttribute="trailing" constant="12" id="xJ4-81-93p"/>
+                                                <constraint firstItem="hUU-tU-DGo" firstAttribute="leading" secondItem="51Y-A8-OAz" secondAttribute="leading" constant="16" id="qoZ-Xy-9gC"/>
+                                                <constraint firstItem="hUU-tU-DGo" firstAttribute="centerY" secondItem="51Y-A8-OAz" secondAttribute="centerY" id="szg-ol-jy1"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -896,6 +896,7 @@ photos with your friends</string>
                     </view>
                     <navigationItem key="navigationItem" id="Q66-4v-g7M"/>
                     <connections>
+                        <outlet property="tableView" destination="qDb-QZ-uBq" id="mY5-LH-ODj"/>
                         <segue destination="cil-ww-Iyp" kind="presentation" identifier="settingsVC" id="5wt-24-GAk"/>
                     </connections>
                 </viewController>

@@ -46,4 +46,26 @@ class UserChannelApi {
         }
     }
     
+    ////////
+    
+    // Function to get all the corresponding users channels
+    func getUserChannels(uid: String, onSuccess: @escaping (ChannelCompletion)) {
+        
+        // First grab all the channel ID's from "user_channels" table corresponding to the current user ID
+        let ref = Ref().databaseUserChannelTableRef.child(uid)
+        ref.observeSingleEvent(of: DataEventType.value) { (snapshot) in
+            guard let dict = snapshot.value as? [String: Bool] else { return }
+            
+            // After grabbing all channel Id's from the user, loop through each channel ID and fetch the corresponding channel detail from the "channels" table
+            dict.forEach({ (arg) in
+                
+                // key is the channel Id, and value = true or false (Corresponds to the table)
+                let (key, value) = arg
+                Api.Channel.getSpecificChannelInfo(channelId: key, onSuccess: { (channel) in
+                    onSuccess(channel)
+                })
+            })
+        }
+    }
+    
 }

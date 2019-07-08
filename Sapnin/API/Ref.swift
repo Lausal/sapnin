@@ -44,4 +44,12 @@ class Ref {
         return databaseRoot.child(REF_CHANNEL_TABLE)
     }
     
+    var databaseUserChannelTableRef: DatabaseReference {
+        return databaseRoot.child(REF_USER_CHANNEL_TABLE)
+    }
+    
+    func databaseSpecificChannelRef(channelId: String) -> DatabaseReference {
+        return databaseChannelTableRef.child(channelId)
+    }
+    
 }

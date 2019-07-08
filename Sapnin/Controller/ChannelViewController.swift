@@ -12,6 +12,9 @@ import FirebaseMessaging
 
 class ChannelViewController: UIViewController {
     
+    @IBOutlet weak var tableView: UITableView!
+    
+    var channelList = [Channel]()
     var avatarImageView: UIImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 32, height: 32))
     
     // This is for the search bar, specifying nil means the search results will appear on the same/current page
@@ -20,17 +23,35 @@ class ChannelViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupTableView()
         setupNavigationBar()
         setupSearchBarController()
+        observeChannels()
+    }
+    
+    // Get all of the users corresponding channels from Firebase
+    func observeChannels() {
+        Api.UserChannel.getUserChannels(uid: Api.User.currentUserId) { (channel) in
+            self.channelList.append(channel)
+            self.tableView.reloadData()
+        }
+    }
+    
+    // Tableview styling
+    func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.separatorStyle = .none
+        tableView.allowsSelection = true
     }
     
     // Function to make search bar appear and its settings
     func setupSearchBarController() {
-        //searchController.dimsBackgroundDuringPresentation = true
+        searchController.dimsBackgroundDuringPresentation = true
         searchController.searchBar.placeholder = "Search"
         searchController.searchBar.barTintColor = UIColor.white
-        //searchController.obscuresBackgroundDuringPresentation = false
-        //definesPresentationContext = true
+        searchController.obscuresBackgroundDuringPresentation = false
+        definesPresentationContext = true
         navigationItem.hidesSearchBarWhenScrolling = false
         navigationItem.searchController = searchController
     }
@@ -64,7 +85,7 @@ class ChannelViewController: UIViewController {
         let avatarButton = UIBarButtonItem(customView: avatarContainerView)
         self.navigationItem.leftBarButtonItem = avatarButton
         
-        // Load avatar image if available
+        // Load user avatar image if available, otherwise use the no profile icon
         if let currentUser = Auth.auth().currentUser, let photoUrl = currentUser.photoURL {
             avatarImageView.loadImage(photoUrl.absoluteString)
         } else {
@@ -84,4 +105,29 @@ class ChannelViewController: UIViewController {
         self.performSegue(withIdentifier: "settingsVC", sender: nil)
     }
 
+}
+
+extension ChannelViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.channelList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // Pass the channel to the cell to load the corresponding channel information
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ChannelTableViewCell") as! ChannelTableViewCell
+        let channel = channelList[indexPath.row]
+        cell.loadData(channel)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+    
+    // Esimated row height is mainly used to help the system calculate custom cell row heights for smoother transition
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 300
+    }
+    
 }

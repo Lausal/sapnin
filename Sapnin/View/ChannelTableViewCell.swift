@@ -15,18 +15,28 @@ class ChannelTableViewCell: UITableViewCell {
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
+    var channel: Channel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        setupCellStyle()
-    }
-    
-    func setupCellStyle() {
         
         // Style avatar
         avatar.layer.cornerRadius = 24
         avatar.clipsToBounds = true
         
+    }
+    
+    // Load the channel data into the cell
+    func loadData(_ channel: Channel) {
+        self.channel = channel
+        self.channelNameLabel.text = channel.channelName
+        
+        // Configure timestamp based on timelapse between creation date and current date
+        let date = Date(timeIntervalSince1970: channel.dateCreated)
+        let dateString = timeAgoSinceDate(date, currentDate: Date(), numericDates: true)
+        dateLabel.text = dateString
+        
+        messageLabel.text = "Luke posted a photo"
     }
 
 }

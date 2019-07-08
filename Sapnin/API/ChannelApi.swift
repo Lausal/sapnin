@@ -11,6 +11,9 @@ import FirebaseDatabase
 import FirebaseAuth
 import ProgressHUD
 
+// Typealias is similar to a variable, but is used to reference closure arguments. In this case the onSuccess will return a Channel object
+typealias ChannelCompletion = (Channel) -> Void
+
 class ChannelApi {
     
 //    func createChannel(channelName: String, users: [String: Bool], onSuccess: @escaping () -> Void) {
@@ -68,7 +71,7 @@ class ChannelApi {
         let date: Double = Date().timeIntervalSince1970
         
         // Create a dictionary to store the variables
-        let dict = ["ownerId": Api.User.currentUserId, "channelName": channelName, "date": date] as [String : Any]
+        let dict = ["ownerId": Api.User.currentUserId, "channelName": channelName, "dateCreated": date] as [String : Any]
         
         // Add new channel to channels Firebase entity table
         newChannelRef.setValue(dict) { (error, ref) in
@@ -79,9 +82,21 @@ class ChannelApi {
                 ProgressHUD.dismiss()
                 
                 // After adding the channel into the "channels" table, also add reference of the channel ID into the respective user channel table of each user.
-                let currentUserChannelRef = Database.database().reference().child(REF_USER_CHANNEL_TABLE).child(Api.User.currentUserId).child(newChannelId)
-                currentUserChannelRef.updateChildValues(dict)
+                let userChannelRef = Ref().databaseUserChannelTableRef.child(Api.User.currentUserId)
+                userChannelRef.updateChildValues([newChannelId: true])
                 onSuccess()
+            }
+        }
+    }
+    
+    // Retrieve a specific channel information from Firebase via channel ID
+    func getSpecificChannelInfo(channelId: String, onSuccess: @escaping (ChannelCompletion)) {
+        let ref = Ref().databaseSpecificChannelRef(channelId: channelId)
+        ref.observeSingleEvent(of: .value) { (snapshot) in
+            if let dict = snapshot.value as? Dictionary <String, Any> {
+                if let channel = Channel.transformChannel(dict: dict) {
+                    onSuccess(channel)
+                }
             }
         }
     }

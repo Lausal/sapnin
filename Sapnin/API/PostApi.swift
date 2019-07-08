@@ -42,12 +42,8 @@ class Post {
         let newPostId = DB_REF_POSTS.childByAutoId().key
         let newPostReference = DB_REF_POSTS.child(newPostId)
         
-        guard let userId = Api.User.CURRENT_USER?.uid else {
-            return
-        }
-        
         let timestamp = Int(Date().timeIntervalSince1970)
-        let dict = ["uid": userId, "photoUrl": photoUrl, "timestamp": timestamp] as [String : Any]
+        let dict = ["uid": Api.User.currentUserId, "photoUrl": photoUrl, "timestamp": timestamp] as [String : Any]
         
         newPostReference.setValue(dict) { (error, ref) in
             if error != nil {

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class UserModel {
+class User {
     var userId: String?
     var email: String?
     var name: String?
@@ -16,9 +16,9 @@ class UserModel {
     var profileImageUrl: String?
 }
 
-extension UserModel {
-    static func transformUser(dict: [String: Any], key: String) -> UserModel {
-        let user = UserModel()
+extension User {
+    static func transformUser(dict: [String: Any], key: String) -> User {
+        let user = User()
         user.userId = key
         user.email = dict["email"] as? String
         user.name = dict["name"] as? String

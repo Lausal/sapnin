@@ -24,31 +24,31 @@ class UserApi {
         return DB_REF_USERS.child(currentUser.uid)
     }
     
-    var CURRENT_USER: User? {
-        if let currentUser = Auth.auth().currentUser {
-            return currentUser
-        } else {
-            return nil
-        }
-    }
+//    var CURRENT_USER: User? {
+//        if let currentUser = Auth.auth().currentUser {
+//            return currentUser
+//        } else {
+//            return nil
+//        }
+//    }
     
-    func observeCurrentUser(onSuccess: @escaping (UserModel) -> Void) {
+    func observeCurrentUser(onSuccess: @escaping (User) -> Void) {
         guard let currentUser = Auth.auth().currentUser else {
             return
         }
         
         DB_REF_USERS.child(currentUser.uid).observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
             if let dict = snapshot.value as? [String: Any] {
-                let user = UserModel.transformUser(dict: dict, key: snapshot.key)
+                let user = User.transformUser(dict: dict, key: snapshot.key)
                 onSuccess(user)
             }
         })
     }
     
-    func observeUser(userId: String, onSuccess: @escaping (UserModel) -> Void) {
+    func observeUser(userId: String, onSuccess: @escaping (User) -> Void) {
         DB_REF_USERS.child(userId).observeSingleEvent(of: .value, with: { (snapshot) in
             if let dict = snapshot.value as? [String: Any] {
-                let user = UserModel.transformUser(dict: dict, key: snapshot.key)
+                let user = User.transformUser(dict: dict, key: snapshot.key)
                 onSuccess(user)
             }
         })
@@ -76,7 +76,7 @@ class UserApi {
                 snapshot.children.forEach({ (s) in
                     let child = s as! DataSnapshot
                     if let dict = child.value as? [String: Any] {
-                        let user = UserModel.transformUser(dict: dict, key: snapshot.key)
+                        let user = User.transformUser(dict: dict, key: snapshot.key)
                         contactExists(true, child.key)
                     }
                 })

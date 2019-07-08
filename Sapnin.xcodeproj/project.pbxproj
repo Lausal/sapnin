@@ -18,7 +18,7 @@
 		5225F9AF20B2390100D95B8A /* ChannelTableViewCellArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5225F9AE20B2390100D95B8A /* ChannelTableViewCellArchive.swift */; };
 		5225F9B120B2459900D95B8A /* ChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5225F9B020B2459900D95B8A /* ChannelViewController.swift */; };
 		5225F9B320B763D600D95B8A /* VoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5225F9B220B763D600D95B8A /* VoteViewController.swift */; };
-		522F0A0D20D418B20072A63E /* ChannelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F0A0C20D418B20072A63E /* ChannelModel.swift */; };
+		522F0A0D20D418B20072A63E /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F0A0C20D418B20072A63E /* Channel.swift */; };
 		523024F721026E220091AE52 /* ChannelPostApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523024F621026E220091AE52 /* ChannelPostApi.swift */; };
 		523024F9210273C60091AE52 /* PostApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523024F8210273C60091AE52 /* PostApi.swift */; };
 		52386CF8208AC53E0062C898 /* NoChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52386CF7208AC53E0062C898 /* NoChannelViewController.swift */; };
@@ -53,7 +53,7 @@
 		529CB4F820741DCB003DE1CE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 529CB4F720741DCB003DE1CE /* GoogleService-Info.plist */; };
 		529CB4FA20742328003DE1CE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529CB4F920742328003DE1CE /* SettingsViewController.swift */; };
 		529D15F22078D02E0085115B /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529D15F12078D02E0085115B /* AuthService.swift */; };
-		529D15F42078D1E30085115B /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529D15F32078D1E30085115B /* UserModel.swift */; };
+		529D15F42078D1E30085115B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529D15F32078D1E30085115B /* User.swift */; };
 		529D15F62078E21D0085115B /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529D15F52078E21D0085115B /* Api.swift */; };
 		529D15F82078E23F0085115B /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529D15F72078E23F0085115B /* UserApi.swift */; };
 		52B0C2DE20D5D3EC000A8AED /* Channel_Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52B0C2DD20D5D3EC000A8AED /* Channel_Detail.storyboard */; };
@@ -82,7 +82,7 @@
 		5225F9AE20B2390100D95B8A /* ChannelTableViewCellArchive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelTableViewCellArchive.swift; sourceTree = "<group>"; };
 		5225F9B020B2459900D95B8A /* ChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelViewController.swift; sourceTree = "<group>"; };
 		5225F9B220B763D600D95B8A /* VoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteViewController.swift; sourceTree = "<group>"; };
-		522F0A0C20D418B20072A63E /* ChannelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelModel.swift; sourceTree = "<group>"; };
+		522F0A0C20D418B20072A63E /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		523024F621026E220091AE52 /* ChannelPostApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelPostApi.swift; sourceTree = "<group>"; };
 		523024F8210273C60091AE52 /* PostApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostApi.swift; sourceTree = "<group>"; };
 		52386CF7208AC53E0062C898 /* NoChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoChannelViewController.swift; sourceTree = "<group>"; };
@@ -119,7 +119,7 @@
 		529CB4F720741DCB003DE1CE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		529CB4F920742328003DE1CE /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		529D15F12078D02E0085115B /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
-		529D15F32078D1E30085115B /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		529D15F32078D1E30085115B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		529D15F52078E21D0085115B /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		529D15F72078E23F0085115B /* UserApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
 		52AFD4F620BDAAAF0039559A /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
@@ -208,8 +208,8 @@
 		52411EFC206BEE6700B3E78E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				529D15F32078D1E30085115B /* UserModel.swift */,
-				522F0A0C20D418B20072A63E /* ChannelModel.swift */,
+				529D15F32078D1E30085115B /* User.swift */,
+				522F0A0C20D418B20072A63E /* Channel.swift */,
 				52BE749B208FAC83005414B5 /* ContactsModel.swift */,
 			);
 			path = Model;
@@ -486,7 +486,7 @@
 				5269A38222D16A3600231F5B /* NotificationViewController.swift in Sources */,
 				5225F9B320B763D600D95B8A /* VoteViewController.swift in Sources */,
 				528C9D1722C562EA00839EBD /* LoginViewController.swift in Sources */,
-				522F0A0D20D418B20072A63E /* ChannelModel.swift in Sources */,
+				522F0A0D20D418B20072A63E /* Channel.swift in Sources */,
 				528C9D2322CAA28600839EBD /* SignUpStep4ViewController.swift in Sources */,
 				5225F9AD20B2284A00D95B8A /* UIImageViewWithMask.swift in Sources */,
 				52B88689208381E80066D116 /* ButtonSettings.swift in Sources */,
@@ -508,7 +508,7 @@
 				521821F420AF9E9A009F8FD5 /* LeaderboardViewController.swift in Sources */,
 				529CB4FA20742328003DE1CE /* SettingsViewController.swift in Sources */,
 				5271340F20DC19180036EA36 /* ChannelDetailCollectionViewCell.swift in Sources */,
-				529D15F42078D1E30085115B /* UserModel.swift in Sources */,
+				529D15F42078D1E30085115B /* User.swift in Sources */,
 				525D90E120AA4C7B00095036 /* MobileNumberViewController.swift in Sources */,
 				5269A38422D16D0600231F5B /* CreateChannelStep2ViewController.swift in Sources */,
 				521821F220AF6806009F8FD5 /* PhotoViewController.swift in Sources */,

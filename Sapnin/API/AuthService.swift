@@ -25,10 +25,10 @@ class AuthService {
     
     static func updateUserInformation(imageData: Data, onSuccess: @escaping () -> Void, onError: @escaping (_ errorMessage: String?) -> Void) {
         
-        let userId = Api.User.CURRENT_USER?.uid
+        let userId = Api.User.currentUserId
         
         // Store the new profile image into Firebase storage
-        let storageRef = Storage.storage().reference().child("profilePictures").child(userId!)
+        let storageRef = Storage.storage().reference().child("profilePictures").child(userId)
         storageRef.putData(imageData, metadata: nil, completion: { (metadata, error) in
             if error != nil {
                 return
