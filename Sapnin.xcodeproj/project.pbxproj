@@ -35,7 +35,7 @@
 		525D90E320AD004900095036 /* CountryCodes.json in Resources */ = {isa = PBXBuildFile; fileRef = 525D90E220AD004900095036 /* CountryCodes.json */; };
 		5269A38022D150B600231F5B /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269A37F22D150B600231F5B /* Utility.swift */; };
 		5269A38222D16A3600231F5B /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269A38122D16A3600231F5B /* NotificationViewController.swift */; };
-		5269A38422D16D0600231F5B /* CreateChannelStep2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269A38322D16D0600231F5B /* CreateChannelStep2ViewController.swift */; };
+		5269A38422D16D0600231F5B /* CreateChannelStep1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269A38322D16D0600231F5B /* CreateChannelStep1ViewController.swift */; };
 		5269A38622D2553600231F5B /* ChannelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269A38522D2553600231F5B /* ChannelTableViewCell.swift */; };
 		5271340A20D9A0020036EA36 /* BrandColours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5271340920D9A0020036EA36 /* BrandColours.swift */; };
 		5271340F20DC19180036EA36 /* ChannelDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5271340D20DC19180036EA36 /* ChannelDetailCollectionViewCell.swift */; };
@@ -58,7 +58,7 @@
 		529D15F82078E23F0085115B /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529D15F72078E23F0085115B /* UserApi.swift */; };
 		52B0C2DE20D5D3EC000A8AED /* Channel_Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52B0C2DD20D5D3EC000A8AED /* Channel_Detail.storyboard */; };
 		52B0C2E020D98DC1000A8AED /* ChannelDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B0C2DF20D98DC1000A8AED /* ChannelDetailViewController.swift */; };
-		52B31EF920C720100089C373 /* CreateChannelStep1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B31EF820C720100089C373 /* CreateChannelStep1ViewController.swift */; };
+		52B31EF920C720100089C373 /* CreateChannelStep2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B31EF820C720100089C373 /* CreateChannelStep2ViewController.swift */; };
 		52B31EFB20C726CE0089C373 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52B31EFA20C726CE0089C373 /* Settings.storyboard */; };
 		52B88689208381E80066D116 /* ButtonSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B88688208381E80066D116 /* ButtonSettings.swift */; };
 		52BE7498208E54E1005414B5 /* SelectParticipantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BE7497208E54E1005414B5 /* SelectParticipantsViewController.swift */; };
@@ -101,7 +101,7 @@
 		525D90E220AD004900095036 /* CountryCodes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CountryCodes.json; sourceTree = "<group>"; };
 		5269A37F22D150B600231F5B /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		5269A38122D16A3600231F5B /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
-		5269A38322D16D0600231F5B /* CreateChannelStep2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChannelStep2ViewController.swift; sourceTree = "<group>"; };
+		5269A38322D16D0600231F5B /* CreateChannelStep1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChannelStep1ViewController.swift; sourceTree = "<group>"; };
 		5269A38522D2553600231F5B /* ChannelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelTableViewCell.swift; sourceTree = "<group>"; };
 		5271340920D9A0020036EA36 /* BrandColours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandColours.swift; sourceTree = "<group>"; };
 		5271340D20DC19180036EA36 /* ChannelDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelDetailCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -127,7 +127,7 @@
 		52AFD4F820BDAAB30039559A /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		52B0C2DD20D5D3EC000A8AED /* Channel_Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Channel_Detail.storyboard; sourceTree = "<group>"; };
 		52B0C2DF20D98DC1000A8AED /* ChannelDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelDetailViewController.swift; sourceTree = "<group>"; };
-		52B31EF820C720100089C373 /* CreateChannelStep1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateChannelStep1ViewController.swift; sourceTree = "<group>"; };
+		52B31EF820C720100089C373 /* CreateChannelStep2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateChannelStep2ViewController.swift; sourceTree = "<group>"; };
 		52B31EFA20C726CE0089C373 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		52B88688208381E80066D116 /* ButtonSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSettings.swift; sourceTree = "<group>"; };
 		52BE7497208E54E1005414B5 /* SelectParticipantsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectParticipantsViewController.swift; sourceTree = "<group>"; };
@@ -231,8 +231,8 @@
 			children = (
 				52E3E27922D0DDE500F40F7C /* Login & Register */,
 				5225F9B020B2459900D95B8A /* ChannelViewController.swift */,
-				52B31EF820C720100089C373 /* CreateChannelStep1ViewController.swift */,
-				5269A38322D16D0600231F5B /* CreateChannelStep2ViewController.swift */,
+				5269A38322D16D0600231F5B /* CreateChannelStep1ViewController.swift */,
+				52B31EF820C720100089C373 /* CreateChannelStep2ViewController.swift */,
 				52B0C2DF20D98DC1000A8AED /* ChannelDetailViewController.swift */,
 				529CB4F920742328003DE1CE /* SettingsViewController.swift */,
 				527EA01D207EBF5D00EA2F18 /* CameraViewController.swift */,
@@ -510,7 +510,7 @@
 				5271340F20DC19180036EA36 /* ChannelDetailCollectionViewCell.swift in Sources */,
 				529D15F42078D1E30085115B /* User.swift in Sources */,
 				525D90E120AA4C7B00095036 /* MobileNumberViewController.swift in Sources */,
-				5269A38422D16D0600231F5B /* CreateChannelStep2ViewController.swift in Sources */,
+				5269A38422D16D0600231F5B /* CreateChannelStep1ViewController.swift in Sources */,
 				521821F220AF6806009F8FD5 /* PhotoViewController.swift in Sources */,
 				525D90DD20A874D000095036 /* ChallengeViewController.swift in Sources */,
 				5271340A20D9A0020036EA36 /* BrandColours.swift in Sources */,
@@ -519,7 +519,7 @@
 				527EA01E207EBF5D00EA2F18 /* CameraViewController.swift in Sources */,
 				52BE749C208FAC83005414B5 /* ContactsModel.swift in Sources */,
 				52E1339120CB46A30057F922 /* ChannelApi.swift in Sources */,
-				52B31EF920C720100089C373 /* CreateChannelStep1ViewController.swift in Sources */,
+				52B31EF920C720100089C373 /* CreateChannelStep2ViewController.swift in Sources */,
 				5225F9AF20B2390100D95B8A /* ChannelTableViewCellArchive.swift in Sources */,
 				5269A38622D2553600231F5B /* ChannelTableViewCell.swift in Sources */,
 				529D15F82078E23F0085115B /* UserApi.swift in Sources */,

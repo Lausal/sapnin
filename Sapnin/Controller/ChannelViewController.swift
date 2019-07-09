@@ -32,7 +32,23 @@ class ChannelViewController: UIViewController {
     // Get all of the users corresponding channels from Firebase
     func observeChannels() {
         Api.UserChannel.getUserChannels(uid: Api.User.currentUserId) { (channel) in
-            self.channelList.append(channel)
+            
+            // Check and make sure channel object is not already added into the channelList (i.e. duplication) by checking if channelID already exists in the array
+            if !self.channelList.contains(where: {$0.channelId == channel.channelId}) {
+                // If not duplicate, then append to channelList array
+                self.channelList.append(channel)
+                
+                // Sort channels by date
+                self.sortChannels()
+            }
+        }
+    }
+    
+    // Sort channels by date order, so latest channel is at the top
+    func sortChannels() {
+        channelList = channelList.sorted(by: {$0.lastMessageDate > $1.lastMessageDate})
+        
+        DispatchQueue.main.async {
             self.tableView.reloadData()
         }
     }
@@ -130,4 +146,34 @@ extension ChannelViewController: UITableViewDelegate, UITableViewDataSource {
         return 300
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+    
+    // Handles swipe action on row - show delete option
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = deleteButton_TouchUpInside(at: indexPath)
+        return UISwipeActionsConfiguration(actions: [delete])
+    }
+    
+    // When delete is pressed on swipe, show alert popup for final confirmation before deleting
+    func deleteButton_TouchUpInside(at indexPath: IndexPath) -> UIContextualAction {
+        
+        // Show stickersheet with option to cancel or delete
+        let action = UIContextualAction(style: .normal, title: "Delete") { (action, view, completion) in
+            
+            let channelName = self.channelList[indexPath.row].channelName
+            let alert = UIAlertController(title: "Delete channel", message: "Are you sure you want to delete " + channelName, preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
+                // Delete function
+            }))
+            
+            self.present(alert, animated: true)
+        }
+        
+        action.backgroundColor = BrandColours.PINK
+        return action
+    }
 }

@@ -284,7 +284,7 @@ photos with your friends</string>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Wcd-K0-XvN" kind="relationship" relationship="rootViewController" id="DsJ-y0-EnM"/>
+                        <segue destination="Af7-CL-LTv" kind="relationship" relationship="rootViewController" id="p6s-TH-7AY"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="URA-T0-8nL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -980,10 +980,10 @@ photos with your friends</string>
             </objects>
             <point key="canvasLocation" x="8073" y="1621"/>
         </scene>
-        <!--Create Channel Step1 View Controller-->
+        <!--Create Channel Step2 View Controller-->
         <scene sceneID="tmE-aR-qqE">
             <objects>
-                <viewController storyboardIdentifier="CreateChannelStep1ViewController" id="Wcd-K0-XvN" customClass="CreateChannelStep1ViewController" customModule="Sapnin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateChannelStep2ViewController" id="Wcd-K0-XvN" customClass="CreateChannelStep2ViewController" customModule="Sapnin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OkG-dI-a1v">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1009,27 +1009,30 @@ photos with your friends</string>
                     <navigationItem key="navigationItem" id="wcY-7I-fl3"/>
                     <connections>
                         <outlet property="channelNameTextField" destination="vUd-Tn-Vai" id="EoY-zR-NTR"/>
-                        <segue destination="Af7-CL-LTv" kind="show" identifier="createChannelStep2VC" id="q8c-jn-gR9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gSx-Ym-gsm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7135" y="2418"/>
+            <point key="canvasLocation" x="8073" y="2418"/>
         </scene>
-        <!--Create Channel Step2 View Controller-->
+        <!--Create Channel Step1 View Controller-->
         <scene sceneID="tbQ-g1-EeK">
             <objects>
-                <viewController storyboardIdentifier="CreateChannelStep2ViewController" id="Af7-CL-LTv" customClass="CreateChannelStep2ViewController" customModule="Sapnin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateChannelStep1ViewController" id="Af7-CL-LTv" customClass="CreateChannelStep1ViewController" customModule="Sapnin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yq7-SI-RhG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="2mz-t9-cnu"/>
                     </view>
+                    <navigationItem key="navigationItem" id="CSA-7Y-CXd"/>
+                    <connections>
+                        <segue destination="Wcd-K0-XvN" kind="show" identifier="createChannelStep2VC" id="0dR-Xf-SWf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cDN-sI-kju" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8073" y="2418"/>
+            <point key="canvasLocation" x="7134" y="2418"/>
         </scene>
     </scenes>
     <resources>

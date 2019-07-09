@@ -71,7 +71,7 @@ class ChannelApi {
         let date: Double = Date().timeIntervalSince1970
         
         // Create a dictionary to store the variables
-        let dict = ["ownerId": Api.User.currentUserId, "channelName": channelName, "dateCreated": date] as [String : Any]
+        let dict = ["channelId": newChannelId, "ownerId": Api.User.currentUserId, "channelName": channelName, "dateCreated": date, "lastMessageDate": date] as [String : Any]
         
         // Add new channel to channels Firebase entity table
         newChannelRef.setValue(dict) { (error, ref) in
