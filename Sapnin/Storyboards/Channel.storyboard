@@ -988,8 +988,16 @@ photos with your friends</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ieE-vt-Oli">
+                                <rect key="frame" x="127.5" y="104" width="120" height="120"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="4md-KL-95M"/>
+                                    <constraint firstAttribute="width" constant="120" id="bZL-PM-XCN"/>
+                                </constraints>
+                            </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vUd-Tn-Vai">
-                                <rect key="frame" x="24" y="144" width="327" height="48"/>
+                                <rect key="frame" x="24" y="256" width="327" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="o3A-Gx-Jhc"/>
                                 </constraints>
@@ -1001,13 +1009,16 @@ photos with your friends</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="jF8-d5-rBw" firstAttribute="trailing" secondItem="vUd-Tn-Vai" secondAttribute="trailing" constant="24" id="7pF-Uh-VIb"/>
-                            <constraint firstItem="vUd-Tn-Vai" firstAttribute="top" secondItem="jF8-d5-rBw" secondAttribute="top" constant="80" id="BaC-yB-9vf"/>
+                            <constraint firstItem="ieE-vt-Oli" firstAttribute="centerX" secondItem="OkG-dI-a1v" secondAttribute="centerX" id="Brh-ur-bBP"/>
+                            <constraint firstItem="ieE-vt-Oli" firstAttribute="top" secondItem="jF8-d5-rBw" secondAttribute="top" constant="40" id="GfP-1B-J83"/>
                             <constraint firstItem="vUd-Tn-Vai" firstAttribute="leading" secondItem="jF8-d5-rBw" secondAttribute="leading" constant="24" id="SeC-Wd-WsF"/>
+                            <constraint firstItem="vUd-Tn-Vai" firstAttribute="top" secondItem="ieE-vt-Oli" secondAttribute="bottom" constant="32" id="mYt-x8-tAB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jF8-d5-rBw"/>
                     </view>
                     <navigationItem key="navigationItem" id="wcY-7I-fl3"/>
                     <connections>
+                        <outlet property="channelAvatar" destination="ieE-vt-Oli" id="Cde-px-q0n"/>
                         <outlet property="channelNameTextField" destination="vUd-Tn-Vai" id="EoY-zR-NTR"/>
                     </connections>
                 </viewController>

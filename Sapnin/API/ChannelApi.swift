@@ -59,7 +59,7 @@ class ChannelApi {
     ////
     
     // Function to create a new channel entity in Firebase
-    func createChannel(channelName: String, onSuccess: @escaping () -> Void) {
+    func createChannel(channelName: String, imageData: Data?, onSuccess: @escaping () -> Void) {
         
         ProgressHUD.show("Loading...")
         
