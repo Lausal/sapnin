@@ -11,6 +11,7 @@ import Foundation
 class Channel {
     var channelId: String
     var channelName: String
+    var channelAvatarUrl: String?
     var ownerId: String
     var dateCreated: Double
     var lastMessageDate: Double
@@ -37,7 +38,20 @@ class Channel {
         
         // Now create a channel instance
         let channel = Channel(channelId: channelId, channelName: channelName, ownerId: ownerId, dateCreated: dateCreated, lastMessageDate: lastMessageDate)
+        
+        // If avatar URL exists, then add this attribute to the channels object above
+        if let channelAvatarUrl = dict["channelAvatarUrl"] as? String {
+            channel.channelAvatarUrl = channelAvatarUrl
+        }
+        
         return channel
     }
     
+    // Function to update the channel object
+    func updateData(key: String, value: String) {
+        switch key {
+            case "channelAvatarUrl": self.channelAvatarUrl = value
+            default: break
+        }
+    }
 }

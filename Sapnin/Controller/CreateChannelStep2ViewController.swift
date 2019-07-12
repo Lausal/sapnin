@@ -40,6 +40,7 @@ class CreateChannelStep2ViewController: UIViewController {
     
     // Set up channel avatar imageview
     func setupChannelAvatar() {
+        
         // Make logo circular
         channelAvatar.layer.cornerRadius = 60
         channelAvatar.clipsToBounds = true
@@ -98,15 +99,28 @@ class CreateChannelStep2ViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = createButton
     }
     
-    // Create group - on completion dismiss the view to land back on the channels VC
+    // Create group on Firebase - on completion dismiss the view and land back on the channels VC
     @objc func createButtonDidTapped() {
-        //ProgressHUD.show("Loading...")
         
-        if selectedChannelAvatar == nil {
-            print("no image")
+        ProgressHUD.show("Loading...")
+        
+        if let img = self.selectedChannelAvatar {
+            // If avatar is picked, send channel name and avatar to createChannel function to store on Firebase
+            Api.Channel.createChannel(channelName: self.channelNameTextField.text!, channelAvatar: img, onSuccess: {
+                ProgressHUD.dismiss()
+                self.dismiss(animated: true, completion: nil)
+            }) { (errorMessage) in
+                ProgressHUD.showError(errorMessage)
+            }
+        } else {
+            // If avatar is not picked, then don't send avatar but still store the channel in Firebase
+            Api.Channel.createChannel(channelName: self.channelNameTextField.text!, channelAvatar: nil, onSuccess: {
+                ProgressHUD.dismiss()
+                self.dismiss(animated: true, completion: nil)
+            }) { (errorMessage) in
+                ProgressHUD.showError(errorMessage)
+            }
         }
-        
-        //Api.Channel.createChannel(channelName: <#T##String#>, imageData: <#T##Data?#>, onSuccess: <#T##() -> Void#>)
         
     }
     
@@ -121,14 +135,6 @@ class CreateChannelStep2ViewController: UIViewController {
         self.createButton?.isEnabled = true
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        // Send channel name to "createChannelStep2VC"
-//        if segue.identifier == "createChannelStep2VC" {
-//            let controller = segue.destination as! CreateChannelStep2ViewController
-//            controller.channelName = channelNameTextField.text
-//        }
-//    }
-    
 }
 
 // Handle image and camera picker
@@ -139,8 +145,6 @@ extension CreateChannelStep2ViewController: UIImagePickerControllerDelegate, UIN
         
         // Extract image from selection/camera. The photo is extracted from 'info' dictionary response once user takes a picture or selects a picture from photo library
         if let image = info["UIImagePickerControllerOriginalImage"] as? UIImage? {
-            
-            print("picked")
             
             // Assign the image to "selectChannelAvatar" to be utilised in the createChannel Firebase method
             self.selectedChannelAvatar = image

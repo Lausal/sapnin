@@ -31,6 +31,7 @@ class ChannelViewController: UIViewController {
     
     // Get all of the users corresponding channels from Firebase
     func observeChannels() {
+        
         Api.UserChannel.getUserChannels(uid: Api.User.currentUserId) { (channel) in
             
             // Check and make sure channel object is not already added into the channelList (i.e. duplication) by checking if channelID already exists in the array
@@ -132,18 +133,14 @@ extension ChannelViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Pass the channel to the cell to load the corresponding channel information
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChannelTableViewCell") as! ChannelTableViewCell
-        let channel = channelList[indexPath.row]
+        let channel = self.channelList[indexPath.row]
+        cell.delegate = self
         cell.loadData(channel)
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
-    }
-    
-    // Esimated row height is mainly used to help the system calculate custom cell row heights for smoother transition
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 300
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -175,5 +172,11 @@ extension ChannelViewController: UITableViewDelegate, UITableViewDataSource {
         
         action.backgroundColor = BrandColours.PINK
         return action
+    }
+}
+
+extension ChannelViewController: UpdateTableProtocol {
+    func reloadData() {
+        self.tableView.reloadData()
     }
 }

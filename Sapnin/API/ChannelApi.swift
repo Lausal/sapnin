@@ -59,32 +59,56 @@ class ChannelApi {
     ////
     
     // Function to create a new channel entity in Firebase
-    func createChannel(channelName: String, imageData: Data?, onSuccess: @escaping () -> Void) {
+    func createChannel(channelName: String, channelAvatar: UIImage?, onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
         
-        ProgressHUD.show("Loading...")
-        
-        // ID reference of the channel
+        // Create unique channelID
         let newChannelId = Ref().databaseChannelTableRef.childByAutoId().key
+        
+        // ID reference of the new channel
         let newChannelRef = Ref().databaseChannelTableRef.child(newChannelId)
         
-        // Get todays date
+        // Get todays date to store in dateCreated and lastMessageDate attributes
         let date: Double = Date().timeIntervalSince1970
         
         // Create a dictionary to store the variables
-        let dict = ["channelId": newChannelId, "ownerId": Api.User.currentUserId, "channelName": channelName, "dateCreated": date, "lastMessageDate": date] as [String : Any]
+        var dict = ["channelId": newChannelId, "ownerId": Api.User.currentUserId, "channelName": channelName, "dateCreated": date, "lastMessageDate": date] as [String : Any]
         
-        // Add new channel to channels Firebase entity table
-        newChannelRef.setValue(dict) { (error, ref) in
-            if error != nil {
-                ProgressHUD.showError(error?.localizedDescription)
-                return
-            } else {
-                ProgressHUD.dismiss()
+        // If avatar is selected, then first store the avatar, retrieve the download URL link and then create dictionary with all the channel information and store in the channels database
+        if channelAvatar != nil {
+            // First store the avatar into Storage and return a downloadUrl of the stored image
+            StorageService.saveChannelAvatar(image: channelAvatar!, channelId: newChannelId, onSuccess: { (avatarUrl) in
                 
-                // After adding the channel into the "channels" table, also add reference of the channel ID into the respective user channel table of each user.
-                let userChannelRef = Ref().databaseUserChannelTableRef.child(Api.User.currentUserId)
-                userChannelRef.updateChildValues([newChannelId: true])
-                onSuccess()
+                // Add the channelAvatarUrl to the dictionary
+                dict["channelAvatarUrl"] = avatarUrl
+                
+                // Now store the whole dictionary into Firebase database
+                newChannelRef.setValue(dict) { (error, ref) in
+                    if error != nil {
+                        ProgressHUD.showError(error?.localizedDescription)
+                        return
+                    } else {
+                        // After adding the channel into the "channels" table, also add a reference of the channel ID into the respective "user channels" table of each selected user.
+                        let userChannelRef = Ref().databaseUserChannelTableRef.child(Api.User.currentUserId)
+                        userChannelRef.updateChildValues([newChannelId: true])
+                        onSuccess()
+                    }
+                }
+                
+            }) { (error) in
+                ProgressHUD.showError(error)
+            }
+        } else if channelAvatar == nil {
+            // If user has not selected an avatar, then just create the channel without the avatar
+            newChannelRef.setValue(dict) { (error, ref) in
+                if error != nil {
+                    ProgressHUD.showError(error?.localizedDescription)
+                    return
+                } else {
+                    // After adding the channel into the "channels" table, also add a reference of the channel ID into the respective "user channels" table of each selected user.
+                    let userChannelRef = Ref().databaseUserChannelTableRef.child(Api.User.currentUserId)
+                    userChannelRef.updateChildValues([newChannelId: true])
+                    onSuccess()
+                }
             }
         }
     }
@@ -92,9 +116,10 @@ class ChannelApi {
     // Retrieve a specific channel information from Firebase via channel ID
     func getSpecificChannelInfo(channelId: String, onSuccess: @escaping (ChannelCompletion)) {
         let ref = Ref().databaseSpecificChannelRef(channelId: channelId)
-        ref.observeSingleEvent(of: .value) { (snapshot) in
+        ref.observe(.value) { (snapshot) in
             if let dict = snapshot.value as? Dictionary <String, Any> {
                 if let channel = Channel.transformChannel(dict: dict) {
+                    print(channel.channelAvatarUrl)
                     onSuccess(channel)
                 }
             }

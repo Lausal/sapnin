@@ -26,6 +26,9 @@ let IDENTIFER_CHANNEL_NAV_CONTROLLER = "ChannelNavigationController"
 let IDENTIFER_LOGIN_NAV_CONTROLLER = "LoginNavigationController"
 let IDENTIFIER_CREATE_CHANNEL_NAV_CONTROLLER = "CreateChannelNavigationController"
 
+// Storage
+let URL_STORAGE_ROOT = "gs://sapnin-344c6.appspot.com"
+
 class Ref {
     
     let databaseRoot: DatabaseReference = Database.database().reference()
@@ -50,6 +53,18 @@ class Ref {
     
     func databaseSpecificChannelRef(channelId: String) -> DatabaseReference {
         return databaseChannelTableRef.child(channelId)
+    }
+    
+    /*** Storage Ref ***/
+    
+    let storageRoot = Storage.storage().reference(forURL: URL_STORAGE_ROOT)
+    
+    var storageChannel: StorageReference {
+        return storageRoot.child(REF_CHANNEL_TABLE)
+    }
+    
+    func storageSpecificChannelAvatar(channelId: String) -> StorageReference {
+        return storageChannel.child("channelAvatar").child(channelId)
     }
     
 }
