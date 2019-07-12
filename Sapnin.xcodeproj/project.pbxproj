@@ -64,7 +64,7 @@
 		52B88689208381E80066D116 /* ButtonSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B88688208381E80066D116 /* ButtonSettings.swift */; };
 		52BE7498208E54E1005414B5 /* SelectParticipantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BE7497208E54E1005414B5 /* SelectParticipantsViewController.swift */; };
 		52BE749C208FAC83005414B5 /* ContactsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BE749B208FAC83005414B5 /* ContactsModel.swift */; };
-		52C0B092209395A2009B8206 /* SelectParticipantsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0B091209395A2009B8206 /* SelectParticipantsTableViewCell.swift */; };
+		52C0B092209395A2009B8206 /* CreateChannelStep1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0B091209395A2009B8206 /* CreateChannelStep1TableViewCell.swift */; };
 		52C7B336209CF6520060F222 /* ColourPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C7B335209CF6520060F222 /* ColourPalette.swift */; };
 		52D5D11520BA2BBE00965A17 /* BorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D5D11420BA2BBE00965A17 /* BorderView.swift */; };
 		52D5D11720BA358A00965A17 /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52D5D11620BA358A00965A17 /* Camera.storyboard */; };
@@ -134,7 +134,7 @@
 		52B88688208381E80066D116 /* ButtonSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSettings.swift; sourceTree = "<group>"; };
 		52BE7497208E54E1005414B5 /* SelectParticipantsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectParticipantsViewController.swift; sourceTree = "<group>"; };
 		52BE749B208FAC83005414B5 /* ContactsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsModel.swift; sourceTree = "<group>"; };
-		52C0B091209395A2009B8206 /* SelectParticipantsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectParticipantsTableViewCell.swift; sourceTree = "<group>"; };
+		52C0B091209395A2009B8206 /* CreateChannelStep1TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChannelStep1TableViewCell.swift; sourceTree = "<group>"; };
 		52C7B335209CF6520060F222 /* ColourPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourPalette.swift; sourceTree = "<group>"; };
 		52D5D11420BA2BBE00965A17 /* BorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderView.swift; sourceTree = "<group>"; };
 		52D5D11620BA358A00965A17 /* Camera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
@@ -220,7 +220,7 @@
 		52411EFD206BEE8B00B3E78E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				52C0B091209395A2009B8206 /* SelectParticipantsTableViewCell.swift */,
+				52C0B091209395A2009B8206 /* CreateChannelStep1TableViewCell.swift */,
 				525D90DE20A88C9800095036 /* ChallengeTableViewCell.swift */,
 				5271340D20DC19180036EA36 /* ChannelDetailCollectionViewCell.swift */,
 				5269A38522D2553600231F5B /* ChannelTableViewCell.swift */,
@@ -505,7 +505,7 @@
 				528C9D1D22C774D500839EBD /* SignUpStep3ViewController.swift in Sources */,
 				5269A38022D150B600231F5B /* Utility.swift in Sources */,
 				528C9D2122CAA25B00839EBD /* SignUpStep2ViewController.swift in Sources */,
-				52C0B092209395A2009B8206 /* SelectParticipantsTableViewCell.swift in Sources */,
+				52C0B092209395A2009B8206 /* CreateChannelStep1TableViewCell.swift in Sources */,
 				523024F721026E220091AE52 /* ChannelPostApi.swift in Sources */,
 				528C9D1B22C5686300839EBD /* Extension.swift in Sources */,
 				521821F420AF9E9A009F8FD5 /* LeaderboardViewController.swift in Sources */,

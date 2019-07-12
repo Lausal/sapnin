@@ -9,7 +9,9 @@
 import UIKit
 
 class CreateChannelStep1ViewController: UIViewController {
-
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -17,7 +19,7 @@ class CreateChannelStep1ViewController: UIViewController {
     }
     
     func setupNavigationBar() {
-        title = "Add friends"
+        title = "Add participants"
         
         // Add next button to top right of header
         let nextButton = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.nextButtonDidTapped))
