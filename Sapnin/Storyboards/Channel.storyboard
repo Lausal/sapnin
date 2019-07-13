@@ -789,8 +789,8 @@ photos with your friends</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NB4-Jh-QzZ">
-                                <rect key="frame" x="169" y="64" width="37.5" height="16.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 / 100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NB4-Jh-QzZ">
+                                <rect key="frame" x="165.5" y="64" width="44.5" height="16.5"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -803,7 +803,7 @@ photos with your friends</string>
                                 <rect key="frame" x="0.0" y="144.5" width="375" height="522.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CreateChannelStep1TableViewCell" rowHeight="96" id="rmM-12-Axt" customClass="CreateChannelStep1TableViewCell" customModule="Sapnin" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CreateChannelStep1TableViewCell" rowHeight="96" id="rmM-12-Axt" customClass="CreateChannelStep1TableViewCell" customModule="Sapnin" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="96"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rmM-12-Axt" id="67l-rs-GsE">
@@ -823,21 +823,19 @@ photos with your friends</string>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="00t-wZ-tCE">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unselected_radio_icon" translatesAutoresizingMaskIntoConstraints="NO" id="D5c-2J-SvT">
                                                     <rect key="frame" x="335" y="36" width="24" height="24"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="24" id="Nrs-hA-8SC"/>
-                                                        <constraint firstAttribute="width" constant="24" id="PIP-gh-3Pz"/>
+                                                        <constraint firstAttribute="width" constant="24" id="G81-1b-87T"/>
+                                                        <constraint firstAttribute="height" constant="24" id="yav-0K-Ehy"/>
                                                     </constraints>
-                                                    <state key="normal" image="unselected_radio_icon"/>
-                                                    <state key="selected" image="selected_radio_icon"/>
-                                                </button>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="bql-wF-HtM" firstAttribute="centerY" secondItem="WQ7-g1-VCN" secondAttribute="centerY" id="1M3-c7-8r4"/>
                                                 <constraint firstItem="WQ7-g1-VCN" firstAttribute="leading" secondItem="67l-rs-GsE" secondAttribute="leading" constant="16" id="DYI-8Y-89m"/>
-                                                <constraint firstAttribute="trailing" secondItem="00t-wZ-tCE" secondAttribute="trailing" constant="16" id="XAd-be-Y5N"/>
-                                                <constraint firstItem="00t-wZ-tCE" firstAttribute="centerY" secondItem="WQ7-g1-VCN" secondAttribute="centerY" id="cvO-Ue-wqA"/>
+                                                <constraint firstItem="D5c-2J-SvT" firstAttribute="centerY" secondItem="WQ7-g1-VCN" secondAttribute="centerY" id="FmW-YC-cP3"/>
+                                                <constraint firstAttribute="trailing" secondItem="D5c-2J-SvT" secondAttribute="trailing" constant="16" id="atx-bJ-30O"/>
                                                 <constraint firstItem="WQ7-g1-VCN" firstAttribute="centerY" secondItem="67l-rs-GsE" secondAttribute="centerY" id="dJs-jV-JXf"/>
                                                 <constraint firstItem="bql-wF-HtM" firstAttribute="leading" secondItem="WQ7-g1-VCN" secondAttribute="trailing" constant="12" id="oA5-NT-7nL"/>
                                             </constraints>
@@ -845,7 +843,7 @@ photos with your friends</string>
                                         <connections>
                                             <outlet property="avatar" destination="WQ7-g1-VCN" id="uqL-ae-oCM"/>
                                             <outlet property="nameLabel" destination="bql-wF-HtM" id="Ejo-pb-BnJ"/>
-                                            <outlet property="radioButton" destination="00t-wZ-tCE" id="xpv-yH-Swo"/>
+                                            <outlet property="radioButton" destination="D5c-2J-SvT" id="JDK-tR-lx8"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -901,7 +899,6 @@ photos with your friends</string>
         <image name="quarter_circle_top_left" width="26" height="26"/>
         <image name="quarter_circle_top_right" width="26" height="26"/>
         <image name="select_channel_avatar_icon" width="84" height="84"/>
-        <image name="selected_radio_icon" width="24" height="24"/>
         <image name="selfie_image1" width="2000" height="1000"/>
         <image name="selfie_image2" width="1000" height="636"/>
         <image name="selfie_image3" width="612" height="408"/>

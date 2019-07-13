@@ -12,10 +12,30 @@ class CreateChannelStep1TableViewCell: UITableViewCell {
     
     @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var radioButton: UIButton!
+    @IBOutlet weak var radioButton: UIImageView!
+    
+    var user: User!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        // Style avatar
+        avatar.layer.cornerRadius = 24
+        avatar.clipsToBounds = true
     }
 
+    // Load the user data into the cell
+    func loadData(_ user: User) {
+        self.user = user
+        
+        nameLabel.text = user.name
+        
+        // Set avatar image if user has one, otherwise use a default image
+        if user.profilePictureUrl != nil {
+            avatar.loadImage(user.profilePictureUrl)
+        } else {
+            avatar.image = UIImage(named: "no_profile_icon")
+        }
+    }
+    
 }

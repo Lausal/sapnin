@@ -10,9 +10,9 @@ import Foundation
 
 class User {
     
-    var userId: String?
-    var email: String?
-    var name: String?
+    var userId: String
+    var email: String
+    var name: String
     var profilePictureUrl: String?
     
     init(userId: String, email: String, name: String) {
@@ -40,6 +40,10 @@ class User {
         }
         
         return user
+    }
+    
+    var getFirstLetterOfName: String {
+        return String(self.name[self.name.startIndex]).uppercased()
     }
     
 }
