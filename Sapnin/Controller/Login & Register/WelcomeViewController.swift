@@ -12,7 +12,7 @@ import FacebookLogin
 import FirebaseAuth
 import FirebaseStorage
 import FirebaseDatabase
-import SVProgressHUD
+import ProgressHUD
 import SwiftyJSON
 
 class WelcomeViewController: UIViewController {
@@ -73,7 +73,7 @@ class WelcomeViewController: UIViewController {
                 self.signIntoFirebase()
                 break
             case .failed(let error):
-                SVProgressHUD.showError(withStatus: "Login failed")
+                ProgressHUD.showError("Login failed")
                 print(error)
                 break
             case .cancelled:
@@ -84,7 +84,7 @@ class WelcomeViewController: UIViewController {
     }
     
     func signIntoFirebase() {
-        SVProgressHUD.show(withStatus: "Loading...")
+        ProgressHUD.show("Loading...")
         guard let authenticationToken = AccessToken.current?.authenticationToken else {
             return
         }
@@ -98,7 +98,7 @@ class WelcomeViewController: UIViewController {
                 guard let userId = user?.uid else { return }
                 Api.User.checkIfUserExists(userId: userId, userExists: { (userExists) in
                     if userExists == true {
-                        SVProgressHUD.dismiss()
+                        ProgressHUD.dismiss()
                         // Call the configureIntialViewController function in appdelegate to navigate to appropriate screen - in this case it would be the channels screen
                         (UIApplication.shared.delegate as! AppDelegate).configureInitialViewController()
                     } else {
@@ -181,20 +181,22 @@ class WelcomeViewController: UIViewController {
                 return
             }
             
-            let dictionaryValues = ["name": self.name, "email": self.email, "profilePictureUrl": profilePictureUrl]
+            // Database reference of the new user
+            let newUserRef = Ref().databaseUserTableRef.child(uid)
             
-            let values = [uid: dictionaryValues]
-            Database.database().reference().child("users").updateChildValues(values, withCompletionBlock: { (error, reference) in
-                if let error = error {
-                    print(error)
+            let dict = ["uid": uid, "name": self.name, "email": self.email, "profilePictureUrl": profilePictureUrl]
+            
+            newUserRef.setValue(dict) { (error, ref) in
+                if error != nil {
+                    ProgressHUD.showError(error?.localizedDescription)
                     return
+                } else {
+                    ProgressHUD.dismiss()
+                    // Call the configureIntialViewController function in appdelegate to navigate to appropriate screen - in this case it would be the channels screen
+                    (UIApplication.shared.delegate as! AppDelegate).configureInitialViewController()
                 }
-                print("Successfully saved user into Firebase database")
-                
-                SVProgressHUD.dismiss()
-                // Call the configureIntialViewController function in appdelegate to navigate to appropriate screen - in this case it would be the channels screen
-                (UIApplication.shared.delegate as! AppDelegate).configureInitialViewController()
-            })
+            }
+            
         }
     }
 }

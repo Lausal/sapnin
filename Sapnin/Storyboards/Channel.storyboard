@@ -867,6 +867,8 @@ photos with your friends</string>
                     </view>
                     <navigationItem key="navigationItem" id="CSA-7Y-CXd"/>
                     <connections>
+                        <outlet property="countLabel" destination="NB4-Jh-QzZ" id="MVW-0t-sfT"/>
+                        <outlet property="searchBar" destination="zFc-4M-dME" id="oZq-RE-3Wd"/>
                         <outlet property="searchDisplayController" destination="6Mb-g8-ZjW" id="vbV-ma-ixD"/>
                         <outlet property="tableView" destination="OCV-L2-goK" id="pHg-aH-DAW"/>
                         <segue destination="Wcd-K0-XvN" kind="show" identifier="createChannelStep2VC" id="0dR-Xf-SWf"/>

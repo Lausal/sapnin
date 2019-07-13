@@ -12,6 +12,9 @@ import Firebase
 import ProgressHUD
 import FirebaseStorage
 
+// Typealias is similar to a variable, but is used to reference closure arguments. In this case the onSuccess will return a User object
+typealias UserCompletion = (User) -> Void
+
 class UserApi {
     
     var DB_REF_USERS = Database.database().reference().child("users")
@@ -32,27 +35,39 @@ class UserApi {
 //        }
 //    }
     
-    func observeCurrentUser(onSuccess: @escaping (User) -> Void) {
-        guard let currentUser = Auth.auth().currentUser else {
-            return
-        }
-        
-        DB_REF_USERS.child(currentUser.uid).observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
-            if let dict = snapshot.value as? [String: Any] {
-                let user = User.transformUser(dict: dict, key: snapshot.key)
-                onSuccess(user)
+//    func observeCurrentUser(onSuccess: @escaping (User) -> Void) {
+//        guard let currentUser = Auth.auth().currentUser else {
+//            return
+//        }
+//
+//        DB_REF_USERS.child(currentUser.uid).observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+//            if let dict = snapshot.value as? [String: Any] {
+//                let user = User.transformUser(dict: dict, key: snapshot.key)
+//                //onSuccess(user)
+//            }
+//        })
+//    }
+    
+    func observeSpecificUserById(uid: String, onSuccess: @escaping (UserCompletion)) {
+        let ref = Ref().databaseSpecificUserRef(uid: uid)
+        ref.observeSingleEvent(of: .value) { (snapshot) in
+            if let dict = snapshot.value as? Dictionary<String, Any> {
+                if let user = User.transformUser(dict: dict) {
+                    print(user.name)
+                    onSuccess(user)
+                }
             }
-        })
+        }
     }
     
-    func observeUser(userId: String, onSuccess: @escaping (User) -> Void) {
-        DB_REF_USERS.child(userId).observeSingleEvent(of: .value, with: { (snapshot) in
-            if let dict = snapshot.value as? [String: Any] {
-                let user = User.transformUser(dict: dict, key: snapshot.key)
-                onSuccess(user)
-            }
-        })
-    }
+//    func observeUser(userId: String, onSuccess: @escaping (User) -> Void) {
+//        DB_REF_USERS.child(userId).observeSingleEvent(of: .value, with: { (snapshot) in
+//            if let dict = snapshot.value as? [String: Any] {
+//                let user = User.transformUser(dict: dict, key: snapshot.key)
+//                onSuccess(user!)
+//            }
+//        })
+//    }
     
     func checkIfUserExists(userId: String, userExists: @escaping (Bool) -> ()) {
         DB_REF_USERS.observeSingleEvent(of: .value) { (snapshot) in
@@ -66,26 +81,26 @@ class UserApi {
         }
     }
     
-    // Checks if the number input exists in the "number" attribute
-    func checkIfContactExists(number: String, contactExists: @escaping (Bool, String?) -> ()) {
-        let query = DB_REF_USERS.queryOrdered(byChild: "number").queryEqual(toValue: number)
-
-        query.observe(.value) { (snapshot) in
-            if snapshot.exists() {
-                
-                snapshot.children.forEach({ (s) in
-                    let child = s as! DataSnapshot
-                    if let dict = child.value as? [String: Any] {
-                        let user = User.transformUser(dict: dict, key: snapshot.key)
-                        contactExists(true, child.key)
-                    }
-                })
-                
-            } else {
-                contactExists(false, nil)
-            }
-        }
-    }
+//    // Checks if the number input exists in the "number" attribute
+//    func checkIfContactExists(number: String, contactExists: @escaping (Bool, String?) -> ()) {
+//        let query = DB_REF_USERS.queryOrdered(byChild: "number").queryEqual(toValue: number)
+//
+//        query.observe(.value) { (snapshot) in
+//            if snapshot.exists() {
+//                
+//                snapshot.children.forEach({ (s) in
+//                    let child = s as! DataSnapshot
+//                    if let dict = child.value as? [String: Any] {
+//                        let user = User.transformUser(dict: dict, key: snapshot.key)
+//                        contactExists(true, child.key)
+//                    }
+//                })
+//                
+//            } else {
+//                contactExists(false, nil)
+//            }
+//        }
+//    }
     
     ////////
     

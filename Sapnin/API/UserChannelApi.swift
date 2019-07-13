@@ -58,7 +58,7 @@ class UserChannelApi {
         ref.observe(.childAdded) { (snapshot) in
             
             // After getting all the channel ID's, pass the ID to get the channel information and create a channel object from it to be utilised
-            Api.Channel.getSpecificChannelInfo(channelId: snapshot.key, onSuccess: { (channel) in
+            Api.Channel.observeChannelById(channelId: snapshot.key, onSuccess: { (channel) in
                 onSuccess(channel)
             })
             

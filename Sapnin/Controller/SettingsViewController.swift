@@ -23,12 +23,13 @@ class SettingsViewController: UIViewController, UIActionSheetDelegate {
     }
     
     func fetchCurrentUser() {
-        Api.User.observeCurrentUser { (user) in
+        
+        Api.User.observeSpecificUserById(uid: Api.User.currentUserId) { (user) in
             self.nameLabel.text = user.name
             
             // If profile image exists, then assign to profile iage
-            if user.profileImageUrl != nil {
-                if let profileUrl = URL(string: user.profileImageUrl!) {
+            if user.profilePictureUrl != nil {
+                if let profileUrl = URL(string: user.profilePictureUrl!) {
                     self.profileImage.sd_setImage(with: profileUrl)
                 }
             }

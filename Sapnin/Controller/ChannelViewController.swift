@@ -131,7 +131,7 @@ extension ChannelViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // Pass the channel to the cell to load the corresponding channel information
+        // Pass the channel object to the cell class to display information
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChannelTableViewCell") as! ChannelTableViewCell
         let channel = self.channelList[indexPath.row]
         cell.delegate = self

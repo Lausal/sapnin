@@ -25,9 +25,10 @@ class Channel {
         self.lastMessageDate = lastMessageDate
     }
 
-    // Read the User JSON/dict output from database and then assign to local variables for us to utilise
+    // Read the User JSON/dict output from database and then assign to local variables for us to utilised
     static func transformChannel(dict: [String: Any]) -> Channel? {
-        // Read the JSON and assign to local variable
+        
+        // Read the JSON and assign to local variable - these are the mandatory fields
         guard let channelId = dict["channelId"] as? String,
             let channelName = dict["channelName"] as? String,
             let ownerId = dict["ownerId"] as? String,
@@ -39,7 +40,7 @@ class Channel {
         // Now create a channel instance
         let channel = Channel(channelId: channelId, channelName: channelName, ownerId: ownerId, dateCreated: dateCreated, lastMessageDate: lastMessageDate)
         
-        // If avatar URL exists, then add this attribute to the channels object above
+        // If avatar URL exists, then also add this attribute to the channels object created above
         if let channelAvatarUrl = dict["channelAvatarUrl"] as? String {
             channel.channelAvatarUrl = channelAvatarUrl
         }

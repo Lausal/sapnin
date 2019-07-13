@@ -64,7 +64,7 @@ class ChannelApi {
         // Create unique channelID
         let newChannelId = Ref().databaseChannelTableRef.childByAutoId().key
         
-        // ID reference of the new channel
+        // Database reference of the new channel
         let newChannelRef = Ref().databaseChannelTableRef.child(newChannelId)
         
         // Get todays date to store in dateCreated and lastMessageDate attributes
@@ -114,7 +114,7 @@ class ChannelApi {
     }
     
     // Retrieve a specific channel information from Firebase via channel ID
-    func getSpecificChannelInfo(channelId: String, onSuccess: @escaping (ChannelCompletion)) {
+    func observeChannelById(channelId: String, onSuccess: @escaping (ChannelCompletion)) {
         let ref = Ref().databaseSpecificChannelRef(channelId: channelId)
         ref.observe(.value) { (snapshot) in
             if let dict = snapshot.value as? Dictionary <String, Any> {
