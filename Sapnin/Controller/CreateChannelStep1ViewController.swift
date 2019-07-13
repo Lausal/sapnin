@@ -41,14 +41,40 @@ class CreateChannelStep1ViewController: UIViewController {
     
     // DELETE THIS AND GRAB REAL USERS FROM FIREBASE
     func addTestData() {
-        let user1 = User(userId: "abc", email: "abc@gmail.com", name: "John Smith")
-        let user4 = User(userId: "abcasdasd", email: "abc@gmail.com", name: "James Bond")
-        let user2 = User(userId: "adbc", email: "abcd@gmail.com", name: "Alan Lau")
-        let user3 = User(userId: "abcde", email: "abcde@gmail.com", name: "Luke Dooley")
+        let user1 = User(userId: "a", email: "abc@gmail.com", name: "John Smith")
+        let user2 = User(userId: "b", email: "abcd@gmail.com", name: "Alan Lau")
+        let user3 = User(userId: "c", email: "abcde@gmail.com", name: "Luke Dooley")
+        let user4 = User(userId: "d", email: "abc@gmail.com", name: "James Bond")
+        let user5 = User(userId: "e", email: "abc@gmail.com", name: "Cristiano Ronaldo")
+        let user6 = User(userId: "f", email: "abcd@gmail.com", name: "Matthew Pon")
+        let user7 = User(userId: "g", email: "abcde@gmail.com", name: "David Beckham")
+        let user8 = User(userId: "h", email: "abc@gmail.com", name: "Aladdin Cray")
+        let user9 = User(userId: "i", email: "abc@gmail.com", name: "Sarah Smith")
+        let user10 = User(userId: "j", email: "abcd@gmail.com", name: "Jojo Fish")
+        let user11 = User(userId: "k", email: "abcde@gmail.com", name: "Will Smith")
+        let user12 = User(userId: "l", email: "abc@gmail.com", name: "Chris Tucker")
+        let user13 = User(userId: "m", email: "abc@gmail.com", name: "Dwayne Johnson")
+        let user14 = User(userId: "n", email: "abcd@gmail.com", name: "Rayan Mohammed")
+        let user15 = User(userId: "o", email: "abcde@gmail.com", name: "Eden Hazard")
+        let user16 = User(userId: "p", email: "abc@gmail.com", name: "Joffery Chan")
+        
         userList.append(user1)
         userList.append(user2)
         userList.append(user3)
         userList.append(user4)
+        userList.append(user5)
+        userList.append(user6)
+        userList.append(user7)
+        userList.append(user8)
+        userList.append(user9)
+        userList.append(user10)
+        userList.append(user11)
+        userList.append(user12)
+        userList.append(user13)
+        userList.append(user14)
+        userList.append(user15)
+        userList.append(user16)
+        
     }
     
     // Sort the user list alphabetically and into a 2D array so same letter first names are grouped together
@@ -123,47 +149,25 @@ extension CreateChannelStep1ViewController: UITableViewDelegate, UITableViewData
         if isSearching && filteredUserList.count != 0 {
             let user = filteredUserList[indexPath.row]
             cell.loadData(user)
-            
-            // When filtering - to display the correct selection of cells we need to match the filtered list with the selected list and then set the cell selected state accordingly
-//            if selectedUserList.contains(where:{ $0.userId == user.userId }) {
-//                cell.isSelected = true
-//                tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
-//                cell.radioButton.image = UIImage(named: "selected_radio_icon")
-//            } else {
-//                cell.isSelected = false
-//                tableView.deselectRow(at: indexPath, animated: true)
-//                cell.radioButton.image = UIImage(named: "deselected_radio_icon")
-//            }
-            
             setCellSelectionState(indexPath: indexPath, cell: cell, user: user)
         } else {
             let user = sortedUsersPerSections[indexPath.section][indexPath.row]
             cell.loadData(user)
-            
-            // When filtering - to display the correct selection of cells we need to match the filtered list with the selected list and then set the cell selected state accordingly
             setCellSelectionState(indexPath: indexPath, cell: cell, user: user)
-//            if selectedUserList.contains(where:{ $0.userId == user.userId }) {
-//                cell.isSelected = true
-//                tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
-//                cell.radioButton.image = UIImage(named: "selected_radio_icon")
-//            } else {
-//                cell.isSelected = false
-//                tableView.deselectRow(at: indexPath, animated: true)
-//                cell.radioButton.image = UIImage(named: "deselected_radio_icon")
-//            }
         }
-        
-        print(cell.isSelected)
         
         return cell
     }
     
+    // When filtering, the radio button and cell selection state doesn't match as we're using different arrays for the filtered users list. So we need to call this function to compare if the corresponding cell is selected or not by checking if the userId is in the selectedUserList.
     func setCellSelectionState(indexPath: IndexPath, cell: CreateChannelStep1TableViewCell, user: User) {
+        // User/cell is selected
         if selectedUserList.contains(where:{ $0.userId == user.userId }) {
             cell.isSelected = true
             tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
             cell.radioButton.image = UIImage(named: "selected_radio_icon")
         } else {
+            // User/cell is not selected
             cell.isSelected = false
             tableView.deselectRow(at: indexPath, animated: true)
             cell.radioButton.image = UIImage(named: "deselected_radio_icon")
