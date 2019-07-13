@@ -26,9 +26,9 @@
 		52411EE82067236F00B3E78E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52411EE72067236F00B3E78E /* AppDelegate.swift */; };
 		52411EEA2067236F00B3E78E /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52411EE92067236F00B3E78E /* WelcomeViewController.swift */; };
 		52411EED2067236F00B3E78E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52411EEB2067236F00B3E78E /* Main.storyboard */; };
-		52411EEF2067236F00B3E78E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52411EEE2067236F00B3E78E /* Assets.xcassets */; };
 		52411EF22067236F00B3E78E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52411EF02067236F00B3E78E /* LaunchScreen.storyboard */; };
 		52411EFA206BE6DA00B3E78E /* Arciform.otf in Resources */ = {isa = PBXBuildFile; fileRef = 52411EF9206BE6DA00B3E78E /* Arciform.otf */; };
+		524AAE4822DA7ED9000AD856 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 524AAE4722DA7ED9000AD856 /* Assets.xcassets */; };
 		525D90DD20A874D000095036 /* ChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D90DC20A874D000095036 /* ChallengeViewController.swift */; };
 		525D90DF20A88C9800095036 /* ChallengeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D90DE20A88C9800095036 /* ChallengeTableViewCell.swift */; };
 		525D90E120AA4C7B00095036 /* MobileNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D90E020AA4C7B00095036 /* MobileNumberViewController.swift */; };
@@ -92,10 +92,10 @@
 		52411EE72067236F00B3E78E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52411EE92067236F00B3E78E /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		52411EEC2067236F00B3E78E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		52411EEE2067236F00B3E78E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52411EF12067236F00B3E78E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52411EF32067236F00B3E78E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52411EF9206BE6DA00B3E78E /* Arciform.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Arciform.otf; sourceTree = "<group>"; };
+		524AAE4722DA7ED9000AD856 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		525D90DC20A874D000095036 /* ChallengeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeViewController.swift; sourceTree = "<group>"; };
 		525D90DE20A88C9800095036 /* ChallengeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeTableViewCell.swift; sourceTree = "<group>"; };
 		525D90E020AA4C7B00095036 /* MobileNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileNumberViewController.swift; sourceTree = "<group>"; };
@@ -187,10 +187,10 @@
 				5296A32B208524BD00A5F2A8 /* Utility */,
 				528C9D1322C1785700839EBD /* Archive */,
 				52AFD4F520BA3D8F0039559A /* Storyboards */,
-				52411EEE2067236F00B3E78E /* Assets.xcassets */,
 				52411EF02067236F00B3E78E /* LaunchScreen.storyboard */,
 				52411EF32067236F00B3E78E /* Info.plist */,
 				529CB4F720741DCB003DE1CE /* GoogleService-Info.plist */,
+				524AAE4722DA7ED9000AD856 /* Assets.xcassets */,
 				52411EFB206BE6E600B3E78E /* Fonts */,
 			);
 			path = Sapnin;
@@ -401,8 +401,8 @@
 				52182DE620BDBACC0049FFB3 /* Roboto-Regular.ttf in Resources */,
 				52411EF22067236F00B3E78E /* LaunchScreen.storyboard in Resources */,
 				52D5D11720BA358A00965A17 /* Camera.storyboard in Resources */,
-				52411EEF2067236F00B3E78E /* Assets.xcassets in Resources */,
 				52B31EFB20C726CE0089C373 /* Settings.storyboard in Resources */,
+				524AAE4822DA7ED9000AD856 /* Assets.xcassets in Resources */,
 				52B0C2DE20D5D3EC000A8AED /* Channel_Detail.storyboard in Resources */,
 				52182DE820BDCA560049FFB3 /* Channel.storyboard in Resources */,
 				529CB4F820741DCB003DE1CE /* GoogleService-Info.plist in Resources */,

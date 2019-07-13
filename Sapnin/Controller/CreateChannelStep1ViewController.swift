@@ -42,7 +42,7 @@ class CreateChannelStep1ViewController: UIViewController {
     // DELETE THIS AND GRAB REAL USERS FROM FIREBASE
     func addTestData() {
         let user1 = User(userId: "abc", email: "abc@gmail.com", name: "John Smith")
-        let user4 = User(userId: "abc", email: "abc@gmail.com", name: "James Bond")
+        let user4 = User(userId: "abcasdasd", email: "abc@gmail.com", name: "James Bond")
         let user2 = User(userId: "adbc", email: "abcd@gmail.com", name: "Alan Lau")
         let user3 = User(userId: "abcde", email: "abcde@gmail.com", name: "Luke Dooley")
         userList.append(user1)
@@ -118,20 +118,56 @@ extension CreateChannelStep1ViewController: UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CreateChannelStep1TableViewCell") as! CreateChannelStep1TableViewCell
-        cell.selectionStyle = .none
         
         // Pass the user object to the cell class to display the information - use the filteredUsers array list if the user is searching, otherwise use the sortedUsersPerSections array list
         if isSearching && filteredUserList.count != 0 {
             let user = filteredUserList[indexPath.row]
-            print(filteredUserList[indexPath.row].name)
             cell.loadData(user)
+            
+            // When filtering - to display the correct selection of cells we need to match the filtered list with the selected list and then set the cell selected state accordingly
+//            if selectedUserList.contains(where:{ $0.userId == user.userId }) {
+//                cell.isSelected = true
+//                tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
+//                cell.radioButton.image = UIImage(named: "selected_radio_icon")
+//            } else {
+//                cell.isSelected = false
+//                tableView.deselectRow(at: indexPath, animated: true)
+//                cell.radioButton.image = UIImage(named: "deselected_radio_icon")
+//            }
+            
+            setCellSelectionState(indexPath: indexPath, cell: cell, user: user)
         } else {
             let user = sortedUsersPerSections[indexPath.section][indexPath.row]
             cell.loadData(user)
+            
+            // When filtering - to display the correct selection of cells we need to match the filtered list with the selected list and then set the cell selected state accordingly
+            setCellSelectionState(indexPath: indexPath, cell: cell, user: user)
+//            if selectedUserList.contains(where:{ $0.userId == user.userId }) {
+//                cell.isSelected = true
+//                tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
+//                cell.radioButton.image = UIImage(named: "selected_radio_icon")
+//            } else {
+//                cell.isSelected = false
+//                tableView.deselectRow(at: indexPath, animated: true)
+//                cell.radioButton.image = UIImage(named: "deselected_radio_icon")
+//            }
         }
         
-        return cell
+        print(cell.isSelected)
         
+        return cell
+    }
+    
+    func setCellSelectionState(indexPath: IndexPath, cell: CreateChannelStep1TableViewCell, user: User) {
+        if selectedUserList.contains(where:{ $0.userId == user.userId }) {
+            cell.isSelected = true
+            tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
+            cell.radioButton.image = UIImage(named: "selected_radio_icon")
+        } else {
+            cell.isSelected = false
+            tableView.deselectRow(at: indexPath, animated: true)
+            cell.radioButton.image = UIImage(named: "deselected_radio_icon")
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -153,7 +189,6 @@ extension CreateChannelStep1ViewController: UITableViewDelegate, UITableViewData
         } else {
             user = sortedUsersPerSections[indexPath.section][indexPath.row]
         }
-        print("selected user \(user.name)")
         selectedUserList.append(user)
         
         // Update the participant count label based on the selectedUsers array count
@@ -166,7 +201,7 @@ extension CreateChannelStep1ViewController: UITableViewDelegate, UITableViewData
         
         // Set radio button to deselected style
         let cell = tableView.cellForRow(at: indexPath)! as! CreateChannelStep1TableViewCell
-        cell.radioButton.image = (UIImage(named: "unselected_radio_icon"))
+        cell.radioButton.image = (UIImage(named: "deselected_radio_icon"))
         
         let user: User
         
@@ -176,9 +211,7 @@ extension CreateChannelStep1ViewController: UITableViewDelegate, UITableViewData
         } else {
             user = sortedUsersPerSections[indexPath.section][indexPath.row]
         }
-        
         if let index = selectedUserList.firstIndex(where: { $0.userId == user.userId }) {
-            print("deselected user \(selectedUserList[index].name)")
             selectedUserList.remove(at: index)
         }
         
