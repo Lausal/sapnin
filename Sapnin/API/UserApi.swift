@@ -48,18 +48,6 @@ class UserApi {
 //        })
 //    }
     
-    func observeSpecificUserById(uid: String, onSuccess: @escaping (UserCompletion)) {
-        let ref = Ref().databaseSpecificUserRef(uid: uid)
-        ref.observeSingleEvent(of: .value) { (snapshot) in
-            if let dict = snapshot.value as? Dictionary<String, Any> {
-                if let user = User.transformUser(dict: dict) {
-                    print(user.name)
-                    onSuccess(user)
-                }
-            }
-        }
-    }
-    
 //    func observeUser(userId: String, onSuccess: @escaping (User) -> Void) {
 //        DB_REF_USERS.child(userId).observeSingleEvent(of: .value, with: { (snapshot) in
 //            if let dict = snapshot.value as? [String: Any] {
@@ -110,6 +98,19 @@ class UserApi {
             return Auth.auth().currentUser!.uid
         } else {
             return ""
+        }
+    }
+    
+    // Get user information for a specific user based on user ID
+    func observeSpecificUserById(uid: String, onSuccess: @escaping (UserCompletion)) {
+        let ref = Ref().databaseSpecificUserRef(uid: uid)
+        ref.observe(.value) { (snapshot) in
+            if let dict = snapshot.value as? Dictionary<String, Any> {
+                if let user = User.transformUser(dict: dict) {
+                    print(user.name)
+                    onSuccess(user)
+                }
+            }
         }
     }
     

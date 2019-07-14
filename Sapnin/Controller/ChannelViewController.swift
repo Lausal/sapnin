@@ -15,7 +15,7 @@ class ChannelViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var channelList = [Channel]()
-    var avatarImageView: UIImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 32, height: 32))
+    var profilePicture: UIImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 32, height: 32))
     
     // This is for the search bar, specifying nil means the search results will appear on the same/current page
     var searchController: UISearchController = UISearchController(searchResultsController: nil)
@@ -27,6 +27,7 @@ class ChannelViewController: UIViewController {
         setupNavigationBar()
         setupSearchBarController()
         observeChannels()
+        
     }
     
     // Get all of the users corresponding channels from Firebase
@@ -88,26 +89,34 @@ class ChannelViewController: UIViewController {
         
         // Style and create container to hold avatar on header
         let avatarContainerView = UIView(frame: CGRect(x: 0, y: 0, width: 32, height: 32))
-        avatarImageView.contentMode = .scaleAspectFill
-        avatarImageView.layer.cornerRadius = 16
-        avatarImageView.clipsToBounds = true
-        avatarImageView.isUserInteractionEnabled = true
-        avatarContainerView.addSubview(avatarImageView)
+        profilePicture.contentMode = .scaleAspectFill
+        profilePicture.layer.cornerRadius = 16
+        profilePicture.clipsToBounds = true
+        profilePicture.isUserInteractionEnabled = true
+        avatarContainerView.addSubview(profilePicture)
         
         // Add tap gesture to avatar image
         let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(avatarButtonDidTapped))
-        avatarImageView.addGestureRecognizer(tapGesture)
+        profilePicture.addGestureRecognizer(tapGesture)
         
         // Add avatar button/image to left bar button on header
         let avatarButton = UIBarButtonItem(customView: avatarContainerView)
         self.navigationItem.leftBarButtonItem = avatarButton
         
-        // Load user avatar image if available, otherwise use the no profile icon
-        if let currentUser = Auth.auth().currentUser, let photoUrl = currentUser.photoURL {
-            avatarImageView.loadImage(photoUrl.absoluteString)
-        } else {
-            avatarImageView.image = UIImage(named: "no_profile_icon")
+        // Load user avatar image if available, otherwise use the no profile icon. This will update in real time for any changes as we use the observe functionality
+        Api.User.observeSpecificUserById(uid: Api.User.currentUserId) { (user) in
+            if let profilePictureUrl = URL(string: user.profilePictureUrl!) {
+                self.profilePicture.loadImage(profilePictureUrl.absoluteString)
+            } else {
+                self.profilePicture.image = UIImage(named: "no_profile_icon")
+            }
         }
+        
+//        if let currentUser = Auth.auth().currentUser, let photoUrl = currentUser.photoURL {
+//            profilePicture.loadImage(photoUrl.absoluteString)
+//        } else {
+//            profilePicture.image = UIImage(named: "no_profile_icon")
+//        }
     }
     
     // Switch to CreateGroupVC when new group button is tapped
