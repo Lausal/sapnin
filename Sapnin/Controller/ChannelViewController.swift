@@ -80,7 +80,7 @@ class ChannelViewController: UIViewController {
         // Set large navigation bar style
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        // Set title colour to pink
+        // Set navigation bar colour to pink
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: BrandColours.PINK]
         
         // Add new group button to top right of header
@@ -111,12 +111,6 @@ class ChannelViewController: UIViewController {
                 self.profilePicture.image = UIImage(named: "no_profile_icon")
             }
         }
-        
-//        if let currentUser = Auth.auth().currentUser, let photoUrl = currentUser.photoURL {
-//            profilePicture.loadImage(photoUrl.absoluteString)
-//        } else {
-//            profilePicture.image = UIImage(named: "no_profile_icon")
-//        }
     }
     
     // Switch to CreateGroupVC when new group button is tapped
@@ -153,7 +147,7 @@ extension ChannelViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        self.performSegue(withIdentifier: "ChannelDetailVC", sender: nil)
     }
     
     // Handles swipe action on row - show delete option

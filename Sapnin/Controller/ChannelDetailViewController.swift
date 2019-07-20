@@ -9,65 +9,114 @@
 import UIKit
 
 class ChannelDetailViewController: UIViewController {
+    
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var channelAvatar: UIImageView!
+    @IBOutlet weak var channelTitleLabel: UILabel!
     
-    var channelId: String = ""
-    var channelName: String = ""
+    let imageArray = [UIImage(named: "david beckham"),UIImage(named: "david beckham"),UIImage(named: "david beckham"),UIImage(named: "david beckham"),UIImage(named: "david beckham"),UIImage(named: "david beckham"),UIImage(named: "david beckham"),UIImage(named: "david beckham")]
     
-    let imageArray = [UIImage(named: "david beckham"),UIImage(named: "david beckham"),UIImage(named: "david beckham"),UIImage(named: "david beckham")]
-    let dateArray = ["Today", "Yesterday", "Monday", "Sunday"]
-    
-    let leftAndRightPadding: CGFloat = 60.0 // 3 x 20px white gaps per row
-    let numberOfItemsPerRow: CGFloat = 2.0
-    let labelSizeAndTopPadding: CGFloat = 44.0 // 6px top spacing + 18px label height + 2px top spacing + 18px label height
+    var picker = UIImagePickerController()
+    var avatarImageView: UIImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 32, height: 32))
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
         setupNavigationBar()
     }
     
     func setupNavigationBar() {
-        self.title = channelName
-        // Set navigation bar to white and status bar to black
-        self.navigationController?.navigationBar.barTintColor = UIColor.white
-        self.navigationController?.navigationBar.barStyle = .default
-        let backButton = UIBarButtonItem()
-        backButton.title = "" //in your case it will be empty or you can put the title of your choice
-        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+        
+        // Setting channel title
+        channelTitleLabel.text = "Channel details"
+        
+        // Setting channel avatar image and style
+        channelAvatar.layer.cornerRadius = 16
+        channelAvatar.clipsToBounds = true
+        channelAvatar.image = UIImage(named: "david beckham")
+        
+        // Set small navigation bar style
+        navigationController?.navigationBar.prefersLargeTitles = false
+        
+        // Add photo button to top right of header
+        let photoButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(photoButtonDidTapped))
+        self.navigationItem.rightBarButtonItem = photoButton
+        
+    }
+    
+    // On tap of photo button - open up stickersheet to add photo or use camera
+    @objc func photoButtonDidTapped() {
+        let actionSheet = UIAlertController()
+        
+        // Show camera option
+        let camera = UIAlertAction(title: "Take a photo", style: UIAlertAction.Style.default) { (_) in
+            // This checks if camera is available on phone
+            if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
+                self.picker.sourceType = .camera
+                self.present(self.picker, animated: true, completion: nil)
+            } else {
+                print("Unavailable")
+            }
+        }
+        
+        // Show photo library option
+        let photoLibrary = UIAlertAction(title: "Choose a photo", style: UIAlertAction.Style.default) { (_) in
+            // This checks if photo library is available on phone
+            if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary) {
+                self.picker.sourceType = .photoLibrary
+                self.present(self.picker, animated: true, completion: nil)
+            } else {
+                print("Unavailable")
+            }
+        }
+        
+        // Show cancel option
+        let cancel = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)
+        
+        // Add options to actionsheet
+        actionSheet.addAction(camera)
+        actionSheet.addAction(photoLibrary)
+        actionSheet.addAction(cancel)
+        
+        // Show picker
+        present(actionSheet, animated: true, completion: nil)
     }
     
 }
 
-extension ChannelDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension ChannelDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return imageArray.count
+        return self.imageArray.count
     }
     
+    // Load picture into each cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ChannelDetailCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChannelDetailCollectionViewCell", for: indexPath) as! ChannelDetailCollectionViewCell
         cell.photo.image = imageArray[indexPath.item]
-        cell.dateLabel.text = dateArray[indexPath.row]
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("selected")
-        self.performSegue(withIdentifier: "PhotoVC", sender: nil)
+        
     }
-}
-
-extension ChannelDetailViewController: UICollectionViewDelegateFlowLayout {
     
-    // Size of each cell
+    // Specify width and height of each grid/cell
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (collectionView.bounds.width - leftAndRightPadding) / numberOfItemsPerRow
-        return CGSize(width: width, height: width + labelSizeAndTopPadding)
+        // Make each cell 1/4 of the screen size so we fit 4 per row (We - 1.5 because we want to make the space between each cell 0.5, of which therefore means a 1.5 as there're 3 gaps.)
+        return CGSize(width: view.frame.size.width/4 - 1.5, height: view.frame.size.width/4 - 1.5)
     }
     
-    // Space between each row
+    // Specify space between each row
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 20
+        return 2
+    }
+    
+    // Specify space between each cell on the same row
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 1
     }
 }
-

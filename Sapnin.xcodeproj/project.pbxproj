@@ -233,15 +233,14 @@
 			children = (
 				52E3E27922D0DDE500F40F7C /* Login & Register */,
 				5225F9B020B2459900D95B8A /* ChannelViewController.swift */,
+				52B0C2DF20D98DC1000A8AED /* ChannelDetailViewController.swift */,
 				5269A38322D16D0600231F5B /* CreateChannelStep1ViewController.swift */,
 				52B31EF820C720100089C373 /* CreateChannelStep2ViewController.swift */,
-				52B0C2DF20D98DC1000A8AED /* ChannelDetailViewController.swift */,
 				529CB4F920742328003DE1CE /* SettingsViewController.swift */,
 				527EA01D207EBF5D00EA2F18 /* CameraViewController.swift */,
 				525D90DC20A874D000095036 /* ChallengeViewController.swift */,
 				522018922082DF00004AB74F /* PreviewViewController.swift */,
 				52386CF7208AC53E0062C898 /* NoChannelViewController.swift */,
-				52BE7497208E54E1005414B5 /* SelectParticipantsViewController.swift */,
 				521821F320AF9E9A009F8FD5 /* LeaderboardViewController.swift */,
 				5225F9B220B763D600D95B8A /* VoteViewController.swift */,
 				521821F120AF6806009F8FD5 /* PhotoViewController.swift */,
@@ -253,6 +252,7 @@
 		528C9D1322C1785700839EBD /* Archive */ = {
 			isa = PBXGroup;
 			children = (
+				52BE7497208E54E1005414B5 /* SelectParticipantsViewController.swift */,
 				5225F9AE20B2390100D95B8A /* ChannelTableViewCellArchive.swift */,
 				52C7B335209CF6520060F222 /* ColourPalette.swift */,
 				52E3E27C22D1167900F40F7C /* ChannelBackupViewController.swift */,

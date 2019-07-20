@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIBarButtonItem.appearance().setTitleTextAttributes(disabledButtonAttribute, for: .disabled)
 
         // Change font colour, style and size of navigation bar title
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: BrandColours.NAV_TITLE_COLOUR, NSAttributedStringKey.font: UIFont(name: "Roboto-Regular", size: 22)!]
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: BrandColours.NAV_TITLE_COLOUR, NSAttributedStringKey.font: UIFont(name: "Roboto-Regular", size: 20)!]
         
         // Set back button to icon
         let backImg = UIImage(named: "back_icon")

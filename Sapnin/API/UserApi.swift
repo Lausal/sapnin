@@ -107,7 +107,6 @@ class UserApi {
         ref.observe(.value) { (snapshot) in
             if let dict = snapshot.value as? Dictionary<String, Any> {
                 if let user = User.transformUser(dict: dict) {
-                    print(user.name)
                     onSuccess(user)
                 }
             }

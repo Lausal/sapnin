@@ -286,10 +286,10 @@
             </objects>
             <point key="canvasLocation" x="2700" y="2919"/>
         </scene>
-        <!--Channel Detail View Controller-->
+        <!--View Controller-->
         <scene sceneID="e6l-A7-GYa">
             <objects>
-                <viewController storyboardIdentifier="ChannelDetailViewController" id="DDf-Cu-uVm" customClass="ChannelDetailViewController" customModule="Sapnin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChannelDetailViewController" id="DDf-Cu-uVm" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="85w-DD-utZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -316,7 +316,7 @@
                                     <inset key="sectionInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="meG-qd-I9x" customClass="ChannelDetailCollectionViewCell" customModule="Sapnin" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="meG-qd-I9x">
                                         <rect key="frame" x="20" y="0.0" width="150" height="194"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">

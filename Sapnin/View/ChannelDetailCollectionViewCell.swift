@@ -11,12 +11,13 @@ import UIKit
 class ChannelDetailCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var photo: UIImageView!
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var commentLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+    }
+    
+    func loadData() {
+        
     }
 
 }
