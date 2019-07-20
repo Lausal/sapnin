@@ -917,18 +917,77 @@ photos with your friends</string>
                         </view>
                     </navigationItem>
                     <connections>
-                        <outlet property="channelAvatar" destination="csp-NS-rmd" id="yqk-Jj-xKC"/>
+                        <outlet property="channelAvatarImage" destination="csp-NS-rmd" id="mUz-AZ-br3"/>
                         <outlet property="channelTitleLabel" destination="ebk-g6-ddy" id="cPR-js-tHy"/>
                         <outlet property="collectionView" destination="c3b-GN-e7R" id="PAc-zi-xdw"/>
+                        <segue destination="q41-Oa-s9a" kind="presentation" identifier="previewVC" id="LVd-zL-Xko"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TbZ-Gf-Ile" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="8975" y="833"/>
         </scene>
+        <!--Preview View Controller-->
+        <scene sceneID="8V3-U3-xlP">
+            <objects>
+                <viewController storyboardIdentifier="PreviewViewController" id="q41-Oa-s9a" customClass="PreviewViewController" customModule="Sapnin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wxJ-fk-I2a">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kpz-fV-Mym">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bER-dd-hhi" customClass="ButtonSettings" customModule="Sapnin" customModuleProvider="target">
+                                <rect key="frame" x="279" y="571" width="56" height="56"/>
+                                <color key="backgroundColor" red="1" green="0.18039215689999999" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="BcH-6Z-iVC"/>
+                                    <constraint firstAttribute="width" constant="56" id="mzU-Ii-vRT"/>
+                                </constraints>
+                                <state key="normal" image="use_photo_icon"/>
+                                <connections>
+                                    <action selector="submitButtonDidTapped:" destination="q41-Oa-s9a" eventType="touchUpInside" id="ig7-zE-ShR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wyH-AW-key">
+                                <rect key="frame" x="32" y="52" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="RZl-qM-ppJ"/>
+                                    <constraint firstAttribute="width" constant="32" id="ltA-Mz-47g"/>
+                                </constraints>
+                                <state key="normal" image="close_photo_popup_icon"/>
+                                <connections>
+                                    <action selector="closeButtonDidTapped:" destination="q41-Oa-s9a" eventType="touchUpInside" id="IJj-Ai-CDj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="wyH-AW-key" firstAttribute="leading" secondItem="af4-t9-6nb" secondAttribute="leading" constant="32" id="JEH-Al-3PQ"/>
+                            <constraint firstAttribute="bottom" secondItem="kpz-fV-Mym" secondAttribute="bottom" id="OfE-0A-WWm"/>
+                            <constraint firstItem="kpz-fV-Mym" firstAttribute="top" secondItem="wxJ-fk-I2a" secondAttribute="top" id="VnV-7c-JVK"/>
+                            <constraint firstItem="af4-t9-6nb" firstAttribute="trailing" secondItem="bER-dd-hhi" secondAttribute="trailing" constant="40" id="WDg-7Z-drL"/>
+                            <constraint firstItem="kpz-fV-Mym" firstAttribute="leading" secondItem="af4-t9-6nb" secondAttribute="leading" id="agx-ol-Few"/>
+                            <constraint firstItem="af4-t9-6nb" firstAttribute="bottom" secondItem="bER-dd-hhi" secondAttribute="bottom" constant="40" id="gXU-aJ-qcm"/>
+                            <constraint firstItem="wyH-AW-key" firstAttribute="top" secondItem="af4-t9-6nb" secondAttribute="top" constant="32" id="i3B-Oh-98s"/>
+                            <constraint firstItem="af4-t9-6nb" firstAttribute="trailing" secondItem="kpz-fV-Mym" secondAttribute="trailing" id="iZ1-mw-U18"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="af4-t9-6nb"/>
+                    </view>
+                    <connections>
+                        <outlet property="photo" destination="kpz-fV-Mym" id="fvV-hK-8I3"/>
+                        <outlet property="submitButton" destination="bER-dd-hhi" id="37k-aX-EWS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xUH-7A-aZK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="9821.6000000000004" y="831.63418290854577"/>
+        </scene>
     </scenes>
     <resources>
         <image name="channels_tab_icon" width="24" height="24"/>
+        <image name="close_photo_popup_icon" width="21" height="21"/>
         <image name="david beckham" width="459" height="580"/>
         <image name="deselected_radio_icon" width="24" height="24"/>
         <image name="half_circle_left_icon" width="26" height="52"/>
@@ -945,5 +1004,6 @@ photos with your friends</string>
         <image name="selfie_image1" width="2000" height="1000"/>
         <image name="selfie_image2" width="1000" height="636"/>
         <image name="selfie_image3" width="612" height="408"/>
+        <image name="use_photo_icon" width="20" height="32"/>
     </resources>
 </document>

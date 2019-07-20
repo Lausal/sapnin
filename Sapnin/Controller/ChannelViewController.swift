@@ -32,19 +32,22 @@ class ChannelViewController: UIViewController {
     
     // Get all of the users corresponding channels from Firebase
     func observeChannels() {
-        
+
         Api.UserChannel.getUserChannels(uid: Api.User.currentUserId) { (channel) in
-            
+
             // Check and make sure channel object is not already added into the channelList (i.e. duplication) by checking if channelID already exists in the array
+
             if !self.channelList.contains(where: {$0.channelId == channel.channelId}) {
                 // If not duplicate, then append to channelList array
                 self.channelList.append(channel)
-                
+
                 // Sort channels by date
                 self.sortChannels()
             }
+
         }
     }
+    
     
     // Sort channels by date order, so latest channel is at the top
     func sortChannels() {
@@ -146,8 +149,19 @@ extension ChannelViewController: UITableViewDelegate, UITableViewDataSource {
         return 80
     }
     
+    // On selection of row, segue to ChannelDetailVC and send the corresponding channel details over
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "ChannelDetailVC", sender: nil)
+        if let cell = tableView.cellForRow(at: indexPath) as? ChannelTableViewCell {
+            let storyboard = UIStoryboard(name: "Channel", bundle: nil)
+            let channelDetailVC = storyboard.instantiateViewController(withIdentifier: IDENTIFIER_CHANNEL_DETAIL) as! ChannelDetailViewController
+            
+            // Send the cell details over to channelDetailVC
+            channelDetailVC.channelName = cell.channelNameLabel.text
+            channelDetailVC.channelId = cell.channel.channelId
+            channelDetailVC.channelAvatar = cell.avatar.image
+            
+            self.navigationController?.pushViewController(channelDetailVC, animated: true)
+        }
     }
     
     // Handles swipe action on row - show delete option

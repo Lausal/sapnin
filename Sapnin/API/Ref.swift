@@ -25,6 +25,8 @@ let IDENTIFIER_LOGIN = "WelcomeViewController"
 let IDENTIFER_CHANNEL_NAV_CONTROLLER = "ChannelNavigationController"
 let IDENTIFER_LOGIN_NAV_CONTROLLER = "LoginNavigationController"
 let IDENTIFIER_CREATE_CHANNEL_NAV_CONTROLLER = "CreateChannelNavigationController"
+let IDENTIFIER_CHANNEL_DETAIL = "ChannelDetailViewController"
+let IDENTIFIER_PREVIEW = "PreviewViewController"
 
 // Storage
 let URL_STORAGE_ROOT = "gs://sapnin-344c6.appspot.com"

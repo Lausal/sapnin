@@ -116,10 +116,10 @@ class ChannelApi {
     // Retrieve a specific channel information from Firebase via channel ID
     func observeChannelById(channelId: String, onSuccess: @escaping (ChannelCompletion)) {
         let ref = Ref().databaseSpecificChannelRef(channelId: channelId)
+        
         ref.observe(.value) { (snapshot) in
             if let dict = snapshot.value as? Dictionary <String, Any> {
                 if let channel = Channel.transformChannel(dict: dict) {
-                    print(channel.channelAvatarUrl)
                     onSuccess(channel)
                 }
             }

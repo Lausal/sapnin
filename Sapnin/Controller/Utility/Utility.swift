@@ -29,4 +29,15 @@ class Utility {
         textfield.textColor = BrandColours.PINK
     }
     
+    // This function is used to identify the top hierarchy view controller so that it allows us to present a modal on top
+    func getTopMostViewController() -> UIViewController? {
+        var topMostViewController = UIApplication.shared.keyWindow?.rootViewController
+        
+        while let presentedViewController = topMostViewController?.presentedViewController {
+            topMostViewController = presentedViewController
+        }
+        
+        return topMostViewController
+    }
+    
 }

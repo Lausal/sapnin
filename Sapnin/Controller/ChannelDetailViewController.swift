@@ -11,8 +11,12 @@ import UIKit
 class ChannelDetailViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var channelAvatar: UIImageView!
+    @IBOutlet weak var channelAvatarImage: UIImageView!
     @IBOutlet weak var channelTitleLabel: UILabel!
+    
+    var channelId: String!
+    var channelName: String!
+    var channelAvatar: UIImage!
     
     let imageArray = [UIImage(named: "david beckham"),UIImage(named: "david beckham"),UIImage(named: "david beckham"),UIImage(named: "david beckham"),UIImage(named: "david beckham"),UIImage(named: "david beckham"),UIImage(named: "david beckham"),UIImage(named: "david beckham")]
     
@@ -22,21 +26,30 @@ class ChannelDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupPicker()
+        setupCollectionView()
+        setupNavigationBar()
+    }
+    
+    // Set up photo picker
+    func setupPicker() {
+        picker.delegate = self
+    }
+    
+    func setupCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
-        
-        setupNavigationBar()
     }
     
     func setupNavigationBar() {
         
         // Setting channel title
-        channelTitleLabel.text = "Channel details"
+        channelTitleLabel.text = channelName
         
         // Setting channel avatar image and style
-        channelAvatar.layer.cornerRadius = 16
-        channelAvatar.clipsToBounds = true
-        channelAvatar.image = UIImage(named: "david beckham")
+        channelAvatarImage.layer.cornerRadius = 16
+        channelAvatarImage.clipsToBounds = true
+        channelAvatarImage.image = channelAvatar
         
         // Set small navigation bar style
         navigationController?.navigationBar.prefersLargeTitles = false
@@ -119,4 +132,29 @@ extension ChannelDetailViewController: UICollectionViewDelegate, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 1
     }
+}
+
+// Handle image and camera picker
+extension ChannelDetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    // Handles when user finishes picking or taking a photo
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        // Extract image from selection/camera. The photo is extracted from 'info' dictionary response once user takes a picture or selects a picture from photo library
+        if let image = info["UIImagePickerControllerOriginalImage"] as? UIImage? {
+            
+            // Pass & set the previewVC image variable to the selected image
+            let storyboard = UIStoryboard(name: "Channel", bundle: nil)
+            let previewVC = storyboard.instantiateViewController(withIdentifier: IDENTIFIER_PREVIEW) as! PreviewViewController
+            previewVC.selectedImage = image
+            
+            // Get the top hierarchy VC and show the previewVC on top of it as a modal
+            DispatchQueue.main.async {
+                Utility().getTopMostViewController()?.present(previewVC, animated: true, completion: nil)
+            }
+            
+        }
+        
+    }
+    
 }

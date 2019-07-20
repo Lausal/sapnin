@@ -20,8 +20,7 @@ class CreateChannelStep2ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        picker.delegate = self
-        
+        setupPicker()
         setupNavigationBar()
         setupChannelAvatar()
         
@@ -36,6 +35,12 @@ class CreateChannelStep2ViewController: UIViewController {
         
         // Style channel name text field
         Utility().styleTextField(textfield: channelNameTextField, text: "Channel name")
+    }
+    
+    // Set up photo picker
+    func setupPicker() {
+        picker.delegate = self
+        picker.allowsEditing = true
     }
     
     // Set up channel avatar imageview

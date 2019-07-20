@@ -159,10 +159,10 @@
             </objects>
             <point key="canvasLocation" x="4507" y="159"/>
         </scene>
-        <!--Preview View Controller-->
+        <!--View Controller-->
         <scene sceneID="s35-QI-Xfs">
             <objects>
-                <viewController id="Zwh-ac-XkA" customClass="PreviewViewController" customModule="Sapnin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Zwh-ac-XkA" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OgU-GX-uYh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -173,9 +173,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pc0-01-yHd">
                                 <rect key="frame" x="30" y="84" width="21" height="22"/>
                                 <state key="normal" image="close_photo_popup_icon"/>
-                                <connections>
-                                    <action selector="backButton_TouchUpInside:" destination="Zwh-ac-XkA" eventType="touchUpInside" id="sQ2-gB-9xD"/>
-                                </connections>
                             </button>
                             <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJQ-L1-2os" customClass="ButtonSettings" customModule="Sapnin" customModuleProvider="target">
                                 <rect key="frame" x="285" y="557" width="60" height="60"/>
@@ -190,9 +187,6 @@
                                         <real key="value" value="30"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="usePhotoButton_TouchUpInside:" destination="Zwh-ac-XkA" eventType="touchUpInside" id="RO7-HF-4w9"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -212,14 +206,13 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="vhb-JO-hm9"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="photo" destination="SxJ-4E-tjF" id="Coi-0b-EGC"/>
                         <segue destination="1zP-PB-jSn" kind="show" identifier="NoChannelVC" id="3Im-Jk-SkX"/>
                         <segue destination="qX1-FW-xhF" kind="show" identifier="ChannelVC" id="JUo-zI-h3z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OZD-8D-d9X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3695" y="14"/>
+            <point key="canvasLocation" x="3693.5999999999999" y="13.943028485757123"/>
         </scene>
         <!--Add a challenge-->
         <scene sceneID="d9t-lE-LQd">

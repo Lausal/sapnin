@@ -59,7 +59,6 @@ class ChannelTableViewCell: UITableViewCell {
         
         /*** Observe channel avatar for changes, so we can automatically update the avatar. ***/
         
-        
         let refChannel = Ref().databaseSpecificChannelRef(channelId: channel.channelId)
         if channelChangedAvatarHandle != nil {
             refChannel.removeObserver(withHandle: channelChangedAvatarHandle)
