@@ -12,6 +12,5 @@ struct Api {
     static var User = UserApi()
     static var Channel = ChannelApi()
     static var UserChannel = UserChannelApi()
-    static var channelPost = ChannelPostApi()
-    static var post = Post()
+    static var ChannelPost = ChannelPostApi()
 }

@@ -39,8 +39,39 @@ class StorageService {
             storageRef.downloadURL(completion: { (url, error) in
                 
                 // Get image URL that's been saved into storage
-                if let channelAvatarUrl = url?.absoluteString {
-                    onSuccess(channelAvatarUrl)
+                if let imageUrl = url?.absoluteString {
+                    onSuccess(imageUrl)
+                }
+            })
+        })
+    }
+    
+    // Save channel photo post to storage
+    static func saveChannelPhotoPost(image: UIImage, channelId: String, postId: String, onSuccess: @escaping(_ value: Any) -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
+        
+        // Set quality of image before uploading
+        guard let imageData = UIImageJPEGRepresentation(image, 0.1) else {
+            return
+        }
+        
+        // Set storage location reference and image type values
+        let storageRef = Ref().storageSpecificChannelPost(channelId: channelId, postId: postId)
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/jpg"
+        
+        // Add image to storage
+        storageRef.putData(imageData, metadata: metadata, completion: { (storageMetaData, error) in
+            if error != nil {
+                onError(error!.localizedDescription)
+                return
+            }
+            
+            // After successfully storing to Storage, get the image download URL and pass on success
+            storageRef.downloadURL(completion: { (url, error) in
+                
+                // Get image URL that's been saved into storage
+                if let imageUrl = url?.absoluteString {
+                    onSuccess(imageUrl)
                 }
             })
         })

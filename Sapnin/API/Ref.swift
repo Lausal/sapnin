@@ -17,6 +17,7 @@ let ROBOTO_BOLD = "Roboto-Bold"
 let REF_USER_TABLE = "users"
 let REF_CHANNEL_TABLE = "channels"
 let REF_USER_CHANNEL_TABLE = "user_channels"
+let REF_CHANNEL_POST_TABLE = "channel_post"
 
 // Storyboard identifier
 let IDENTIFIER_TABBAR = "TabBarVC"
@@ -49,6 +50,10 @@ class Ref {
         return databaseRoot.child(REF_CHANNEL_TABLE)
     }
     
+    var databaseChannelPostTableRef: DatabaseReference {
+        return databaseRoot.child(REF_CHANNEL_POST_TABLE)
+    }
+    
     var databaseUserChannelTableRef: DatabaseReference {
         return databaseRoot.child(REF_USER_CHANNEL_TABLE)
     }
@@ -67,6 +72,10 @@ class Ref {
     
     func storageSpecificChannelAvatar(channelId: String) -> StorageReference {
         return storageChannel.child("channelAvatar").child(channelId)
+    }
+    
+    func storageSpecificChannelPost(channelId: String, postId: String) -> StorageReference {
+        return storageChannel.child("channelPosts").child(channelId).child(postId)
     }
     
 }

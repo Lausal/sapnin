@@ -146,7 +146,8 @@ extension ChannelDetailViewController: UIImagePickerControllerDelegate, UINaviga
             // Pass & set the previewVC image variable to the selected image
             let storyboard = UIStoryboard(name: "Channel", bundle: nil)
             let previewVC = storyboard.instantiateViewController(withIdentifier: IDENTIFIER_PREVIEW) as! PreviewViewController
-            previewVC.selectedImage = image
+            previewVC.selectedImage = image!
+            previewVC.channelId = channelId
             
             // Get the top hierarchy VC and show the previewVC on top of it as a modal
             DispatchQueue.main.async {

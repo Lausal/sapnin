@@ -14,7 +14,8 @@ class PreviewViewController: UIViewController {
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var photo: UIImageView!
     
-    var selectedImage:UIImage?
+    var selectedImage: UIImage!
+    var channelId: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +41,17 @@ class PreviewViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    // Store and send image to database
     @IBAction func submitButtonDidTapped(_ sender: Any) {
+        
+        ProgressHUD.show("Loading...")
+        
+        Api.ChannelPost.submitChannelPost(channelId: channelId, image: photo.image!, onSuccess: {
+            ProgressHUD.dismiss()
+            self.dismiss(animated: true, completion: nil)
+        }) { (error) in
+            ProgressHUD.showError(error)
+        }
         
     }
     
