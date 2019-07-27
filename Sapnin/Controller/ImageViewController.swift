@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImageViewContoller: UIViewController {
+class ImageViewController: UIViewController {
     
     var image: UIImageView!
     var scrollView: UIScrollView!
@@ -97,7 +97,7 @@ class ImageViewContoller: UIViewController {
     
 }
 
-extension ImageViewContoller: UIScrollViewDelegate {
+extension ImageViewController: UIScrollViewDelegate {
     
     // Tells the delegate which view that requires zoom in and zoom out - in our case it's the imageView
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {

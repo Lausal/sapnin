@@ -24,7 +24,6 @@ class ChannelDetailCollectionViewCell: UICollectionViewCell {
         
         // Set image of cell
         if channelPost.imageUrl != nil {
-            print("running")
             photo.loadImage(channelPost.imageUrl)
         } else {
             return

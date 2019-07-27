@@ -19,11 +19,7 @@ class ChannelDetailViewController: UIViewController {
     var channelAvatar: UIImage!
     var postList = [ChannelPost]()
     var selectedImage: UIImage!
-    
-    let imageArray = [UIImage(named: "david beckham"),UIImage(named: "david beckham"),UIImage(named: "david beckham"),UIImage(named: "david beckham"),UIImage(named: "david beckham"),UIImage(named: "david beckham"),UIImage(named: "david beckham"),UIImage(named: "david beckham")]
-    
     var picker = UIImagePickerController()
-    var avatarImageView: UIImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 32, height: 32))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,8 +45,8 @@ class ChannelDetailViewController: UIViewController {
                     self.collectionView.reloadData()
                 }
                 
-//                // Sort channels by date
-//                self.sortChannels()
+                //                // Sort channels by date
+                //                self.sortChannels()
             }
             
         }
@@ -158,7 +154,7 @@ extension ChannelDetailViewController: UICollectionViewDelegate, UICollectionVie
         
         // Set the ImageViewController image variable to selected image
         if segue.identifier == "imageViewVC" {
-            let imageVC = segue.destination as! ImageViewContoller
+            let imageVC = segue.destination as! ImageViewController
             imageVC.image = UIImageView(image: selectedImage)
         }
     }
