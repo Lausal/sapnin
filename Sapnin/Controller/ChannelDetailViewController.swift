@@ -18,7 +18,6 @@ class ChannelDetailViewController: UIViewController {
     var channelName: String!
     var channelAvatar: UIImage!
     var postList = [ChannelPost]()
-    var selectedImage: UIImage!
     var picker = UIImagePickerController()
     
     override func viewDidLoad() {
@@ -137,25 +136,16 @@ extension ChannelDetailViewController: UICollectionViewDelegate, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        if let cell = collectionView.cellForItem(at: indexPath) as? ChannelDetailCollectionViewCell {
-            
-            // Get the cell image and set to selectedImage variable so we can use it in prepare function
-            selectedImage = cell.photo.image
-            
             // Switch to ImageViewController
             performSegue(withIdentifier: "imageViewVC", sender: nil)
-            
-        }
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        // Set the ImageViewController image variable to selected image
+        // Set the ImageViewController image variable to selected image on segue
         if segue.identifier == "imageViewVC" {
             let imageVC = segue.destination as! ImageViewController
-            imageVC.image = UIImageView(image: selectedImage)
+            imageVC.postList = self.postList
         }
     }
     

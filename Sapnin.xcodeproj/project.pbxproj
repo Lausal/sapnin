@@ -42,6 +42,8 @@
 		5271340F20DC19180036EA36 /* ChannelDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5271340D20DC19180036EA36 /* ChannelDetailCollectionViewCell.swift */; };
 		527EA01E207EBF5D00EA2F18 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527EA01D207EBF5D00EA2F18 /* CameraViewController.swift */; };
 		527F614E20D0876700DDA988 /* UserChannelApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F614D20D0876700DDA988 /* UserChannelApi.swift */; };
+		5289F6A022EC6EB500A85573 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5289F69F22EC6EB500A85573 /* ImageCollectionViewCell.swift */; };
+		5289F6A222EC787E00A85573 /* ImageViewControllerBackup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5289F6A122EC787E00A85573 /* ImageViewControllerBackup.swift */; };
 		528C9D1522C29DDF00839EBD /* Ref.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C9D1422C29DDF00839EBD /* Ref.swift */; };
 		528C9D1722C562EA00839EBD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C9D1622C562EA00839EBD /* LoginViewController.swift */; };
 		528C9D1922C5630000839EBD /* SignUpStep1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C9D1822C5630000839EBD /* SignUpStep1ViewController.swift */; };
@@ -111,6 +113,8 @@
 		5271340D20DC19180036EA36 /* ChannelDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		527EA01D207EBF5D00EA2F18 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		527F614D20D0876700DDA988 /* UserChannelApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChannelApi.swift; sourceTree = "<group>"; };
+		5289F69F22EC6EB500A85573 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		5289F6A122EC787E00A85573 /* ImageViewControllerBackup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewControllerBackup.swift; sourceTree = "<group>"; };
 		528C9D1422C29DDF00839EBD /* Ref.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ref.swift; sourceTree = "<group>"; };
 		528C9D1622C562EA00839EBD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		528C9D1822C5630000839EBD /* SignUpStep1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStep1ViewController.swift; sourceTree = "<group>"; };
@@ -227,6 +231,7 @@
 				52C0B091209395A2009B8206 /* CreateChannelStep1TableViewCell.swift */,
 				525D90DE20A88C9800095036 /* ChallengeTableViewCell.swift */,
 				5271340D20DC19180036EA36 /* ChannelDetailCollectionViewCell.swift */,
+				5289F69F22EC6EB500A85573 /* ImageCollectionViewCell.swift */,
 				5269A38522D2553600231F5B /* ChannelTableViewCell.swift */,
 			);
 			path = View;
@@ -257,6 +262,7 @@
 		528C9D1322C1785700839EBD /* Archive */ = {
 			isa = PBXGroup;
 			children = (
+				5289F6A122EC787E00A85573 /* ImageViewControllerBackup.swift */,
 				52BE749B208FAC83005414B5 /* ContactsModel.swift */,
 				52BE7497208E54E1005414B5 /* SelectParticipantsViewController.swift */,
 				5225F9AE20B2390100D95B8A /* ChannelTableViewCellArchive.swift */,
@@ -497,6 +503,7 @@
 				528C9D1722C562EA00839EBD /* LoginViewController.swift in Sources */,
 				522F0A0D20D418B20072A63E /* Channel.swift in Sources */,
 				528C9D2322CAA28600839EBD /* SignUpStep4ViewController.swift in Sources */,
+				5289F6A022EC6EB500A85573 /* ImageCollectionViewCell.swift in Sources */,
 				5225F9AD20B2284A00D95B8A /* UIImageViewWithMask.swift in Sources */,
 				52A2FA0D22EB6F5F00D7AAD9 /* ImageViewController.swift in Sources */,
 				52B88689208381E80066D116 /* ButtonSettings.swift in Sources */,
@@ -537,6 +544,7 @@
 				529D15F82078E23F0085115B /* UserApi.swift in Sources */,
 				5225F9B120B2459900D95B8A /* ChannelViewController.swift in Sources */,
 				52386CF8208AC53E0062C898 /* NoChannelViewController.swift in Sources */,
+				5289F6A222EC787E00A85573 /* ImageViewControllerBackup.swift in Sources */,
 				52C7B336209CF6520060F222 /* ColourPalette.swift in Sources */,
 				529D15F22078D02E0085115B /* AuthService.swift in Sources */,
 				522018932082DF00004AB74F /* PreviewViewController.swift in Sources */,

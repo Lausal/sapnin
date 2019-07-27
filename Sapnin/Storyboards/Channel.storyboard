@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hUK-6x-CfZ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -112,9 +112,54 @@ photos with your friends</string>
                     <view key="view" contentMode="scaleToFill" id="it4-BH-8hF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BPZ-js-JWp">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JZS-p8-qfm">
+                                    <size key="itemSize" width="134" height="151"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageCollectionViewCell" id="6Gg-RS-406" customClass="ImageCollectionViewCell" customModule="Sapnin" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="134" height="151"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="134" height="151"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rxv-CC-e98">
+                                                    <rect key="frame" x="0.0" y="0.0" width="134" height="151"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="Rxv-CC-e98" firstAttribute="leading" secondItem="6Gg-RS-406" secondAttribute="leading" id="Nl1-X1-a5g"/>
+                                            <constraint firstItem="Rxv-CC-e98" firstAttribute="top" secondItem="6Gg-RS-406" secondAttribute="top" id="Nyh-3F-Bdb"/>
+                                            <constraint firstAttribute="trailing" secondItem="Rxv-CC-e98" secondAttribute="trailing" id="OY1-Lv-Xsf"/>
+                                            <constraint firstAttribute="bottom" secondItem="Rxv-CC-e98" secondAttribute="bottom" id="V7N-fw-xTD"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="image" destination="Rxv-CC-e98" id="VsI-XA-RG2"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="BPZ-js-JWp" secondAttribute="bottom" id="3Be-nX-k8V"/>
+                            <constraint firstAttribute="trailing" secondItem="BPZ-js-JWp" secondAttribute="trailing" id="6mz-w7-EPN"/>
+                            <constraint firstItem="BPZ-js-JWp" firstAttribute="leading" secondItem="it4-BH-8hF" secondAttribute="leading" id="DrK-vv-v9Q"/>
+                            <constraint firstItem="BPZ-js-JWp" firstAttribute="top" secondItem="it4-BH-8hF" secondAttribute="top" id="Shy-ug-ZqD"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="wLF-uQ-6ZT"/>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="BPZ-js-JWp" id="YHg-tg-i4E"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MYy-Kj-jbN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
