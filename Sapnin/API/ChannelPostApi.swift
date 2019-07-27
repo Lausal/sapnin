@@ -11,6 +11,8 @@ import FirebaseDatabase
 import FirebaseAuth
 import ProgressHUD
 
+typealias ChannelPostCompletion = (ChannelPost) -> Void
+
 class ChannelPostApi {
     
     // Function to submit a new post in a channel and set it in Firebase
@@ -29,7 +31,7 @@ class ChannelPostApi {
             let date: Double = Date().timeIntervalSince1970
             
             // Create a dictionary to store the variables
-            var dict = ["channelId": channelId, "ownerId": Api.User.currentUserId, "datePosted": date, "imageUrl": imageUrl] as [String : Any]
+            var dict = ["postId": postId, "channelId": channelId, "ownerId": Api.User.currentUserId, "datePosted": date, "imageUrl": imageUrl] as [String : Any]
             
             // Now store the whole dictionary into Firebase database
             newChannelPostRef.setValue(dict) { (error, ref) in
@@ -42,6 +44,21 @@ class ChannelPostApi {
             }
         }) { (error) in
             ProgressHUD.showError(error)
+        }
+        
+    }
+    
+    // Get all the posts from a channel from Firebase and return as channel post object
+    func getChannelPosts(channelId: String, onSuccess: @escaping (ChannelPostCompletion)) {
+        
+        let ref = Ref().databaseChannelPostTableRef.child(channelId)
+        
+        ref.observe(.childAdded) { (snapshot) in
+            if let dict = snapshot.value as? Dictionary <String, Any> {
+                if let channelPost = ChannelPost.transformChannelPost(dict: dict) {
+                    onSuccess(channelPost)
+                }
+            }
         }
         
     }

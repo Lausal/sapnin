@@ -12,12 +12,23 @@ class ChannelDetailCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var photo: UIImageView!
     
+    var channelPost: ChannelPost!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
-    func loadData() {
+    // Load the data into the cell
+    func loadData(_ channelPost: ChannelPost) {
+        self.channelPost = channelPost
         
+        // Set image of cell
+        if channelPost.imageUrl != nil {
+            print("running")
+            photo.loadImage(channelPost.imageUrl)
+        } else {
+            return
+        }
     }
 
 }

@@ -105,6 +105,21 @@ photos with your friends</string>
             </objects>
             <point key="canvasLocation" x="6196" y="2419"/>
         </scene>
+        <!--Image View Contoller-->
+        <scene sceneID="Lx9-em-Jbm">
+            <objects>
+                <viewController storyboardIdentifier="ImageViewContoller" id="hUK-6x-CfZ" customClass="ImageViewContoller" customModule="Sapnin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="it4-BH-8hF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="wLF-uQ-6ZT"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MYy-Kj-jbN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="9821.6000000000004" y="1605.2473763118442"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="G20-65-bMA">
             <objects>
@@ -921,6 +936,7 @@ photos with your friends</string>
                         <outlet property="channelTitleLabel" destination="ebk-g6-ddy" id="cPR-js-tHy"/>
                         <outlet property="collectionView" destination="c3b-GN-e7R" id="PAc-zi-xdw"/>
                         <segue destination="q41-Oa-s9a" kind="presentation" identifier="previewVC" id="LVd-zL-Xko"/>
+                        <segue destination="hUK-6x-CfZ" kind="show" identifier="imageViewVC" id="Js1-BR-IuU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TbZ-Gf-Ile" userLabel="First Responder" sceneMemberID="firstResponder"/>

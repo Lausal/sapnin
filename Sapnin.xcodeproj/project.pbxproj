@@ -57,6 +57,8 @@
 		529D15F42078D1E30085115B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529D15F32078D1E30085115B /* User.swift */; };
 		529D15F62078E21D0085115B /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529D15F52078E21D0085115B /* Api.swift */; };
 		529D15F82078E23F0085115B /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529D15F72078E23F0085115B /* UserApi.swift */; };
+		52A2FA0B22E653B400D7AAD9 /* ChannelPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A2FA0A22E653B400D7AAD9 /* ChannelPost.swift */; };
+		52A2FA0D22EB6F5F00D7AAD9 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A2FA0C22EB6F5F00D7AAD9 /* ImageViewController.swift */; };
 		52B0C2DE20D5D3EC000A8AED /* Channel_Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52B0C2DD20D5D3EC000A8AED /* Channel_Detail.storyboard */; };
 		52B0C2E020D98DC1000A8AED /* ChannelDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B0C2DF20D98DC1000A8AED /* ChannelDetailViewController.swift */; };
 		52B31EF920C720100089C373 /* CreateChannelStep2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B31EF820C720100089C373 /* CreateChannelStep2ViewController.swift */; };
@@ -124,6 +126,8 @@
 		529D15F32078D1E30085115B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		529D15F52078E21D0085115B /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		529D15F72078E23F0085115B /* UserApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
+		52A2FA0A22E653B400D7AAD9 /* ChannelPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelPost.swift; sourceTree = "<group>"; };
+		52A2FA0C22EB6F5F00D7AAD9 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		52AFD4F620BDAAAF0039559A /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		52AFD4F720BDAAB10039559A /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		52AFD4F820BDAAB30039559A /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
@@ -212,7 +216,7 @@
 			children = (
 				529D15F32078D1E30085115B /* User.swift */,
 				522F0A0C20D418B20072A63E /* Channel.swift */,
-				52BE749B208FAC83005414B5 /* ContactsModel.swift */,
+				52A2FA0A22E653B400D7AAD9 /* ChannelPost.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -235,6 +239,7 @@
 				5225F9B020B2459900D95B8A /* ChannelViewController.swift */,
 				52B0C2DF20D98DC1000A8AED /* ChannelDetailViewController.swift */,
 				522018922082DF00004AB74F /* PreviewViewController.swift */,
+				52A2FA0C22EB6F5F00D7AAD9 /* ImageViewController.swift */,
 				5269A38322D16D0600231F5B /* CreateChannelStep1ViewController.swift */,
 				52B31EF820C720100089C373 /* CreateChannelStep2ViewController.swift */,
 				529CB4F920742328003DE1CE /* SettingsViewController.swift */,
@@ -252,6 +257,7 @@
 		528C9D1322C1785700839EBD /* Archive */ = {
 			isa = PBXGroup;
 			children = (
+				52BE749B208FAC83005414B5 /* ContactsModel.swift */,
 				52BE7497208E54E1005414B5 /* SelectParticipantsViewController.swift */,
 				5225F9AE20B2390100D95B8A /* ChannelTableViewCellArchive.swift */,
 				52C7B335209CF6520060F222 /* ColourPalette.swift */,
@@ -492,6 +498,7 @@
 				522F0A0D20D418B20072A63E /* Channel.swift in Sources */,
 				528C9D2322CAA28600839EBD /* SignUpStep4ViewController.swift in Sources */,
 				5225F9AD20B2284A00D95B8A /* UIImageViewWithMask.swift in Sources */,
+				52A2FA0D22EB6F5F00D7AAD9 /* ImageViewController.swift in Sources */,
 				52B88689208381E80066D116 /* ButtonSettings.swift in Sources */,
 				529D15F62078E21D0085115B /* Api.swift in Sources */,
 				52B0C2E020D98DC1000A8AED /* ChannelDetailViewController.swift in Sources */,
@@ -507,6 +514,7 @@
 				528C9D2122CAA25B00839EBD /* SignUpStep2ViewController.swift in Sources */,
 				52C0B092209395A2009B8206 /* CreateChannelStep1TableViewCell.swift in Sources */,
 				523024F721026E220091AE52 /* ChannelPostApi.swift in Sources */,
+				52A2FA0B22E653B400D7AAD9 /* ChannelPost.swift in Sources */,
 				528C9D1B22C5686300839EBD /* Extension.swift in Sources */,
 				521821F420AF9E9A009F8FD5 /* LeaderboardViewController.swift in Sources */,
 				529CB4FA20742328003DE1CE /* SettingsViewController.swift in Sources */,

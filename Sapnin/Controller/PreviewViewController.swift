@@ -33,6 +33,7 @@ class PreviewViewController: UIViewController {
         photo.image = self.selectedImage
     }
     
+    // Hide status bar on this page
     override var prefersStatusBarHidden: Bool {
         return true
     }
@@ -41,14 +42,16 @@ class PreviewViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    // Store and send image to database
+    // Store and send image to database when submit is pressed - then return to the channel detail VC
     @IBAction func submitButtonDidTapped(_ sender: Any) {
-        
         ProgressHUD.show("Loading...")
         
+        // Save image into Firebase
         Api.ChannelPost.submitChannelPost(channelId: channelId, image: photo.image!, onSuccess: {
             ProgressHUD.dismiss()
-            self.dismiss(animated: true, completion: nil)
+            
+            // On completion, dismiss the modal and return to the channel detail VC
+            self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
         }) { (error) in
             ProgressHUD.showError(error)
         }

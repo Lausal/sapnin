@@ -17,6 +17,8 @@ class ChannelDetailViewController: UIViewController {
     var channelId: String!
     var channelName: String!
     var channelAvatar: UIImage!
+    var postList = [ChannelPost]()
+    var selectedImage: UIImage!
     
     let imageArray = [UIImage(named: "david beckham"),UIImage(named: "david beckham"),UIImage(named: "david beckham"),UIImage(named: "david beckham"),UIImage(named: "david beckham"),UIImage(named: "david beckham"),UIImage(named: "david beckham"),UIImage(named: "david beckham")]
     
@@ -29,6 +31,29 @@ class ChannelDetailViewController: UIViewController {
         setupPicker()
         setupCollectionView()
         setupNavigationBar()
+        observeChannelPosts()
+    }
+    
+    // Retrieve the latest channel posts from Firebase
+    func observeChannelPosts() {
+        Api.ChannelPost.getChannelPosts(channelId: channelId) { (channelPost) in
+            
+            // Check and make sure channel post object is not already added into the postList (i.e. duplication) by checking if postId already exists in the array
+            if !self.postList.contains(where: {$0.postId == channelPost.postId}) {
+                
+                // If not duplicate, then append to postList array
+                self.postList.append(channelPost)
+                
+                
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+                
+//                // Sort channels by date
+//                self.sortChannels()
+            }
+            
+        }
     }
     
     // Set up photo picker
@@ -103,18 +128,39 @@ class ChannelDetailViewController: UIViewController {
 extension ChannelDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.imageArray.count
+        print(postList.count)
+        return self.postList.count
     }
     
     // Load picture into each cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChannelDetailCollectionViewCell", for: indexPath) as! ChannelDetailCollectionViewCell
-        cell.photo.image = imageArray[indexPath.item]
+        let channelPost = self.postList[indexPath.item]
+        cell.loadData(channelPost)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        if let cell = collectionView.cellForItem(at: indexPath) as? ChannelDetailCollectionViewCell {
+            
+            // Get the cell image and set to selectedImage variable so we can use it in prepare function
+            selectedImage = cell.photo.image
+            
+            // Switch to ImageViewController
+            performSegue(withIdentifier: "imageViewVC", sender: nil)
+            
+        }
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // Set the ImageViewController image variable to selected image
+        if segue.identifier == "imageViewVC" {
+            let imageVC = segue.destination as! ImageViewContoller
+            imageVC.image = UIImageView(image: selectedImage)
+        }
     }
     
     // Specify width and height of each grid/cell
