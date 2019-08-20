@@ -38,6 +38,7 @@
 		5269A38422D16D0600231F5B /* CreateChannelStep1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269A38322D16D0600231F5B /* CreateChannelStep1ViewController.swift */; };
 		5269A38622D2553600231F5B /* ChannelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269A38522D2553600231F5B /* ChannelTableViewCell.swift */; };
 		5269A38822D67E1200231F5B /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269A38722D67E1200231F5B /* StorageService.swift */; };
+		526CFA0623081F940033DAA0 /* ChannelDetailSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526CFA0523081F940033DAA0 /* ChannelDetailSectionHeaderView.swift */; };
 		5271340A20D9A0020036EA36 /* BrandColours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5271340920D9A0020036EA36 /* BrandColours.swift */; };
 		5271340F20DC19180036EA36 /* ChannelDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5271340D20DC19180036EA36 /* ChannelDetailCollectionViewCell.swift */; };
 		527EA01E207EBF5D00EA2F18 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527EA01D207EBF5D00EA2F18 /* CameraViewController.swift */; };
@@ -109,6 +110,7 @@
 		5269A38322D16D0600231F5B /* CreateChannelStep1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChannelStep1ViewController.swift; sourceTree = "<group>"; };
 		5269A38522D2553600231F5B /* ChannelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelTableViewCell.swift; sourceTree = "<group>"; };
 		5269A38722D67E1200231F5B /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		526CFA0523081F940033DAA0 /* ChannelDetailSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelDetailSectionHeaderView.swift; sourceTree = "<group>"; };
 		5271340920D9A0020036EA36 /* BrandColours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandColours.swift; sourceTree = "<group>"; };
 		5271340D20DC19180036EA36 /* ChannelDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		527EA01D207EBF5D00EA2F18 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 				52C0B091209395A2009B8206 /* CreateChannelStep1TableViewCell.swift */,
 				525D90DE20A88C9800095036 /* ChallengeTableViewCell.swift */,
 				5271340D20DC19180036EA36 /* ChannelDetailCollectionViewCell.swift */,
+				526CFA0523081F940033DAA0 /* ChannelDetailSectionHeaderView.swift */,
 				5289F69F22EC6EB500A85573 /* ImageCollectionViewCell.swift */,
 				5269A38522D2553600231F5B /* ChannelTableViewCell.swift */,
 			);
@@ -243,8 +246,8 @@
 				52E3E27922D0DDE500F40F7C /* Login & Register */,
 				5225F9B020B2459900D95B8A /* ChannelViewController.swift */,
 				52B0C2DF20D98DC1000A8AED /* ChannelDetailViewController.swift */,
-				522018922082DF00004AB74F /* PreviewViewController.swift */,
 				52A2FA0C22EB6F5F00D7AAD9 /* ImageViewController.swift */,
+				522018922082DF00004AB74F /* PreviewViewController.swift */,
 				5269A38322D16D0600231F5B /* CreateChannelStep1ViewController.swift */,
 				52B31EF820C720100089C373 /* CreateChannelStep2ViewController.swift */,
 				529CB4F920742328003DE1CE /* SettingsViewController.swift */,
@@ -551,6 +554,7 @@
 				52E3E27D22D1167900F40F7C /* ChannelBackupViewController.swift in Sources */,
 				523BCDB920FABC8700318D64 /* SwipeViewController.swift in Sources */,
 				527F614E20D0876700DDA988 /* UserChannelApi.swift in Sources */,
+				526CFA0623081F940033DAA0 /* ChannelDetailSectionHeaderView.swift in Sources */,
 				525D90DF20A88C9800095036 /* ChallengeTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

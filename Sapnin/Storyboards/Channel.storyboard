@@ -117,32 +117,46 @@ photos with your friends</string>
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JZS-p8-qfm">
-                                    <size key="itemSize" width="134" height="151"/>
+                                    <size key="itemSize" width="375" height="607"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageCollectionViewCell" id="6Gg-RS-406" customClass="ImageCollectionViewCell" customModule="Sapnin" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="134" height="151"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="607"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="134" height="151"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="607"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rxv-CC-e98">
-                                                    <rect key="frame" x="0.0" y="0.0" width="134" height="151"/>
-                                                </imageView>
+                                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7OH-a8-5nD">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="607"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rxv-CC-e98">
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="607"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="Rxv-CC-e98" secondAttribute="width" id="Itv-z6-BN3"/>
+                                                        <constraint firstItem="Rxv-CC-e98" firstAttribute="top" secondItem="7OH-a8-5nD" secondAttribute="top" id="Sbf-6P-RRa"/>
+                                                        <constraint firstAttribute="height" secondItem="Rxv-CC-e98" secondAttribute="height" id="T9T-1X-wPU"/>
+                                                        <constraint firstItem="Rxv-CC-e98" firstAttribute="leading" secondItem="7OH-a8-5nD" secondAttribute="leading" id="UiU-za-LpL"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Rxv-CC-e98" secondAttribute="bottom" id="Zsz-ly-V13"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Rxv-CC-e98" secondAttribute="trailing" id="ki1-cd-wUp"/>
+                                                    </constraints>
+                                                </scrollView>
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="Rxv-CC-e98" firstAttribute="leading" secondItem="6Gg-RS-406" secondAttribute="leading" id="Nl1-X1-a5g"/>
-                                            <constraint firstItem="Rxv-CC-e98" firstAttribute="top" secondItem="6Gg-RS-406" secondAttribute="top" id="Nyh-3F-Bdb"/>
-                                            <constraint firstAttribute="trailing" secondItem="Rxv-CC-e98" secondAttribute="trailing" id="OY1-Lv-Xsf"/>
-                                            <constraint firstAttribute="bottom" secondItem="Rxv-CC-e98" secondAttribute="bottom" id="V7N-fw-xTD"/>
+                                            <constraint firstItem="7OH-a8-5nD" firstAttribute="top" secondItem="6Gg-RS-406" secondAttribute="top" id="Cue-6q-2HV"/>
+                                            <constraint firstAttribute="bottom" secondItem="7OH-a8-5nD" secondAttribute="bottom" id="MV0-Pu-vWx"/>
+                                            <constraint firstItem="7OH-a8-5nD" firstAttribute="leading" secondItem="6Gg-RS-406" secondAttribute="leading" id="YCj-dz-zrH"/>
+                                            <constraint firstAttribute="trailing" secondItem="7OH-a8-5nD" secondAttribute="trailing" id="a5x-T2-9C3"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="image" destination="Rxv-CC-e98" id="VsI-XA-RG2"/>
+                                            <outlet property="scrollView" destination="7OH-a8-5nD" id="yHi-Kd-TKF"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -158,7 +172,7 @@ photos with your friends</string>
                         <viewLayoutGuide key="safeArea" id="wLF-uQ-6ZT"/>
                     </view>
                     <connections>
-                        <outlet property="collectionView" destination="BPZ-js-JWp" id="YHg-tg-i4E"/>
+                        <outlet property="collectionView" destination="BPZ-js-JWp" id="65c-YK-NzC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MYy-Kj-jbN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -591,7 +605,7 @@ photos with your friends</string>
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ChannelTableViewCell" rowHeight="96" id="7WN-Wm-XTs" customClass="ChannelTableViewCell" customModule="Sapnin" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ChannelTableViewCell" rowHeight="96" id="7WN-Wm-XTs" customClass="ChannelTableViewCell" customModule="Sapnin" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="96"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7WN-Wm-XTs" id="51Y-A8-OAz">
@@ -901,17 +915,17 @@ photos with your friends</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="c3b-GN-e7R">
-                                <rect key="frame" x="0.0" y="80" width="375" height="538"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Meg-Gf-f54">
                                     <size key="itemSize" width="134" height="134"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="headerReferenceSize" width="50" height="50"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ChannelDetailCollectionViewCell" id="Xze-bY-PAI" customClass="ChannelDetailCollectionViewCell" customModule="Sapnin" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="134" height="134"/>
+                                        <rect key="frame" x="0.0" y="50" width="134" height="134"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="134" height="134"/>
@@ -933,11 +947,31 @@ photos with your friends</string>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="ChannelDetailSectionHeaderView" id="yNG-KZ-4mD" customClass="ChannelDetailSectionHeaderView" customModule="Sapnin" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1XV-zs-2U8">
+                                            <rect key="frame" x="16" y="12" width="37" height="26"/>
+                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="1XV-zs-2U8" firstAttribute="top" secondItem="yNG-KZ-4mD" secondAttribute="top" constant="12" id="8fe-1G-nVl"/>
+                                        <constraint firstAttribute="bottom" secondItem="1XV-zs-2U8" secondAttribute="bottom" constant="12" id="DNb-mg-pzj"/>
+                                        <constraint firstItem="1XV-zs-2U8" firstAttribute="leading" secondItem="yNG-KZ-4mD" secondAttribute="leading" constant="16" id="qXq-ND-RMS"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="dateLabel" destination="1XV-zs-2U8" id="XUr-Jv-ZnB"/>
+                                    </connections>
+                                </collectionReusableView>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="c3b-GN-e7R" firstAttribute="top" secondItem="iL9-Vp-er2" secondAttribute="top" constant="16" id="1No-sk-T8Z"/>
+                            <constraint firstItem="c3b-GN-e7R" firstAttribute="top" secondItem="iL9-Vp-er2" secondAttribute="top" id="1No-sk-T8Z"/>
                             <constraint firstItem="iL9-Vp-er2" firstAttribute="trailing" secondItem="c3b-GN-e7R" secondAttribute="trailing" id="JRh-M0-DqG"/>
                             <constraint firstItem="c3b-GN-e7R" firstAttribute="leading" secondItem="iL9-Vp-er2" secondAttribute="leading" id="lhc-MF-9yk"/>
                             <constraint firstItem="iL9-Vp-er2" firstAttribute="bottom" secondItem="c3b-GN-e7R" secondAttribute="bottom" id="oxj-CW-dFV"/>

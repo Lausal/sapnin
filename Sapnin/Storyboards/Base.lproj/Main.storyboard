@@ -242,7 +242,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eba-Iv-iob">
-                                <rect key="frame" x="86" y="614" width="203" height="29"/>
+                                <rect key="frame" x="85" y="614" width="205" height="29"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                 <state key="normal" title="Already have an account? Log in">
                                     <color key="titleColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1320,6 +1320,6 @@
         <image name="selfie_image4" width="2122" height="1415"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="to9-l4-4hx"/>
+        <segue reference="Oea-xL-qUf"/>
     </inferredMetricsTieBreakers>
 </document>

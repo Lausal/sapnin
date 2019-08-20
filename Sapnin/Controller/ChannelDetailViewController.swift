@@ -19,6 +19,11 @@ class ChannelDetailViewController: UIViewController {
     var channelAvatar: UIImage!
     var postList = [ChannelPost]()
     var picker = UIImagePickerController()
+
+    var selectedPostId: String!
+    
+    var sortedUsersFirstLetters: [String] = []
+    var sortedUsersPerSections: [[ChannelPost]] = [[]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,16 +43,83 @@ class ChannelDetailViewController: UIViewController {
                 
                 // If not duplicate, then append to postList array
                 self.postList.append(channelPost)
-                
-                
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
-                }
-                
-                //                // Sort channels by date
-                //                self.sortChannels()
             }
             
+            // Sort posts by date
+            self.sortPosts()
+            
+        }
+    }
+    
+    func testSort(onSuccess: @escaping () -> Void) {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        let dates = postList.map { dateFormatter.string(from:Date(timeIntervalSince1970: $0.datePosted)) }
+        let uniqueDates = Array(Set(dates))
+        
+        // test
+        let dates2 = uniqueDates.compactMap { dateFormatter.date(from: $0) }
+        let sortedDates = dates2.sorted { $0 > $1 }
+        //print(sortedDates)
+        sortedUsersFirstLetters = sortedDates.compactMap { dateFormatter.string(from: $0)}
+        //print(sortedUsersFirstLetters)
+        
+        //sortedUsersFirstLetters = uniqueDates
+        //sortedUsersFirstLetters = ["17/08/2019", "14/08/2019", "31/07/2019", "29/07/2019", "26/07/2019", "23/07/2019", "22/07/2019"]
+        
+        print(sortedUsersFirstLetters.count)
+        
+        sortedUsersPerSections = sortedUsersFirstLetters.map { date in
+            return postList
+                .filter { dateFormatter.string(from:Date(timeIntervalSince1970: $0.datePosted)) == date }
+                .sorted { $0.datePosted > $1.datePosted }
+        }
+        
+        onSuccess()
+        
+//        let groupedPosts = Dictionary(grouping: postList) { (element) -> String in
+//
+//            let dateFormatter = DateFormatter()
+//            dateFormatter.dateFormat = "dd/MM/yyyy"
+//            let dateUnformat = Date(timeIntervalSince1970: element.datePosted)
+//            let date = dateFormatter.string(from: dateUnformat)
+//            return date
+//
+//        }
+//
+//        let sortedKeys = groupedPosts.keys.sorted()
+//        sortedKeys.forEach { (key) in
+//            let values = groupedPosts[key]
+//
+//            chatMessages.append(values ?? [])
+//            print(chatMessages[0])
+//            //print(values ?? "")
+//        }
+//        //print(groupedPosts.count)
+//        //print(chatMessages.count)
+        
+        
+    }
+    
+    // Sort posts by date
+    func sortPosts() {
+        
+        postList = postList.sorted(by: {$0.datePosted > $1.datePosted})
+        
+        testSort {
+            //print(self.sortedUsersFirstLetters)
+        }
+        
+        //let firstLetters = userList.map { $0.getFirstLetterOfName }
+        //let uniqueFirstLetters = Array(Set(firstLetters))
+        //sortedUsersFirstLetters = uniqueFirstLetters.sorted()
+        
+        
+        
+        
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
         }
     }
     
@@ -122,22 +194,28 @@ class ChannelDetailViewController: UIViewController {
 
 extension ChannelDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        //return 1
+        return sortedUsersFirstLetters.count
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(postList.count)
-        return self.postList.count
+        //return self.postList.count
+        return sortedUsersPerSections[section].count
     }
     
     // Load picture into each cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChannelDetailCollectionViewCell", for: indexPath) as! ChannelDetailCollectionViewCell
-        let channelPost = self.postList[indexPath.item]
+        let channelPost = sortedUsersPerSections[indexPath.section][indexPath.row]
+        //let channelPost = self.postList[indexPath.item]
         cell.loadData(channelPost)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            // Switch to ImageViewController
-            performSegue(withIdentifier: "imageViewVC", sender: nil)
+        selectedPostId = sortedUsersPerSections[indexPath.section][indexPath.row].postId
+        performSegue(withIdentifier: "imageViewVC", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -146,6 +224,8 @@ extension ChannelDetailViewController: UICollectionViewDelegate, UICollectionVie
         if segue.identifier == "imageViewVC" {
             let imageVC = segue.destination as! ImageViewController
             imageVC.postList = self.postList
+            imageVC.selectedPostId = selectedPostId
+            //imageVC.selectedImageNo = selectedImageNo!
         }
     }
     
@@ -163,6 +243,16 @@ extension ChannelDetailViewController: UICollectionViewDelegate, UICollectionVie
     // Specify space between each cell on the same row
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 1
+    }
+    
+    // Section heading
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ChannelDetailSectionHeaderView", for: indexPath) as? ChannelDetailSectionHeaderView {
+            
+            sectionHeader.dateLabel.text = sortedUsersFirstLetters[indexPath.section]
+            return sectionHeader
+        }
+        return UICollectionReusableView()
     }
 }
 

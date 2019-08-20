@@ -10,18 +10,24 @@ import UIKit
 
 class ImageCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet var scrollView: UIScrollView!
     @IBOutlet weak var image: UIImageView!
     
     var channelPost: ChannelPost!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        setupScrollView()
     }
     
-//    // Load the data into the cell
-//    func loadData(passedImage: UIImage) {
-//        self.image.image = passedImage
-//    }
+    func setupScrollView() {
+        scrollView.delegate = self
+        
+        // Set zoom level
+        scrollView.minimumZoomScale = 1.0
+        scrollView.maximumZoomScale = 5.0
+    }
     
     // Load the data into the cell
     func loadData(_ channelPost: ChannelPost) {
@@ -33,6 +39,14 @@ class ImageCollectionViewCell: UICollectionViewCell {
         } else {
             return
         }
+    }
+    
+}
+
+extension ImageCollectionViewCell: UIScrollViewDelegate {
+    
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return image
     }
     
 }

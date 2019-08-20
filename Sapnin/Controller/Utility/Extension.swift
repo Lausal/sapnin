@@ -107,3 +107,9 @@ func timeAgoSinceDate(_ date:Date, currentDate:Date, numericDates:Bool) -> Strin
     } else { return "Just now" }
 }
 
+extension Sequence where Iterator.Element: Hashable {
+    func unique() -> [Iterator.Element] {
+        var seen: [Iterator.Element: Bool] = [:]
+        return self.filter { seen.updateValue(true, forKey: $0) == nil }
+    }
+}

@@ -10,16 +10,39 @@ import UIKit
 
 class ImageViewController: UIViewController {
     
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet var collectionView: UICollectionView!
     
     // Holds the list of post objects
     var postList = [ChannelPost]()
+    var selectedImageNo = IndexPath()
+    var selectedPostId: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Hide tab bar
+        self.tabBarController?.tabBar.isHidden = true
+        
         setupCollectionView()
+        scrollToImage()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        
+        // Show tab bar when leaving the page
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
+    // This is called after view has laid everything out
+    func scrollToImage() {
+        view.layoutIfNeeded()
+        let index = postList.index(where: { $0.postId == selectedPostId })
+        
+        // Scroll to the selected image from channel details page
+        collectionView.scrollToItem(at: IndexPath(item: index!, section: 0), at: .centeredHorizontally, animated: false)
+    }
+    
     
     // Set up the collectionview styling and interaction
     func setupCollectionView() {
@@ -36,7 +59,20 @@ class ImageViewController: UIViewController {
         
         // Hide pagination indicator
         collectionView.showsHorizontalScrollIndicator = false
+        
+        // Set background colour
+        collectionView.backgroundColor = UIColor.black
+        
     }
+    
+//    // This is called after view has laid everything out
+//    override func viewDidLayoutSubviews() {
+//
+//        let index = postList.index(where: { $0.postId == selectedPostId })
+//
+//        // Scroll to the selected image from channel details page
+//        collectionView.scrollToItem(at: IndexPath(item: index!, section: 0), at: .centeredHorizontally, animated: false)
+//    }
 
 }
 

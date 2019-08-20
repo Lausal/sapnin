@@ -48,9 +48,9 @@ class ChannelViewController: UIViewController {
         }
     }
     
-    
     // Sort channels by date order, so latest channel is at the top
     func sortChannels() {
+        
         channelList = channelList.sorted(by: {$0.lastMessageDate > $1.lastMessageDate})
         
         DispatchQueue.main.async {
