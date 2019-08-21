@@ -24,10 +24,14 @@ class ChannelViewController: UIViewController {
         super.viewDidLoad()
         
         setupTableView()
-        setupNavigationBar()
         setupSearchBarController()
         observeChannels()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        setupNavigationBar()
     }
     
     // Get all of the users corresponding channels from Firebase
@@ -192,8 +196,13 @@ extension ChannelViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension ChannelViewController: UpdateTableProtocol {
+extension ChannelViewController: ChannelProtocol {
     func reloadData() {
         self.tableView.reloadData()
+    }
+    
+    // Switch to stories if applicable, otherwise switch to channel details
+    func channelAvatarDidTapped() {
+        self.performSegue(withIdentifier: "storiesVC", sender: nil)
     }
 }

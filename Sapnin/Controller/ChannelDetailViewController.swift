@@ -28,11 +28,22 @@ class ChannelDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Hide tab bar
+        self.tabBarController?.tabBar.isHidden = true
+        
         setupPicker()
         setupCollectionView()
         setupNavigationBar()
         observeChannelPosts()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        
+        // Show tab bar when leaving the page
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
     
     // Retrieve the latest channel posts from Firebase
     func observeChannelPosts() {
@@ -247,6 +258,7 @@ extension ChannelDetailViewController: UICollectionViewDelegate, UICollectionVie
     
     // Section heading
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
         if let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ChannelDetailSectionHeaderView", for: indexPath) as? ChannelDetailSectionHeaderView {
             
             sectionHeader.dateLabel.text = sortedUsersFirstLetters[indexPath.section]
@@ -254,6 +266,7 @@ extension ChannelDetailViewController: UICollectionViewDelegate, UICollectionVie
         }
         return UICollectionReusableView()
     }
+    
 }
 
 // Handle image and camera picker

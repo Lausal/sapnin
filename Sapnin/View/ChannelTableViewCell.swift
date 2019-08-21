@@ -10,8 +10,9 @@ import UIKit
 import Firebase
 
 // Protocols allow us to call functions in another VC
-protocol UpdateTableProtocol {
+protocol ChannelProtocol {
     func reloadData()
+    func channelAvatarDidTapped()
 }
 
 class ChannelTableViewCell: UITableViewCell {
@@ -20,9 +21,11 @@ class ChannelTableViewCell: UITableViewCell {
     @IBOutlet weak var channelNameLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet var newStoryDot: UIView!
     
+    var controller: ChannelViewController!
     var channel: Channel!
-    var delegate: UpdateTableProtocol!
+    var delegate: ChannelProtocol!
     
     // Observe functionality will continue to sink data even if we leave the view, so we need a handler to remove the observe when leaving view to reduce constant memory sync
     var channelChangedAvatarHandle: DatabaseHandle!
@@ -34,6 +37,21 @@ class ChannelTableViewCell: UITableViewCell {
         // Style avatar
         avatar.layer.cornerRadius = 24
         avatar.clipsToBounds = true
+        
+        // Style pink dot
+        newStoryDot.layer.cornerRadius = 6
+        newStoryDot.layer.borderColor = UIColor.white.cgColor
+        newStoryDot.layer.borderWidth = 1
+        
+        // Add tap gesture to channel avatar
+        let tap = UITapGestureRecognizer(target: self, action: #selector(channelAvatarDidTapped))
+        avatar.isUserInteractionEnabled = true
+        avatar.addGestureRecognizer(tap)
+    }
+    
+    // On tap of channel avatar, call the channelAvatarDidTapped method which either switches to the stories, or channel details page.
+    @objc func channelAvatarDidTapped() {
+        self.delegate.channelAvatarDidTapped()
     }
     
     // Load the channel data into the cell

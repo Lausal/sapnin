@@ -12,6 +12,4 @@ class ChannelDetailSectionHeaderView : UICollectionReusableView {
     
     @IBOutlet var dateLabel: UILabel!
     
-    
-    
 }

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR" customClass="ChannelDetailStoryHeaderView" customModule="Sapnin" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="166"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5kN-0Q-Yci">
+                    <rect key="frame" x="101" y="24" width="118" height="118"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="118" id="0OC-Pe-7sS"/>
+                        <constraint firstAttribute="width" constant="118" id="Xm8-zs-NL6"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="5kN-0Q-Yci" firstAttribute="centerX" secondItem="U6b-Vx-4bR" secondAttribute="centerX" id="HAx-Pl-wct"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="bottom" secondItem="5kN-0Q-Yci" secondAttribute="bottom" constant="24" id="Tk5-WB-xGB"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
+            <connections>
+                <outlet property="storyImage" destination="5kN-0Q-Yci" id="iSP-Uc-e7c"/>
+            </connections>
+        </collectionReusableView>
+    </objects>
+</document>

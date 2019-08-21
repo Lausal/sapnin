@@ -34,12 +34,15 @@ class ImageViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = false
     }
     
-    // This is called after view has laid everything out
+    // Scroll to the selected image from the channel details page - This is called after view has laid everything out using view.layoutIfNeeded()
     func scrollToImage() {
+        
         view.layoutIfNeeded()
+        
+        // Get the index of the selected post by finding the array index of matching ID
         let index = postList.index(where: { $0.postId == selectedPostId })
         
-        // Scroll to the selected image from channel details page
+        // Scroll to the selected image
         collectionView.scrollToItem(at: IndexPath(item: index!, section: 0), at: .centeredHorizontally, animated: false)
     }
     
@@ -64,15 +67,6 @@ class ImageViewController: UIViewController {
         collectionView.backgroundColor = UIColor.black
         
     }
-    
-//    // This is called after view has laid everything out
-//    override func viewDidLayoutSubviews() {
-//
-//        let index = postList.index(where: { $0.postId == selectedPostId })
-//
-//        // Scroll to the selected image from channel details page
-//        collectionView.scrollToItem(at: IndexPath(item: index!, section: 0), at: .centeredHorizontally, animated: false)
-//    }
 
 }
 

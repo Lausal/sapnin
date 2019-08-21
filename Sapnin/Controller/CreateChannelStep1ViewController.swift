@@ -43,7 +43,7 @@ class CreateChannelStep1ViewController: UIViewController {
     func addTestData() {
         let user1 = User(userId: "a", email: "abc@gmail.com", name: "John Smith")
         let user2 = User(userId: "b", email: "abcd@gmail.com", name: "Alan Lau")
-        let user3 = User(userId: "c", email: "abcde@gmail.com", name: "Luke Dooley")
+        let user3 = User(userId: "SFCq7oiXViPq2mj04yiTESGI7uV2", email: "abcde@gmail.com", name: "Luke Dooley")
         let user4 = User(userId: "d", email: "abc@gmail.com", name: "James Bond")
         let user5 = User(userId: "e", email: "abc@gmail.com", name: "Cristiano Ronaldo")
         let user6 = User(userId: "f", email: "abcd@gmail.com", name: "Matthew Pon")
