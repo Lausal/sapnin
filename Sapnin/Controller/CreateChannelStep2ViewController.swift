@@ -31,7 +31,7 @@ class CreateChannelStep2ViewController: UIViewController {
         createButton?.isEnabled = false
         
         // Add listener to text field to be able to enable/disable next button
-        channelNameTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
+        channelNameTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControl.Event.editingChanged)
         
         // Style channel name text field
         Utility().styleTextField(textfield: channelNameTextField, text: "Channel name")
@@ -100,7 +100,7 @@ class CreateChannelStep2ViewController: UIViewController {
         navigationItem.title = "Channel details"
         
         // Add next button to top right of header
-        createButton = UIBarButtonItem(title: "Create", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.createButtonDidTapped))
+        createButton = UIBarButtonItem(title: "Create", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.createButtonDidTapped))
         self.navigationItem.rightBarButtonItem = createButton
     }
     
@@ -146,10 +146,9 @@ class CreateChannelStep2ViewController: UIViewController {
 extension CreateChannelStep2ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // Handles when user finishes picking or taking a photo
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         // Extract image from selection/camera. The photo is extracted from 'info' dictionary response once user takes a picture or selects a picture from photo library
-        if let image = info["UIImagePickerControllerOriginalImage"] as? UIImage? {
+        if let image = info[.editedImage] as? UIImage? {
             
             // Assign the image to "selectChannelAvatar" to be utilised in the createChannel Firebase method
             self.selectedChannelAvatar = image

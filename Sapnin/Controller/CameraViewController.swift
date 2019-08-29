@@ -69,9 +69,9 @@ class CameraViewController: UIViewController {
         
         let transition = CATransition.init()
         transition.duration = 0
-        transition.type = kCATransitionPush //Transition you want like Push, Reveal
-        transition.subtype = kCATransitionFromRight // Direction like Left to Right, Right to Left
-        transition.timingFunction = CAMediaTimingFunction.init(name: kCAMediaTimingFunctionDefault)
+        transition.type = CATransitionType.push //Transition you want like Push, Reveal
+        transition.subtype = CATransitionSubtype.fromRight // Direction like Left to Right, Right to Left
+        transition.timingFunction = CAMediaTimingFunction.init(name: CAMediaTimingFunctionName.default)
         view.window!.layer.add(transition, forKey: kCATransition)
         present(cameraViewController, animated: false, completion: nil)
     }
@@ -175,10 +175,10 @@ class CameraViewController: UIViewController {
                 // If torch is on, then turn it off on press, otherwise turn it on
                 if (device.torchMode == .on) {
                     device.torchMode = .off
-                    flashIcon.setImage(UIImage(named: "flash_off_icon"), for: UIControlState.normal)
+                    flashIcon.setImage(UIImage(named: "flash_off_icon"), for: UIControl.State.normal)
                 } else {
                     device.torchMode = .on
-                    flashIcon.setImage(UIImage(named: "flash_on_icon"), for: UIControlState.normal)
+                    flashIcon.setImage(UIImage(named: "flash_on_icon"), for: UIControl.State.normal)
                 }
                 device.unlockForConfiguration()
             } catch {

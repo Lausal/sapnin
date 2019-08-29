@@ -54,14 +54,17 @@
     return [[NSArray alloc] initWithArray:paths copyItems:YES];
 }
 
-+ (NSArray *)pathsFromSVGString:(NSString * const)svgString
++ (NSArray<SVGBezierPath*> *)pathsFromSVGString:(NSString * const)svgString
 {
     SVGAttributeSet *cgAttrs;
-    NSArray        * const pathRefs = CGPathsFromSVGString(svgString, &cgAttrs);
-    NSMutableArray * const paths    = [NSMutableArray arrayWithCapacity:pathRefs.count];
+    NSArray * const pathRefs = CGPathsFromSVGString(svgString, &cgAttrs);
+    NSMutableArray<SVGBezierPath*> * const paths = [NSMutableArray arrayWithCapacity:pathRefs.count];
     for(id pathRef in pathRefs) {
         SVGBezierPath * const uiPath = [self bezierPathWithCGPath:(__bridge CGPathRef)pathRef];
         uiPath->_svgAttributes = [cgAttrs attributesForPath:(__bridge CGPathRef)pathRef] ?: @{};
+        if (uiPath->_svgAttributes[@"stroke-width"]) {
+            uiPath.lineWidth = [uiPath->_svgAttributes[@"stroke-width"] doubleValue];
+        }
         [paths addObject:uiPath];
     }
     return paths;
@@ -69,8 +72,11 @@
 
 - (NSString *)SVGRepresentation
 {
-    return SVGStringFromCGPaths(@[(__bridge id)self.CGPath], nil);
+    SVGMutableAttributeSet *attributes = [SVGMutableAttributeSet new];
+    [attributes setAttributes:self.svgAttributes forPath:self.CGPath];
+    return SVGStringFromCGPaths(@[(__bridge id)self.CGPath], attributes);
 }
+
 - (instancetype)copyWithZone:(NSZone *)zone
 {
     SVGBezierPath * const copy = [super copyWithZone:zone];
@@ -80,6 +86,24 @@
         copy->_CGPath = CGPathRetain(_CGPath);
     #endif
     return copy;
+}
+
+- (SVGBezierPath *)pathBySettingSVGAttributes:(NSDictionary *)attributes
+{
+    NSParameterAssert(attributes);
+    
+    SVGBezierPath *path = [self copy];
+    if (path) {
+        if (path->_svgAttributes.count > 0) {
+            path->_svgAttributes = [path->_svgAttributes mutableCopy];
+            if (attributes) {
+                [(NSMutableDictionary *)path->_svgAttributes setValuesForKeysWithDictionary:attributes];
+            }
+        } else {
+            path->_svgAttributes = [attributes copy];
+        }
+    }
+    return path;
 }
 
 #if TARGET_OS_IPHONE
@@ -184,3 +208,149 @@
 }
 #endif
 @end
+
+
+extern "C" CGRect SVGBoundingRectForPaths(NSArray<SVGBezierPath*> * const paths)
+{
+    CGRect bounds = CGRectZero;
+    for(SVGBezierPath *path in paths) {
+        bounds = CGRectUnion(bounds, path.bounds);
+    }
+    return bounds;
+}
+
+extern "C" void SVGDrawPaths(NSArray<SVGBezierPath*> * const paths,
+                             CGContextRef const ctx,
+                             CGRect const rect,
+                             CGColorRef const defaultFillColor,
+                             CGColorRef const defaultStrokeColor)
+{
+    SVGDrawPathsWithBlock(paths, ctx, rect, ^(SVGBezierPath *path) {
+        CGColorRef fillColor = (__bridge CGColorRef)path.svgAttributes[@"fill"]
+                            ?: defaultFillColor;
+        if (fillColor && CGColorGetAlpha(fillColor) > 0) {
+            [[PSVGColor colorWithCGColor:fillColor] setFill];
+            [path fill];
+        }
+        CGColorRef strokeColor = (__bridge CGColorRef)path.svgAttributes[@"stroke"]
+                              ?: defaultStrokeColor;
+        if (strokeColor && CGColorGetAlpha(strokeColor) > 0) {
+            [[PSVGColor colorWithCGColor:strokeColor] setStroke];
+            [path stroke];
+        }
+    });
+}
+extern "C" void SVGDrawPathsWithBlock(NSArray<SVGBezierPath*> * const paths,
+                                      CGContextRef const ctx,
+                                      CGRect rect,
+                                      void (^drawingBlock)(SVGBezierPath *path))
+{
+    if (!drawingBlock) {
+        return;
+    }
+    
+    CGRect const bounds  = SVGBoundingRectForPaths(paths);
+    if (CGRectIsNull(rect)) {
+        rect = bounds;
+    }
+    
+    CGContextSaveGState(ctx);
+    CGContextTranslateCTM(ctx, rect.origin.x, rect.origin.y);
+    CGContextScaleCTM(ctx, rect.size.width  / bounds.size.width, rect.size.height / bounds.size.height);
+#if TARGET_OS_IPHONE
+    UIGraphicsPushContext(ctx);
+#else
+    [NSGraphicsContext saveGraphicsState];
+    [NSGraphicsContext setCurrentContext:[NSGraphicsContext graphicsContextWithCGContext:ctx flipped:NO]];
+#endif
+    for (SVGBezierPath *path in paths) {
+        CGContextSaveGState(ctx);
+            drawingBlock(path);
+        CGContextRestoreGState(ctx);
+    }
+#if TARGET_OS_IPHONE
+    UIGraphicsPopContext();
+#else
+    [NSGraphicsContext restoreGraphicsState];
+#endif
+    CGContextRestoreGState(ctx);
+}
+
+#ifdef __LP64__
+#define _CGFloor floor
+#define _CGRound round
+#else
+#define _CGFloor floorf
+#define _CGRound roundf
+#endif
+
+extern "C" CGRect SVGAdjustCGRectForContentsGravity(CGRect const aRect, CGSize const aSize, NSString * const aGravity)
+{
+    if(aSize.width != aRect.size.width || aSize.height != aRect.size.height) {
+        if([aGravity isEqualToString:kCAGravityLeft])
+            return (CGRect) { aRect.origin.x,
+                              aRect.origin.y + _CGFloor(aRect.size.height/2 - aSize.height/2),
+                              aSize.width, aSize.height };
+        else if([aGravity isEqualToString:kCAGravityRight])
+            return (CGRect) { aRect.origin.x + (aRect.size.width - aSize.width),
+                              aRect.origin.y + _CGFloor(aRect.size.height/2 - aSize.height/2),
+                              aSize.width, aSize.height };
+        else if([aGravity isEqualToString:kCAGravityTop])
+            return (CGRect) { aRect.origin.x + _CGFloor(aRect.size.width/2 - aSize.width/2),
+                              aRect.origin.y,
+                              aSize.width, aSize.height };
+        else if([aGravity isEqualToString:kCAGravityBottom])
+            return (CGRect) { aRect.origin.x + _CGFloor(aRect.size.width/2 - aSize.width/2),
+                              aRect.origin.y + _CGFloor(aRect.size.height - aSize.height),
+                              aSize.width, aSize.height };
+        else if([aGravity isEqualToString:kCAGravityCenter])
+            return (CGRect) { aRect.origin.x + _CGRound(aRect.size.width/2 - aSize.width/2),
+                              aRect.origin.y + _CGRound(aRect.size.height/2 - aSize.height/2),
+                              aSize.width, aSize.height };
+        else if([aGravity isEqualToString:kCAGravityBottomLeft])
+            return (CGRect) { aRect.origin.x,
+                              aRect.origin.y + _CGFloor(aRect.size.height - aSize.height),
+                              aSize.width, aSize.height };
+        else if([aGravity isEqualToString:kCAGravityBottomRight])
+            return (CGRect) { aRect.origin.x + (aRect.size.width - aSize.width),
+                              aRect.origin.y + (aRect.size.height - aSize.height),
+                              aSize.width, aSize.height };
+        else if([aGravity isEqualToString:kCAGravityTopLeft])
+            return (CGRect) { aRect.origin.x,
+                              aRect.origin.y,
+                              aSize.width, aSize.height };
+        else if([aGravity isEqualToString:kCAGravityTopRight])
+            return (CGRect) { aRect.origin.x + (aRect.size.width - aSize.width),
+                              aRect.origin.y,
+                              aSize.width, aSize.height };
+        else if([aGravity isEqualToString:kCAGravityResizeAspectFill]) {
+            CGSize        size      = aSize;
+            CGFloat const sizeRatio = size.width / size.height;
+            CGFloat const rectRatio = aRect.size.width / aRect.size.height;
+            if(sizeRatio > rectRatio) {
+                size.width = _CGFloor(sizeRatio * aRect.size.height);
+                size.height = aRect.size.height;
+            } else {
+                size.height = _CGFloor(aRect.size.width / sizeRatio);
+                size.width = aRect.size.width;
+            }
+            return (CGRect) { aRect.origin.x + _CGFloor(aRect.size.width/2 - size.width/2),
+                              aRect.origin.y + _CGFloor(aRect.size.height/2 - size.height/2),
+                              size.width, size.height };
+        } else if([aGravity isEqualToString:kCAGravityResizeAspect]) {
+            CGSize size = aSize;
+            if((size.height/size.width) < (aRect.size.height/aRect.size.width)) {
+                size.height = _CGFloor((size.height/size.width) * aRect.size.width);
+                size.width  = aRect.size.width;
+            } else {
+                size.width = _CGFloor((size.width/size.height) * aRect.size.height);
+                size.height = aRect.size.height;
+            }
+            return (CGRect) { aRect.origin.x + _CGFloor(aRect.size.width/2 - size.width/2),
+                              aRect.origin.y + _CGFloor(aRect.size.height/2 - size.height/2),
+                              size.width, size.height };
+        }
+    }
+    return aRect;
+}
+

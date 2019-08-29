@@ -166,11 +166,13 @@ photos with your friends</string>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="BPZ-js-JWp" secondAttribute="bottom" id="3Be-nX-k8V"/>
                             <constraint firstAttribute="trailing" secondItem="BPZ-js-JWp" secondAttribute="trailing" id="6mz-w7-EPN"/>
+                            <constraint firstItem="BPZ-js-JWp" firstAttribute="top" secondItem="it4-BH-8hF" secondAttribute="top" id="Arh-qe-m1l"/>
                             <constraint firstItem="BPZ-js-JWp" firstAttribute="leading" secondItem="it4-BH-8hF" secondAttribute="leading" id="DrK-vv-v9Q"/>
-                            <constraint firstItem="BPZ-js-JWp" firstAttribute="top" secondItem="it4-BH-8hF" secondAttribute="top" id="Shy-ug-ZqD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wLF-uQ-6ZT"/>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="BPZ-js-JWp" id="65c-YK-NzC"/>
                     </connections>

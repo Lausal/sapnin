@@ -110,11 +110,11 @@ class CreateChannelStep1ViewController: UIViewController {
         title = "Add participants"
         
         // Add next button to top right of header
-        let nextButton = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.nextButtonDidTapped))
+        let nextButton = UIBarButtonItem(title: "Next", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.nextButtonDidTapped))
         self.navigationItem.rightBarButtonItem = nextButton
         
         // Add cancel button to top left of header
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.cancelButtonDidTapped))
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.cancelButtonDidTapped))
         self.navigationItem.leftBarButtonItem = cancelButton
     }
     

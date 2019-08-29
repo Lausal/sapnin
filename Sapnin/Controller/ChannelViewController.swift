@@ -34,6 +34,15 @@ class ChannelViewController: UIViewController {
         setupNavigationBar()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // Register user to push notifications - the topic basically acts as a key, so if user B want to send a notification to user A, then they can use the topic which in this case is the user ID
+        if !Api.User.currentUserId.isEmpty {
+            Messaging.messaging().subscribe(toTopic: Api.User.currentUserId)
+        }
+    }
+    
     // Get all of the users corresponding channels from Firebase
     func observeChannels() {
 
@@ -88,7 +97,7 @@ class ChannelViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         
         // Set navigation bar colour to pink
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: BrandColours.PINK]
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: BrandColours.PINK]
         
         // Add new group button to top right of header
         let newGroupButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(newGroupButtonDidTapped))
@@ -112,8 +121,9 @@ class ChannelViewController: UIViewController {
         
         // Load user avatar image if available, otherwise use the no profile icon. This will update in real time for any changes as we use the observe functionality
         Api.User.observeSpecificUserById(uid: Api.User.currentUserId) { (user) in
-            if let profilePictureUrl = URL(string: user.profilePictureUrl!) {
-                self.profilePicture.loadImage(profilePictureUrl.absoluteString)
+            if user.profilePictureUrl != nil {
+                let profilePictureUrl = URL(string: user.profilePictureUrl!)
+                self.profilePicture.loadImage(profilePictureUrl!.absoluteString)
             } else {
                 self.profilePicture.image = UIImage(named: "no_profile_icon")
             }
@@ -122,9 +132,20 @@ class ChannelViewController: UIViewController {
     
     // Switch to CreateGroupVC when new group button is tapped
     @objc func newGroupButtonDidTapped() {
-        let storyboard = UIStoryboard(name: "Channel", bundle: nil)
-        let createChannelVC = storyboard.instantiateViewController(withIdentifier: IDENTIFIER_CREATE_CHANNEL_NAV_CONTROLLER)
-        self.present(createChannelVC, animated: true, completion: nil)
+        
+        // TEST DELETE
+        Api.User.observeSpecificUserById(uid: Api.User.currentUserId) { (fromUser) in
+            print(fromUser.name)
+            Api.User.observeSpecificUserById(uid: "iS6s4y3y2nYCmfDGAtMarWIK4oy2") { (toUser) in
+                print(toUser.name)
+                sendRequestNotifications(fromUser: fromUser, toUser: toUser, message: "Hello", badge: 1)
+            }
+        }
+        
+        
+//        let storyboard = UIStoryboard(name: "Channel", bundle: nil)
+//        let createChannelVC = storyboard.instantiateViewController(withIdentifier: IDENTIFIER_CREATE_CHANNEL_NAV_CONTROLLER)
+//        self.present(createChannelVC, animated: true, completion: nil)
     }
     
     // Switch to settings VC when avatar is tapped

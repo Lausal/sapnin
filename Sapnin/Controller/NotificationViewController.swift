@@ -23,7 +23,7 @@ class NotificationViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         
         // Set title colour to pink
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: BrandColours.PINK]
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: BrandColours.PINK]
     }
 
 }

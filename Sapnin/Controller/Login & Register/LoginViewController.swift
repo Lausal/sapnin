@@ -28,8 +28,8 @@ class LoginViewController: UIViewController {
         disabledLoginButton()
         
         // Add listener to text field to be able to enable/disable next button
-        emailTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
-        passwordTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
+        emailTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControl.Event.editingChanged)
+        passwordTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControl.Event.editingChanged)
         
         setupEmailTextField()
         setupPasswordTextField()

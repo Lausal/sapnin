@@ -20,11 +20,13 @@ class ImageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Hide tab bar
-        self.tabBarController?.tabBar.isHidden = true
-        
         setupCollectionView()
         scrollToImage()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // Hide tab bar
+        self.tabBarController?.tabBar.isHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -65,6 +67,9 @@ class ImageViewController: UIViewController {
         
         // Set background colour
         collectionView.backgroundColor = UIColor.black
+        
+        // Make collectionview full width to include the safe areas
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 0.0, bottom: 0, right: 0.0)
         
     }
 

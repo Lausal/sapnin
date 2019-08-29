@@ -19,7 +19,7 @@ class StorageService {
     static func saveChannelAvatar(image: UIImage, channelId: String, onSuccess: @escaping(_ value: String) -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
         
         // Set quality of image before uploading
-        guard let imageData = UIImageJPEGRepresentation(image, 0.1) else {
+        guard let imageData = image.jpegData(compressionQuality: 0.1) else {
             return
         }
         
@@ -50,7 +50,7 @@ class StorageService {
     static func saveChannelPhotoPost(image: UIImage, channelId: String, postId: String, onSuccess: @escaping(_ value: Any) -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
         
         // Set quality of image before uploading
-        guard let imageData = UIImageJPEGRepresentation(image, 0.1) else {
+        guard let imageData = image.jpegData(compressionQuality: 0.1) else {
             return
         }
         

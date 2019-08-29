@@ -25,13 +25,13 @@ class SwipeViewController: UIViewController {
         let channelViewController = channelStoryboard.instantiateViewController(withIdentifier: "NavChannelViewController") as! UIViewController
         
         // Now add to the view controller and scrollview, 1st one added will be displayed first
-        self.addChildViewController(cameraViewController)
+        self.addChild(cameraViewController)
         self.scrollView.addSubview(cameraViewController.view)
-        cameraViewController.didMove(toParentViewController: self)
+        cameraViewController.didMove(toParent: self)
         
-        self.addChildViewController(channelViewController)
+        self.addChild(channelViewController)
         self.scrollView.addSubview(channelViewController.view)
-        channelViewController.didMove(toParentViewController: self)
+        channelViewController.didMove(toParent: self)
         
         // Set frame of view, x origin is off the screen to the right
         var channelViewControllerFrame: CGRect = channelViewController.view.frame

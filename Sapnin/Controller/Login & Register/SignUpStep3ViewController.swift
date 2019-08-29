@@ -33,7 +33,7 @@ class SignUpStep3ViewController: UIViewController {
         disabledNextButton()
         
         // Add listener to text field to be able to enable/disable next button
-        passwordTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
+        passwordTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControl.Event.editingChanged)
         
         // Style password text field
         Utility().styleTextField(textfield: passwordTextField, text: "Password")

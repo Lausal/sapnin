@@ -10,6 +10,7 @@ import UIKit
 import SDWebImage
 import SVProgressHUD
 import StoreKit
+import FirebaseMessaging
 
 class SettingsViewController: UIViewController, UIActionSheetDelegate {
     
@@ -108,7 +109,13 @@ class SettingsViewController: UIViewController, UIActionSheetDelegate {
         let cancelActionButton = UIAlertAction(title: "Cancel", style: .cancel)
         
         let logoutActionButton = UIAlertAction(title: "Logout", style: .default) { _ in
+            
+            let uid = Api.User.currentUserId
+            
             AuthService.logout(onSuccess: {
+                
+                // Unsubscribe to push notifications
+                Messaging.messaging().unsubscribe(fromTopic: uid)
                 
                 // Call the configureIntialViewController function in appdelegate to navigate to appropriate screen - in this case it would be the welcome screen
                 (UIApplication.shared.delegate as! AppDelegate).configureInitialViewController()
@@ -194,12 +201,14 @@ class SettingsViewController: UIViewController, UIActionSheetDelegate {
     
 }
 
+
+
 // Handle image and camera picker
 extension SettingsViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         // Extract image from selection/camera, this is taken from 'info' dictionary response once user takes a picture or selects a picture from photo library
-        if let image = info["UIImagePickerControllerOriginalImage"] as? UIImage? {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage? {
             self.selectedImage = image
             profileImage.image = image
             
@@ -211,7 +220,7 @@ extension SettingsViewController: UIImagePickerControllerDelegate, UINavigationC
         if let profileImage = self.profileImage.image {
             SVProgressHUD.show(withStatus: "Saving...")
             
-            let imageData = UIImageJPEGRepresentation(profileImage, 0.1)
+            let imageData = profileImage.jpegData(compressionQuality: 0.1)
             AuthService.updateUserInformation(imageData: imageData!, onSuccess: {
                 
                 // Dismiss photo modal after selection

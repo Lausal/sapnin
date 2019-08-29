@@ -126,12 +126,12 @@ class UserApi {
             if let authData = authDataResult {
                 
                 let dict: Dictionary <String,Any> = [
-                    "uid": authData.uid, // This is the ID from authentication created
-                    "email": authData.email,
+                    "uid": authData.user.uid, // This is the ID from authentication created
+                    "email": authData.user.email,
                     "name": name
                 ]
                 
-                Ref().databaseSpecificUserRef(uid: authData.uid).updateChildValues(dict, withCompletionBlock: { (error, ref) in
+                Ref().databaseSpecificUserRef(uid: authData.user.uid).updateChildValues(dict, withCompletionBlock: { (error, ref) in
                     if error == nil {
                         onSuccess()
                     } else {

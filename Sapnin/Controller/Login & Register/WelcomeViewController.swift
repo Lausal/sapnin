@@ -10,10 +10,13 @@ import UIKit
 import FacebookCore
 import FacebookLogin
 import FirebaseAuth
+import Firebase
 import FirebaseStorage
 import FirebaseDatabase
 import ProgressHUD
 import SwiftyJSON
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 class WelcomeViewController: UIViewController {
     
@@ -62,15 +65,19 @@ class WelcomeViewController: UIViewController {
         signUpButton.setAttributedTitle(attributedText, for: UIControl.State.normal)
     }
     
-    // Facebook login button tap event
+    // Facebook login button tap event - Handles FB authentication
     @IBAction func loginWithFacebookButtonDidTapped(_ sender: Any) {
-        let loginManager = LoginManager()
-        // Grab user profile and email address from Facebook
-        loginManager.logIn([.publicProfile, .email], viewController: self) { (result) in
+        
+        // Login manager provides methods for logging in and out of FB
+        let fbLoginManager = LoginManager()
+        
+        // Specify which permissions/data we want to ask for from FB - and then grab the user credentials if permitted
+        fbLoginManager.logIn(permissions: ["public_profile", "email"], viewController: self) { (result) in
+            
             switch result {
-            case .success(grantedPermissions: _, declinedPermissions: _, token: _):
+            case .success(granted: _, declined: _, token: _):
                 print ("Login success to Facebook")
-                self.signIntoFirebase()
+                self.signIntoFacebookFirebase()
                 break
             case .failed(let error):
                 ProgressHUD.showError("Login failed")
@@ -80,123 +87,50 @@ class WelcomeViewController: UIViewController {
                 print("Cancelled")
                 break
             }
+            
         }
     }
     
-    func signIntoFirebase() {
+    // Sign into Firebase using FaceBook credentials
+    func signIntoFacebookFirebase() {
         ProgressHUD.show("Loading...")
-        guard let authenticationToken = AccessToken.current?.authenticationToken else {
+        
+        // Create credentials used for Firebase using the retrieved Facebook data
+        guard let authenticationToken = AccessToken.current?.tokenString else {
             return
         }
         let credential = FacebookAuthProvider.credential(withAccessToken: authenticationToken)
-        Auth.auth().signIn(with: credential) { (user, error) in
+        
+        // Sign in and retrieve FB data, then push the data to Firebase
+        Auth.auth().signIn(with: credential) { (result, error) in
             if let error = error {
-                print (error)
+                ProgressHUD.showError(error.localizedDescription)
                 return
-            } else {
-                // Check if user already exists, Firebase uses the same ID for authenticated user when signing in. If they do then no need to fetch Facebook details and just go directly to channels view
-                guard let userId = user?.uid else { return }
-                Api.User.checkIfUserExists(userId: userId, userExists: { (userExists) in
-                    if userExists == true {
-                        ProgressHUD.dismiss()
-                        // Call the configureIntialViewController function in appdelegate to navigate to appropriate screen - in this case it would be the channels screen
+            }
+            
+            // Create a dictionary from the information retrieved from FB and push retrieved FB data to Firebase (Authdata contains the FB user information)
+            if let authData = result {
+                
+                // Create a dictionary from the user data gathered from FB
+                let dict: Dictionary<String,Any> = [
+                    "uid": authData.user.uid,
+                    "email": authData.user.email,
+                    "name": authData.user.displayName,
+                    // Photo may be nil so check first then assign if applicable
+                    "profilePictureUrl": (authData.user.photoURL == nil) ? "" : authData.user.photoURL!.absoluteString + "?height=500",
+                ]
+                
+                // Push to Firebase - UpdateChildValue will create a new entry in database if it doesn't exist already.
+                Ref().databaseSpecificUserRef(uid: authData.user.uid).updateChildValues(dict, withCompletionBlock: { (error, ref) in
+                    if error == nil {
+                        // Call the configureIntialViewController function in appdelegate to navigate to appropriate screen - in this case it would be the messages screen
                         (UIApplication.shared.delegate as! AppDelegate).configureInitialViewController()
                     } else {
-                        self.fetchFacebookUserDetails()
+                        ProgressHUD.showError(error!.localizedDescription)
                     }
                 })
-                print ("Login success to Firebase")
-            }
-        }
-    }
-    
-    func fetchFacebookUserDetails() {
-        let graphRequestConnection = GraphRequestConnection()
-        let graphRequest = GraphRequest(graphPath: "me", parameters: ["fields": "id, email, name, picture.type(large)"], accessToken: AccessToken.current, httpMethod: .GET, apiVersion: .defaultVersion)
-        graphRequestConnection.add(graphRequest) { (httpResponse, result) in
-            switch result {
-            case .success(response: let response):
-                guard let responseDictionary = response.dictionaryValue else {
-                    return
-                }
-                // Extract the JSON information
-                let json = JSON(responseDictionary)
-                self.name = json["name"].string
-                self.email = json["email"].string
                 
-                // Fetch profile image
-                guard let profilePictureUrl = json["picture"]["data"]["url"].string else {
-                    return
-                }
-                guard let url = URL(string: profilePictureUrl) else {
-                    return
-                }
-                URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-                    if let error = error {
-                        print(error)
-                        return
-                    }
-                    guard let data = data else {
-                        return
-                    }
-                    self.profilePicture = UIImage(data: data)
-                    self.saveUserIntoFirebase()
-                }).resume()
-                break
-                
-            case .failed(let error):
-                print(error)
-                break
             }
-        }
-        graphRequestConnection.start()
-    }
-    
-    // Store profile picture onto Firebase Storage, and then create a user database entity to store the user information
-    func saveUserIntoFirebase() {
-        
-        // Grab profile picture, and store on Firebase Storage
-        let fileName = UUID().uuidString
-        guard let profilePicture = self.profilePicture else {
-            return
-        }
-        guard let uploadData = UIImageJPEGRepresentation(profilePicture, 0.3) else {
-            return
-        }
-        Storage.storage().reference().child("profilePictures").child(fileName).putData(uploadData, metadata: nil) { (metadata, error) in
-            if let error = error {
-                print(error)
-                return
-            }
-            
-            print("Successfully saved profile picture to Firebase storage")
-            
-            // After storing on Firebase storage, get the URL String of storage location
-            guard let profilePictureUrl = metadata?.downloadURL()?.absoluteString else {
-                return
-            }
-            
-            // Then add user details to Firebase database
-            guard let uid = Auth.auth().currentUser?.uid else {
-                return
-            }
-            
-            // Database reference of the new user
-            let newUserRef = Ref().databaseUserTableRef.child(uid)
-            
-            let dict = ["uid": uid, "name": self.name, "email": self.email, "profilePictureUrl": profilePictureUrl]
-            
-            newUserRef.setValue(dict) { (error, ref) in
-                if error != nil {
-                    ProgressHUD.showError(error?.localizedDescription)
-                    return
-                } else {
-                    ProgressHUD.dismiss()
-                    // Call the configureIntialViewController function in appdelegate to navigate to appropriate screen - in this case it would be the channels screen
-                    (UIApplication.shared.delegate as! AppDelegate).configureInitialViewController()
-                }
-            }
-            
         }
     }
 }

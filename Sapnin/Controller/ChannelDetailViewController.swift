@@ -273,15 +273,15 @@ extension ChannelDetailViewController: UICollectionViewDelegate, UICollectionVie
 extension ChannelDetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // Handles when user finishes picking or taking a photo
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         // Extract image from selection/camera. The photo is extracted from 'info' dictionary response once user takes a picture or selects a picture from photo library
-        if let image = info["UIImagePickerControllerOriginalImage"] as? UIImage? {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage? {
             
             // Pass & set the previewVC image variable to the selected image
             let storyboard = UIStoryboard(name: "Channel", bundle: nil)
             let previewVC = storyboard.instantiateViewController(withIdentifier: IDENTIFIER_PREVIEW) as! PreviewViewController
-            previewVC.selectedImage = image!
+            previewVC.selectedImage = image
             previewVC.channelId = channelId
             
             // Get the top hierarchy VC and show the previewVC on top of it as a modal
@@ -290,7 +290,6 @@ extension ChannelDetailViewController: UIImagePickerControllerDelegate, UINaviga
             }
             
         }
-        
     }
     
 }

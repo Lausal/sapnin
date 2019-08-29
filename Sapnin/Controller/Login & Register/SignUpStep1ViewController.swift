@@ -29,7 +29,7 @@ class SignUpStep1ViewController: UIViewController {
         disabledNextButton()
         
         // Add listener to text field to be able to enable/disable next button
-        nameTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
+        nameTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControl.Event.editingChanged)
         
         // Style name text field
         Utility().styleTextField(textfield: nameTextField, text: "Full name")

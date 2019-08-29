@@ -22,10 +22,10 @@ class ChannelPostApi {
         let postId = Ref().databaseChannelPostTableRef.childByAutoId().key
         
         // Save photo into storage - after saving to storage, create database reference
-        StorageService.saveChannelPhotoPost(image: image, channelId: channelId, postId: postId, onSuccess: { (imageUrl) in
+        StorageService.saveChannelPhotoPost(image: image, channelId: channelId, postId: postId!, onSuccess: { (imageUrl) in
             
             // Database reference of the new channel post
-            let newChannelPostRef = Ref().databaseChannelPostTableRef.child(channelId).child(postId)
+            let newChannelPostRef = Ref().databaseChannelPostTableRef.child(channelId).child(postId!)
             
             // Get todays date to store in dateCreated and lastMessageDate attributes
             let date: Double = Date().timeIntervalSince1970

@@ -14,6 +14,7 @@ pod 'Firebase/Storage'
 pod 'Firebase/Messaging'
 pod 'FacebookLogin'
 pod 'FacebookCore'
+pod 'FBSDKLoginKit'
 pod 'SVProgressHUD' #For progress wheel
 pod 'SwiftyJSON'
 pod 'SDWebImage' #For downloading images asynchronously

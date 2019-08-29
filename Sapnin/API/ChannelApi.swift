@@ -65,7 +65,7 @@ class ChannelApi {
         let newChannelId = Ref().databaseChannelTableRef.childByAutoId().key
         
         // Database reference of the new channel
-        let newChannelRef = Ref().databaseChannelTableRef.child(newChannelId)
+        let newChannelRef = Ref().databaseChannelTableRef.child(newChannelId!)
         
         // Get todays date to store in dateCreated and lastMessageDate attributes
         let date: Double = Date().timeIntervalSince1970
@@ -76,7 +76,7 @@ class ChannelApi {
         // If avatar is selected, then first store the avatar, retrieve the download URL link and then create dictionary with all the channel information and store in the channels database
         if channelAvatar != nil {
             // First store the avatar into Storage and return a downloadUrl of the stored image
-            StorageService.saveChannelAvatar(image: channelAvatar!, channelId: newChannelId, onSuccess: { (avatarUrl) in
+            StorageService.saveChannelAvatar(image: channelAvatar!, channelId: newChannelId!, onSuccess: { (avatarUrl) in
                 
                 // Add the channelAvatarUrl to the dictionary
                 dict["channelAvatarUrl"] = avatarUrl
@@ -89,7 +89,7 @@ class ChannelApi {
                     } else {
                         // After adding the channel into the "channels" table, also add a reference of the channel ID into the respective "user channels" table of each selected user.
                         let userChannelRef = Ref().databaseUserChannelTableRef.child(Api.User.currentUserId)
-                        userChannelRef.updateChildValues([newChannelId: true])
+                        userChannelRef.updateChildValues([newChannelId!: true])
                         onSuccess()
                     }
                 }
@@ -106,7 +106,7 @@ class ChannelApi {
                 } else {
                     // After adding the channel into the "channels" table, also add a reference of the channel ID into the respective "user channels" table of each selected user.
                     let userChannelRef = Ref().databaseUserChannelTableRef.child(Api.User.currentUserId)
-                    userChannelRef.updateChildValues([newChannelId: true])
+                    userChannelRef.updateChildValues([newChannelId! : true])
                     onSuccess()
                 }
             }

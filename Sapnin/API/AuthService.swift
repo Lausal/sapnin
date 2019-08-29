@@ -34,16 +34,23 @@ class AuthService {
                 return
             } else {
                 // After saving into Firebase storage, retrieve the new URL and store into the corresponding Firebase database table
-                let profileImageUrl = metadata?.downloadURL()?.absoluteString
-                let dict = ["profilePictureUrl": profileImageUrl]
-                
-                Api.User.DB_REF_CURRENT_USER?.updateChildValues(dict as Any as! [AnyHashable : Any], withCompletionBlock: { (error, ref) in
+                //let profileImageUrl = metadata?.downloadURL()?.absoluteString
+                storageRef.downloadURL(completion: { (url, error) in
                     if error != nil {
-                            onError(error!.localizedDescription)
+                        
                     } else {
-                        onSuccess()
+                        let dict = ["profilePictureUrl": url?.absoluteString]
+                        
+                        Api.User.DB_REF_CURRENT_USER?.updateChildValues(dict, withCompletionBlock: { (error, ref) in
+                            if error != nil {
+                                onError(error!.localizedDescription)
+                            } else {
+                                onSuccess()
+                            }
+                        })
                     }
                 })
+                
             }
         })
     }

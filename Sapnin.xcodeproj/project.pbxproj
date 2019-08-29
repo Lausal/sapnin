@@ -57,7 +57,6 @@
 		528C9D2122CAA25B00839EBD /* SignUpStep2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C9D2022CAA25B00839EBD /* SignUpStep2ViewController.swift */; };
 		528C9D2322CAA28600839EBD /* SignUpStep4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C9D2222CAA28600839EBD /* SignUpStep4ViewController.swift */; };
 		5296A329208523D400A5F2A8 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5296A328208523D400A5F2A8 /* UIView.swift */; };
-		529CB4F820741DCB003DE1CE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 529CB4F720741DCB003DE1CE /* GoogleService-Info.plist */; };
 		529CB4FA20742328003DE1CE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529CB4F920742328003DE1CE /* SettingsViewController.swift */; };
 		529D15F22078D02E0085115B /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529D15F12078D02E0085115B /* AuthService.swift */; };
 		529D15F42078D1E30085115B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529D15F32078D1E30085115B /* User.swift */; };
@@ -73,11 +72,13 @@
 		52BE7498208E54E1005414B5 /* SelectParticipantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BE7497208E54E1005414B5 /* SelectParticipantsViewController.swift */; };
 		52BE749C208FAC83005414B5 /* ContactsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BE749B208FAC83005414B5 /* ContactsModel.swift */; };
 		52C0B092209395A2009B8206 /* CreateChannelStep1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0B091209395A2009B8206 /* CreateChannelStep1TableViewCell.swift */; };
+		52C4DC692313412200B92EBD /* Configs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C4DC682313412200B92EBD /* Configs.swift */; };
 		52C7B336209CF6520060F222 /* ColourPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C7B335209CF6520060F222 /* ColourPalette.swift */; };
 		52D5D11520BA2BBE00965A17 /* BorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D5D11420BA2BBE00965A17 /* BorderView.swift */; };
 		52D5D11720BA358A00965A17 /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52D5D11620BA358A00965A17 /* Camera.storyboard */; };
 		52E1339120CB46A30057F922 /* ChannelApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E1339020CB46A30057F922 /* ChannelApi.swift */; };
 		52E3E27D22D1167900F40F7C /* ChannelBackupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E3E27C22D1167900F40F7C /* ChannelBackupViewController.swift */; };
+		52F199C02314A1E00003C62A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52F199BF2314A1E00003C62A /* GoogleService-Info.plist */; };
 		836ADBCA536588C207E17524 /* Pods_Sapnin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C69CAF9E62816387F5103D5C /* Pods_Sapnin.framework */; };
 /* End PBXBuildFile section */
 
@@ -117,6 +118,7 @@
 		526CFA07230DB1770033DAA0 /* ChannelSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelSettingsViewController.swift; sourceTree = "<group>"; };
 		526CFA09230DD3610033DAA0 /* ChannelDetailStoryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelDetailStoryHeaderView.swift; sourceTree = "<group>"; };
 		526CFA0A230DD3610033DAA0 /* ChannelDetailStoryHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChannelDetailStoryHeaderView.xib; sourceTree = "<group>"; };
+		526CFA0D23132E750033DAA0 /* Sapnin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Sapnin.entitlements; sourceTree = "<group>"; };
 		5271340920D9A0020036EA36 /* BrandColours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandColours.swift; sourceTree = "<group>"; };
 		5271340D20DC19180036EA36 /* ChannelDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		527EA01D207EBF5D00EA2F18 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
@@ -132,7 +134,6 @@
 		528C9D2022CAA25B00839EBD /* SignUpStep2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStep2ViewController.swift; sourceTree = "<group>"; };
 		528C9D2222CAA28600839EBD /* SignUpStep4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStep4ViewController.swift; sourceTree = "<group>"; };
 		5296A328208523D400A5F2A8 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
-		529CB4F720741DCB003DE1CE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		529CB4F920742328003DE1CE /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		529D15F12078D02E0085115B /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		529D15F32078D1E30085115B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -151,11 +152,13 @@
 		52BE7497208E54E1005414B5 /* SelectParticipantsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectParticipantsViewController.swift; sourceTree = "<group>"; };
 		52BE749B208FAC83005414B5 /* ContactsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsModel.swift; sourceTree = "<group>"; };
 		52C0B091209395A2009B8206 /* CreateChannelStep1TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChannelStep1TableViewCell.swift; sourceTree = "<group>"; };
+		52C4DC682313412200B92EBD /* Configs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configs.swift; sourceTree = "<group>"; };
 		52C7B335209CF6520060F222 /* ColourPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourPalette.swift; sourceTree = "<group>"; };
 		52D5D11420BA2BBE00965A17 /* BorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderView.swift; sourceTree = "<group>"; };
 		52D5D11620BA358A00965A17 /* Camera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
 		52E1339020CB46A30057F922 /* ChannelApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelApi.swift; sourceTree = "<group>"; };
 		52E3E27C22D1167900F40F7C /* ChannelBackupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelBackupViewController.swift; sourceTree = "<group>"; };
+		52F199BF2314A1E00003C62A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/app_icon/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C69CAF9E62816387F5103D5C /* Pods_Sapnin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sapnin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E242AD206F731ED159FC4D83 /* Pods-Sapnin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sapnin.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sapnin/Pods-Sapnin.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -193,6 +196,7 @@
 		52411EE62067236F00B3E78E /* Sapnin */ = {
 			isa = PBXGroup;
 			children = (
+				526CFA0D23132E750033DAA0 /* Sapnin.entitlements */,
 				525D90E220AD004900095036 /* CountryCodes.json */,
 				52411EE72067236F00B3E78E /* AppDelegate.swift */,
 				5271340920D9A0020036EA36 /* BrandColours.swift */,
@@ -204,8 +208,8 @@
 				528C9D1322C1785700839EBD /* Archive */,
 				52AFD4F520BA3D8F0039559A /* Storyboards */,
 				52411EF02067236F00B3E78E /* LaunchScreen.storyboard */,
+				52F199BF2314A1E00003C62A /* GoogleService-Info.plist */,
 				52411EF32067236F00B3E78E /* Info.plist */,
-				529CB4F720741DCB003DE1CE /* GoogleService-Info.plist */,
 				524AAE4722DA7ED9000AD856 /* Assets.xcassets */,
 				52411EFB206BE6E600B3E78E /* Fonts */,
 			);
@@ -314,6 +318,7 @@
 				523024F8210273C60091AE52 /* PostApi.swift */,
 				523024F621026E220091AE52 /* ChannelPostApi.swift */,
 				528C9D1422C29DDF00839EBD /* Ref.swift */,
+				52C4DC682313412200B92EBD /* Configs.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -394,6 +399,11 @@
 					52411EE32067236F00B3E78E = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -429,11 +439,11 @@
 				524AAE4822DA7ED9000AD856 /* Assets.xcassets in Resources */,
 				52B0C2DE20D5D3EC000A8AED /* Channel_Detail.storyboard in Resources */,
 				52182DE820BDCA560049FFB3 /* Channel.storyboard in Resources */,
-				529CB4F820741DCB003DE1CE /* GoogleService-Info.plist in Resources */,
 				526CFA0C230DD3610033DAA0 /* ChannelDetailStoryHeaderView.xib in Resources */,
 				52411EFA206BE6DA00B3E78E /* Arciform.otf in Resources */,
 				52411EED2067236F00B3E78E /* Main.storyboard in Resources */,
 				525D90E320AD004900095036 /* CountryCodes.json in Resources */,
+				52F199C02314A1E00003C62A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,13 +475,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Sapnin/Pods-Sapnin-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/PhoneNumberKit/PhoneNumberKit.framework",
 				"${BUILT_PRODUCTS_DIR}/PocketSVG/PocketSVG.framework",
 				"${BUILT_PRODUCTS_DIR}/ProgressHUD/ProgressHUD.framework",
@@ -479,17 +488,17 @@
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PhoneNumberKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PocketSVG.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProgressHUD.framework",
@@ -497,6 +506,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -522,6 +532,7 @@
 				52B88689208381E80066D116 /* ButtonSettings.swift in Sources */,
 				529D15F62078E21D0085115B /* Api.swift in Sources */,
 				52B0C2E020D98DC1000A8AED /* ChannelDetailViewController.swift in Sources */,
+				52C4DC692313412200B92EBD /* Configs.swift in Sources */,
 				526CFA0B230DD3610033DAA0 /* ChannelDetailStoryHeaderView.swift in Sources */,
 				52BE7498208E54E1005414B5 /* SelectParticipantsViewController.swift in Sources */,
 				528C9D1F22C7873600839EBD /* ForgotPasswordViewController.swift in Sources */,
@@ -705,13 +716,14 @@
 			baseConfigurationReference = 32AE9FB8E36E7562B4B1BC30 /* Pods-Sapnin.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Sapnin/Sapnin.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S4733C6V9X;
 				INFOPLIST_FILE = Sapnin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Lau.Dooley.Sapnin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -721,13 +733,14 @@
 			baseConfigurationReference = E242AD206F731ED159FC4D83 /* Pods-Sapnin.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Sapnin/Sapnin.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S4733C6V9X;
 				INFOPLIST_FILE = Sapnin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Lau.Dooley.Sapnin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
