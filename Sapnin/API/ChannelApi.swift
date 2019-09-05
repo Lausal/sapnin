@@ -59,7 +59,7 @@ class ChannelApi {
     ////
     
     // Function to create a new channel entity in Firebase
-    func createChannel(channelName: String, channelAvatar: UIImage?, onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
+    func createChannel(userList: [User], channelName: String, channelAvatar: UIImage?, onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
         
         // Create unique channelID
         let newChannelId = Ref().databaseChannelTableRef.childByAutoId().key
@@ -70,8 +70,14 @@ class ChannelApi {
         // Get todays date to store in dateCreated and lastMessageDate attributes
         let date: Double = Date().timeIntervalSince1970
         
+        // Loop through userList array to get ID's of each selected user and then add to users dictionary
+        var userDict = [String:Bool]()
+        for user in userList {
+            userDict[user.userId] = true
+        }
+        
         // Create a dictionary to store the variables
-        var dict = ["channelId": newChannelId, "ownerId": Api.User.currentUserId, "channelName": channelName, "dateCreated": date, "lastMessageDate": date] as [String : Any]
+        var dict = ["channelId": newChannelId, "ownerId": Api.User.currentUserId, "channelName": channelName, "dateCreated": date, "lastMessageDate": date, "users": userDict] as [String : Any]
         
         // If avatar is selected, then first store the avatar, retrieve the download URL link and then create dictionary with all the channel information and store in the channels database
         if channelAvatar != nil {

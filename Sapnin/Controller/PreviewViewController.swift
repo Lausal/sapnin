@@ -16,6 +16,8 @@ class PreviewViewController: UIViewController {
     
     var selectedImage: UIImage!
     var channelId: String!
+    var channelName: String!
+    var userIDList = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +51,24 @@ class PreviewViewController: UIViewController {
         // Save image into Firebase
         Api.ChannelPost.submitChannelPost(channelId: channelId, image: photo.image!, onSuccess: {
             ProgressHUD.dismiss()
+            
+            
+            /*** Send push notification to each user in group to nofity new post ***/
+            
+            // Get current user information
+            Api.User.observeSpecificUserById(uid: Api.User.currentUserId, onSuccess: { (currentUser) in
+                
+                // Now loop through and grab each of the user information in the group based on their ID's so we can get the token and send push accordingly
+                for userId in self.userIDList {
+                    // Get the user information by passing userID
+                    Api.User.observeSpecificUserById(uid: userId, onSuccess: { (user) in
+                        // If the user has a tokenID (I.e. push turned on), then send push notification
+                        if user.tokenID != nil {
+                            sendPushNotifications(channelName: self.channelName, fromUser: currentUser, toUser: user, badge: 1)
+                        }
+                    })
+                }
+            })
             
             // On completion, dismiss the modal and return to the channel detail VC
             self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)

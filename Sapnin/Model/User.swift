@@ -14,6 +14,7 @@ class User {
     var email: String
     var name: String
     var profilePictureUrl: String?
+    var tokenID: String?
     
     init(userId: String, email: String, name: String) {
         self.userId = userId
@@ -37,6 +38,11 @@ class User {
         // If user profile URL exists, then also add this attribute to the user object created above
         if let profilePictureUrl = dict["profilePictureUrl"] as? String {
             user.profilePictureUrl = profilePictureUrl
+        }
+        
+        // If tokenID exists, then assign attribute to user
+        if let tokenID = dict["tokenID"] as? String {
+            user.tokenID = tokenID
         }
         
         return user

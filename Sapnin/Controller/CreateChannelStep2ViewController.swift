@@ -16,6 +16,7 @@ class CreateChannelStep2ViewController: UIViewController {
     var createButton: UIBarButtonItem?
     var selectedChannelAvatar: UIImage?
     var picker = UIImagePickerController()
+    var selectedUserList = [User]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -111,7 +112,7 @@ class CreateChannelStep2ViewController: UIViewController {
         
         if let img = self.selectedChannelAvatar {
             // If avatar is picked, send channel name and avatar to createChannel function to store on Firebase
-            Api.Channel.createChannel(channelName: self.channelNameTextField.text!, channelAvatar: img, onSuccess: {
+            Api.Channel.createChannel(userList: selectedUserList, channelName: self.channelNameTextField.text!, channelAvatar: img, onSuccess: {
                 ProgressHUD.dismiss()
                 self.dismiss(animated: true, completion: nil)
             }) { (errorMessage) in
@@ -119,7 +120,7 @@ class CreateChannelStep2ViewController: UIViewController {
             }
         } else {
             // If avatar is not picked, then don't send avatar but still store the channel in Firebase
-            Api.Channel.createChannel(channelName: self.channelNameTextField.text!, channelAvatar: nil, onSuccess: {
+            Api.Channel.createChannel(userList: selectedUserList, channelName: self.channelNameTextField.text!, channelAvatar: nil, onSuccess: {
                 ProgressHUD.dismiss()
                 self.dismiss(animated: true, completion: nil)
             }) { (errorMessage) in

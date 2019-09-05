@@ -17,6 +17,7 @@ class ChannelDetailViewController: UIViewController {
     var channelId: String!
     var channelName: String!
     var channelAvatar: UIImage!
+    var userIDList = [String]()
     var postList = [ChannelPost]()
     var picker = UIImagePickerController()
 
@@ -283,6 +284,8 @@ extension ChannelDetailViewController: UIImagePickerControllerDelegate, UINaviga
             let previewVC = storyboard.instantiateViewController(withIdentifier: IDENTIFIER_PREVIEW) as! PreviewViewController
             previewVC.selectedImage = image
             previewVC.channelId = channelId
+            previewVC.userIDList = userIDList
+            previewVC.channelName = channelName
             
             // Get the top hierarchy VC and show the previewVC on top of it as a modal
             DispatchQueue.main.async {

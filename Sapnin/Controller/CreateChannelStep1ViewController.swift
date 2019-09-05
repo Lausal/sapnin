@@ -42,7 +42,7 @@ class CreateChannelStep1ViewController: UIViewController {
     // DELETE THIS AND GRAB REAL USERS FROM FIREBASE
     func addTestData() {
         let user1 = User(userId: "a", email: "abc@gmail.com", name: "John Smith")
-        let user2 = User(userId: "b", email: "abcd@gmail.com", name: "Alan Lau")
+        let user2 = User(userId: "iS6s4y3y2nYCmfDGAtMarWIK4oy2", email: "abcd@gmail.com", name: "Alan Lau")
         let user3 = User(userId: "SFCq7oiXViPq2mj04yiTESGI7uV2", email: "abcde@gmail.com", name: "Luke Dooley")
         let user4 = User(userId: "d", email: "abc@gmail.com", name: "James Bond")
         let user5 = User(userId: "e", email: "abc@gmail.com", name: "Cristiano Ronaldo")
@@ -123,8 +123,17 @@ class CreateChannelStep1ViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    // Go to step 2
     @objc func nextButtonDidTapped() {
         self.performSegue(withIdentifier: "createChannelStep2VC", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Send selected user list to step 2
+        if segue.identifier == "createChannelStep2VC" {
+            let controller = segue.destination as! CreateChannelStep2ViewController
+            controller.selectedUserList = selectedUserList
+        }
     }
 
 }

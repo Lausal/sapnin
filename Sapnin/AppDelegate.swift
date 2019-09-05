@@ -68,6 +68,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     DispatchQueue.main.async {
                         application.registerForRemoteNotifications()
                     }
+                    
+                    // Store to user DB on Firebase
+                    self.storeTokenToUserDB()
                 }
             }
         } else {
@@ -76,6 +79,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             application.registerUserNotificationSettings(settings)
             application.registerForRemoteNotifications()
+            
+            // Store to user DB on Firebase
+            self.storeTokenToUserDB()
         }
         
         // Configuration to retrieve token ID for push notification
@@ -93,6 +99,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         
         return true
+    }
+    
+    // Stores the token ID to the corresponding user database on Firebase
+    func storeTokenToUserDB() {
+        // Grab the token
+        guard let token = AppDelegate.isToken else {
+            return
+        }
+        
+        let dict = ["tokenID": token]
+        Api.User.DB_REF_CURRENT_USER?.updateChildValues(dict, withCompletionBlock: { (error, ref) in
+            if error != nil {
+                //onError(error!.localizedDescription)
+            } else {
+                //onSuccess()
+            }
+        })
     }
     
     // If user's still logged in, then go directly to channel VC on app load, otherwise go to login VC
@@ -188,7 +211,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Tell app that its successfully registered for Apple push notification
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         guard let token = AppDelegate.isToken else {
-            print("hello")
             return
         }
         print("token: \(token)")

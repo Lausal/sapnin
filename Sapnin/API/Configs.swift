@@ -14,7 +14,7 @@ let fcmUrl = "https://fcm.googleapis.com/fcm/send" //URL to send request - this 
 let serverKey = "AAAAlfX45kc:APA91bGwNNZVi3DY_n7eAWk9OFBcoiY7ZfewWHL68kbsuYJVRZST39OhCJOSLrV1F0MPwkeTlFVyQq-n_OfjXdyrdzpaiJ7fZxkSJQrZQHpRZKdNY2nsz_uv7kSwr9NqbQlWts68edUM" // From Firebase
 
 // Format and send notification message using HTTP Post
-func sendRequestNotifications(isMatch: Bool = false, fromUser: User, toUser: User, message: String, badge: Int) {
+func sendPushNotifications(channelName: String, fromUser: User, toUser: User, badge: Int) {
     // Set up HTTP Post request
     var request = URLRequest(url: URL(string: fcmUrl)!)
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -22,10 +22,21 @@ func sendRequestNotifications(isMatch: Bool = false, fromUser: User, toUser: Use
     request.httpMethod = "POST"
     
     // Set up the content of the notification message. CustomData is used for when we tap on the notification so that we can specifiy which chat scene and page to go to.
-    // We change the notification title depending if the push notification is related to match or not. So if we pass in true for isMatch, then we send a match push notification with different title.
-    let notification: [String: Any] = [ "to" : "/topics/\(toUser.userId)",
-        "notification" : ["title": (isMatch == false) ? fromUser.name : "New match",
-                          "body": message,
+//    let notification: [String: Any] = [ "to" : "/topics/\(toUser.userId)",
+//        "notification" : ["title": (isMatch == false) ? fromUser.name : "New match",
+//                          "body": message,
+//                          "sound": "default",
+//                          "badge": badge,
+//                          "customData": ["userId": fromUser.userId,
+//                                         "username": fromUser.name,
+//                                         "email": fromUser.email,
+//                                         "profileImageUrl": fromUser.profilePictureUrl]
+//        ]
+//    ]
+    
+    let notification: [String: Any] = [ "to" : toUser.tokenID,
+        "notification" : ["title": channelName,
+                          "body": fromUser.name + " shared a photo",
                           "sound": "default",
                           "badge": badge,
                           "customData": ["userId": fromUser.userId,
@@ -34,6 +45,7 @@ func sendRequestNotifications(isMatch: Bool = false, fromUser: User, toUser: Use
                                          "profileImageUrl": fromUser.profilePictureUrl]
         ]
     ]
+    
     
     // Send notification request
     let data = try! JSONSerialization.data(withJSONObject: notification, options: [])

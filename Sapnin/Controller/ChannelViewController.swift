@@ -134,18 +134,18 @@ class ChannelViewController: UIViewController {
     @objc func newGroupButtonDidTapped() {
         
         // TEST DELETE
-        Api.User.observeSpecificUserById(uid: Api.User.currentUserId) { (fromUser) in
-            print(fromUser.name)
-            Api.User.observeSpecificUserById(uid: "iS6s4y3y2nYCmfDGAtMarWIK4oy2") { (toUser) in
-                print(toUser.name)
-                sendRequestNotifications(fromUser: fromUser, toUser: toUser, message: "Hello", badge: 1)
-            }
-        }
+//        Api.User.observeSpecificUserById(uid: Api.User.currentUserId) { (fromUser) in
+//            print(fromUser.name)
+//            Api.User.observeSpecificUserById(uid: "iS6s4y3y2nYCmfDGAtMarWIK4oy2") { (toUser) in
+//                print(toUser.name)
+//                sendPushNotifications(channelName: "Name", fromUser: fromUser, toUser: toUser, badge: 1)
+//            }
+//        }
         
         
-//        let storyboard = UIStoryboard(name: "Channel", bundle: nil)
-//        let createChannelVC = storyboard.instantiateViewController(withIdentifier: IDENTIFIER_CREATE_CHANNEL_NAV_CONTROLLER)
-//        self.present(createChannelVC, animated: true, completion: nil)
+        let storyboard = UIStoryboard(name: "Channel", bundle: nil)
+        let createChannelVC = storyboard.instantiateViewController(withIdentifier: IDENTIFIER_CREATE_CHANNEL_NAV_CONTROLLER)
+        self.present(createChannelVC, animated: true, completion: nil)
     }
     
     // Switch to settings VC when avatar is tapped
@@ -184,6 +184,9 @@ extension ChannelViewController: UITableViewDelegate, UITableViewDataSource {
             channelDetailVC.channelName = cell.channelNameLabel.text
             channelDetailVC.channelId = cell.channel.channelId
             channelDetailVC.channelAvatar = cell.avatar.image
+            if cell.channel.users != nil {
+                channelDetailVC.userIDList = cell.channel.users!
+            }
             
             self.navigationController?.pushViewController(channelDetailVC, animated: true)
         }
