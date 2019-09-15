@@ -24,6 +24,17 @@ class NotificationViewController: UIViewController {
         
         // Set title colour to pink
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: BrandColours.PINK]
+        
+        // Add broadcast button to top right of header
+        let broadcastButton = UIBarButtonItem(image: UIImage(named: "broadcast_icon"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(broadcastButtonDidTapped))
+        self.navigationItem.rightBarButtonItem = broadcastButton
+    }
+    
+    // Show broadcast page
+    @objc func broadcastButtonDidTapped() {
+        let storyboard = UIStoryboard(name: "Channel", bundle: nil)
+        let broadcastVC = storyboard.instantiateViewController(withIdentifier: IDENTIFIER_BROADCAST_NAV_CONTROLLER)
+        self.present(broadcastVC, animated: true, completion: nil)
     }
 
 }
