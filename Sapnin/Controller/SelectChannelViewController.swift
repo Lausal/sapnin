@@ -106,8 +106,8 @@ class SelectChannelViewController: UIViewController {
             }
         })
         
-        ProgressHUD.dismiss()
-        
+        // On complete, show tick and dismiss
+        ProgressHUD.showSuccess("Sent")
         dismiss(animated: true, completion: nil)
     }
 
