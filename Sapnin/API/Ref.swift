@@ -21,6 +21,8 @@ let REF_CHANNEL_POST_TABLE = "channel_post"
 
 // Storyboard identifier
 let IDENTIFIER_TABBAR = "TabBarVC"
+let LAUNCHED_ONCE = "launched_once"
+let USER_NAME = "user_name"
 let IDENTIFIER_CHANNEL = "ChannelViewController"
 let IDENTIFIER_LOGIN = "WelcomeViewController"
 let IDENTIFER_CHANNEL_NAV_CONTROLLER = "ChannelNavigationController"

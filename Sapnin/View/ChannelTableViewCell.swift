@@ -12,17 +12,19 @@ import Firebase
 // Protocols allow us to call functions in another VC
 protocol ChannelProtocol {
     func reloadData()
-    func channelAvatarDidTapped()
+    func channelAvatarDidTapped(channelId:String)
 }
 
 class ChannelTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var borderContainer: UIView!
     @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var channelNameLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet var newStoryDot: UIView!
     
+    var channelStories = [ChannelPost]()
     var controller: ChannelViewController!
     var channel: Channel!
     var delegate: ChannelProtocol!
@@ -51,7 +53,10 @@ class ChannelTableViewCell: UITableViewCell {
     
     // On tap of channel avatar, call the channelAvatarDidTapped method which either switches to the stories, or channel details page.
     @objc func channelAvatarDidTapped() {
-        self.delegate.channelAvatarDidTapped()
+        if channelStories.count == 0{
+            return
+        }
+        self.delegate.channelAvatarDidTapped(channelId: channel.channelId)
     }
     
     // Load the channel data into the cell
@@ -68,12 +73,65 @@ class ChannelTableViewCell: UITableViewCell {
         
         self.channelNameLabel.text = channel.channelName
         
-        // Configure timestamp based on timelapse between creation date and current date
-        let date = Date(timeIntervalSince1970: channel.dateCreated)
-        let dateString = timeAgoSinceDate(date, currentDate: Date(), numericDates: true)
-        dateLabel.text = dateString
+        let dForm               = DateFormatter.init()
+        dForm.dateFormat        = "yyyy-MM-dd"
+        self.dateLabel.text     = ""
         
-        messageLabel.text = "Luke posted a photo"
+        let postDate = Date(timeIntervalSince1970: channel.lastMessageDate)
+        borderContainer.drawBorder(withNumberOfDots: 0)
+        
+        Api.ChannelPost.getAllStoriesForChannel(channelId: channel.channelId) { (channelPosts) in
+            if channelPosts != nil{
+                self.channelStories = channelPosts!
+                self.borderContainer.drawBorder(withNumberOfDots: self.channelStories.count)
+        
+                if self.channelStories.count > 0{
+                    dForm.dateFormat = "HH:mm"
+                    self.dateLabel.text = dForm.string(from: postDate)
+                }else{
+                    dForm.dateFormat = "EEE"
+                    self.dateLabel.text = dForm.string(from: postDate)
+                }
+            }else{
+                dForm.dateFormat = "EEE"
+                self.dateLabel.text = dForm.string(from: postDate)
+            }
+        }
+        
+        
+        if let users = channel.users{
+            if users.count == 0{
+                messageLabel.text = "me"
+                return
+            }
+            
+            var usernames = ""
+            for i in 0...users.count-1{
+                let user = users[i]
+                
+                for key in user.keys{
+                    if let k = user[key] as? [String:Any]{
+                        if "\(k["name"]!)" == UserDefaults.standard.value(forKey: USER_NAME) as? String{
+                            usernames.append("me, ")
+                        }else{
+                            usernames.append("\(k["name"]!)".components(separatedBy: " ").first!+", ")
+                        }
+                    }else{
+                        if "\(user[key]!)" == UserDefaults.standard.value(forKey: USER_NAME) as? String{
+                            usernames.append("me, ")
+                        }else{
+                            usernames.append("\(user[key]!)".components(separatedBy: " ").first!+", ")
+                        }
+                    }
+                }
+            }
+
+            messageLabel.text = String(usernames.dropLast(2))
+            
+        }else{
+            messageLabel.text = "me"
+        }
+        
         
         /*** Observe channel avatar for changes, so we can automatically update the avatar. ***/
         

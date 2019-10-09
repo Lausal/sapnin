@@ -16,6 +16,7 @@ class ChannelViewController: UIViewController {
     
     var channelList = [Channel]()
     var profilePicture: UIImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 32, height: 32))
+    var selectedChannelId : String!
     
     // This is for the search bar, specifying nil means the search results will appear on the same/current page
     var searchController: UISearchController = UISearchController(searchResultsController: nil)
@@ -25,13 +26,12 @@ class ChannelViewController: UIViewController {
         
         setupTableView()
         setupSearchBarController()
-        observeChannels()
-        
+        setupNavigationBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        setupNavigationBar()
+        observeChannels()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -84,6 +84,7 @@ class ChannelViewController: UIViewController {
         searchController.dimsBackgroundDuringPresentation = true
         searchController.searchBar.placeholder = "Search"
         searchController.searchBar.barTintColor = UIColor.white
+        searchController.searchBar.delegate = self
         searchController.obscuresBackgroundDuringPresentation = false
         definesPresentationContext = true
         navigationItem.hidesSearchBarWhenScrolling = false
@@ -121,6 +122,7 @@ class ChannelViewController: UIViewController {
         
         // Load user avatar image if available, otherwise use the no profile icon. This will update in real time for any changes as we use the observe functionality
         Api.User.observeSpecificUserById(uid: Api.User.currentUserId) { (user) in
+            UserDefaults.standard.setValue(user.name, forKey: USER_NAME)
             if user.profilePictureUrl != nil {
                 let profilePictureUrl = URL(string: user.profilePictureUrl!)
                 self.profilePicture.loadImage(profilePictureUrl!.absoluteString)
@@ -152,6 +154,13 @@ class ChannelViewController: UIViewController {
     @objc func avatarButtonDidTapped() {
         self.performSegue(withIdentifier: "settingsVC", sender: nil)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "storiesVC"{
+            let storyVC = segue.destination as! StoriesViewController
+            storyVC.channelId = selectedChannelId
+        }
+    }
 
 }
 
@@ -167,6 +176,7 @@ extension ChannelViewController: UITableViewDelegate, UITableViewDataSource {
         let channel = self.channelList[indexPath.row]
         cell.delegate = self
         cell.loadData(channel)
+        
         return cell
     }
     
@@ -226,7 +236,16 @@ extension ChannelViewController: ChannelProtocol {
     }
     
     // Switch to stories if applicable, otherwise switch to channel details
-    func channelAvatarDidTapped() {
+    func channelAvatarDidTapped(channelId:String) {
+        selectedChannelId = channelId
         self.performSegue(withIdentifier: "storiesVC", sender: nil)
     }
+}
+
+extension ChannelViewController : UISearchBarDelegate{
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
 }

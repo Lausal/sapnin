@@ -101,10 +101,14 @@ class UserApi {
         }
     }
     
-    // Get user information for a specific user based on user ID
-    func observeSpecificUserById(uid: String, onSuccess: @escaping (UserCompletion)) {
-        let ref = Ref().databaseSpecificUserRef(uid: uid)
-        ref.observe(.value) { (snapshot) in
+    // Update Phone Number of User //When coming from Facebook
+    func updatePhonenNumberUserById(uid: String,phoneNumber:String) {
+        DB_REF_USERS.child(uid).updateChildValues(["phoneNumber":phoneNumber])
+    }
+    
+    // Get signle user information
+    func observeUsers(onSuccess: @escaping (UserCompletion)) {
+        DB_REF_USERS.observe(.childAdded) { (snapshot) in
             if let dict = snapshot.value as? Dictionary<String, Any> {
                 if let user = User.transformUser(dict: dict) {
                     onSuccess(user)
@@ -113,8 +117,36 @@ class UserApi {
         }
     }
     
+    // Get user information for a specific user based on user ID
+    func observeSpecificUserById(uid: String, onSuccess: @escaping (UserCompletion)) {
+        DB_REF_USERS.child(uid).observe(.value) { (snapshot) in
+            if let dict = snapshot.value as? Dictionary<String, Any> {
+                if let user = User.transformUser(dict: dict) {
+                    onSuccess(user)
+                }
+            }
+        }
+    }
+    
+    //Check if user exists with phone number
+    func checkUserExistense(phoneNumber: String, onSuccess: @escaping (User?) -> ()){
+//        var p = phoneNumber
+        DB_REF_USERS.queryOrdered(byChild: "phoneNumber").queryEqual(toValue: phoneNumber)
+            .observe(.value, with: { snapshot in
+                if snapshot.exists() {
+                    if let u = snapshot.value as? [String: Any]{
+                        onSuccess(User.transformUser(dict: u[u.keys.first!] as! [String : Any]))
+                    }else{
+                        onSuccess(nil)
+                    }
+                } else {
+                    onSuccess(nil)
+                }
+        })
+    }
+    
     // Create user in authentication section of Firebase. Once complete, use the returned reference from the authentication section to store in the User Database table
-    func signUp(name: String, email: String, password: String, onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
+    func signUp(name: String, email: String, phoneNumber:String, password: String, onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
         
         // Create user in authentication
         Auth.auth().createUser(withEmail: email, password: password) { (authDataResult, error) in
@@ -128,7 +160,8 @@ class UserApi {
                 let dict: Dictionary <String,Any> = [
                     "uid": authData.user.uid, // This is the ID from authentication created
                     "email": authData.user.email,
-                    "name": name
+                    "name": name,
+                    "phoneNumber" : phoneNumber
                 ]
                 
                 Ref().databaseSpecificUserRef(uid: authData.user.uid).updateChildValues(dict, withCompletionBlock: { (error, ref) in

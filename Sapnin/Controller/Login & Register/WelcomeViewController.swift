@@ -123,8 +123,19 @@ class WelcomeViewController: UIViewController {
                 // Push to Firebase - UpdateChildValue will create a new entry in database if it doesn't exist already.
                 Ref().databaseSpecificUserRef(uid: authData.user.uid).updateChildValues(dict, withCompletionBlock: { (error, ref) in
                     if error == nil {
-                        // Call the configureIntialViewController function in appdelegate to navigate to appropriate screen - in this case it would be the messages screen
-                        (UIApplication.shared.delegate as! AppDelegate).configureInitialViewController()
+                        
+                        Api.User.observeSpecificUserById(uid: authData.user.uid) { (u) in
+                            if u.phoneNumber != nil && u.phoneNumber.count != 0{
+                                // Call the configureIntialViewController function in appdelegate to navigate to appropriate screen - in this case it would be the messages screen
+                                (UIApplication.shared.delegate as! AppDelegate).configureInitialViewController()
+                            }else{
+                                ProgressHUD.dismiss()
+                                let sb = UIStoryboard(name: "Main", bundle: nil)
+                                let phVC = sb.instantiateViewController(withIdentifier: "PhoneNumberViewController") as! PhoneNumberViewController
+                                phVC.userId = authData.user.uid
+                                self.navigationController?.pushViewController(phVC, animated: true)
+                            }
+                        }
                     } else {
                         ProgressHUD.showError(error!.localizedDescription)
                     }

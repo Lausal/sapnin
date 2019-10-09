@@ -13,6 +13,7 @@ class CreateChannelStep1TableViewCell: UITableViewCell {
     @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var radioButton: UIImageView!
+    @IBOutlet weak var inviteButton: UIButton!
     
     var user: User!
     
@@ -22,6 +23,8 @@ class CreateChannelStep1TableViewCell: UITableViewCell {
         // Style avatar
         avatar.layer.cornerRadius = 24
         avatar.clipsToBounds = true
+        
+        inviteButton.layer.cornerRadius = 5
     }
 
     // Load the user data into the cell

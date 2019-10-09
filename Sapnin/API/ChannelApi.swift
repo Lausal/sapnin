@@ -71,9 +71,12 @@ class ChannelApi {
         let date: Double = Date().timeIntervalSince1970
         
         // Loop through userList array to get ID's of each selected user and then add to users dictionary
-        var userDict = [String:Bool]()
+        var userDict = [String:Any]()
         for user in userList {
-            userDict[user.userId] = true
+            userDict[user.userId] = ["name" : user.name]
+        }
+        if let loggedInUserName = UserDefaults.standard.value(forKey: USER_NAME) as? String{
+            userDict[Auth.auth().currentUser!.uid] = ["name" : loggedInUserName]
         }
         
         // Create a dictionary to store the variables
@@ -96,6 +99,10 @@ class ChannelApi {
                         // After adding the channel into the "channels" table, also add a reference of the channel ID into the respective "user channels" table of each selected user.
                         let userChannelRef = Ref().databaseUserChannelTableRef.child(Api.User.currentUserId)
                         userChannelRef.updateChildValues([newChannelId!: true])
+                        for key in userDict.keys{
+                            let userChannelRef = Ref().databaseUserChannelTableRef.child(key)
+                            userChannelRef.updateChildValues([newChannelId! : true])
+                        }
                         onSuccess()
                     }
                 }
@@ -113,6 +120,12 @@ class ChannelApi {
                     // After adding the channel into the "channels" table, also add a reference of the channel ID into the respective "user channels" table of each selected user.
                     let userChannelRef = Ref().databaseUserChannelTableRef.child(Api.User.currentUserId)
                     userChannelRef.updateChildValues([newChannelId! : true])
+                    
+                    for key in userDict.keys{
+                        let userChannelRef = Ref().databaseUserChannelTableRef.child(key)
+                        userChannelRef.updateChildValues([newChannelId! : true])
+                    }
+                    
                     onSuccess()
                 }
             }
@@ -131,4 +144,24 @@ class ChannelApi {
             }
         }
     }
+    
+    // Retrieve a specific channel information from Firebase via channel ID
+    func observeUserById(userId: String, onSuccess: @escaping (UserCompletion)) {
+        let ref = Ref().databaseUserTableRef
+        
+        ref.observe(.value) { (snapshot) in
+            if let dict = snapshot.value as? Dictionary <String, Any> {
+                if let user = User.transformUser(dict: dict) {
+                    onSuccess(user)
+                }
+            }
+        }
+    }
+    
+    // Update channel last message time and URL
+    func updateChannelLastMessage(channelId: String) {
+        let ref = Ref().databaseChannelTableRef.child(channelId)
+        ref.updateChildValues(["lastMessageDate":Date().millisecondsSince1970])
+    }
+    
 }

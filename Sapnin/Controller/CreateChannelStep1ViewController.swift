@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import ContactsUI
+import MessageUI
+import SVProgressHUD
 
-class CreateChannelStep1ViewController: UIViewController {
+
+class CreateChannelStep1ViewController: UIViewController,MFMessageComposeViewControllerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -16,6 +20,9 @@ class CreateChannelStep1ViewController: UIViewController {
     
     var userList = [User]()
     var selectedUserList = [User]()
+    
+    //Numbers that have not app installed
+    var numbersWithoutApp = [String]()
     
     // Unique list of first letters for each user
     var sortedUsersFirstLetters: [String] = []
@@ -29,54 +36,67 @@ class CreateChannelStep1ViewController: UIViewController {
     // Boolean state if user is in search mode
     var isSearching = false
     
+    enum ContactsFilter {
+        case none
+        case mail
+        case message
+    }
+    
+//    var phoneContacts = [PhoneContact]() // array of PhoneContact(It is model find it below)
+    var filter: ContactsFilter = .none
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addTestData()
-        sortUserList()
+        loadContacts()
         
         setupTableView()
         setupNavigationBar()
     }
     
-    // DELETE THIS AND GRAB REAL USERS FROM FIREBASE
-    func addTestData() {
-        let user1 = User(userId: "a", email: "abc@gmail.com", name: "John Smith")
-        let user2 = User(userId: "iS6s4y3y2nYCmfDGAtMarWIK4oy2", email: "abcd@gmail.com", name: "Alan Lau")
-        let user3 = User(userId: "SFCq7oiXViPq2mj04yiTESGI7uV2", email: "abcde@gmail.com", name: "Luke Dooley")
-        let user4 = User(userId: "d", email: "abc@gmail.com", name: "James Bond")
-        let user5 = User(userId: "e", email: "abc@gmail.com", name: "Cristiano Ronaldo")
-        let user6 = User(userId: "f", email: "abcd@gmail.com", name: "Matthew Pon")
-        let user7 = User(userId: "g", email: "abcde@gmail.com", name: "David Beckham")
-        let user8 = User(userId: "h", email: "abc@gmail.com", name: "Aladdin Cray")
-        let user9 = User(userId: "i", email: "abc@gmail.com", name: "Sarah Smith")
-        let user10 = User(userId: "j", email: "abcd@gmail.com", name: "Jojo Fish")
-        let user11 = User(userId: "k", email: "abcde@gmail.com", name: "Will Smith")
-        let user12 = User(userId: "l", email: "abc@gmail.com", name: "Chris Tucker")
-        let user13 = User(userId: "m", email: "abc@gmail.com", name: "Dwayne Johnson")
-        let user14 = User(userId: "n", email: "abcd@gmail.com", name: "Rayan Mohammed")
-        let user15 = User(userId: "o", email: "abcde@gmail.com", name: "Eden Hazard")
-        let user16 = User(userId: "p", email: "abc@gmail.com", name: "Joffery Chan")
+    fileprivate func loadContacts() {
         
-        userList.append(user1)
-        userList.append(user2)
-        userList.append(user3)
-        userList.append(user4)
-        userList.append(user5)
-        userList.append(user6)
-        userList.append(user7)
-        userList.append(user8)
-        userList.append(user9)
-        userList.append(user10)
-        userList.append(user11)
-        userList.append(user12)
-        userList.append(user13)
-        userList.append(user14)
-        userList.append(user15)
-        userList.append(user16)
+        let contacts = PhoneContacts.getContacts()
+        if contacts.count == 0{
+            return
+        }
         
+        SVProgressHUD.show()
+        for i in 0...contacts.count-1 {
+            let contact = contacts[i]
+                //Check if this Number has the App,
+                Api.User.checkUserExistense(phoneNumber: contact.phoneNumbers.first!.value.stringValue) { (user) in
+                    
+                    var userName = ""
+                    if (contact.familyName + contact.givenName).replacingOccurrences(of: " ", with: "").count == 0{
+                        
+                        if contact.organizationName.count == 0{
+                            userName = contact.organizationName
+                        }else{
+                            userName = contact.phoneNumbers.count > 0 ? contact.phoneNumbers.first!.value.stringValue : "No Name"
+                        }
+                    }else{
+                        userName = contact.givenName + " " + contact.familyName
+                    }
+                    
+                    if user != nil{
+                        
+                       self.userList.append(User(userId: user!.userId, email: contact.emailAddresses.count > 0 ? contact.emailAddresses.first!.value as String : "", name: user!.name,phoneNumber: contact.phoneNumbers.count > 0 ? contact.phoneNumbers.first!.value.stringValue : ""))
+                        self.numbersWithoutApp.append(contact.phoneNumbers.first!.value.stringValue)
+                        
+                    }else{
+                        
+                        self.userList.append(User(userId: contact.phoneNumbers.count > 0 ? contact.phoneNumbers.first!.value.stringValue : "", email: contact.emailAddresses.count > 0 ? contact.emailAddresses.first!.value as String : "", name: userName,phoneNumber: contact.phoneNumbers.count > 0 ? contact.phoneNumbers.first!.value.stringValue : ""))
+                    }
+                    
+                    if i == contacts.count - 1{
+                        SVProgressHUD.dismiss()
+                        self.sortUserList()
+                    }
+            }
+        }
     }
-    
+
     // Sort the user list alphabetically and into a 2D array so same letter first names are grouped together
     func sortUserList() {
         // Get the first letter of each user, remove duplicates and then sort alphabetically
@@ -159,14 +179,53 @@ extension CreateChannelStep1ViewController: UITableViewDelegate, UITableViewData
             let user = filteredUserList[indexPath.row]
             cell.loadData(user)
             setCellSelectionState(indexPath: indexPath, cell: cell, user: user)
+            setInviteButtonVisibility(indexPath: indexPath, cell: cell, user: user)
         } else {
             let user = sortedUsersPerSections[indexPath.section][indexPath.row]
             cell.loadData(user)
             setCellSelectionState(indexPath: indexPath, cell: cell, user: user)
+            setInviteButtonVisibility(indexPath: indexPath, cell: cell, user: user)
         }
+        
+        cell.inviteButton.tag = indexPath.row
+        cell.inviteButton.accessibilityHint = "\(indexPath.section)"
+        cell.inviteButton.addTarget(self, action: #selector(sendMessages(sender:)), for: .touchUpInside)
         
         return cell
     }
+    
+    @objc func sendMessages(sender:UIButton) {
+        var user : User!
+        if isSearching && filteredUserList.count != 0 {
+            user = filteredUserList[sender.tag]
+        }else{
+            user = sortedUsersPerSections[Int(sender.accessibilityHint!)!][sender.tag]
+        }
+        if MFMessageComposeViewController.canSendText() == true {
+            let recipients:[String] = [user.phoneNumber]
+            let messageController = MFMessageComposeViewController()
+            messageController.messageComposeDelegate  = self
+            messageController.recipients = recipients
+            messageController.body = "Hey checkout this app..."
+            self.present(messageController, animated: true, completion: nil)
+        } else {
+            //handle text messaging not available
+        }
+    }
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    func setInviteButtonVisibility(indexPath: IndexPath, cell: CreateChannelStep1TableViewCell, user: User) {
+        // User/cell is selected
+        if numbersWithoutApp.contains(where:{ $0 == user.phoneNumber }) {
+            cell.inviteButton.isHidden = true
+        } else {
+            cell.inviteButton.isHidden = false
+        }
+    }
+    
     
     // When filtering, the radio button and cell selection state doesn't match as we're using different arrays for the filtered users list. So we need to call this function to compare if the corresponding cell is selected or not by checking if the userId is in the selectedUserList.
     func setCellSelectionState(indexPath: IndexPath, cell: CreateChannelStep1TableViewCell, user: User) {

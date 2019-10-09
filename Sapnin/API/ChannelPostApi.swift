@@ -11,7 +11,9 @@ import FirebaseDatabase
 import FirebaseAuth
 import ProgressHUD
 
-typealias ChannelPostCompletion = (ChannelPost) -> Void
+typealias ChannelPostCompletion = (ChannelPost?) -> Void
+typealias ChannelAllPostCompletion = ([ChannelPost]) -> Void
+typealias ChannelStoriesCompletion = ([ChannelPost]?) -> Void
 
 class ChannelPostApi {
     
@@ -31,7 +33,7 @@ class ChannelPostApi {
             let date: Double = Date().timeIntervalSince1970
             
             // Create a dictionary to store the variables
-            var dict = ["postId": postId, "channelId": channelId, "ownerId": Api.User.currentUserId, "datePosted": date, "imageUrl": imageUrl] as [String : Any]
+            var dict = ["postId": postId, "channelId": channelId, "ownerId": Api.User.currentUserId, "datePosted": date, "imageUrl": imageUrl, "category":""] as [String : Any]
             
             // Now store the whole dictionary into Firebase database
             newChannelPostRef.setValue(dict) { (error, ref) in
@@ -53,14 +55,81 @@ class ChannelPostApi {
         
         let ref = Ref().databaseChannelPostTableRef.child(channelId)
         
-        ref.observe(.childAdded) { (snapshot) in
+        ref.queryOrdered(byChild: "datePosted").observe(.childAdded, with: { (snapshot) -> Void in
             if let dict = snapshot.value as? Dictionary <String, Any> {
                 if let channelPost = ChannelPost.transformChannelPost(dict: dict) {
                     onSuccess(channelPost)
+                }else{
+                    onSuccess(nil)
                 }
+            }else{
+                onSuccess(nil)
             }
-        }
+        })
+        
+//        ref.observe(.childAdded) { (snapshot) in
+//            if let dict = snapshot.value as? Dictionary <String, Any> {
+//                if let channelPost = ChannelPost.transformChannelPost(dict: dict) {
+//                    onSuccess(channelPost)
+//                }
+//            }
+//        }
         
     }
+    
+    // Get all the posts from a channel from Firebase and return as channel post object
+    func getAllChannelPosts(channelId: String, onSuccess: @escaping (ChannelAllPostCompletion)) {
+        
+        let ref = Ref().databaseChannelPostTableRef.child(channelId)
+        
+        ref.queryOrdered(byChild: "datePosted").observe(.value, with: { (snapshot) -> Void in
+            if let dict = snapshot.value as?  [String: Any] {
+//                let channelPosts =  {
+                    onSuccess(ChannelPost.transformChannelPosts(posts: dict))
+//                }else{
+//                    onSuccess([ChannelPost]())
+//                }
+                print("sdfsdf")
+            }else{
+                onSuccess([ChannelPost]())
+            }
+        })
+        
+        //        ref.observe(.childAdded) { (snapshot) in
+        //            if let dict = snapshot.value as? Dictionary <String, Any> {
+        //                if let channelPost = ChannelPost.transformChannelPost(dict: dict) {
+        //                    onSuccess(channelPost)
+        //                }
+        //            }
+        //        }
+        
+    }
+    
+    //Get all Stories for Channel
+    func getAllStoriesForChannel(channelId: String, onSuccess: @escaping (ChannelStoriesCompletion)) {
+        let ref = Ref().databaseChannelPostTableRef.child(channelId)
+        
+        //-86000 (24 * 60 * 60) is for getting posts other than last 24 hours.
+        let date: Double = (Date().timeIntervalSince1970)-86000
+        
+        ref.queryOrdered(byChild: "datePosted").queryStarting(atValue: date).observe(.value, with: { (snapshot) -> Void in
+            if let dict = snapshot.value as? [String:Any] {
+                if let channelPosts = ChannelPost.transformChannelStories(dict: dict) {
+                    onSuccess(channelPosts)
+                }else{
+                    onSuccess(nil)
+                }
+            }else{
+                onSuccess(nil)
+            }
+        })
+    }
+    
+    // Get all the posts from a channel from Firebase and return as channel post object
+    func updateChannelPostCategory(channelId: String, postId: String, category:String) {
+        let ref = Ref().databaseChannelPostTableRef.child(channelId).child(postId)
+        ref.updateChildValues(["category":category])
+    }
+    
     
 }

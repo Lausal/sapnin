@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FBSDKCoreKit
 import UserNotifications
+import SVProgressHUD
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        SVProgressHUD.setDefaultMaskType(.black)
         // Firebase configuration
         FirebaseApp.configure()
         
@@ -121,12 +123,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // If user's still logged in, then go directly to channel VC on app load, otherwise go to login VC
     func configureInitialViewController() {
         var initialVC: UIViewController
-        if Auth.auth().currentUser != nil {
+        if Auth.auth().currentUser != nil && UserDefaults.standard.bool(forKey: LAUNCHED_ONCE){
             let channelStoryboard = UIStoryboard(name: "Channel", bundle: nil)
             initialVC = channelStoryboard.instantiateViewController(withIdentifier: IDENTIFIER_TABBAR)
         } else {
             let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
             initialVC = mainStoryboard.instantiateViewController(withIdentifier: IDENTIFER_LOGIN_NAV_CONTROLLER)
+            UserDefaults.standard.set(true, forKey: LAUNCHED_ONCE)
         }
         
         window?.rootViewController = initialVC

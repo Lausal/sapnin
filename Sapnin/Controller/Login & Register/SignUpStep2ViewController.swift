@@ -48,13 +48,13 @@ class SignUpStep2ViewController: UIViewController {
     }
     
     @IBAction func nextButtonDidTapped(_ sender: Any) {
-        self.performSegue(withIdentifier: "signUpStep3VC", sender: nil)
+        self.performSegue(withIdentifier: "phoneNumberVC", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Send name and email to sign up step 3 VC
-        if segue.identifier == "signUpStep3VC" {
-            let controller = segue.destination as! SignUpStep3ViewController
+        if segue.identifier == "phoneNumberVC" {
+            let controller = segue.destination as! PhoneNumberViewController
             controller.name = self.name
             controller.email = emailTextField.text
         }

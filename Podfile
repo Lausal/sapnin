@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+ platform :ios, '11.0'
 
 target 'Sapnin' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
@@ -21,5 +21,6 @@ pod 'SDWebImage' #For downloading images asynchronously
 pod 'PocketSVG' #Convert SVG to Swift4
 pod 'PhoneNumberKit', '~> 2.1' #Format phone number to international format
 pod 'ProgressHUD'
+pod 'SwiftTransition'
 
 end

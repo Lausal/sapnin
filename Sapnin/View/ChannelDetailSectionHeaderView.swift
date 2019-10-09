@@ -11,5 +11,6 @@ import UIKit
 class ChannelDetailSectionHeaderView : UICollectionReusableView {
     
     @IBOutlet var dateLabel: UILabel!
+    @IBOutlet weak var viewAllButton: UIButton!
     
 }

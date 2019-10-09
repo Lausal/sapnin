@@ -15,6 +15,7 @@ class SignUpStep3ViewController: UIViewController {
     @IBOutlet weak var signUpButton: UIButton!
     var name: String!
     var email: String!
+    var phoneNumber : String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +55,7 @@ class SignUpStep3ViewController: UIViewController {
         
         ProgressHUD.show("Loading...")
         
-        Api.User.signUp(name: self.name, email: self.email, password: self.passwordTextField.text!, onSuccess: {
+        Api.User.signUp(name: self.name, email: self.email,phoneNumber: phoneNumber, password: self.passwordTextField.text!, onSuccess: {
             ProgressHUD.dismiss() // Dismiss loading wheel on completion
             onSuccess()
         }) { (errorMessage) in

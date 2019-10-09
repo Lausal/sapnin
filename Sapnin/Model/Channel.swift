@@ -15,7 +15,7 @@ class Channel {
     var ownerId: String
     var dateCreated: Double
     var lastMessageDate: Double
-    var users: [String]?
+    var users: [[String:Any]]?
     //var users: Dictionary<String, Any>? // Array of users
     
     init(channelId: String, channelName: String, ownerId: String, dateCreated: Double, lastMessageDate: Double) {
@@ -47,11 +47,9 @@ class Channel {
         }
         
         // Get the users ID list if exists, then assign to channels attribute
-        var userIdList = [String]()
-        if let users = dict["users"] as? [String: Bool] {
-            for userId in users.keys {
-                userIdList.append(userId)
-            }
+        var userIdList = [[String:Any]]()
+        if let users = dict["users"] as? [String: Any] {
+            userIdList.append(users)
         }
         channel.users = userIdList
         
@@ -62,6 +60,7 @@ class Channel {
     func updateData(key: String, value: String) {
         switch key {
             case "channelAvatarUrl": self.channelAvatarUrl = value
+        
             default: break
         }
     }
