@@ -7,11 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		52157A01233F631A00467567 /* ZoomTransitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521579FE233F631A00467567 /* ZoomTransitionController.swift */; };
-		52157A02233F631A00467567 /* ZoomDismissalInteractionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521579FF233F631A00467567 /* ZoomDismissalInteractionController.swift */; };
-		52157A03233F631A00467567 /* ZoomAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52157A00233F631A00467567 /* ZoomAnimator.swift */; };
-		52157A06233F688400467567 /* PhotoPageContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52157A04233F688300467567 /* PhotoPageContainerViewController.swift */; };
-		52157A07233F688400467567 /* PhotoZoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52157A05233F688400467567 /* PhotoZoomViewController.swift */; };
+		520AE333232DC8A80087EDC2 /* BroadcastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520AE332232DC8A80087EDC2 /* BroadcastViewController.swift */; };
+		520AE335232DD0050087EDC2 /* BroadcastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520AE334232DD0050087EDC2 /* BroadcastTableViewCell.swift */; };
+		520AE337232E57060087EDC2 /* SelectChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520AE336232E57060087EDC2 /* SelectChannelViewController.swift */; };
+		520AE339232E6D950087EDC2 /* SelectChannelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520AE338232E6D950087EDC2 /* SelectChannelTableViewCell.swift */; };
 		521821F220AF6806009F8FD5 /* StoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521821F120AF6806009F8FD5 /* StoriesViewController.swift */; };
 		521821F420AF9E9A009F8FD5 /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521821F320AF9E9A009F8FD5 /* LeaderboardViewController.swift */; };
 		52182DE420BDBACC0049FFB3 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52AFD4F720BDAAB10039559A /* Roboto-Bold.ttf */; };
@@ -88,7 +87,7 @@
 		52BE7498208E54E1005414B5 /* SelectParticipantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BE7497208E54E1005414B5 /* SelectParticipantsViewController.swift */; };
 		52BE749C208FAC83005414B5 /* ContactsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BE749B208FAC83005414B5 /* ContactsModel.swift */; };
 		52C0B092209395A2009B8206 /* CreateChannelStep1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0B091209395A2009B8206 /* CreateChannelStep1TableViewCell.swift */; };
-		52C4DC692313412200B92EBD /* Configs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C4DC682313412200B92EBD /* Configs.swift */; };
+		52C4DC692313412200B92EBD /* SendPushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C4DC682313412200B92EBD /* SendPushNotification.swift */; };
 		52C7B336209CF6520060F222 /* ColourPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C7B335209CF6520060F222 /* ColourPalette.swift */; };
 		52D5D11520BA2BBE00965A17 /* BorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D5D11420BA2BBE00965A17 /* BorderView.swift */; };
 		52D5D11720BA358A00965A17 /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52D5D11620BA358A00965A17 /* Camera.storyboard */; };
@@ -101,11 +100,10 @@
 
 /* Begin PBXFileReference section */
 		32AE9FB8E36E7562B4B1BC30 /* Pods-Sapnin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sapnin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sapnin/Pods-Sapnin.debug.xcconfig"; sourceTree = "<group>"; };
-		521579FE233F631A00467567 /* ZoomTransitionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomTransitionController.swift; sourceTree = "<group>"; };
-		521579FF233F631A00467567 /* ZoomDismissalInteractionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomDismissalInteractionController.swift; sourceTree = "<group>"; };
-		52157A00233F631A00467567 /* ZoomAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomAnimator.swift; sourceTree = "<group>"; };
-		52157A04233F688300467567 /* PhotoPageContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoPageContainerViewController.swift; path = ../PhotoPageContainerViewController.swift; sourceTree = "<group>"; };
-		52157A05233F688400467567 /* PhotoZoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoZoomViewController.swift; path = ../PhotoZoomViewController.swift; sourceTree = "<group>"; };
+		520AE332232DC8A80087EDC2 /* BroadcastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastViewController.swift; sourceTree = "<group>"; };
+		520AE334232DD0050087EDC2 /* BroadcastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastTableViewCell.swift; sourceTree = "<group>"; };
+		520AE336232E57060087EDC2 /* SelectChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectChannelViewController.swift; sourceTree = "<group>"; };
+		520AE338232E6D950087EDC2 /* SelectChannelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectChannelTableViewCell.swift; sourceTree = "<group>"; };
 		521821F120AF6806009F8FD5 /* StoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesViewController.swift; sourceTree = "<group>"; };
 		521821F320AF9E9A009F8FD5 /* LeaderboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
 		52182DE720BDCA560049FFB3 /* Channel.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Channel.storyboard; sourceTree = "<group>"; };
@@ -185,7 +183,7 @@
 		52BE7497208E54E1005414B5 /* SelectParticipantsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectParticipantsViewController.swift; sourceTree = "<group>"; };
 		52BE749B208FAC83005414B5 /* ContactsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsModel.swift; sourceTree = "<group>"; };
 		52C0B091209395A2009B8206 /* CreateChannelStep1TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChannelStep1TableViewCell.swift; sourceTree = "<group>"; };
-		52C4DC682313412200B92EBD /* Configs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configs.swift; sourceTree = "<group>"; };
+		52C4DC682313412200B92EBD /* SendPushNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendPushNotification.swift; sourceTree = "<group>"; };
 		52C7B335209CF6520060F222 /* ColourPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourPalette.swift; sourceTree = "<group>"; };
 		52D5D11420BA2BBE00965A17 /* BorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderView.swift; sourceTree = "<group>"; };
 		52D5D11620BA358A00965A17 /* Camera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
@@ -304,11 +302,14 @@
 				526CFA0A230DD3610033DAA0 /* ChannelDetailStoryHeaderView.xib */,
 				5289F69F22EC6EB500A85573 /* ImageCollectionViewCell.swift */,
 				5269A38522D2553600231F5B /* ChannelTableViewCell.swift */,
+
 				52718B99232A378400DFC6C4 /* ChannelDetailsDoubleImageCollectionViewCell.swift */,
 				52718B9B232A379100DFC6C4 /* ChannelDetailsTrippleImageCollectionViewCell.swift */,
 				52718B9D232A37A900DFC6C4 /* ChannelDetailsQuadImageCollectionViewCell.swift */,
 				52718B9F232A3B3700DFC6C4 /* ChannelDetailSingleImageCollectionViewCell.swift */,
 				52EA3EAA23351C9600CE19F4 /* StoryCollectionViewCell.swift */,
+				520AE334232DD0050087EDC2 /* BroadcastTableViewCell.swift */,
+				520AE338232E6D950087EDC2 /* SelectChannelTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -330,6 +331,8 @@
 				5269A38122D16A3600231F5B /* NotificationViewController.swift */,
 				526CFA07230DB1770033DAA0 /* ChannelSettingsViewController.swift */,
 				52718BA1232A535200DFC6C4 /* CategoriesDetailsViewController.swift */,
+				520AE332232DC8A80087EDC2 /* BroadcastViewController.swift */,
+				520AE336232E57060087EDC2 /* SelectChannelViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -400,7 +403,7 @@
 				523024F8210273C60091AE52 /* PostApi.swift */,
 				523024F621026E220091AE52 /* ChannelPostApi.swift */,
 				528C9D1422C29DDF00839EBD /* Ref.swift */,
-				52C4DC682313412200B92EBD /* Configs.swift */,
+				52C4DC682313412200B92EBD /* SendPushNotification.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -617,8 +620,12 @@
 				52B88689208381E80066D116 /* ButtonSettings.swift in Sources */,
 				529D15F62078E21D0085115B /* Api.swift in Sources */,
 				52B0C2E020D98DC1000A8AED /* ChannelDetailViewController.swift in Sources */,
+
 				52C4DC692313412200B92EBD /* Configs.swift in Sources */,
 				52718BA2232A535200DFC6C4 /* CategoriesDetailsViewController.swift in Sources */,
+
+				52C4DC692313412200B92EBD /* SendPushNotification.swift in Sources */,
+
 				526CFA0B230DD3610033DAA0 /* ChannelDetailStoryHeaderView.swift in Sources */,
 				52BE7498208E54E1005414B5 /* SelectParticipantsViewController.swift in Sources */,
 				528C9D1F22C7873600839EBD /* ForgotPasswordViewController.swift in Sources */,
@@ -636,7 +643,10 @@
 				523024F721026E220091AE52 /* ChannelPostApi.swift in Sources */,
 				52A2FA0B22E653B400D7AAD9 /* ChannelPost.swift in Sources */,
 				528C9D1B22C5686300839EBD /* Extension.swift in Sources */,
+				520AE337232E57060087EDC2 /* SelectChannelViewController.swift in Sources */,
+				520AE333232DC8A80087EDC2 /* BroadcastViewController.swift in Sources */,
 				521821F420AF9E9A009F8FD5 /* LeaderboardViewController.swift in Sources */,
+				520AE339232E6D950087EDC2 /* SelectChannelTableViewCell.swift in Sources */,
 				529CB4FA20742328003DE1CE /* SettingsViewController.swift in Sources */,
 				52157A07233F688400467567 /* PhotoZoomViewController.swift in Sources */,
 				52718B9E232A37A900DFC6C4 /* ChannelDetailsQuadImageCollectionViewCell.swift in Sources */,
@@ -645,6 +655,7 @@
 				529D15F42078D1E30085115B /* User.swift in Sources */,
 				52157A03233F631A00467567 /* ZoomAnimator.swift in Sources */,
 				525D90E120AA4C7B00095036 /* MobileNumberViewController.swift in Sources */,
+				520AE335232DD0050087EDC2 /* BroadcastTableViewCell.swift in Sources */,
 				5269A38422D16D0600231F5B /* CreateChannelStep1ViewController.swift in Sources */,
 				52718B9A232A378400DFC6C4 /* ChannelDetailsDoubleImageCollectionViewCell.swift in Sources */,
 				521821F220AF6806009F8FD5 /* StoriesViewController.swift in Sources */,

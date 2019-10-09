@@ -31,6 +31,8 @@ let IDENTIFIER_CREATE_CHANNEL_NAV_CONTROLLER = "CreateChannelNavigationControlle
 let IDENTIFIER_CHANNEL_DETAIL = "ChannelDetailViewController"
 let IDENTIFIER_PREVIEW = "PreviewViewController"
 let IDENTIFIER_IMAGEVC = "ImageViewController"
+let IDENTIFIER_BROADCAST_NAV_CONTROLLER = "BroadcastNavigationController"
+let IDENTIFIER_SELECT_CHANNEL = "SelectChannelViewController"
 
 // Storage
 let URL_STORAGE_ROOT = "gs://sapnin-344c6.appspot.com"

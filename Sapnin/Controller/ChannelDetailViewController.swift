@@ -387,7 +387,7 @@ extension ChannelDetailViewController: UICollectionViewDelegate, UICollectionVie
     // Section heading
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
-        if indexPath.section > 0{
+//        if indexPath.section > 0{
             if let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ChannelDetailSectionHeaderView", for: indexPath) as? ChannelDetailSectionHeaderView {
                 
                 if viewType == ViewType.all{
@@ -408,7 +408,7 @@ extension ChannelDetailViewController: UICollectionViewDelegate, UICollectionVie
                 
                 return sectionHeader
             }
-        }
+//        }
         
         return UICollectionReusableView()
     }
